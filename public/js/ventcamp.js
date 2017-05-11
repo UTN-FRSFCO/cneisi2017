@@ -27,10 +27,10 @@ Ventcamp = {
         mobileMenuMaxWidth: 768,
         smoothScroll: false,
         smoothScrollSpeed: 800,
-        pseudoSelect: true,
+        pseudoSelect: false,
         ajaxedForm: true,
         ajaxedFormSuccessMsg: 'Success',
-        ajaxedFormErrorMsg: 'An error occured. Please try again later.',
+        ajaxedFormErrorMsg: 'Ocurrio un error. Por favor intenta de nuevo.',
         toastrPositionClass: 'toast-top-full-width'
     },
 
@@ -433,24 +433,24 @@ Ventcamp = {
             rules: {
                 password: {
                     required: true,
-                    minlength: 5
+                    minlength: 6
                 },
                 confirmPassword: {
                     required: true,
-                    minlength: 5,
+                    minlength: 6,
                     equalTo: '#password'
                 }
             },
 
             messages: {
                 password: {
-                    required: 'Please provide a password',
-                    minlength: 'Your password must be at least 5 characters long'
+                    required: 'Por favor ingrese una contraseña',
+                    minlength: 'Tu contraseña debe ser al menos de 6 caracteres'
                 },
                 confirmPassword: {
-                    required: 'Please provide a password',
-                    minlength: 'Your password must be at least 5 characters long',
-                    equalTo: 'Please enter the same password as above'
+                    required: 'Por favor ingresa una contraseña',
+                    minlength: 'Tu password debe ser de al menos 6 caracteres',
+                    equalTo: 'Las contraseñas no coinciden'
                 }
             },
 
@@ -470,23 +470,31 @@ Ventcamp = {
                     url: form.action,
                     type: 'POST',
                     data: $(form).serialize()
-                }).done(function(msg) {
+                }).done(function(data, status) {
                     $(form).find('.loading').remove();
 
-                    doneHandler(msg, form);
+                    doneHandler(data, status, form);
 
                 }).fail(function() {
                     $(form).find('.loading').remove();
 
-                    failHandler(form);
+                    //failHandler(form);
 
                 });
             }
         };
 
-        doneHandler = function (msg, form) {
-            if( msg === 'ok' ) {
+        doneHandler = function (data, status, form) {
+            if( status === 'success' ) {
                 form.reset();
+
+                if(data === 'Usuario creado'){
+                    window.location.reload();
+                }
+
+                if(data === 'Usuario logueado'){
+                    window.location.reload();
+                }
 
                 if ( typeof toastr != 'undefined' ) toastr.success('Success');
                 else alert('Success');
@@ -495,7 +503,7 @@ Ventcamp = {
                 if ( typeof toastr != 'undefined' ) toastr.error('An error occured. Please try again later.');
                 else alert('An error occured. Please try again later.');
 
-                _this.log( 'Form message', msg );
+                _this.log( 'Form message', status );
             }
         };
 
