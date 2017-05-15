@@ -28,7 +28,7 @@ Ventcamp = {
         smoothScroll: false,
         smoothScrollSpeed: 800,
         pseudoSelect: false,
-        ajaxedForm: true,
+        ajaxedForm: false,
         ajaxedFormSuccessMsg: 'Success',
         ajaxedFormErrorMsg: 'Ocurrio un error. Por favor intenta de nuevo.',
         toastrPositionClass: 'toast-top-full-width'
@@ -455,32 +455,33 @@ Ventcamp = {
             },
 
             submitHandler: function (form) {
+
                 var $input = $(form).find('input[type="submit"]'),
                     $button = $(form).find('button[type="submit"]');
 
-                if ( $button.length ) {
+                if ($button.length) {
                     $button.append('<span class="loading fa fa-refresh"></span>');
 
-                }else if ( $input ) {
+                } else if ($input) {
                     $input.after('<span class="loading fa fa-refresh"></span>');
-
                 }
 
                 $.ajax({
                     url: form.action,
                     type: 'POST',
                     data: $(form).serialize()
-                }).done(function(data, status) {
+                }).done(function (data, status) {
                     $(form).find('.loading').remove();
 
                     doneHandler(data, status, form);
 
-                }).fail(function() {
+                }).fail(function () {
                     $(form).find('.loading').remove();
 
                     //failHandler(form);
 
                 });
+
             }
         };
 
@@ -494,6 +495,10 @@ Ventcamp = {
 
                 if(data === 'Usuario logueado'){
                     window.location.reload();
+                }
+
+                if(data === 'Perfil actualizado'){
+                    window.location.href="/" ;
                 }
 
                 if ( typeof toastr != 'undefined' ) toastr.success('Success');
@@ -1225,4 +1230,77 @@ $('.navigation-item').on( 'click', function (event) {
     if($('#navigation').hasClass('in')){
         $('#navigation').removeClass('in');
     }
+});
+
+function submitModalForm(form, action){
+
+    var $input = $(form).find('input[type="submit"]'),
+        $button = $(form).find('button[type="submit"]');
+
+    if ($button.length) {
+        $button.append('<span class="loading fa fa-refresh"></span>');
+
+    } else if ($input) {
+        $input.after('<span class="loading fa fa-refresh"></span>');
+    }
+
+    $.ajax({
+        url: form.action,
+        type: 'POST',
+        data: $(form).serialize()
+    }).done(function (data, status) {
+        $(form).find('.loading').remove();
+
+        window.location.reload();
+
+    }).fail(function (data) {
+        $(form).find('.loading').remove();
+
+        var errors = data.responseJSON;
+
+        $.each(errors, function(index, value) {
+            showValidationErrors(index, value, action);
+        });
+    });
+}
+
+function showValidationErrors(name, error, action) {
+    if(action === 'register') {
+        var group = $("#form-group-register-" + name);
+        group.addClass('has-error');
+        group.find('.help-block').text(error);
+    }
+    if(action === 'login') {
+        var group = $("#form-group-login-" + name);
+        group.addClass('has-error');
+        group.find('.help-block').text(error);
+    }
+
+}
+
+function clearValidationError(name) {
+        var registerGroup = $("#form-group-register-" + name);
+        var loginGroup = $("#form-group-login-" + name);
+        registerGroup.removeClass('has-error');
+        registerGroup.find('.help-block').text('');
+        loginGroup.removeClass('has-error');
+        loginGroup.find('.help-block').text('');
+}
+
+$("#name, #lastname, #email, #password").on('keyup', function () {
+    clearValidationError($(this).attr('id').replace('#', ''))
+});
+
+
+$('#registerForm').submit(function(e) {
+    var form = this;
+    console.log(form);
+    e.preventDefault();
+    submitModalForm(form, 'register');
+});
+
+$('#loginForm').submit(function(e) {
+    var form = this;
+    e.preventDefault();
+    submitModalForm(form, 'login');
 });

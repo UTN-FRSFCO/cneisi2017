@@ -7111,3 +7111,10 @@ button[type="submit"] .loading {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.has-error .control-label,
+.has-error .help-block,
+.has-error .form-control-feedback {
+  color: #fe4918;
+}
+

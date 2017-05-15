@@ -27,9 +27,9 @@
 
     @include('partials.contact')
 
-    @include('partials.modal-user-login')
+    @include('user.auth.modal-user-login')
 
-    @include('partials.modal-user-register')
+    @include('user.auth.modal-user-register')
 
     <div class="modal-window" data-modal="0" style="background-color: rgba(2, 2, 2, 0.85);">
         <div class="modal-box iframe-box iframe-video">

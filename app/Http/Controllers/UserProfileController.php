@@ -27,10 +27,16 @@ class UserProfileController extends Controller
     {
         $profile = Auth::User()->userProfile;
         $universities = new University();
+        $userTypes = array(
+            'student',
+            'general_audience',
+            'graduated'
+        );
 
         return view(self::PROFILES_EDIT_VIEW)
             ->with('userProfile', $profile)
-            ->with('universities', $universities->getAll());
+            ->with('universities', $universities->getAll())
+            ->with('userTypes', $userTypes);
     }
 
     /**
@@ -64,6 +70,8 @@ class UserProfileController extends Controller
         }
 
         return redirect()->to(self::ROOT);
+
+
     }
 
 

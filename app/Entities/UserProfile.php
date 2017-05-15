@@ -71,6 +71,14 @@ class UserProfile extends Model
         $this->legajo = $legajo;
     }
 
+    public function getAllTypes()
+    {
+        $userTypes = array(
+
+        );
+        return $universities;
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -23,6 +23,34 @@ class UpdateProfileRequest extends FormRequest
     }
 
     /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'dni' => 'dni',
+            'userType' => 'tipo de usuario',
+            'university_region' => 'facultad regional',
+            'legajo' => 'legajo',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'university_region.required_if' => 'Por favor indique su facultad regional',
+            'legajo.required_if'  => 'Por favor indique su legajo',
+        ];
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -30,10 +58,10 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'dni'                   => 'required|integer|digits_between :7,8',
+            'dni'                   => 'required|integer|digits_between :7,8|unique:users_profiles,dni',
             'userType'              => 'required|min:5|max:255',
-            'university_region'     => 'required_if:userType,student|required_if:userType,graduated|min:5|max:255',
-            'legajo'                => 'required_if:userType,student|integer|digits_between :4,7'
+            'university_region'     => 'required_if:userType,student,graduated|min:5|max:255|nullable',
+            'legajo'                => 'required_if:userType,student|integer|digits_between :4,7|nullable'
         ];
     }
 }
