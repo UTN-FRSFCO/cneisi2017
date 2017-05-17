@@ -1251,7 +1251,16 @@ function submitModalForm(form, action){
     }).done(function (data, status) {
         $(form).find('.loading').remove();
 
-        window.location.reload();
+        if(action === 'passwordReset') {
+            $(form).find('.email-reset').remove();
+            $(form).find('.label-reset').text('Se ha enviado un correo a su cuenta de email. Revise su casilla de correo para establecer su nueva contraseña');
+            $(form).find('.label-reset').css('text-align','center');
+            $(form).find('.label-reset').css('margin-top','10px');
+            $(form).find('.button-reset').remove();
+        } else {
+            window.location.reload();
+        }
+
 
     }).fail(function (data) {
         $(form).find('.loading').remove();
@@ -1265,26 +1274,37 @@ function submitModalForm(form, action){
 }
 
 function showValidationErrors(name, error, action) {
-    if(action === 'register') {
-        var group = $("#form-group-register-" + name);
-        group.addClass('has-error');
-        group.find('.help-block').text(error);
+    var group;
+    switch(action) {
+        case 'register':
+            group = $("#form-group-register-" + name);
+            break;
+        case 'login':
+            group = $("#form-group-login-" + name);
+            break;
+        case 'passwordReset':
+            group = $("#form-group-reset-password-" + name);
+            break;
+        default:
+            group = $("#form-group-" + name);
     }
-    if(action === 'login') {
-        var group = $("#form-group-login-" + name);
-        group.addClass('has-error');
-        group.find('.help-block').text(error);
-    }
+    group.addClass('has-error');
+    group.find('.help-block').text(error);
 
 }
 
 function clearValidationError(name) {
-        var registerGroup = $("#form-group-register-" + name);
-        var loginGroup = $("#form-group-login-" + name);
-        registerGroup.removeClass('has-error');
-        registerGroup.find('.help-block').text('');
-        loginGroup.removeClass('has-error');
-        loginGroup.find('.help-block').text('');
+    var registerGroup = $("#form-group-register-" + name);
+    var loginGroup = $("#form-group-login-" + name);
+    var passwordResetGroup = $('#form-group-reset-password-' + name);
+
+    registerGroup.removeClass('has-error');
+    registerGroup.find('.help-block').text('');
+    loginGroup.removeClass('has-error');
+    loginGroup.find('.help-block').text('');
+    passwordResetGroup.removeClass('has-error');
+    passwordResetGroup.find('.help-block').text('');
+
 }
 
 $("#name, #lastname, #email, #password").on('keyup', function () {
@@ -1304,3 +1324,10 @@ $('#loginForm').submit(function(e) {
     e.preventDefault();
     submitModalForm(form, 'login');
 });
+
+$('#passwordResetForm').submit(function(e) {
+    var form = this;
+    e.preventDefault();
+    submitModalForm(form, 'passwordReset');
+});
+

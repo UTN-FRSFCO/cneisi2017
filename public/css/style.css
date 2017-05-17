@@ -7118,3 +7118,9 @@ button[type="submit"] .loading {
   color: #fe4918;
 }
 
+.forgot-password-link {
+
+  text-decoration: underline;
+  color: #fe4918;
+}
+

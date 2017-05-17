@@ -33,6 +33,12 @@
 
             </fieldset>
 
+            <fieldset class="col-sm-12" style="margin: 10px;">
+
+                <a href="#" id="forgot-password" class="forgot-password-link" data-modal-link="password-reset">Olvide mi contraseña</a>
+
+            </fieldset>
+
             <div class="form-group">
 
                 <button type="submit" class="btn btn-primary">

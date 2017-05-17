@@ -30,6 +30,14 @@ Route::post('/user/register',
     ['as' => 'register', 'uses' => 'Auth\RegisterController@register']
 );
 
+// Password Reset Routes...
+$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+
+$this->get('password/email/{token?}',
+    ['as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
+
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
 Route::get(
     '/user/profile',
     ['as' => 'profile.update', 'uses' => 'UserProfileController@edit']
