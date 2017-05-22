@@ -33,6 +33,15 @@
 
             </fieldset>
 
+            <fieldset class="col-sm-12" style="text-align:center; margin: 10px;">
+
+                <a href="redirect"><span class="fa fa-facebook-official fa-2x"></span></a>
+                <a href=""><span class="fa fa-instagram fa-2x"></span></a>
+                <a href=""><span class="fa fa-twitter fa-2x"></span></a>
+
+            </fieldset>
+
+
             <fieldset class="col-sm-12" style="margin: 10px;">
 
                 <a href="#" id="forgot-password" class="forgot-password-link" data-modal-link="password-reset">{{ trans('strings.forgot_password') }}</a>

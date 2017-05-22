@@ -26,8 +26,8 @@ class AddUserIdToUsersProfiles extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table){
-            $table->dropForeign('user_profile_user_id_foreign');
+        Schema::table('users_profiles', function (Blueprint $table){
+            $table->dropForeign('users_profiles_user_id_foreign');
             $table->dropColumn('user_id');
         });
     }

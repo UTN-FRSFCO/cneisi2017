@@ -47,3 +47,7 @@ Route::put(
     '/user/profile/{profile}',
     ['as' => 'profile.update', 'uses' => 'UserProfileController@update']
 );
+
+//Socialite routes
+Route::get('/redirect', 'SocialAuthController@redirect');
+Route::get('/callback', 'SocialAuthController@callback');
