@@ -27,10 +27,10 @@ Ventcamp = {
         mobileMenuMaxWidth: 768,
         smoothScroll: false,
         smoothScrollSpeed: 800,
-        pseudoSelect: true,
-        ajaxedForm: true,
+        pseudoSelect: false,
+        ajaxedForm: false,
         ajaxedFormSuccessMsg: 'Success',
-        ajaxedFormErrorMsg: 'An error occured. Please try again later.',
+        ajaxedFormErrorMsg: 'Ocurrio un error. Por favor intenta de nuevo.',
         toastrPositionClass: 'toast-top-full-width'
     },
 
@@ -433,60 +433,73 @@ Ventcamp = {
             rules: {
                 password: {
                     required: true,
-                    minlength: 5
+                    minlength: 6
                 },
                 confirmPassword: {
                     required: true,
-                    minlength: 5,
+                    minlength: 6,
                     equalTo: '#password'
                 }
             },
 
             messages: {
                 password: {
-                    required: 'Please provide a password',
-                    minlength: 'Your password must be at least 5 characters long'
+                    required: 'Por favor ingrese una contraseña',
+                    minlength: 'Tu contraseña debe ser al menos de 6 caracteres'
                 },
                 confirmPassword: {
-                    required: 'Please provide a password',
-                    minlength: 'Your password must be at least 5 characters long',
-                    equalTo: 'Please enter the same password as above'
+                    required: 'Por favor ingresa una contraseña',
+                    minlength: 'Tu password debe ser de al menos 6 caracteres',
+                    equalTo: 'Las contraseñas no coinciden'
                 }
             },
 
             submitHandler: function (form) {
+
                 var $input = $(form).find('input[type="submit"]'),
                     $button = $(form).find('button[type="submit"]');
 
-                if ( $button.length ) {
+                if ($button.length) {
                     $button.append('<span class="loading fa fa-refresh"></span>');
 
-                }else if ( $input ) {
+                } else if ($input) {
                     $input.after('<span class="loading fa fa-refresh"></span>');
-
                 }
 
                 $.ajax({
                     url: form.action,
                     type: 'POST',
                     data: $(form).serialize()
-                }).done(function(msg) {
+                }).done(function (data, status) {
                     $(form).find('.loading').remove();
 
-                    doneHandler(msg, form);
+                    doneHandler(data, status, form);
 
-                }).fail(function() {
+                }).fail(function () {
                     $(form).find('.loading').remove();
 
-                    failHandler(form);
+                    //failHandler(form);
 
                 });
+
             }
         };
 
-        doneHandler = function (msg, form) {
-            if( msg === 'ok' ) {
+        doneHandler = function (data, status, form) {
+            if( status === 'success' ) {
                 form.reset();
+
+                if(data === 'Usuario creado'){
+                    window.location.reload();
+                }
+
+                if(data === 'Usuario logueado'){
+                    window.location.reload();
+                }
+
+                if(data === 'Perfil actualizado'){
+                    window.location.href="/" ;
+                }
 
                 if ( typeof toastr != 'undefined' ) toastr.success('Success');
                 else alert('Success');
@@ -495,7 +508,7 @@ Ventcamp = {
                 if ( typeof toastr != 'undefined' ) toastr.error('An error occured. Please try again later.');
                 else alert('An error occured. Please try again later.');
 
-                _this.log( 'Form message', msg );
+                _this.log( 'Form message', status );
             }
         };
 
@@ -1218,3 +1231,103 @@ $('.navigation-item').on( 'click', function (event) {
         $('#navigation').removeClass('in');
     }
 });
+
+function submitModalForm(form, action){
+
+    var $input = $(form).find('input[type="submit"]'),
+        $button = $(form).find('button[type="submit"]');
+
+    if ($button.length) {
+        $button.append('<span class="loading fa fa-refresh"></span>');
+
+    } else if ($input) {
+        $input.after('<span class="loading fa fa-refresh"></span>');
+    }
+
+    $.ajax({
+        url: form.action,
+        type: 'POST',
+        data: $(form).serialize()
+    }).done(function (data, status) {
+        $(form).find('.loading').remove();
+
+        if(action === 'passwordReset') {
+            $(form).find('.email-reset').remove();
+            $(form).find('.label-reset').text('Se ha enviado un correo a su cuenta de email. Revise su casilla de correo para establecer su nueva contraseña');
+            $(form).find('.label-reset').css('text-align','center');
+            $(form).find('.label-reset').css('margin-top','10px');
+            $(form).find('.button-reset').remove();
+        } else {
+            window.location.reload();
+        }
+
+
+    }).fail(function (data) {
+        $(form).find('.loading').remove();
+
+        var errors = data.responseJSON;
+
+        $.each(errors, function(index, value) {
+            showValidationErrors(index, value, action);
+        });
+    });
+}
+
+function showValidationErrors(name, error, action) {
+    var group;
+    switch(action) {
+        case 'register':
+            group = $("#form-group-register-" + name);
+            break;
+        case 'login':
+            group = $("#form-group-login-" + name);
+            break;
+        case 'passwordReset':
+            group = $("#form-group-reset-password-" + name);
+            break;
+        default:
+            group = $("#form-group-" + name);
+    }
+    group.addClass('has-error');
+    group.find('.help-block').text(error);
+
+}
+
+function clearValidationError(name) {
+    var registerGroup = $("#form-group-register-" + name);
+    var loginGroup = $("#form-group-login-" + name);
+    var passwordResetGroup = $('#form-group-reset-password-' + name);
+
+    registerGroup.removeClass('has-error');
+    registerGroup.find('.help-block').text('');
+    loginGroup.removeClass('has-error');
+    loginGroup.find('.help-block').text('');
+    passwordResetGroup.removeClass('has-error');
+    passwordResetGroup.find('.help-block').text('');
+
+}
+
+$("#name, #lastname, #email, #password").on('keyup', function () {
+    clearValidationError($(this).attr('id').replace('#', ''))
+});
+
+
+$('#registerForm').submit(function(e) {
+    var form = this;
+    console.log(form);
+    e.preventDefault();
+    submitModalForm(form, 'register');
+});
+
+$('#loginForm').submit(function(e) {
+    var form = this;
+    e.preventDefault();
+    submitModalForm(form, 'login');
+});
+
+$('#passwordResetForm').submit(function(e) {
+    var form = this;
+    e.preventDefault();
+    submitModalForm(form, 'passwordReset');
+});
+

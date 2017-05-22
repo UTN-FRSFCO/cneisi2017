@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Entities;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,13 +9,18 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    /*
+     * The table associated with the model
+     */
+    protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'lastname', 'email', 'password',
     ];
 
     /**
@@ -26,4 +31,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function userProfile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
 }
