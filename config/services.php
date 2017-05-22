@@ -38,7 +38,13 @@ return [
     'facebook' => [
         'client_id' => '1714371265528381',
         'client_secret' => '8e4491aebf566471862d5f4b2a67d10f',
-        'redirect' => env('APP_URL') . 'callback',
+        'redirect' => env('APP_URL') . 'callback/facebook',
+    ],
+
+    'twitter' => [
+        'client_id' => 'I2netUCnDLN2yogCS7cfzf7eS',
+        'client_secret' => '7yJw2LkL1SEi40wuQUInsNBPDyphYkYLkC0xaBuVs0RIekaMWU',
+        'redirect' => env('APP_URL') . 'callback/twitter',
     ],
 
 ];

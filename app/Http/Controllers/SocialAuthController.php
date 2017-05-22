@@ -8,18 +8,24 @@ use App;
 
 class SocialAuthController extends Controller
 {
-    public function redirect()
+    public function redirect(String $provider)
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
-    public function callback(App\SocialAccountService $service)
+    public function callback(App\SocialAccountService $service, String $provider, Request $request)
     {
-        $user = $service->createOrGetUser(Socialite::driver('facebook')->user());
+        if( ! $request->input('code')) {
+            return redirect()->to('/');
+            //return redirect('login')->withErrors('Login failed: '.$request->input('error').' - '.$request->input('error_reason'));
+        }
+            $user = $service->createOrGetUser(Socialite::driver($provider));
 
-        auth()->login($user);
+            auth()->login($user);
 
         return redirect()->to('/');
+
+
     }
 
 }
