@@ -7,6 +7,7 @@ return [
     'show'    => 'Mostrar',
     'delete'  => 'Eliminar',
     'actions' => 'Acciones',
-    'continue'=> 'Continuar'
+    'continue'=> 'Continuar',
+    'send'    => 'Enviar'
 
 ];

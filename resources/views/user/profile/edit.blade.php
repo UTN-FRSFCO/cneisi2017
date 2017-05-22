@@ -13,9 +13,9 @@
                                 <input type="hidden" name="_method" value="PUT">
 
                                 <div class="form-group{{ $errors->has('dni') ? ' has-error' : '' }}">
-                                    <label for="dni" class="col-md-4 control-label">{{ trans('profiles.dni') }}</label>
+                                    <label for="dni" class="col-md-4 control-label">{{ trans('strings.dni') }}</label>
                                     <div class="col-md-6">
-                                        <input id="name" type="text" type="number" class="form-control" name="dni" value="{{ old('dni') }}" required autofocus>
+                                        <input id="dni" type="number" class="form-control" name="dni" value="{{ old('dni') }}" required autofocus>
                                         @if ($errors->has('dni'))
                                             <span class="help-block">
                                                 {{ $errors->first('dni') }}
@@ -25,12 +25,12 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('userType') ? ' has-error' : '' }}">
-                                    <label for="userType" class="col-md-4 control-label">{{ trans('profiles.type') }}</label>
+                                    <label for="userType" class="col-md-4 control-label">{{ trans('strings.type') }}</label>
                                     <div class="col-md-6">
                                         <select name="userType" id='userType' required class="select-form">
                                             <option value=""></option>
                                             @foreach ($userTypes as $key => $userType)
-                                                <option value="{{ $userType}}" {{ (old("userType") == $userType ? "selected":"") }}>{{ trans('profiles.'.$userType) }}</option>
+                                                <option value="{{ $userType}}" {{ (old("userType") == $userType ? "selected":"") }}>{{ trans('strings.'.$userType) }}</option>
                                             @endforeach
                                         </select>
                                         @if ($errors->has('userType'))
@@ -42,7 +42,7 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('university_region') ? ' has-error' : '' }}" id="university_region">
-                                    <label for="university_region" class="col-md-4 control-label">{{ trans('profiles.region') }}</label>
+                                    <label for="university_region" class="col-md-4 control-label">{{ trans('strings.region') }}</label>
                                     <div class="col-md-6">
                                         <select name="university_region" class="select-form" value="{{ old('university_region') }}">
                                             <option value=""></option>
@@ -55,15 +55,20 @@
                                         @if ($errors->has('university_region'))
                                             <span class="help-block">
                                                 {{ $errors->first('university_region') }}
-                                            </span>
+                                            </span>      <label for="email">{{ trans('strings.email' ) }}</label>
+                    <input id="email" name="email" class="form-control" type="email" value="{{ old('email') }}" required autofocus>
+                    <span class="help-block"></span>
+
+                </div>
+            </fieldset>
                                         @endif
                                     </div>
                                 </div>
 
                                 <div class="form-group{{ $errors->has('legajo') ? ' has-error' : '' }}" id="legajo">
-                                    <label for="legajo" class="col-md-4 control-label">{{ trans('profiles.legajo') }}</label>
+                                    <label for="legajo" class="col-md-4 control-label">{{ trans('strings.legajo') }}</label>
                                     <div class="col-md-6">
-                                        <input id="legajo" type="text" type="number" class="form-control" name="legajo" value="{{ old('legajo') }}">
+                                        <input id="legajo" type="number" class="form-control" name="legajo" value="{{ old('legajo') }}">
                                         @if ($errors->has('legajo'))
                                             <span class="help-block">
                                                 {{ $errors->first('legajo') }}

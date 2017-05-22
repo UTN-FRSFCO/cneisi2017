@@ -1,0 +1,28 @@
+.has-error .control-label,
+.has-error .help-block,
+.has-error .form-control-feedback {
+    color: #fe4918;
+}
+
+.forgot-password-link {
+
+    text-decoration: underline;
+    color: #fe4918;
+}
+
+.username {
+    color: #fe4918 !important;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 14px;
+    letter-spacing: 0.3em;
+}
+
+.usermenu {
+    font-size: 14px;
+    margin: 0;
+    display: block;
+    padding: 34px 0 16px;
+}

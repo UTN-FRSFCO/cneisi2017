@@ -17,6 +17,8 @@
 
     @include('partials.schedule')
 
+    @include('partials.papers')
+
     @if(Auth::guest())
         @include('partials.register')
     @endif

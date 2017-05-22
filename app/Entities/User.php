@@ -37,6 +37,11 @@ class User extends Authenticatable
         return $this->name;
     }
 
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
     public function userProfile()
     {
         return $this->hasOne(UserProfile::class);
