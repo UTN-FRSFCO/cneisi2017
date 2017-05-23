@@ -42,6 +42,8 @@ return [
     'region'            => 'Regional',
     'legajo'            => 'Legajo Estudiante',
     'author'            => 'Autor',
+    'error'             => 'Error',
+    'denied_access'     => 'Acceso denegado, intentalo nuevamente',
 
     'signature_footer'  => '© 2017 - UTN Facultad Regional San Francisco',
 

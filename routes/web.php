@@ -18,7 +18,7 @@ Route::get('/',
 
 Route::get('/home', function () {
     return view('home');
-});
+})->middleware('profile');
 
 Route::post('/user/login', 'Auth\LoginController@login');
 
@@ -31,12 +31,12 @@ Route::post('/user/register',
 );
 
 // Password Reset Routes...
-$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('password/email/{token?}',
+    ['as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@showResetForm']
+);
 
-$this->get('password/email/{token?}',
-    ['as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
-
-$this->post('password/reset', 'Auth\ResetPasswordController@reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get(
     '/user/profile',

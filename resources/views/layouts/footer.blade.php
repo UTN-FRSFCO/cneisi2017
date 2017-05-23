@@ -7,6 +7,14 @@
 <script type="text/javascript" src="{{asset('/js/jquery-2.1.4.min.js?ver=1')}}"></script>
 <!--<![endif]-->
 
+@if(Session::has( 'warning' ))
+    <script>
+        $(function() {
+            $('#showError').click();
+        });
+    </script>
+@endif
+
 <script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places"></script>
 <script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('/js/jquery.validate.min.js')}}"></script>
