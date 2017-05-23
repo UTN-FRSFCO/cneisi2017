@@ -51,7 +51,10 @@
                                         <article>
                                             <p class="description">Luctus at accumsan eget ut ante. Cras molestie sollicitudin. Ultricies et eros id quisque auctor. Per mus enim ac lorem integer. Erat netus id. Porta enim quis et elementum amet risus volutpat magna nec ac.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day1_auditorium1_time1'])
                                         </article>
                                     </div>
                                 </div>
@@ -68,7 +71,10 @@
                                         <article>
                                             <p class="description">Wisi id tristique. Aliquam orci vulputate. Turpis tempor erat at dictum pellentesque. Neque facilisis cras. Venenatis vel posuere sodales scelerisque leo vel nec enim. Blandit nullam sodales lectus nulla lorem penatibus sed nec eget eros.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day1_auditorium1_time2'])
                                         </article>
                                     </div>
                                 </div>
@@ -87,7 +93,10 @@
                                         <article>
                                             <p class="description">Integer in eu. Quis id curabitur tellus est enim. Ut est ultrices. Vitae ad ut nunc quisquam interdum libero neque magna nonummy sapien sit. In sit lacus. Maecenas molestie fusce ut feugiat vestibulum dui mauris.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day1_auditorium1_time3'])
                                         </article>
                                     </div>
                                 </div>
@@ -106,7 +115,10 @@
                                         <article>
                                             <p class="description">Lorem vel lorem. Nulla ab justo. Scelerisque penatibus eget. Nunc ultrices nec sed lobortis et. Vitae massa massa pede magna sociosqu viverra tempus justo. Et quis ornare nisl mi ligula suscipit ullamcorper massa ante diam.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day1_auditorium1_time4'])
                                         </article>
                                     </div>
                                 </div>
@@ -137,7 +149,10 @@
                                         <article>
                                             <p class="description">Et lacus id. Est hac amet arcu porta condimentum. Ligula facilisis porta elit ipsum non. Vulputate phasellus arcu nonummy eget wisi. Ullamcorper magna in. In semper luctus rhoncus nisl et erat id suspendisse duis praesent.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day1_auditorium2_time1'])
                                         </article>
                                     </div>
                                 </div>
@@ -156,7 +171,10 @@
                                         <article>
                                             <p class="description">Integer ipsum neque eget sem velit. In enim in. Vestibulum cursus dui laoreet ac et. Suspendisse sed est proin nisl ligula vitae magna non. Et vestibulum inceptos. Deserunt in eget et vestibulum velit ut nibh.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day1_auditorium2_time2'])
                                         </article>
                                     </div>
                                 </div>
@@ -187,7 +205,10 @@
                                         <article>
                                             <p class="description">Bibendum asperiores proin. Voluptates quam lobortis malesuada dui id ipsum commodo a. Justo con nam euismod arcu malesuada. Pede eget duis. Vel ut donec vestibulum nibh ac dictumst non non. Quam tempus elit id ipsum.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day1_auditorium3_time1'])
                                         </article>
                                     </div>
                                 </div>
@@ -238,7 +259,10 @@
                                         <article>
                                             <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day2_auditorium1_time1'])
                                         </article>
                                     </div>
                                 </div>
@@ -257,7 +281,10 @@
                                         <article>
                                             <p class="description">Justo volutpat blandit eget quis rutrum quam quis sollicitudin. Vel hymenaeos dui. Montes lobortis sodales. Tempor nulla vestibulum suspendisse volutpat vestibulum. Elit a condimentum massa diam vel in lacus donec. Pede at sit nunc sagittis.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day2_auditorium1_time3'])
                                         </article>
                                     </div>
                                 </div>
@@ -276,7 +303,10 @@
                                         <article>
                                             <p class="description">Lectus mollis praesent. Sed nunc sed vestibulum cursus nulla dicta vel faucibus fringilla orci consequat. A duis sapien. Odio et sit. Elementum porttitor porttitor arcu sem sed. Gravida quisque velit tellus nec sed mus consequat.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day2_auditorium1_time4'])
                                         </article>
                                     </div>
                                 </div>
@@ -307,7 +337,10 @@
                                         <article>
                                             <p class="description">Mollis dolore magna tempor egestas laoreet in luctus non. Imperdiet mattis vitae. Vel sed aliquam sed turpis venenatis sed et sodales. Nam sit sed ullamcorper venenatis leo. Aliquam amet nec. Suspendisse enim feugiat eu sit.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day2_auditorium2_time1'])
                                         </article>
                                     </div>
                                 </div>
@@ -338,7 +371,10 @@
                                         <article>
                                             <p class="description">Non auctor dolor. Massa mollis montes nibh non vel. Eu luctus at. Mauris blandit convallis. In semper purus in quam fringilla elit vitae convallis purus dignissim a. Libero eros sit id sed vitae magni integer.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day2_auditorium3_time1'])
                                         </article>
                                     </div>
                                 </div>
@@ -357,7 +393,10 @@
                                         <article>
                                             <p class="description">Condimentum enim diam. Ipsum lacus tincidunt magna lectus mattis pellentesque morbi magna laoreet suspendisse ut. Dis aliquam lacus mauris maecenas consectetuer. Donec ut nulla. Dui id ornare. Quaerat nibh feugiat dictum vitae ac accumsan ullamcorper.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day2_auditorium3_time2'])
                                         </article>
                                     </div>
                                 </div>
@@ -376,7 +415,10 @@
                                         <article>
                                             <p class="description">Nunc gravida lacus nunc aptent eros. Condimentum ligula nonummy. Sit urna pellentesque sem est feugiat duis sollicitudin vestibulum nonummy beatae volutpat dui cras eget. Con vivamus elit. Aliquam nec et. Nunc a tellus nulla quisque.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day2_auditorium3_time4'])
                                         </article>
                                     </div>
                                 </div>
@@ -427,7 +469,10 @@
                                         <article>
                                             <p class="description">Duis etiam et. Lorem eleifend aliquam. Dolor aenean sed. Gravida pellentesque duis nam erat pede per velit risus pellentesque aliquet turpis. Nonummy eros odio dapibus arcu tortor elit nonummy adipiscing. Purus leo ultrices blandit facilisis.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day3_auditorium1_time1'])
                                         </article>
                                     </div>
                                 </div>
@@ -446,7 +491,10 @@
                                         <article>
                                             <p class="description">Mauris mi nonummy risus elit quis ut est gravida augue posuere elementum. Vitae dui proin consectetuer donec urna. Sit pede quis. Accumsan ipsum suscipit blandit purus amet. Sodales volutpat et. In ornare per sit ornare.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day2_auditorium1_time2'])
                                         </article>
                                     </div>
                                 </div>
@@ -477,7 +525,10 @@
                                         <article>
                                             <p class="description">Nam nulla morbi. Enim velit vel magna nulla dolor. Auctor nisl ut quisque lectus lorem. Urna lacus quisque mi cursus suscipit quis phasellus vulputate. Dapibus consequat nullam elementum taciti massa. Et vitae amet nunc libero.</p>
                                             <strong class="highlight speaker-name">Michael Lambert</strong>
-                                            <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @if(!Auth::guest())
+                                                <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
+                                            @endif
+                                            @include('components.share', ['url' => env('APP_URL') . '#day3_auditorium2_time1'])
                                         </article>
                                     </div>
                                 </div>
@@ -508,10 +559,6 @@
 
         </div>
         <!-- Schedule end -->
-
-        <div class="col-sm-12 align-center">
-            <a href="elements/schedule.html" target="_blank" class="btn btn-outline-clr btn-md">SCHEDULE STYLES</a>
-        </div>
 
     </div>
 

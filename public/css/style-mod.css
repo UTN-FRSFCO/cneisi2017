@@ -22,7 +22,15 @@
 
 .usermenu {
     font-size: 14px;
-    margin: 0;
+    margin: 10px;
     display: block;
     padding: 34px 0 16px;
+}
+
+.social-buttons{
+    margin: 15px;
+}
+
+.social-buttons a{
+    margin: 5px;
 }
