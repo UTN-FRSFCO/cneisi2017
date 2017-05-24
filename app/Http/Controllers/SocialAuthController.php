@@ -16,7 +16,7 @@ class SocialAuthController extends Controller
     public function callback(App\SocialAccountService $service, String $provider, Request $request)
     {
         if( ! $request->input('code')) {
-            return redirect()->to('/')->withWarning(trans('strings.denied_access'));
+            return redirect()->to('/')->withWarning(trans('auth.denied_access'));
         }
             $user = $service->createOrGetUser(Socialite::driver($provider));
 

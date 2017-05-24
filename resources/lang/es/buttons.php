@@ -8,6 +8,7 @@ return [
     'delete'  => 'Eliminar',
     'actions' => 'Acciones',
     'continue'=> 'Continuar',
-    'send'    => 'Enviar'
+    'send'    => 'Enviar',
+    'confirm' => 'Confirmar',
 
 ];

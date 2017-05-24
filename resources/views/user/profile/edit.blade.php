@@ -5,7 +5,11 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default" style="margin-bottom: 200px;">
-                    <h5 class="align-center"><span class="highlight">Para continuar, rellene su perfil</span></h5>
+                    @if(empty($userProfile->getDni()))
+                        <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Para continuar, rellene su perfil</span></h5>
+                    @else
+                        <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Editar perfil</span></h5>
+                    @endif
                     <div class="panel-body">
                         <div class="panel-body">
                             <form class="form-horizontal" role="form" method="POST" action="{{ route('profile.update', Auth::user()->userProfile->id) }}">
@@ -15,7 +19,7 @@
                                 <div class="form-group{{ $errors->has('dni') ? ' has-error' : '' }}">
                                     <label for="dni" class="col-md-4 control-label">{{ trans('strings.dni') }}</label>
                                     <div class="col-md-6">
-                                        <input id="dni" type="number" class="form-control" name="dni" value="{{ old('dni') }}" required autofocus>
+                                        <input id="dni" type="number" class="form-control" name="dni" value="{{ $userProfile->getDni() }}" required autofocus>
                                         @if ($errors->has('dni'))
                                             <span class="help-block">
                                                 {{ $errors->first('dni') }}
@@ -27,10 +31,10 @@
                                 <div class="form-group{{ $errors->has('userType') ? ' has-error' : '' }}">
                                     <label for="userType" class="col-md-4 control-label">{{ trans('strings.type') }}</label>
                                     <div class="col-md-6">
-                                        <select name="userType" id='userType' required class="select-form">
+                                        <select name="userType" id='userType' required class="select-form" value="">
                                             <option value=""></option>
                                             @foreach ($userTypes as $key => $userType)
-                                                <option value="{{ $userType}}" {{ (old("userType") == $userType ? "selected":"") }}>{{ trans('strings.'.$userType) }}</option>
+                                                <option value="{{ $userType}}" {{ ($userProfile->getUserType() == $userType ? "selected":"") }}>{{ trans('strings.'.$userType) }}</option>
                                             @endforeach
                                         </select>
                                         @if ($errors->has('userType'))
@@ -44,23 +48,16 @@
                                 <div class="form-group{{ $errors->has('university_region') ? ' has-error' : '' }}" id="university_region">
                                     <label for="university_region" class="col-md-4 control-label">{{ trans('strings.region') }}</label>
                                     <div class="col-md-6">
-                                        <select name="university_region" class="select-form" value="{{ old('university_region') }}">
+                                        <select name="university_region" class="select-form" value="{{ $userProfile->getUniversityRegion() }}">
                                             <option value=""></option>
-                                            @foreach ((array) $universities as $key => $value)
-                                                {
-                                                <option value="{{$key}}">{{$value}}</option>
-                                                }
+                                            @foreach ((array) $universities as $key => $university)
+                                                <option value="{{$key}}" {{ ($userProfile->getUniversityRegion() == strtolower($key) ? "selected":"") }}>{{ $university }}</option>
                                             @endforeach
                                         </select>
                                         @if ($errors->has('university_region'))
                                             <span class="help-block">
                                                 {{ $errors->first('university_region') }}
-                                            </span>      <label for="email">{{ trans('strings.email' ) }}</label>
-                    <input id="email" name="email" class="form-control" type="email" value="{{ old('email') }}" required autofocus>
-                    <span class="help-block"></span>
-
-                </div>
-            </fieldset>
+                                            </span>
                                         @endif
                                     </div>
                                 </div>
@@ -68,7 +65,7 @@
                                 <div class="form-group{{ $errors->has('legajo') ? ' has-error' : '' }}" id="legajo">
                                     <label for="legajo" class="col-md-4 control-label">{{ trans('strings.legajo') }}</label>
                                     <div class="col-md-6">
-                                        <input id="legajo" type="number" class="form-control" name="legajo" value="{{ old('legajo') }}">
+                                        <input id="legajo" type="number" class="form-control" name="legajo" value="{{ $userProfile->getLegajo() }}">
                                         @if ($errors->has('legajo'))
                                             <span class="help-block">
                                                 {{ $errors->first('legajo') }}
@@ -80,7 +77,11 @@
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
                                         <button type="submit" class="btn btn-primary">
-                                            {{trans ('buttons.continue')}}
+                                            @if(empty($userProfile->getDni()))
+                                                {{trans ('buttons.continue')}}
+                                            @else
+                                                {{trans ('buttons.confirm')}}
+                                            @endif
                                         </button>
                                     </div>
 

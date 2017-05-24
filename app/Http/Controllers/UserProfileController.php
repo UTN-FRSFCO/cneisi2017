@@ -64,7 +64,6 @@ class UserProfileController extends Controller
             }
             $profile->save();
 
-            Session::flash('success', trans('users.profile_updated_message'));
         } catch (Exception $e) {
             Session::flash('error', trans('users.profile_not_updated_message'));
         }

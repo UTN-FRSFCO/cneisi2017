@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Auth;
 
 class UpdateProfileRequest extends FormRequest
@@ -45,8 +46,8 @@ class UpdateProfileRequest extends FormRequest
     public function messages()
     {
         return [
-            'university_region.required_if' => 'Por favor indique su facultad regional',
-            'legajo.required_if'  => 'Por favor indique su legajo',
+            'university_region.required_if' => trans('profiles.university_region_required'),
+            'legajo.required_if'            => trans('profiles.legajo_required'),
         ];
     }
 
@@ -58,7 +59,12 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'dni'                   => 'required|integer|digits_between :7,8|unique:users_profiles,dni',
+            'dni'   => [
+                'required',
+                'integer',
+                'digits_between :7,8',
+                Rule::unique('users_profiles')->ignore(Auth::user()->id, 'user_id'),
+            ],
             'userType'              => 'required|min:5|max:255',
             'university_region'     => 'required_if:userType,student,graduated|min:5|max:255|nullable',
             'legajo'                => 'required_if:userType,student|integer|digits_between :4,7|nullable'

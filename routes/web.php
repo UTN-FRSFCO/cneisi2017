@@ -39,7 +39,7 @@ Route::get('password/email/{token?}',
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get(
-    '/user/profile',
+    '/user/profile/',
     ['as' => 'profile.update', 'uses' => 'UserProfileController@edit']
 );
 

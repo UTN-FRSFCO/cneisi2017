@@ -52,7 +52,7 @@ return [
     "min"                  => [
         "numeric" => "El campo :attribute debe tener al menos :min.",
         "file"    => "El archivo :attribute debe pesar al menos :min kilobytes.",
-        "string"  => "El campo :attribute debe contener al menos :min caracteres.",
+        "string"  => "La :attribute debe contener al menos :min caracteres.",
         "array"   => "El campo :attribute no debe contener más de :min elementos.",
     ],
     "not_in"               => "El campo :attribute seleccionado es invalido.",
@@ -73,7 +73,7 @@ return [
     ],
     "string"               => "El campo :attribute debe ser una cadena de texto.",
     "timezone"             => "El campo :attribute debe contener una zona válida.",
-    "unique"               => "El elemento :attribute ya está en uso.",
+    "unique"               => "Este :attribute ya está en uso.",
     "url"                  => "El formato de :attribute no corresponde con el de una URL válida.",
 
     /*
@@ -104,6 +104,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'password'      => 'contraseña',
+        'Password'      => 'Contraseña',
+    ],
 
 ];
