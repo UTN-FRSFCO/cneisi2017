@@ -24,6 +24,7 @@
 <script type="text/javascript" src="{{asset('/js/jquery.appear.js')}}"></script>
 <script type="text/javascript" src="{{asset('/js/jquery.plugin.js')}}"></script>
 <script type="text/javascript" src="{{asset('/js/jquery.countTo.js')}}"></script>
+<script type="text/javascript" src="{{asset('/js/jquery.countdown.js')}}"></script>
 <script type="text/javascript" src="{{asset('/js/masonry.pkgd.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('/js/modal-box.js')}}"></script>
 <script type="text/javascript" src="{{asset('/js/ventcamp.js')}}"></script>

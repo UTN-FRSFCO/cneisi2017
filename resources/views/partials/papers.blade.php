@@ -11,7 +11,7 @@
 
             </article>
             <br>
-            
+
             @if(!Auth::guest() && (Auth::User()->userProfile->getUserType() != 'general_audience'))
                 <form class="form-horizontal align-center" role="form" method="POST" action="">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -25,7 +25,10 @@
                     </div>
 
                     <div class="form-group">
-                        <a href="#" class="btn btn-black btn-sm">Seleccionar archivo</a>
+                        <label class="btn btn-black btn-sm">
+                            Seleccionar <input type="file" accept=".pdf" style="display: none;">
+                        </label><br>
+                        <label id="file-name"></label>
                     </div>
 
                     <div class="form-group">
