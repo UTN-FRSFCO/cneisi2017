@@ -56,25 +56,13 @@
     <div class="footer-base">
         <div class="container">
 
-            <div class="col-md-6">
-                <ul class="footer-nav">
-                    <li class="footer-nav-item"><a href="#">Contact</a></li>
-                    <li class="footer-nav-item"><a href="#">Privacy policy</a></li>
-                    <li class="footer-nav-item"><a href="#">Press</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-6 align-right">
-                <ul class="socials-nav align-right">
-                    <li class="socials-nav-item"><a href="#"><span class="fa fa-twitter"></span></a></li>
-                    <li class="socials-nav-item"><a href="#"><span class="fa fa-facebook"></span></a></li>
-                    <li class="socials-nav-item"><a href="#"><span class="fa fa-github"></span></a></li>
-                    <li class="socials-nav-item"><a href="#"><span class="fa fa-vimeo-square"></span></a></li>
-                    <li class="socials-nav-item"><a href="#"><span class="fa fa-google-plus"></span></a></li>
-                    <li class="socials-nav-item"><a href="#"><span class="fa fa-instagram"></span></a></li>
+            <div class="col-md-12 align-center">
+                <ul class="socials-nav align-center">
+                    <li class="socials-nav-item"><a href="{{ config('constants.TWITTER_LINK') }}"><span class="fa fa-twitter"></span></a></li>
+                    <li class="socials-nav-item"><a href="{{ config('constants.FACEBOOK_LINK') }}"><span class="fa fa-facebook"></span></a></li>
                 </ul>
 
-                <p class="text-alt"><small>All Rights Reserved © 2015</small></p>
+                <p class="text-alt"><small>{{ trans('strings.signature_footer') }} </small></p>
             </div>
 
         </div>

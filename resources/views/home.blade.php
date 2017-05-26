@@ -17,6 +17,8 @@
 
     @include('partials.schedule')
 
+    @include('partials.papers')
+
     @if(Auth::guest())
         @include('partials.register')
     @endif
@@ -32,6 +34,8 @@
     @include('user.auth.modal-user-register')
 
     @include('user.auth.modal-password-reset')
+
+    @include('partials.modal-error')
 
     <div class="modal-window" data-modal="0" style="background-color: rgba(2, 2, 2, 0.85);">
         <div class="modal-box iframe-box iframe-video">

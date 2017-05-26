@@ -1,11 +1,7 @@
 <section id="hero" class="hero-section bg1 bg-cover window-height light-text">
     <ul class="socials-nav">
-        <li class="socials-nav-item"><a href="#"><span class="fa fa-twitter"></span></a></li>
-        <li class="socials-nav-item"><a href="#"><span class="fa fa-facebook"></span></a></li>
-        <li class="socials-nav-item"><a href="#"><span class="fa fa-github"></span></a></li>
-        <li class="socials-nav-item"><a href="#"><span class="fa fa-vimeo-square"></span></a></li>
-        <li class="socials-nav-item"><a href="#"><span class="fa fa-google-plus"></span></a></li>
-        <li class="socials-nav-item"><a href="#"><span class="fa fa-instagram"></span></a></li>
+        <li class="socials-nav-item"><a href="{{ config('constants.TWITTER_LINK') }}"><span class="fa fa-twitter"></span></a></li>
+        <li class="socials-nav-item"><a href="{{ config('constants.FACEBOOK_LINK') }}"><span class="fa fa-facebook"></span></a></li>
     </ul>
     <div class="heading-block centered-block align-center">
         <div class="container">

@@ -1,0 +1,43 @@
+.has-error .control-label,
+.has-error .help-block,
+.has-error .form-control-feedback {
+    color: #fe4918;
+}
+
+.forgot-password-link {
+
+    text-decoration: underline;
+    color: #fe4918;
+}
+
+.username {
+    color: #fe4918 !important;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 14px;
+    letter-spacing: 0.3em;
+}
+
+.usermenu {
+    font-size: 14px;
+    margin: 10px;
+    display: block;
+    padding: 34px 0 16px;
+}
+
+.social-buttons{
+    margin: 15px;
+}
+
+.social-buttons a{
+    margin: 5px;
+}
+
+.dropdown-menu-center {
+    left: 50% !important;
+    right: auto !important;
+    text-align: center !important;
+    transform: translate(-50%, 0) !important;
+}

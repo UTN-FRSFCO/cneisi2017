@@ -15,15 +15,14 @@
 
             <div class="col-sm-10 col-xs-12 navigation-container">
                 <div id="navigation" class="navbar-collapse collapse">
-                    <ul class="navigation-list pull-left light-text">
+                    <ul class="navigation-list pull-right light-text">
                         <li class="navigation-item"><a href="#speakers" class="navigation-link">Speakers</a></li>
                         <li class="navigation-item"><a href="#schedule" class="navigation-link">Calendario</a></li>
+                        <li class="navigation-item"><a href="#papers" class="navigation-link">Papers & posters</a></li>
                         <li class="navigation-item"><a href="#gallery" class="navigation-link">Galería</a></li>
                         <li class="navigation-item"><a href="#sponsors" class="navigation-link">Sponsors</a></li>
                         <li class="navigation-item"><a href="#contacts" class="navigation-link">Contacto</a></li>
                     </ul>
-
-                    <a href="#" class="pull-right buy-btn">Inscribirse</a>
                 </div>
             </div>
         </div>

@@ -14,6 +14,7 @@
 
 <link rel="stylesheet" type="text/css" href="{{asset('/css/custom-animations.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('/css/style.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{asset('/css/style-mod.css')}}" />
 
 <!--[if lt IE 9]>
 <script src="{{asset('/js/html5shiv.js')}}"></script>
