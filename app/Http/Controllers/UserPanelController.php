@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Entities\University;
-use App\Http\Requests\ShowUserPanel;
+use App\ValueObjects\University;
 use Illuminate\Http\Request;
 use App\Entities\User;
 use Illuminate\Support\Facades\Auth;
