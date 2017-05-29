@@ -16,22 +16,23 @@
             <div class="col-sm-10 col-xs-12 navigation-container">
                 <div id="navigation" class="navbar-collapse collapse">
                     <ul class="navigation-list pull-left light-text">
-                        <li class="navigation-item"><a href="{{ route('home') }}" class="navigation-link">Inicio</a></li>
+                        <li class="navigation-item"><a href="{{ route('home') }}/#speakers" class="navigation-link">Speakers</a></li>
+                        <li class="navigation-item"><a href="{{ route('home') }}/#schedule" class="navigation-link">Calendario</a></li>
+                        <li class="navigation-item"><a href="{{ route('home') }}/#papers" class="navigation-link">Papers & posters</a></li>
+                        <li class="navigation-item"><a href="{{ route('home') }}/#gallery" class="navigation-link">Galería</a></li>
+                        <li class="navigation-item"><a href="{{ route('home') }}/#sponsors" class="navigation-link">Sponsors</a></li>
+                        <li class="navigation-item"><a href="{{ route('home') }}/#contacts" class="navigation-link">Contacto</a></li>
                     </ul>
                     <ul class="navigation-list pull-right light-text">
-
-                        <li class="dropdown">
-                            @if(Auth::guest())
-                                <a href="" class="pull-right" data-modal-link="user-login">Ingresar</a>
-                                <a href="" class="pull-right" data-modal-link="user-register">Registrarse</a>
-                            @else
+                        @if(!Auth::guest())
+                            <li class="dropdown">
                                 <a href="#" class="navigation-link dropdown-toggle usermenu" data-toggle="dropdown">
                                     <span class="fa fa-user"></span>
                                     {{ Auth::User()->getName() }} {{ Auth::User()->getLastname() }}
-                                    <span class="fa fa-angle-double-down"></span>
+                                    <span class="fa fa-angle-double-down hidden-xs"></span>
                                 </a>
                                 <ul class="dropdown-menu" style="min-width: 200px">
-                                    <li>
+                                    <li class="hidden-xs">
                                         <div class="navbar-login">
                                             <div class="row">
                                                 <div class="col-lg-12">
@@ -41,7 +42,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="divider navbar-login-session-bg"></li>
+                                    <li class="divider navbar-login-session-bg hidden-xs"></li>
                                     <li><a href="/user/panel" class="navigation-link">Mi cuenta</a></li>
                                     <li class="divider"></li>
                                     <li>
@@ -54,8 +55,9 @@
                                         {{ csrf_field() }}
                                     </form>
                                 </ul>
-                            @endif
-                        </li>
+                            </li>
+                        @endif
+
                     </ul>
                 </div>
             </div>

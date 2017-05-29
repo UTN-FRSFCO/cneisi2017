@@ -67,4 +67,7 @@
 
         </div>
     </div>
+
+    @include('components.top-arrow')
+
 </section>

@@ -22,47 +22,43 @@
                         <li class="navigation-item"><a href="#gallery" class="navigation-link">Galería</a></li>
                         <li class="navigation-item"><a href="#sponsors" class="navigation-link">Sponsors</a></li>
                         <li class="navigation-item"><a href="#contacts" class="navigation-link">Contacto</a></li>
-                        @if(Auth::guest())
                     </ul>
+                        @if(Auth::guest())
                             <a href="" class="pull-right buy-btn" data-modal-link="user-login">Ingresar</a>
                         @else
-                        <li class="navigation-item">
-                            <ul class="navigation-list ">
-                                <li class="dropdown">
-                                        <a href="#" class="navigation-link dropdown-toggle" data-toggle="dropdown">
-                                            <span class="fa fa-user"></span>
-                                            {{ Auth::User()->getName() }} {{ Auth::User()->getLastname() }}
-                                            <span class="fa fa-angle-double-down"></span>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-center" style="min-width: 200px">
-                                            <li>
-                                                <div class="navbar-login">
-                                                    <div class="row">
-                                                        <div class="col-lg-12">
-                                                            <p class="text-center"><span class="fa fa-user fa-4x"></span></p>
-                                                            <p class="text-center"><h3 class="username">{{ Auth::User()->getName() }} <br>{{ Auth::User()->getLastname() }}</h3></p>
-                                                        </div>
-                                                    </div>
+                        <ul class="navigation-list pull-right light-text">
+                            <li class="dropdown">
+                                <a href="#" class="navigation-link dropdown-toggle usermenu" data-toggle="dropdown">
+                                    <i class="fa fa-user"></i>
+                                    {{ Auth::User()->getName() }} {{ Auth::User()->getLastname() }}
+                                    <i class="hidden-xs fa fa-angle-double-down"></i>
+                                </a>
+                                <ul class=" dropdown-menu dropdown-menu-center" style="min-width: 200px">
+                                    <li class="hidden-xs">
+                                        <div class="navbar-login">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <p class="text-center"><span class="fa fa-user fa-4x"></span></p>
+                                                    <p class="text-center"><h3 class="username">{{ Auth::User()->getName() }} <br>{{ Auth::User()->getLastname() }}</h3></p>
                                                 </div>
-                                            </li>
-                                            <li class="divider navbar-login-session-bg"></li>
-                                            <li><a href="/user/panel" class="navigation-link">Mi cuenta</a></li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="{{ route('logout') }}" class="navigation-link"
-                                                   onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();">Salir
-                                                </a>
-                                            </li>
-                                            <form id="logout-form" action="/user/logout" method="POST" style="display: none;">
-                                                {{ csrf_field() }}
-                                            </form>
-                                        </ul>
-
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="hidden-xs divider navbar-login-session-bg"></li>
+                                    <li><a href="/user/panel" class="navigation-link">Mi cuenta</a></li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="{{ route('logout') }}" class="navigation-link"
+                                           onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">Salir
+                                        </a>
+                                    </li>
+                                    <form id="logout-form" action="/user/logout" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </ul>
+                            </li>
+                        </ul>
                     @endif
                 </div>
             </div>
