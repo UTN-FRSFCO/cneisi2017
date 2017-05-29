@@ -1,0 +1,112 @@
+{
+    "speakers": [
+        {
+            "picture": "http://blog.bizzabo.com/hs-fs/hub/318095/file-563751133-gif/imageedit_311_8505196642.gif?t=1496075670935",
+            "name": "Tim Cook",
+            "slug": "tim-cook",
+            "tagline": "CEO, Apple",
+            "description": "Timothy Donald Cook, más conocido como Tim Cook (Robertsdale, Alabama, 1 de noviembre de 1960), es el actual director ejecutivo de Apple Inc.",
+            "facebookLink": "www.facebook.com",
+            "googleLink": "www.google.com",
+            "twitterLink": "www.twitter.com",
+            "video": "v1Q2HmR45aI",
+            "score": "10"
+        },
+        {
+            "picture": "http://blog.bizzabo.com/hs-fs/hub/318095/file-548480158-gif/imageedit_89_8478100776.gif?t=1496075670935",
+            "name": "Jeff Weiner",
+            "slug": "jeff-weiner",
+            "tagline": "CEO, Linkedin",
+            "description": "Jeffrey Jeff Weiner is an American businessman",
+            "facebookLink": "www.facebook.com",
+            "googleLink": "www.google.com",
+            "twitterLink": "www.twitter.com",
+            "video": "v1Q2HmR45aI",
+            "score": "9"
+        },
+        {
+            "picture": "http://blog.bizzabo.com/hs-fs/hub/318095/file-550510831-gif/imageedit_91_2687888562.gif?t=1496075670935&width=140&name=imageedit_91_2687888562.gif",
+            "name": "Mark Zuckerberg",
+            "slug": "mark-zuckerberg",
+            "tagline": "CEO, Facebook",
+            "description": "Mark Elliot Zuckerberg (White Plains, Estados Unidos, 14 de mayo de 1984) es un programador, filántropo y empresario estadounidense conocido por ser el creador de Facebook.",
+            "facebookLink": "www.facebook.com",
+            "googleLink": "www.google.com",
+            "twitterLink": "www.twitter.com",
+            "video": "v1Q2HmR45aI",
+            "score": "8"
+        },
+        {
+            "picture": "http://blog.bizzabo.com/hs-fs/hub/318095/file-548557263-gif/imageedit_96_4863873310.gif?t=1496075670935&width=139&name=imageedit_96_4863873310.gif",
+            "name": "Satya Nadella",
+            "slug": "satya-nadella",
+            "tagline": "CEO, Microsoft",
+            "description": "Comenzó trabajando como ingeniero en la empresa informática Sun Microsystems y desde 1992 pertenece a Microsoft, donde ha ocupado numerosos puestos.",
+            "facebookLink": "www.facebook.com",
+            "googleLink": "www.google.com",
+            "twitterLink": "www.twitter.com",
+            "video": "v1Q2HmR45aI",
+            "score": "7"
+        },
+        {
+            "picture": "http://blog.bizzabo.com/hs-fs/hub/318095/file-563988388-gif/imageedit_333_6492762096.gif?t=1496075670935&width=137&name=imageedit_333_6492762096.gif",
+            "name": "Richard Branson",
+            "slug": "richard-branson",
+            "tagline": "CEO, Virgin Group",
+            "description": "Richard Charles Nicholas Branson (nacido el 18 de julio de 1950), normalmente citado como Richard Branson, es un magnate de negocios inglés; conocido por su marca Virgin, con más de 360 empresas que forman Virgin Group. .",
+            "facebookLink": "www.facebook.com",
+            "googleLink": "www.google.com",
+            "twitterLink": "www.twitter.com",
+            "video": "v1Q2HmR45aI",
+            "score": "6"
+        },
+        {
+            "picture": "http://blog.bizzabo.com/hs-fs/hub/318095/file-550751301-gif/imageedit_99_3116440564.gif?t=1496075670935&width=138&name=imageedit_99_3116440564.gif",
+            "name": "Elon Musk",
+            "slug": "elon-musk",
+            "tagline": "CEO, Tesla Motors",
+            "description": "Elon Reeve Musk (Pretoria, Sudáfrica, 28 de junio de 1971) es un ingeniero,3 inventor, inversor y empresario sudafricano. Musk es conocido por ser el cofundador de PayPal, Tesla Motors, SpaceX, Hyperloop, SolarCity, The Boring Company y OpenAI",
+            "facebookLink": "www.facebook.com",
+            "googleLink": "www.google.com",
+            "twitterLink": "www.twitter.com",
+            "video": "v1Q2HmR45aI",
+            "score": "5"
+        },
+        {
+            "picture": "http://blog.bizzabo.com/hs-fs/hub/318095/file-550592091-gif/imageedit_101_9964862197.gif?t=1496075670935&width=139&name=imageedit_101_9964862197.gif",
+            "name": "Eric Schmidt",
+            "slug": "eric-schmidt",
+            "tagline": "Executive chairman, Google",
+            "description": "Eric Emerson Schmidt (Washington D. C., 27 de abril de 1955) fue el director ejecutivo de la empresa Google desde el 2001 hasta 2011, cuando fue reemplazado por uno de sus fundadores, Larry Page",
+            "facebookLink": "www.facebook.com",
+            "googleLink": "www.google.com",
+            "twitterLink": "www.twitter.com",
+            "video": "v1Q2HmR45aI",
+            "score": "4"
+        },
+        {
+            "picture": "http://blog.bizzabo.com/hs-fs/hub/318095/file-548689783-gif/imageedit_106_5683830287.gif?t=1496075670935&width=135&name=imageedit_106_5683830287.gif",
+            "name": "Marissa Mayer",
+            "slug": "marissa-mayer",
+            "tagline": "CEO, Yahoo",
+            "description": "Marissa Ann Mayer (Wausau Wisconsin, 30 de mayo de 1975) es una ingeniera en informática y directiva estadounidense. En julio de 2012 se hizo pública su incorporación como Directora ejecutiva de Yahoo!.",
+            "facebookLink": "www.facebook.com",
+            "googleLink": "www.google.com",
+            "twitterLink": "www.twitter.com",
+            "video": "v1Q2HmR45aI",
+            "score": "3"
+        },
+        {
+            "picture": "http://blog.bizzabo.com/hs-fs/hub/318095/file-554949150-gif/imageedit_113_9762583341.gif?t=1496075670935&width=139&name=imageedit_113_9762583341.gif",
+            "name": "David Karp",
+            "slug": "david-karp",
+            "tagline": "CEO, Tumblr",
+            "description": "David Karp (Nueva York, 6 de julio de 1986)2 es un desarrollador web y emprendedor estadounidense. Es el fundador y director ejecutivo de la plataforma de microblogging Tumblr.",
+            "facebookLink": "www.facebook.com",
+            "googleLink": "www.google.com",
+            "twitterLink": "www.twitter.com",
+            "video": "v1Q2HmR45aI",
+            "score": "2"
+        }
+    ]
+}

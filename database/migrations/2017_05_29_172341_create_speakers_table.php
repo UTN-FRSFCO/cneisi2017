@@ -18,7 +18,7 @@ class CreateSpeakersTable extends Migration
             $table->increments('id');
             $table->string('picture')->nullable();
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('tagline');
             $table->string('description');
             $table->string('facebookLink')->nullable();

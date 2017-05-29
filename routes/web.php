@@ -12,9 +12,7 @@
 */
 
 Route::get('/',
-['as' => 'home', 'uses' => function () {
-    return view('home');
-}])->middleware('profile');
+['as' => 'home', 'uses' => 'HomeController@index'])->middleware('profile');
 
 Route::get('/home', function () {
     return view('home');

@@ -13,6 +13,24 @@ class Speaker extends Model
      */
     protected $table = 'speakers';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'picture',
+        'name',
+        'slug',
+        'tagline',
+        'description',
+        'googleLink',
+        'facebookLink',
+        'twitterLink',
+        'score',
+        'video',
+    ];
+
     public function getId()
     {
         return $this->id;
