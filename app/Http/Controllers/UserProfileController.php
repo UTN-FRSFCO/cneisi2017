@@ -62,16 +62,15 @@ class UserProfileController extends Controller
             if (!empty($request->legajo)) {
                 $profile->setLegajo($request->legajo);
             }
+
             $profile->save();
+
+            return redirect()->to(route('user.panel'));
 
         } catch (Exception $e) {
             Session::flash('error', trans('users.profile_not_updated_message'));
         }
 
         return redirect()->to(self::ROOT);
-
-
     }
-
-
 }

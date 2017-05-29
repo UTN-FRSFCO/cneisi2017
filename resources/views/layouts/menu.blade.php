@@ -30,7 +30,7 @@
                                     {{ Auth::User()->getName() }} {{ Auth::User()->getLastname() }}
                                     <span class="fa fa-angle-double-down"></span>
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-center" style="min-width: 200px">
+                                <ul class="dropdown-menu" style="min-width: 200px">
                                     <li>
                                         <div class="navbar-login">
                                             <div class="row">
@@ -42,7 +42,7 @@
                                         </div>
                                     </li>
                                     <li class="divider navbar-login-session-bg"></li>
-                                    <li><a href="#" class="navigation-link">Mi cuenta</a></li>
+                                    <li><a href="/user/panel" class="navigation-link">Mi cuenta</a></li>
                                     <li class="divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}" class="navigation-link"

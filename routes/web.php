@@ -43,6 +43,11 @@ Route::get(
     ['as' => 'profile.update', 'uses' => 'UserProfileController@edit']
 );
 
+Route::get(
+    '/user/panel/',
+    ['as' => 'user.panel', 'uses' => 'UserPanelController@show']
+);
+
 Route::put(
     '/user/profile/{profile}',
     ['as' => 'profile.update', 'uses' => 'UserProfileController@update']
