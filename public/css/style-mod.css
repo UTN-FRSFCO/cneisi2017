@@ -23,7 +23,7 @@
     font-size: 13px;
     margin: 8px;
     text-align: center;
-    display: inline-block;
+    display: block;
     padding: 30px 0 16px;
 }
 
@@ -40,7 +40,6 @@
     bottom: 20px;
     right: 20px;
     background: #fe4918;
-    background: #fe4918;
     width: 50px;
     height: 50px;
     display: block;
@@ -54,6 +53,7 @@
     -ms-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    z-index: 99;
 }
 
 #return-to-top i {
@@ -78,5 +78,3 @@
     color: #fff;
     top: 5px;
 }
-/* Extra Things */
-body{background: #eee ;font-family: 'Open Sans', sans-serif;}h3{font-size: 30px; font-weight: 400;text-align: center;margin-top: 50px;}h3 i{color: #444;}

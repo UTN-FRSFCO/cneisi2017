@@ -29,12 +29,12 @@
                         <ul class="navigation-list pull-right light-text">
                             <li class="dropdown">
                                 <a href="#" class="navigation-link dropdown-toggle usermenu" data-toggle="dropdown">
-                                    <span class="fa fa-user"></span>
+                                    <i class="fa fa-user"></i>
                                     {{ Auth::User()->getName() }} {{ Auth::User()->getLastname() }}
-                                    <span class="hidden-xs fa fa-angle-double-down"></span>
+                                    <i class="hidden-xs fa fa-angle-double-down"></i>
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-center" style="min-width: 200px">
-                                    <li>
+                                <ul class=" dropdown-menu dropdown-menu-center" style="min-width: 200px">
+                                    <li class="hidden-xs">
                                         <div class="navbar-login">
                                             <div class="row">
                                                 <div class="col-lg-12">
@@ -44,7 +44,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="divider navbar-login-session-bg"></li>
+                                    <li class="hidden-xs divider navbar-login-session-bg"></li>
                                     <li><a href="/user/panel" class="navigation-link">Mi cuenta</a></li>
                                     <li class="divider"></li>
                                     <li>
