@@ -73,6 +73,36 @@ class Speaker extends Model
         $this->description = $description;
     }
 
+    public function getFacebookLink()
+    {
+        return $this->facebookLink;
+    }
+
+    public function setFacebookLink(string $facebookLink)
+    {
+        $this->facebookLink = $facebookLink;
+    }
+
+    public function getGoogleLink()
+    {
+        return $this->googleLink;
+    }
+
+    public function setGoogleLink(string $googleLink)
+    {
+        $this->googleLink = $googleLink;
+    }
+
+    public function getTwitterLink()
+    {
+        return $this->twitterLink;
+    }
+
+    public function setTwitterLink(string $twitterLink)
+    {
+        $this->twitterLink = $twitterLink;
+    }
+
     public function getVideo()
     {
         return $this->video;
