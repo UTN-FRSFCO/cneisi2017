@@ -2,6 +2,7 @@
 
 namespace App\Entities;
 
+use App\ValueObjects\Auditorium;
 use Illuminate\Database\Eloquent\Model;
 
 class Conference extends Model
@@ -12,6 +13,21 @@ class Conference extends Model
      * @var string
      */
     protected $table = 'conferences';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title',
+        'description',
+        'slug',
+        'date',
+        'duration',
+        'auditorium',
+        'speaker_id',
+    ];
 
     public function getId()
     {
@@ -58,6 +74,11 @@ class Conference extends Model
         $this->date = $date;
     }
 
+    public function getTime()
+    {
+        return substr($this->date, 11, 5);
+    }
+
     public function getDuration()
     {
         return $this->duration;
@@ -66,6 +87,26 @@ class Conference extends Model
     public function setDuration(int $duration)
     {
         $this->duration = $duration;
+    }
+
+    public function getAuditorium()
+    {
+        return $this->auditorium;
+    }
+
+    public function setAuditorium(Auditorium $auditorium)
+    {
+        $this->auditorium = $auditorium;
+    }
+
+    /**
+     * Each Conference HAS one auditorium
+     *
+     *@return void
+     */
+    public function auditorium()
+    {
+        return $this->belongsTo(Auditorium::class);
     }
 
     public function getSpeaker()

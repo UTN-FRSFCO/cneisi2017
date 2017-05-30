@@ -21,7 +21,8 @@ class CreateConferencesTable extends Migration
             $table->string('slug');
             $table->dateTime('date');
             $table->integer('duration')->nullable();
-            $table->integer('speaker_id')->unsigned();
+            $table->string('auditorium')->nullable();
+            $table->integer('speaker_id')->unsigned()->nullable();
             $table->foreign('speaker_id')->references('id')->on('speakers');
             $table->timestamps();
         });
