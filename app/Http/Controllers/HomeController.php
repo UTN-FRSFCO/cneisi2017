@@ -22,12 +22,14 @@ class HomeController extends Controller
         $this->loadConferencesFromJson();
 
         $speakers = Speaker::all()->sortByDesc('score');
-
+        $conferencesCount = count(Conference::whereNotNull('speaker_id')->get());
         $conferences = $this->loadConferences();
+
 
         return view('home')
             ->with('speakers', $speakers)
-            ->with('conferences', $conferences);
+            ->with('conferences', $conferences)
+            ->with('conferencesAmount', $conferencesCount);
     }
 
     private function loadConferences() {
@@ -40,7 +42,8 @@ class HomeController extends Controller
             ->get()
             ->where('auditorium', '=', 'auditorium_1');
 
-        array_push($conferences, $day_one_auditorium_1);
+        $conferences['day1_auditorium1'] = $day_one_auditorium_1;
+        //array_push($conferences, $day_one_auditorium_1);
 
         $day_one_auditorium_2 = Conference::
         whereBetween('date', ['2017-08-31 00:00:00', '2017-08-31 23:59:59'])
@@ -48,7 +51,8 @@ class HomeController extends Controller
             ->get()
             ->where('auditorium', '=', 'auditorium_2');
 
-        array_push($conferences, $day_one_auditorium_2);
+        $conferences['day1_auditorium2'] = $day_one_auditorium_2;
+        //array_push($conferences, $day_one_auditorium_2);
 
         $day_one_auditorium_3 = Conference::
         whereBetween('date', ['2017-08-31 00:00:00', '2017-08-31 23:59:59'])
@@ -56,7 +60,9 @@ class HomeController extends Controller
             ->get()
             ->where('auditorium', '=', 'auditorium_3');
 
-        array_push($conferences, $day_one_auditorium_3);
+        $conferences['day1_auditorium3'] = $day_one_auditorium_3;
+
+        //array_push($conferences, $day_one_auditorium_3);
 
         $day_two_auditorium_1 = Conference::
         whereBetween('date', ['2017-09-01 00:00:00', '2017-09-01 23:59:59'])
@@ -64,7 +70,8 @@ class HomeController extends Controller
             ->get()
             ->where('auditorium', '=', 'auditorium_1');
 
-        array_push($conferences, $day_two_auditorium_1);
+        $conferences['day2_auditorium1'] = $day_two_auditorium_1;
+        //array_push($conferences, $day_two_auditorium_1);
 
         $day_two_auditorium_2 = Conference::
         whereBetween('date', ['2017-09-01 00:00:00', '2017-09-01 23:59:59'])
@@ -72,7 +79,8 @@ class HomeController extends Controller
             ->get()
             ->where('auditorium', '=', 'auditorium_2');
 
-        array_push($conferences, $day_two_auditorium_2);
+        $conferences['day2_auditorium2'] = $day_two_auditorium_2;
+        //array_push($conferences, $day_two_auditorium_2);
 
         $day_two_auditorium_3 = Conference::
         whereBetween('date', ['2017-09-01 00:00:00', '2017-09-01 23:59:59'])
@@ -80,7 +88,8 @@ class HomeController extends Controller
             ->get()
             ->where('auditorium', '=', 'auditorium_3');
 
-        array_push($conferences, $day_two_auditorium_3);
+        $conferences['day2_auditorium3'] = $day_two_auditorium_3;
+        //array_push($conferences, $day_two_auditorium_3);
 
         $day_three_auditorium_1 = Conference::
         whereBetween('date', ['2017-09-02 00:00:00', '2017-09-02 23:59:59'])
@@ -88,7 +97,8 @@ class HomeController extends Controller
             ->get()
             ->where('auditorium', '=', 'auditorium_1');
 
-        array_push($conferences, $day_three_auditorium_1);
+        $conferences['day3_auditorium1'] = $day_three_auditorium_1;
+        //array_push($conferences, $day_three_auditorium_1);
 
         $day_three_auditorium_2 = Conference::
         whereBetween('date', ['2017-09-02 00:00:00', '2017-09-02 23:59:59'])
@@ -96,7 +106,9 @@ class HomeController extends Controller
             ->get()
             ->where('auditorium', '=', 'auditorium_2');
 
-        array_push($conferences, $day_three_auditorium_2);
+        $conferences['day3_auditorium2'] = $day_three_auditorium_2;
+
+        //array_push($conferences, $day_three_auditorium_2);
 
         $day_three_auditorium_3 = Conference::
         whereBetween('date', ['2017-09-02 00:00:00', '2017-09-02 23:59:59'])
@@ -104,7 +116,8 @@ class HomeController extends Controller
             ->get()
             ->where('auditorium', '=', 'auditorium_3');
 
-        array_push($conferences, $day_three_auditorium_3);
+        $conferences['day3_auditorium3'] = $day_three_auditorium_3;
+        //array_push($conferences, $day_three_auditorium_3);
 
         return $conferences;
     }
@@ -163,4 +176,5 @@ class HomeController extends Controller
             }
         }
     }
+
 }

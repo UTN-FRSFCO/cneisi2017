@@ -33,7 +33,7 @@
                                     {{ Auth::User()->getName() }} {{ Auth::User()->getLastname() }}
                                     <i class="hidden-xs fa fa-angle-double-down"></i>
                                 </a>
-                                <ul class=" dropdown-menu dropdown-menu-center" style="min-width: 200px">
+                                <ul class=" dropdown-menu dropdown-menu-right" style="min-width: 200px">
                                     <li class="hidden-xs">
                                         <div class="navbar-login">
                                             <div class="row">

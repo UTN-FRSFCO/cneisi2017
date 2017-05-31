@@ -12,15 +12,6 @@
                 @if(Auth::guest())
                     <a href="#" class="btn btn-md" data-modal-link="user-login">Ingresar</a>
                     <a href="#" class="btn btn-md" data-modal-link="user-register">Registrarse</a>
-                @else
-                    <h4 class="thin base-font">{{ Auth::User()->getName() }}<a href="/user/logout"
-                                                                               onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                            Salir.
-                        </a></h4>
-                    <form id="logout-form" action="/user/logout" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
                 @endif
 
             </div>
