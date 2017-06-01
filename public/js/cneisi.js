@@ -183,4 +183,35 @@ function loadFrameVideoSpeaker(speaker) {
     $('#modal-speaker-video').modal('show');
 }
 
+//Treating hashbang links
+if(window.location.hash) {
 
+    var eventId = window.location.hash;
+
+    if(eventId.includes('auditorium')) {
+        //getting the number of day and auditorium
+        var day = eventId.slice(-13,-12);
+        var auditorium = eventId.slice(-1);
+
+        switch(parseInt(day)) {
+            case 1:
+                $('a[href="#day1"]').click();
+                break;
+            case 2:
+                $('a[href="#day2"]').click();
+                break;
+            case 3:
+                $('a[href="#day3"]').click();
+                break;
+            default:
+                break;
+        }
+
+        $('a[href="'+'#'.concat(eventId.slice(-16))+'"]').click();
+
+        $('a[href="'+eventId+'"]').click();
+        setTimeout(function(){
+            window.scrollBy(0, -90);
+        }, 2000);
+    }
+}

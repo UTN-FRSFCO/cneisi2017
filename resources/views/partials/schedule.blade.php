@@ -50,18 +50,18 @@
                                                 <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
                                             @endif
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day1_auditorium1_timeline" href="#{{ $conference->getSlug() }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                        <a data-toggle="collapse" data-parent="#day1_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
                                             <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
                                             <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="{{ $conference->getSlug() . '-day1_auditorium1' }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                             <article>
                                                 <p class="description">{{ $conference->getDescription() }}</p>
                                                 <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                 @if(!Auth::guest())
                                                     <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
                                                 @endif
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() ])
+                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium1' ])
                                             </article>
                                         </div>
                                     </div>
@@ -93,18 +93,18 @@
                                                 <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
                                             @endif
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day1_auditorium2_timeline" href="#{{ $conference->getSlug() }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                        <a data-toggle="collapse" data-parent="#day1_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
                                             <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
                                             <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="{{ $conference->getSlug() . '-day1_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                             <article>
                                                 <p class="description">{{ $conference->getDescription() }}</p>
                                                 <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                 @if(!Auth::guest())
                                                     <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
                                                 @endif
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug()])
+                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium2'])
                                             </article>
                                         </div>
                                     </div>
@@ -136,18 +136,18 @@
                                                 <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
                                             @endif
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day1_auditorium3_timeline" href="#{{ $conference->getSlug() }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                        <a data-toggle="collapse" data-parent="#day1_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium3'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
                                             <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
                                             <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="{{ $conference->getSlug() . '-day1_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                             <article>
                                                 <p class="description">{{ $conference->getDescription() }}</p>
                                                 <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                 @if(!Auth::guest())
                                                     <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
                                                 @endif
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug()])
+                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium3'])
                                             </article>
                                         </div>
                                     </div>
@@ -199,18 +199,18 @@
                                                 <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
                                             @endif
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day2_auditorium1_timeline" href="#{{ $conference->getSlug() }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                        <a data-toggle="collapse" data-parent="#day2_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
                                             <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
                                             <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="{{ $conference->getSlug() . '-day2_auditorium1'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                             <article>
                                                 <p class="description">{{ $conference->getDescription() }}</p>
                                                 <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                 @if(!Auth::guest())
                                                     <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
                                                 @endif
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug()])
+                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium1'])
                                             </article>
                                         </div>
                                     </div>
@@ -242,18 +242,18 @@
                                                 <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
                                             @endif
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day2_auditorium2_timeline" href="#{{ $conference->getSlug() }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                        <a data-toggle="collapse" data-parent="#day2_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
                                             <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
                                             <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="{{ $conference->getSlug() . '-day2_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                             <article>
                                                 <p class="description">{{ $conference->getDescription() }}</p>
                                                 <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                 @if(!Auth::guest())
                                                     <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
                                                 @endif
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug()])
+                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium2'])
                                             </article>
                                         </div>
                                     </div>
@@ -285,18 +285,18 @@
                                                 <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
                                             @endif
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day2_auditorium3_timeline" href="#{{ $conference->getSlug() }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                        <a data-toggle="collapse" data-parent="#day2_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium3' }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
                                             <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
                                             <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="{{ $conference->getSlug() . '-day2_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                             <article>
                                                 <p class="description">{{ $conference->getDescription() }}</p>
                                                 <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                 @if(!Auth::guest())
                                                     <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
                                                 @endif
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . '#' . $conference->getSlug()])
+                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium3'])
                                             </article>
                                         </div>
                                     </div>
@@ -348,18 +348,18 @@
                                                 <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
                                             @endif
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day3_auditorium1_timeline" href="#{{ $conference->getSlug() }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                        <a data-toggle="collapse" data-parent="#day3_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day3_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
                                             <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
                                             <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="{{ $conference->getSlug() . '-day3_auditorium1'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                             <article>
                                                 <p class="description">{{ $conference->getDescription() }}</p>
                                                 <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                 @if(!Auth::guest())
                                                     <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
                                                 @endif
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug()])
+                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium1'])
                                             </article>
                                         </div>
                                     </div>
@@ -390,18 +390,18 @@
                                                 <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
                                             @endif
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day3_auditorium2_timeline" href="#{{ $conference->getSlug() }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                        <a data-toggle="collapse" data-parent="#day3_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day3_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
                                             <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
                                             <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="{{ $conference->getSlug() . '-day3_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                             <article>
                                                 <p class="description">{{ $conference->getDescription() }}</p>
                                                 <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                 @if(!Auth::guest())
                                                     <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
                                                 @endif
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug()])
+                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium2'])
                                             </article>
                                         </div>
                                     </div>
@@ -433,18 +433,18 @@
                                                 <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
                                             @endif
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day3_auditorium3_timeline" href="#{{ $conference->getSlug() }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                        <a data-toggle="collapse" data-parent="#day3_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day3_auditorium3'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
                                             <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
                                             <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="{{ $conference->getSlug() . '-day3_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                             <article>
                                                 <p class="description">{{ $conference->getDescription() }}</p>
                                                 <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                 @if(!Auth::guest())
                                                     <a href="#" class="btn btn-rounded btn-outline-clr btn-sm"><span class="fa fa-thumbs-o-up"></span>Asistiré</a>
                                                 @endif
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug()])
+                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium3'])
                                             </article>
                                         </div>
                                     </div>
