@@ -52,4 +52,12 @@ class User extends Authenticatable
         return $this->hasMany(SocialAccount::class);
     }
 
+    /**
+     * The conferences that the user will attend.
+     */
+    public function conferences()
+    {
+        return $this->belongsToMany(Conference::class);
+    }
+
 }
