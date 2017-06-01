@@ -43,7 +43,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            {{ $key }}
+                                            
                                             @if($conference->getSpeaker()['picture'] === null)
                                                 <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                             @else
@@ -86,7 +86,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            {{ $key }}
+                                            
                                             @if($conference->getSpeaker()['picture'] === null)
                                                 <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                             @else
@@ -129,7 +129,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            {{ $key }}
+                                            
                                             @if($conference->getSpeaker()['picture'] === null)
                                                 <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                             @else
@@ -192,7 +192,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            {{ $key }}
+                                            
                                             @if($conference->getSpeaker()['picture'] === null)
                                                 <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                             @else
@@ -235,7 +235,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            {{ $key }}
+                                            
                                             @if($conference->getSpeaker()['picture'] === null)
                                                 <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                             @else
@@ -278,7 +278,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            {{ $key }}
+                                            
                                             @if($conference->getSpeaker()['picture'] === null)
                                                 <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                             @else
@@ -341,7 +341,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            {{ $key }}
+                                            
                                             @if($conference->getSpeaker()['picture'] === null)
                                                 <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                             @else
@@ -383,7 +383,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            {{ $key }}
+                                            
                                             @if($conference->getSpeaker()['picture'] === null)
                                                 <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                             @else
@@ -426,7 +426,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            {{ $key }}
+                                            
                                             @if($conference->getSpeaker()['picture'] === null)
                                                 <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                             @else
