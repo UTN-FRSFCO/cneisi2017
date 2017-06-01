@@ -1,0 +1,113 @@
+{
+  "conferences": [
+    {
+      "title": "Llegada y acreditación",
+      "description": "Se realizará la llegada de delegaciones y acreditación en la facultad regional",
+      "slug": "acreditaciones",
+      "date": 1504170000,
+      "duration": 60,
+      "auditorium": "auditorium_1",
+      "speaker_id": null
+    },
+    {
+      "title": "Distribucion de alojamientos",
+      "description": "Las diferentes delegaciones serán orientadas a sus respectivos lugares de alojamiento",
+      "slug": "alojamientos",
+      "date": 1504173600,
+      "duration": "30",
+      "auditorium": "auditorium_1",
+      "speaker_id": null
+    },
+    {
+      "title": "Acto de apertura",
+      "description": "Acto de apertura en la facultad regional",
+      "slug": "apertura",
+      "date": 1504179000,
+      "duration": 60,
+      "auditorium": "auditorium_1",
+      "speaker_id": null
+    },
+    {
+      "title": "Internet de las cosas",
+      "description": "Descripción de la charla",
+      "slug": "internet-de-las-cosas",
+      "date": 1504188000,
+      "duration": 60,
+      "auditorium": "auditorium_1",
+      "speaker_id": 1
+    },
+    {
+      "title": "Objetos de aprendizaje",
+      "description": "Descripción de la charla",
+      "slug": "objetos-aprendizaje",
+      "date": 1504188000,
+      "duration": 60,
+      "auditorium": "auditorium_2",
+      "speaker_id": 2
+    },
+    {
+      "title": "User Experience",
+      "description": "Descripción de la charla",
+      "slug": "ux-user-experience",
+      "date": 1504188000,
+      "duration": 60,
+      "auditorium": "auditorium_3",
+      "speaker_id": 3
+    },
+    {
+      "title": "Arquitecturas de software",
+      "description": "Descripción de la charla",
+      "slug": "arquitecturas-software",
+      "date": 1504256400,
+      "duration": 60,
+      "auditorium": "auditorium_1",
+      "speaker_id": 4
+    },
+    {
+      "title": "Calidad en procesos ágiles",
+      "description": "Descripción de la charla",
+      "slug": "calidad-procesos-agiles",
+      "date": 1504256400,
+      "duration": 60,
+      "auditorium": "auditorium_2",
+      "speaker_id": 5
+    },
+    {
+      "title": "Ingeniería del conocimiento",
+      "description": "Descripción de la charla",
+      "slug": "ingenieria-conocimiento",
+      "date": 1504256400,
+      "duration": 60,
+      "auditorium": "auditorium_3",
+      "speaker_id": 6
+    },
+    {
+      "title": "Estructura de motor de busqueda",
+      "description": "Descripción de la charla",
+      "slug": "estructura-motor-busqueda",
+      "date": 1504342800,
+      "duration": 60,
+      "auditorium": "auditorium_1",
+      "speaker_id": 7
+    },
+    {
+      "title": "Apps android con html5, css, js",
+      "description": "Descripción de la charla",
+      "slug": "apps-android",
+      "date": 1504342800,
+      "duration": 60,
+      "auditorium": "auditorium_2",
+      "speaker_id": 8
+    },
+    {
+      "title": "Taller de arduino",
+      "description": "Descripción de la charla",
+      "slug": "taller-arduino",
+      "date": 1504342800,
+      "duration": 60,
+      "auditorium": "auditorium_3",
+      "speaker_id": 9
+    }
+
+  ]
+}

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 use App\Entities\User;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Entities\UserProfile;
-use App\Entities\University;
+use App\ValueObjects\University;
 use App\Http\Requests;
 use Auth;
 

@@ -2,7 +2,7 @@
     <div class="header-wrapper">
         <div class="container">
             <div class="col-sm-2 col-xs-12 navigation-header">
-                <a href="#" class="logo">
+                <a href="/" class="logo">
                     <img src="{{asset('/img/cneisi_logo.png')}}" alt="Cneisi" width="179" height="23" class="retina-hide">
                     <img src="{{asset('/img/ventcamp_logo@2x.png')}}" alt="VentCamp" width="119" height="17" class="retina-show">
                 </a>
@@ -31,7 +31,7 @@
                                     {{ Auth::User()->getName() }} {{ Auth::User()->getLastname() }}
                                     <span class="fa fa-angle-double-down hidden-xs"></span>
                                 </a>
-                                <ul class="dropdown-menu" style="min-width: 200px">
+                                <ul class="dropdown-menu dropdown-menu-right" style="min-width: 200px">
                                     <li class="hidden-xs">
                                         <div class="navbar-login">
                                             <div class="row">

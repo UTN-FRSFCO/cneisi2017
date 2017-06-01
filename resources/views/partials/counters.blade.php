@@ -6,7 +6,7 @@
                 <div class="counter-block counter-block-no-border">
                     <div class="counter-box">
                         <div class="counter-content">
-                            <span class="count" data-from="0" data-to="136">0</span>
+                            <span class="count" data-from="0" data-to="{{ count($speakers) }}">0</span>
 
                             <p class="title">speakers</p>
                         </div>
@@ -18,9 +18,9 @@
                 <div class="counter-block counter-block-no-border">
                     <div class="counter-box">
                         <div class="counter-content">
-                            <span class="count" data-from="0" data-to="5">0</span>
+                            <span class="count" data-from="0" data-to="3">0</span>
 
-                            <p class="title">days</p>
+                            <p class="title">dias</p>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                         <div class="counter-content">
                             <span class="count" data-from="0" data-to="25">0</span>
 
-                            <p class="title">workshops</p>
+                            <p class="title">papers & posters</p>
                         </div>
                     </div>
                 </div>
@@ -42,9 +42,9 @@
                 <div class="counter-block counter-block-no-border">
                     <div class="counter-box">
                         <div class="counter-content">
-                            <span class="count" data-from="0" data-to="200">0</span>
+                            <span class="count" data-from="0" data-to="{{ $conferencesAmount }}">0</span>
 
-                            <p class="title">speeches</p>
+                            <p class="title">charlas</p>
                         </div>
                     </div>
                 </div>

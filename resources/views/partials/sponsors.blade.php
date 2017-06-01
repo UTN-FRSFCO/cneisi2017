@@ -1,8 +1,8 @@
 <section id="sponsors" class="section align-center">
     <div class="container">
         <span class="icon section-icon icon-documents-bookmarks-12"></span>
-        <h3>General sponsors</h3>
-        <p class="text-alt">companies that <span class="highlight">support</span> us</p>
+        <h3>Sponsors</h3>
+        <p class="text-alt">compañias que nos <span class="highlight">acompañan</span></p>
         <br/>
         <br/>
 

@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Entities;
+namespace App\ValueObjects;
 
-use Illuminate\Database\Eloquent\Model;
-
-class University extends Model
+class University
 {
     public function getAll()
     {
