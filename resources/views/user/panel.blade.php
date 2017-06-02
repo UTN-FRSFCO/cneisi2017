@@ -70,10 +70,11 @@
             <div class="col-md-4">
                 <div class="panel panel-default" style="margin-bottom: 50px;">
 
-                    <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Próximos eventos</span></h5>
+                    <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Papers</span></h5>
                     <div class="panel-body">
                         <div class="panel-body">
-                            No hay eventos cargados todavía
+                            <p>No cargaste ningun paper todavía</p>
+
                         </div>
                     </div>
                 </div>
@@ -84,7 +85,26 @@
                     <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Eventos en los que te interesaste</span></h5>
                     <div class="panel-body">
                         <div class="panel-body">
-                            No hay eventos a los que estás suscripto
+
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Speaker</th>
+                                        <th>Titulo</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($conferencesAssistances as $conference)
+                                        <tr>
+                                            <td>{{ $conference->getDate() }}</td>
+                                            <td>{{ $conference->getSpeaker()['name'] }}</td>
+                                            <td>{{ $conference->getTitle() }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+
                         </div>
                     </div>
                 </div>
@@ -92,15 +112,32 @@
             <div class="col-md-4">
                 <div class="panel panel-default" style="margin-bottom: 50px;">
 
-                    <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Papers</span></h5>
+                    <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Próximos eventos</span></h5>
                     <div class="panel-body">
                         <div class="panel-body">
-                            <p>No cargaste ningun paper todavía</p>
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Titulo</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($conferences as $conference)
+                                    <tr>
+                                        <td>{{ $conference->getDate() }}</td>
+                                        <td>{{ $conference->getTitle() }}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
 
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 @endsection
