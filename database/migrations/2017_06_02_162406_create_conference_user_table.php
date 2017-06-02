@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersConferencesTable extends Migration
+class CreateConferenceUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUsersConferencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_conferences', function(Blueprint $table)
+        Schema::create('conference_user', function(Blueprint $table)
         {
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')
@@ -34,6 +34,6 @@ class CreateUsersConferencesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users_conferences');
+        Schema::drop('conference_user');
     }
 }

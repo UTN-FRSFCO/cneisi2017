@@ -215,3 +215,45 @@ if(window.location.hash) {
         }, 2000);
     }
 }
+
+//asistencia a eventos
+$('#assistanceForm').submit(function(e) {
+    var form = this;
+    e.preventDefault();
+
+    var $input = $(form).find('input[type="submit"]'),
+        $button = $(form).find('button[type="submit"]');
+
+    if ($button.length) {
+        $button.append('<span class="loading fa fa-refresh"></span>');
+
+    } else if ($input) {
+        $input.after('<span class="loading fa fa-refresh"></span>');
+    }
+
+    $.ajax({
+        url: form.action,
+        type: 'POST',
+        data: $(form).serialize(),
+    }).done(function (data) {
+        $(form).find('.loading').remove();
+
+        var text = document.getElementById('assistanceBtn-'.concat(data)).firstChild;
+        text.data = text.data === "Asistiré" ? "No asistiré" : "Asistiré";
+
+            if(text.data === "Asistiré"){
+                $(".assistanceBtn span").removeClass('fa-thumbs-o-down');
+                $(".assistanceBtn span").addClass('fa-thumbs-o-up');
+            } else {
+                $(".assistanceBtn span").removeClass('fa-thumbs-o-up');
+                $(".assistanceBtn span").addClass('fa-thumbs-o-down');
+            }
+
+
+    }).fail(function (data) {
+        $(form).find('.loading').remove();
+
+        var errors = data.responseJSON;
+
+    });
+});

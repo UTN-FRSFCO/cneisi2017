@@ -57,7 +57,8 @@ class User extends Authenticatable
      */
     public function conferences()
     {
-        return $this->belongsToMany(Conference::class);
+        return $this->belongsToMany(Conference::class)
+            ->withTimestamps();;
     }
 
 }

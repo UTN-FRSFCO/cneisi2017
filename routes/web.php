@@ -54,3 +54,6 @@ Route::put(
 //Socialite routes
 Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('/callback/{provider}', 'SocialAuthController@callback');
+
+//Home routes
+Route::post('/confirm-assistance', 'ConferenceUsersController@atachOrDetachAssistances');

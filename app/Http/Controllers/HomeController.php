@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use App\Entities\Conference;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SpeakerController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Entities\Speaker;
+
 
 class HomeController extends Controller
 {
     /**
-     * @var string
+     * Show the application dashboard.
+     *
+     * @return
      */
-    private $day_one_auditorium_1;
-
-
     public function index()
     {
         $this->loadSpeakersFromJson();
@@ -24,12 +25,23 @@ class HomeController extends Controller
         $speakers = Speaker::all()->sortByDesc('score');
         $conferencesCount = count(Conference::whereNotNull('speaker_id')->get());
         $conferences = $this->loadConferences();
+        $assistancesConferences = [];
 
+        if (Auth::check()) {
+            $user_id = Auth::user()->id;
+            $conferencesAssistances = DB::table('conference_user')
+                ->whereUserId($user_id)
+                ->pluck('conference_id');
+            foreach ($conferencesAssistances as $assistances) {
+                array_push($assistancesConferences, $assistances);
+            }
+        }
 
         return view('home')
             ->with('speakers', $speakers)
             ->with('conferences', $conferences)
-            ->with('conferencesAmount', $conferencesCount);
+            ->with('conferencesAmount', $conferencesCount)
+            ->with('conferenceIdAssistances', $assistancesConferences);
     }
 
     private function loadConferences() {

@@ -86,3 +86,20 @@
 .footer{
     padding: 0px !important;
 }
+
+#assistanceForm{
+    height: 38px;
+    width: 250px;
+    margin-left: 15px;
+    display: inline-block !important;
+}
+
+.assistanceBtn{
+    color: #fe4918 !important;
+}
+
+.assistanceBtn:hover{
+    background-color: #fe4918;
+    color: #ffffff !important;
+}
+
