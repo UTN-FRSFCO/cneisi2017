@@ -2,6 +2,7 @@
     <div class="container">
         <span class="icon section-icon icon-office-21"></span>
         <h3>Eventos del congreso</h3>
+        <h6>Próximamente estaremos detallando el cronograma de actividades previsto para el evento</h6>
         <br />
 
         <!-- Schedule start -->

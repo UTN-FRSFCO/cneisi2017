@@ -1,16 +1,49 @@
+.select-form{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-size: 13px;
+    -webkit-transition: color 0.2s ease, background 0.2s ease, border 0.2s ease;
+    -moz-transition: color 0.2s ease, background 0.2s ease, border 0.2s ease;
+    -o-transition: color 0.2s ease, background 0.2s ease, border 0.2s ease;
+    transition: color 0.2s ease, background 0.2s ease, border 0.2s ease;
+    position: relative;
+    margin: 0 0 15px;
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    height: 39px;
+    padding: 0 32px 0 10px;
+    font-size: 13px;
+    color: #8d93a0;
+    line-height: 35px;
+    white-space: nowrap;
+    background-color: #ffffff;
+    border: 1px solid #e9e9e9;
+    border-radius: 2px;
+    z-index: 10;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .has-error .control-label,
 .has-error .help-block,
 .has-error .form-control-feedback {
-    color: #fe4918;
+    color: #59bbd7;
 }
 
 .forgot-password-link {
     text-decoration: underline;
-    color: #fe4918;
+    color: #59bbd7;
 }
 
 .username {
-    color: #fe4918 !important;
+    color: #59bbd7 !important;
     font-size: 13px;
     text-align: center;
     font-weight: 700;
@@ -39,7 +72,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #fe4918;
+    background: #59bbd7;
     width: 50px;
     height: 50px;
     display: block;
@@ -71,7 +104,7 @@
 }
 
 #return-to-top:hover {
-    background: #fe4918;
+    background: #59bbd7;
 }
 
 #return-to-top:hover i {
@@ -95,11 +128,11 @@
 }
 
 .assistanceBtn{
-    color: #fe4918 !important;
+    color: #59bbd7 !important;
 }
 
 .assistanceBtn:hover{
-    background-color: #fe4918;
+    background-color: #59bbd7;
     color: #ffffff !important;
 }
 

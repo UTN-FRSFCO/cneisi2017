@@ -13,8 +13,6 @@
 
     @include('partials.counters')
 
-    @include('partials.speakers')
-
     @include('partials.schedule')
 
     @include('partials.papers')
@@ -22,10 +20,6 @@
     @if(Auth::guest())
         @include('partials.register')
     @endif
-
-    @include('partials.gallery')
-
-    @include('partials.sponsors')
 
     @include('partials.contact')
 

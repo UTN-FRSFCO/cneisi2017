@@ -23,6 +23,8 @@ function submitModalForm(form, action){
             $(form).find('.label-reset').css('text-align','center');
             $(form).find('.label-reset').css('margin-top','10px');
             $(form).find('.button-reset').remove();
+        } else if(action === 'register') {
+            window.location.href = "/user/welcome-message";
         } else {
             window.location.reload();
         }

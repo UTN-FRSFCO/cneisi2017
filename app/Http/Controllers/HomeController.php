@@ -19,8 +19,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $this->loadSpeakersFromJson();
-        $this->loadConferencesFromJson();
+        //$this->loadSpeakersFromJson();
+        //$this->loadConferencesFromJson();
 
         $speakers = Speaker::all()->sortByDesc('score');
         $conferencesCount = count(Conference::whereNotNull('speaker_id')->get());

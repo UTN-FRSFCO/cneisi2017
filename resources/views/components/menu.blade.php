@@ -16,11 +16,8 @@
             <div class="col-sm-10 col-xs-12 navigation-container">
                 <div id="navigation" class="navbar-collapse collapse">
                     <ul class="navigation-list pull-left light-text">
-                        <li class="navigation-item"><a href="{{ route('home') }}/#speakers" class="navigation-link">Speakers</a></li>
                         <li class="navigation-item"><a href="{{ route('home') }}/#schedule" class="navigation-link">Calendario</a></li>
                         <li class="navigation-item"><a href="{{ route('home') }}/#papers" class="navigation-link">Papers & posters</a></li>
-                        <li class="navigation-item"><a href="{{ route('home') }}/#gallery" class="navigation-link">Galería</a></li>
-                        <li class="navigation-item"><a href="{{ route('home') }}/#sponsors" class="navigation-link">Sponsors</a></li>
                         <li class="navigation-item"><a href="{{ route('home') }}/#contacts" class="navigation-link">Contacto</a></li>
                     </ul>
                     <ul class="navigation-list pull-right light-text">
@@ -56,6 +53,8 @@
                                     </form>
                                 </ul>
                             </li>
+                        @else
+                            <a href="/user/login" class="pull-right buy-btn">Ingresar</a>
                         @endif
 
                     </ul>

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div class="panel panel-default" style="margin-bottom: 50px;">
+                <div class="panel panel-default" style="margin-bottom: 100px;">
                     <div class="panel-body">
                         <div class="col-md-12 align-center" style="margin-bottom: 30px;">
                             <p class="text-center"><span class="fa fa-user fa-4x"></span></p>
@@ -73,70 +73,75 @@
                     <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Papers</span></h5>
                     <div class="panel-body">
                         <div class="panel-body">
-                            <p>No cargaste ningun paper todavía</p>
+                            <p>No hay información sobre papers todavía.</p>
 
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
-                <div class="panel panel-default" style="margin-bottom: 50px;">
+            @if(count($conferencesAssistances) != 0)
+                <div class="col-md-8">
+                    <div class="panel panel-default" style="margin-bottom: 50px;">
 
-                    <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Eventos en los que te interesaste</span></h5>
-                    <div class="panel-body">
+                        <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Eventos en los que te interesaste</span></h5>
                         <div class="panel-body">
+                            <div class="panel-body">
+
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Speaker</th>
+                                            <th>Titulo</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($conferencesAssistances as $conference)
+                                            <tr>
+                                                <td>{{ $conference->getDate() }}</td>
+                                                <td>{{ $conference->getSpeaker()['name'] }}</td>
+                                                <td>{{ $conference->getTitle() }}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            @if(count($conferences) != 0)
+                <div class="col-md-4">
+                    <div class="panel panel-default" style="margin-bottom: 50px;">
+
+                        <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Próximos eventos</span></h5>
+                        <div class="panel-body">
+                            <div class="panel-body">
 
                                 <table class="table">
                                     <thead>
                                     <tr>
                                         <th>Fecha</th>
-                                        <th>Speaker</th>
                                         <th>Titulo</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($conferencesAssistances as $conference)
+                                    @foreach($conferences as $conference)
                                         <tr>
-                                            <td>{{ $conference->getDate() }}</td>
-                                            <td>{{ $conference->getSpeaker()['name'] }}</td>
+                                            <td class="align-center">{{ $conference->getDate() }}</td>
                                             <td>{{ $conference->getTitle() }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default" style="margin-bottom: 50px;">
-
-                    <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Próximos eventos</span></h5>
-                    <div class="panel-body">
-                        <div class="panel-body">
-
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Titulo</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($conferences as $conference)
-                                    <tr>
-                                        <td>{{ $conference->getDate() }}</td>
-                                        <td>{{ $conference->getTitle() }}</td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endif
 
         </div>
     </div>

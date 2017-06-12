@@ -2,7 +2,7 @@
     <div class="container">
 
         <div class="row counters-wrapper">
-            <div class="col-sm-3">
+            <div class="col-sm-3 hidden">
                 <div class="counter-block counter-block-no-border">
                     <div class="counter-box">
                         <div class="counter-content">
@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-6">
                 <div class="counter-block counter-block-no-border">
                     <div class="counter-box">
                         <div class="counter-content">
@@ -26,7 +26,19 @@
                 </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-6">
+                <div class="counter-block counter-block-no-border">
+                    <div class="counter-box">
+                        <div class="counter-content">
+                            <span class="count" data-from="0" data-to="12">0</span>
+
+                            <p class="title">Facultades regionales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 hidden">
                 <div class="counter-block counter-block-no-border">
                     <div class="counter-box">
                         <div class="counter-content">
@@ -38,7 +50,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-3 hidden">
                 <div class="counter-block counter-block-no-border">
                     <div class="counter-box">
                         <div class="counter-content">
