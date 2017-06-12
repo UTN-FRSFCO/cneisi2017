@@ -64,6 +64,18 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-xs-3 align-center">
+
+                            </div>
+                            <div class="col-xs-6 align-center" style="margin-top: 30px;">
+                                <a href="{{ route('password.change') }}" class="btn btn-outline-clr btn-sm">Cambiar contraseña</a>
+                            </div>
+                            <div class="col-xs-3 align-center">
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -12,6 +12,12 @@
                     @endif
                     <div class="panel-body">
                         <div class="panel-body">
+                            @if (Session::has('success'))
+                                <div class="alert alert-success">{!! Session::get('success') !!}</div>
+                            @endif
+                            @if (Session::has('failure'))
+                                <div class="alert alert-danger">{!! Session::get('failure') !!}</div>
+                            @endif
                             <form class="form-horizontal" role="form" method="POST" action="{{ route('profile.update', Auth::user()->userProfile->id) }}">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="hidden" name="_method" value="PUT">

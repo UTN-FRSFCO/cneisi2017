@@ -24,6 +24,11 @@ return [
     'register_button'       => 'Registrarse',
     'login_button'          => 'Ingresar',
     'login_title'           => 'Ingresar',
+    'change-password-title' => 'Cambiar contraseña',
+    'change-password-button'=> 'Cambiar',
+    'currentPassword'       => 'Contraseña actual',
+    'new-password'          => 'Nueva contraseña',
+    'confirm-new-password'  => 'Confirmar nueva contraseña',
 
     'reset_password_title'  => 'Recuperar contraseña',
     'reset_password_button' => 'Cambiar contraseña',

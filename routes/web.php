@@ -55,6 +55,13 @@ Route::group(['middleware' => 'auth'], function () {
         return view('user.welcome-message');
     });
 
+    Route::get('password/change',
+        ['as' => 'password.change', 'uses' => 'UpdatePasswordController@show']
+    );
+
+    Route::post('/password/change',
+        ['as' => 'password.change', 'uses' => 'UpdatePasswordController@update']
+        );
 });
 
 //Socialite routes

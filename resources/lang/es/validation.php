@@ -91,6 +91,10 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+
+        'currentPassword' => [
+            'equalsDBpassword' => 'Tu contraseña actual es incorrecta. Ingresala nuevamente',
+        ],
     ],
 
     /*
