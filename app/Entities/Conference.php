@@ -99,16 +99,6 @@ class Conference extends Model
         $this->auditorium = $auditorium;
     }
 
-    /**
-     * Each Conference HAS one auditorium
-     *
-     *@return void
-     */
-    public function auditorium()
-    {
-        return $this->belongsTo(Auditorium::class);
-    }
-
     public function getSpeaker()
     {
         return $this->speaker;
@@ -120,12 +110,29 @@ class Conference extends Model
     }
 
     /**
+     * Each Conference HAS one auditorium
+     *
+     */
+    public function auditorium()
+    {
+        return $this->belongsTo(Auditorium::class);
+    }
+
+    /**
      * Each Conference HAS one main Speaker
      *
-     *@return void
      */
     public function speaker()
     {
         return $this->belongsTo(Speaker::class);
+    }
+
+    /**
+     * The users that will attend to the conference.
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class)
+            ->withTimestamps();;
     }
 }

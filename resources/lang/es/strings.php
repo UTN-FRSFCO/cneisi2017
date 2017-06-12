@@ -43,6 +43,7 @@ return [
     'legajo'            => 'Legajo Estudiante',
     'author'            => 'Autor',
     'error'             => 'Error',
+    'login-with'        => 'Ingresar con',
 
     'signature_footer'  => '© 2017 - UTN Facultad Regional San Francisco',
 

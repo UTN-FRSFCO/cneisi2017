@@ -13,7 +13,9 @@ class CheckProfileFilled
     /**
      * Related routes.
      */
+    const ROOT = '/';
     const EDIT_PROFILE = '/user/profile';
+
 
     /**
      * Handle an incoming request.

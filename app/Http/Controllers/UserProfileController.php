@@ -65,8 +65,6 @@ class UserProfileController extends Controller
 
             $profile->save();
 
-            return redirect()->to(route('user.panel'));
-
         } catch (Exception $e) {
             Session::flash('error', trans('users.profile_not_updated_message'));
         }

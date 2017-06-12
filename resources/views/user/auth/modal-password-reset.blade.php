@@ -12,7 +12,7 @@
 
                     <label for="email" class="label-reset">{{ trans('strings.email') }}</label>
                     <input id="email" name="email" class="form-control email-reset" type="email" value="{{ old('email') }}" required autofocus>
-                    <span class="help-block"></span>
+                    <span class="help-block" style="color: orangered"></span>
 
                 </div>
             </fieldset>

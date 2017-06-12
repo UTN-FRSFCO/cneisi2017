@@ -1,4 +1,5 @@
-<div class="social-buttons">
+<div class="social-buttons" style="vertical-align: middle;">
+    <h6 class="align-left" style="display:inline;"><span class="highlight">Compartir con: </span></h6>
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}"
        target="_blank">
         <i class="fa fa-facebook-official fa-2x"></i>

@@ -2,7 +2,7 @@
     <div class="container">
         <span class="icon section-icon icon-faces-users-04"></span>
         <h3>Speakers</h3>
-        <p class="text-alt">Conocé a los <span class="highlight">speakers</span> de cada evento</p>
+        <p class="text-alt">Conocé a los principales <span class="highlight">speakers</span> del congreso</p>
         <br />
         <br />
 

@@ -4,6 +4,7 @@ namespace App\Entities;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ResetPassword as ResetPasswordNotification;
 
 class User extends Authenticatable
 {
@@ -32,6 +33,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
+
     public function getName()
     {
         return $this->name;
@@ -50,6 +56,15 @@ class User extends Authenticatable
     public function socialAccounts()
     {
         return $this->hasMany(SocialAccount::class);
+    }
+
+    /**
+     * The conferences that the user will attend.
+     */
+    public function conferences()
+    {
+        return $this->belongsToMany(Conference::class)
+            ->withTimestamps();;
     }
 
 }

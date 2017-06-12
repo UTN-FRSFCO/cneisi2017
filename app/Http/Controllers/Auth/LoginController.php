@@ -38,6 +38,11 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
+    public function showLoginForm()
+    {
+        return view('user.auth.login');
+    }
+
     /**
      * Send the response after the user was authenticated.
      *

@@ -12,7 +12,7 @@
 
                     <label for="email">{{ trans('strings.email' ) }}</label>
                     <input id="email" name="email" class="form-control" type="email" value="{{ old('email') }}" required autofocus>
-                    <span class="help-block"></span>
+                    <span class="help-block" style="color: orangered"></span>
 
                 </div>
             </fieldset>
@@ -22,38 +22,38 @@
 
                     <label for="password">{{ trans('strings.password') }}</label>
                     <input id="password" name="password" class="form-control" type="password" required>
-                    <span class="help-block"></span>
+                    <span class="help-block" style="color: orangered"></span>
 
                 </div>
             </fieldset>
 
-            <fieldset class="col-sm-12" style="margin: 10px;">
+            <fieldset class="col-sm-12 align-center">
 
                 <input checked="checked" name="remember" type="checkbox" id="remember"> <label>{{ trans('strings.remember_me') }}</label>
 
             </fieldset>
 
-            <fieldset class="col-sm-12" style="text-align:center; margin: 10px;">
-
-                <a href="redirect/facebook"><span class="fa fa-facebook-official fa-2x"></span></a>
-                <a href="redirect/twitter"><span class="fa fa-twitter fa-2x"></span></a>
-
-            </fieldset>
-
-
-            <fieldset class="col-sm-12" style="margin: 10px;">
+            <fieldset class="col-sm-12 align-center" style="margin: 10px;">
 
                 <a href="#" id="forgot-password" class="forgot-password-link" data-modal-link="password-reset">{{ trans('strings.forgot_password') }}</a>
 
             </fieldset>
 
-            <div class="form-group">
+            <fieldset class="col-sm-12 align-center">
 
                 <button type="submit" class="btn btn-primary">
                     {{ trans('strings.login_button') }}
                 </button>
 
-            </div>
+            </fieldset>
+
+            <fieldset class="col-sm-12" style="text-align:center; margin: 10px;">
+
+                <h6><span class="highlight">{{ trans('strings.login-with') }}</span></h6>
+                <a href="redirect/facebook"><span class="fa fa-facebook-official fa-2x"></span></a>
+                <a href="redirect/twitter"><span class="fa fa-twitter fa-2x"></span></a>
+
+            </fieldset>
         </form>
 
     </div>
