@@ -1,11 +1,27 @@
 <meta charset="utf-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-<title>Inicio</title>
 
-<meta name="description" content="Sitio web oficial del CNEISI edición 2017.">
-<meta name="keywords" content="UTN, CNEISI, 2017, SISTEMAS, INFORMACION">
-<meta name="author" content="UTN-FRSFCO">
+<title>@yield('title')</title>
+<meta name="description" content="@yield('description')" />
+<meta name="keywords" content="@yield('keywords')" />
+<meta name="author" content="@yield('author')" />
+<meta name="robots" content="@yield('robots')" />
+
+<meta property="og:locale" content="es_AR" />
+<meta property="og:type" content="@yield('og:type')" />
+<meta property="og:title" content="@yield('title')" />
+<meta property="og:description" content="@yield('description')" />
+<meta property="og:url" content="@yield('og:url')" />
+<meta property="og:site_name" content="CNEISI2017" />
+<meta property="og:image" content="http://localhost:8000/img/logo-utn.png" />
+
+<meta name="twitter:card" content="content"/>
+<meta name="twitter:title" content="@yield('title')"/>
+<meta name="twitter:description" content="@yield('description')"/>
+<meta name="twitter:site" content="@utnsanfco"/>
+<meta name="twitter:image" content="http://localhost:8000/img/logo-utn.png"/>
+<meta name="twitter:creator" content="@utnsanfco"/>
 
 <link rel="shortcut icon" href="{{asset('/img/favicon.ico')}}">
 <link rel="apple-touch-icon" href="{{asset('/img/apple-touch-icon.png')}}">

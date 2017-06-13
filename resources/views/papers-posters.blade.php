@@ -1,4 +1,14 @@
 @extends('layouts.master')
+
+@section('title', 'Papers & Posters')
+@section('description', 'Presentaciones de papers y posters en CNEISI 2017')
+@section('keywords', 'papers, posters, estudiantes, investigación, desarrollo, trabajos')
+@section('author', 'UTN-FRSF')
+@section('robots', 'index, follow')
+
+@section('og:type', 'article')
+@section('og:url', 'http://localhost:8000/presentaciones')
+
 @include('components.menu')
 @section('content')
     <div class="container">

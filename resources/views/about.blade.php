@@ -1,4 +1,14 @@
 @extends('layouts.master')
+
+@section('title', 'Acerca del CNEISI')
+@section('description', 'Información del CNEISI - Congreso Nacional de Estudiantes de Ingenieria en Sistemas de Informacion')
+@section('keywords', 'cneisi, utn, argentina, universidad, congreso, evento')
+@section('author', 'UTN-FRSF')
+@section('robots', 'index, follow')
+
+@section('og:type', 'article')
+@section('og:url', 'http://localhost:8000/acerca-de')
+
 @include('components.menu')
 @section('content')
     <div class="container">

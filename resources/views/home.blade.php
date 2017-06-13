@@ -1,5 +1,14 @@
 @extends('layouts.master')
 
+@section('title', 'CNEISI 2017')
+@section('description', 'Página oficial CNEISI 2017- Congreso Nacional de Estudiantes de Ingenieria en Sistemas de Informacion')
+@section('keywords', 'cneisi, utn, argentina, universidad, congreso, evento, san francisco, 2017, conferencias, ingenieria, sistemas, tecnología, estudiantes, investigacion, desarrollo')
+@section('author', 'UTN-FRSF')
+@section('robots', 'index, follow')
+
+@section('og:type', 'website')
+@section('og:url', 'http://localhost:8000/')
+
 @section('content')
     <div class="preloader-mask">
         <div class="preloader"></div>
