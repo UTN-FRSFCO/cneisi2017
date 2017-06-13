@@ -32,16 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default" style="margin-bottom: 50px;">
-                    <div class="panel-body">
-                        <div class="panel-body">
-                            <a href="{{ config('constants.SITE_LINK') }}"><img src="{{asset('/img/logo_utn_web.png')}}" alt="utn_web_logo" class="img-responsive" /></a><br>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('components.sidebar')
         </div>
     </div>
 @endsection

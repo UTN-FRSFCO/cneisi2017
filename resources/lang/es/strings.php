@@ -52,6 +52,8 @@ return [
 
     'about'             => 'Acerca del congreso',
     'presentations'     => 'Papers & Posters',
+    'follow-us'         => 'Seguinos en:',
+    'call-sponsors'     => 'Llamado a sponsors',
 
     'signature_footer'  => '© 2017 - UTN Facultad Regional San Francisco',
 

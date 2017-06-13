@@ -68,7 +68,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-8">
-                                    <a href="{{ route('user.panel') }}" class="btn btn-outline-clr btn-sm">{{ trans('buttons.back-profile') }}</a>
+                                    <a href="{{ route('user.panel') }}" class="btn btn-outline-clr btn-sm">{{ trans('buttons.back-profile') }} <span class="fa fa-chevron-right"></a>
                                 </div>
                             </div>
                         </form>

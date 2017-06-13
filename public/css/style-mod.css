@@ -140,3 +140,9 @@
     display: inline;
 }
 
+.ico-sidebar {
+    margin: auto;
+    height: 60px;
+    width: 60px;
+}
+
