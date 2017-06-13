@@ -1,78 +1,85 @@
 <?php
 
 Route::get('/',
-    ['as' => 'home', 'uses' => 'HomeController@index'])->middleware('profile');
+    ['as' => 'home', 'uses' => 'HomeController@index']
+)->middleware('profile');
 
-Route::get('/about',
+Route::get('/acerca-de',
     ['as' => 'about', 'uses' => function () {
-        return view('about');
-    }]
+            return view('about');
+        }
+    ]
 );
 
-Route::get('/presentations',
+Route::get('/presentaciones',
     ['as' => 'presentations', 'uses' => function () {
-        return view('papers-posters');
-    }]
+            return view('papers-posters');
+        }
+    ]
 );
 
-Route::get('/user/login',
-    ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
+Route::get('/usuario/login',
+    ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']
+);
 
-Route::post('/user/login',
-    ['as' => 'login', 'uses' => 'Auth\LoginController@login']);
+Route::post('/usuario/login',
+    ['as' => 'login', 'uses' => 'Auth\LoginController@login']
+);
 
-Route::post('/user/logout',
-    ['as' => 'logout', 'uses' => 'Auth\LoginController@logout'
-]);
+Route::post('/usuario/logout',
+    ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']
+);
 
-Route::post('/user/register',
+Route::post('/usuario/register',
     ['as' => 'register', 'uses' => 'Auth\RegisterController@register']
 );
 
 // Password Reset Routes...
-Route::post('password/email',
+Route::post('contraseña/email',
     ['as' => 'password.email', 'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail']
 );
 
-Route::get('/password/reset',
-    ['as' => 'forgot.password', 'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm']);
+Route::get('/contraseña/reestableceer',
+    ['as' => 'forgot.password', 'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm']
+);
 
-Route::post('password/reset',
+Route::post('contraseña/reestablecer',
     ['as' => 'reset.password', 'uses' => 'Auth\ResetPasswordController@reset']
 );
 
-Route::get('password/email/{token?}',
+Route::get('contraseña/email/{token?}',
     ['as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@showResetForm']
 );
 
 //Auth routes
 Route::group(['middleware' => 'auth'], function () {
     Route::get(
-        '/user/profile/',
+        '/usuario/perfil/',
         ['as' => 'profile.update.form', 'uses' => 'UserProfileController@edit']
     );
 
     Route::get(
-        '/user/panel/',
+        '/usuario/panel/',
         ['as' => 'user.panel', 'uses' => 'UserPanelController@show']
-    );
+    )->middleware('profile');
 
     Route::put(
-        '/user/profile/{profile}',
+        '/usuario/perfil/{profile}',
         ['as' => 'profile.update', 'uses' => 'UserProfileController@update']
     );
 
-    Route::get('/user/welcome-message',
+    Route::get('/usuario/mensaje-bienvenida',
         ['as' => 'user.welcome', 'uses' => function () {
-            return view('user.welcome-message');
-        }]
+                return view('user.welcome-message');
+            }
+        ]
     );
 
-    Route::get('password/change',
+    Route::get('contraseña/cambiar',
         ['as' => 'password.change', 'uses' => 'UpdatePasswordController@show']
     );
 
-    Route::post('/password/change',
+    Route::post('/contraseña/cambiar',
         ['as' => 'password.change', 'uses' => 'UpdatePasswordController@update']
     );
 });
@@ -82,9 +89,9 @@ Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('/callback/{provider}', 'SocialAuthController@callback');
 
 //Home routes
-Route::post('/confirm-assistance',
+Route::post('/confirmar-asistencia',
     ['as' => 'confirm.assistance', 'uses' => 'ConferenceUsersController@atachOrDetachAssistances']
-);
+)->middleware('profile');
 
 //Docs routes
 Route::get('/FormatPaper', function () {

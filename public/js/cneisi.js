@@ -24,7 +24,7 @@ function submitModalForm(form, action){
             $(form).find('.label-reset').css('margin-top','10px');
             $(form).find('.button-reset').remove();
         } else if(action === 'register') {
-            window.location.href = "/user/welcome-message";
+            window.location.href = "/usuario/mensaje-bienvenida";
         } else {
             window.location.reload();
         }

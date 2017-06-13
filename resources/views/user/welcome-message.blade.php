@@ -28,7 +28,7 @@
 
     window.setTimeout(function(){
 
-        window.location.href = "/user/profile";
+        window.location.href = "/usuario/perfil";
 
     }, 8000);
 
