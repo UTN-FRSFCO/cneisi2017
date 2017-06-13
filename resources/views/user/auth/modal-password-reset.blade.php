@@ -4,7 +4,7 @@
 
         <h5 class="align-center"><span class="highlight">{{ trans('strings.reset_password_email_title') }}</span></h5>
 
-        <form id="passwordResetForm" class="align-center" role="form" method="POST" action="{{ url('/password/email') }}">
+        <form id="passwordResetForm" class="align-center" role="form" method="POST" action="{{ route('password.email') }}">
             {{ csrf_field() }}
 
             <fieldset class="col-sm-12 fieldset-reset">

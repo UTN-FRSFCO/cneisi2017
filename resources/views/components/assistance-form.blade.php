@@ -1,6 +1,6 @@
 @if(!Auth::guest() && ($conference->getSpeaker()['name'] != ""))
 
-    <form id="assistanceForm" method="POST" role="form" action="/confirm-assistance">
+    <form id="assistanceForm" method="POST" role="form" action="{{ route('confirm.assistance') }}">
         {{ csrf_field() }}
         <input type="hidden" name="conference_id" value="{{ $conference->getId() }}">
         @if(($conferenceIdAssistances != []) && (in_array($conference->getId(), $conferenceIdAssistances)))

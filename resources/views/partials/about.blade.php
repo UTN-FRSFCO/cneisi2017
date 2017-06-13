@@ -1,7 +1,7 @@
 <section id="about" class="section align-center">
     <div class="container">
         <span class="icon section-icon icon-multimedia-12"></span>
-        <h5>Bienvenidos al <br><h5><span class="highlight">Congreso Nacional de Estudiantes de Ingeniería en Sistemas de Información 2017</span></h5></h4>
+        <h5>Bienvenidos al <br><span class="highlight">Congreso Nacional de Estudiantes de Ingeniería en Sistemas de Información 2017</span></h5>
         <p class="text-alt"><span class="highlight"></span></p>
         <br />
         <br />
@@ -36,6 +36,7 @@
                             <h6>Acerca del evento</h6>
                             <p>La facultad regional San Francisco de la <strong>UTN</strong> presenta el undécimo congreso nacional de Ingeniería en Sistemas, cuya realización busca reunir a todas las delegaciones de las distintas facultades regionales y público en general para poder otorgar un espacio de capacitación, reunión, comunión, difusión a través de las diferentes disertaciones realizadas parte de profesionales, graduados y estudiantes vinculados tecnologías de información y sistemas informáticos; y también propiciar un espacio para la presentación y difusión de trabajos realizados en las diferentes regionales sobre investigación científica, desarrollo y/o aplicaciónes innovadoras relacionadas con el rubro.</p>
                             <p>El evento se llevará a cabo el 31 de agosto, 1 y 2 de septiembre en las instalaciones de la facultad. Nuestro objetivo es poder lograr y favorecer el intercambio académico y cultural que año a año nos permite acercarnos y compartir entre todos esta fructífera experiencia.</p>
+                            <a href="{{ route('about') }}" class="btn btn-outline-clr btn-sm">{{ trans('buttons.see-more') }}</a>
                             @include('components.share', ['url' => env('APP_URL') . '#' . 'about' ])
                         </div>
                     </div>

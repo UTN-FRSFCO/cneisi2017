@@ -50,6 +50,9 @@ return [
     'error'             => 'Error',
     'login-with'        => 'Ingresar con',
 
+    'about'             => 'Acerca del congreso',
+    'presentations'     => 'Papers & Posters',
+
     'signature_footer'  => '© 2017 - UTN Facultad Regional San Francisco',
 
 

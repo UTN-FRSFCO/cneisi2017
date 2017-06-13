@@ -12,5 +12,6 @@ return [
     'confirm'                   => 'Confirmar',
     'change-password'           => 'Cambiar contraseña',
     'back-profile'              => 'Ir al perfil',
+    'see-more'                  => 'Ver más',
 
 ];

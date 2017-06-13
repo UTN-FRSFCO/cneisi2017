@@ -9,7 +9,7 @@
                     <li class="socials-nav-item"><a href="{{ config('constants.FACEBOOK_LINK') }}"><span class="fa fa-facebook"></span></a></li>
                 </ul>
 
-                <p class="text-alt"><small>{{ trans('strings.signature_footer') }} </small></p>
+                <a href="{{ config('constants.SITE_LINK') }}"><p class="text-alt"><small>{{ trans('strings.signature_footer') }} </small></p></a>
             </div>
 
         </div>

@@ -57,7 +57,7 @@
 
                             </div>
                             <div class="col-xs-6 align-center" style="margin-top: 30px;">
-                                <a href="/user/profile" class="btn btn-outline-clr btn-sm">Editar</a>
+                                <a href="{{ route('profile.update.form') }}" class="btn btn-outline-clr btn-sm">Editar</a>
                             </div>
                             <div class="col-xs-3 align-center">
 

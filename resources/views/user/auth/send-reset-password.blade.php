@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
                     <div class="panel-body">
-                        <form class="align-center" role="form" method="POST" action="{{ url('/password/email') }}">
+                        <form class="align-center" role="form" method="POST" action="{{ route('password.email') }}">
                             {{ csrf_field() }}
 
                             <fieldset class="col-sm-12">

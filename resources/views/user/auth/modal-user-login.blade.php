@@ -4,7 +4,7 @@
 
         <h5 class="align-center"><span class="highlight">{{ trans('strings.login_title') }}</span></h5>
 
-        <form id="loginForm" class="align-center" role="form" method="POST" action="/user/login">
+        <form id="loginForm" class="align-center" role="form" method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
 
             <fieldset class="col-sm-12">

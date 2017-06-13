@@ -8,7 +8,7 @@
                     <h5 class="align-center" style="margin-top: 20px;"><span class="highlight">{{ trans('strings.reset_password_title') }}</span></h5>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('reset.password') }}">
                             {{ csrf_field() }}
 
                             <input type="hidden" name="token" value="{{ $token }}">

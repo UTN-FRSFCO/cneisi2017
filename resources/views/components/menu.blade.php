@@ -2,7 +2,7 @@
     <div class="header-wrapper">
         <div class="container">
             <div class="col-sm-2 col-xs-12 navigation-header">
-                <a href="/" class="logo">
+                <a href="{{ route('home') }}" class="logo">
                     <img src="{{asset('/img/cneisi_logo.png')}}" alt="Cneisi" width="179" height="23" class="retina-hide">
                     <img src="{{asset('/img/ventcamp_logo@2x.png')}}" alt="VentCamp" width="119" height="17" class="retina-show">
                 </a>
@@ -16,8 +16,10 @@
             <div class="col-sm-10 col-xs-12 navigation-container">
                 <div id="navigation" class="navbar-collapse collapse">
                     <ul class="navigation-list pull-left light-text">
+                        <li class="navigation-item"><a href="{{ route('home') }}" class="navigation-link">Inicio</a></li>
                         <li class="navigation-item"><a href="{{ route('home') }}/#schedule" class="navigation-link">Calendario</a></li>
-                        <li class="navigation-item"><a href="{{ route('home') }}/#papers" class="navigation-link">Papers & posters</a></li>
+                        <li class="navigation-item"><a href="{{ route('presentations') }}" class="navigation-link">Papers & posters</a></li>
+                        <li class="navigation-item"><a href="{{ route('about') }}" class="navigation-link">Acerca de</a></li>
                         <li class="navigation-item"><a href="{{ route('home') }}/#contacts" class="navigation-link">Contacto</a></li>
                     </ul>
                     <ul class="navigation-list pull-right light-text">
@@ -40,7 +42,7 @@
                                         </div>
                                     </li>
                                     <li class="divider navbar-login-session-bg hidden-xs"></li>
-                                    <li><a href="/user/panel" class="navigation-link">Mi cuenta</a></li>
+                                    <li><a href="{{ route('user.panel') }}" class="navigation-link">Mi cuenta</a></li>
                                     <li class="divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}" class="navigation-link"
@@ -54,7 +56,7 @@
                                 </ul>
                             </li>
                         @else
-                            <a href="/user/login" class="pull-right buy-btn">Ingresar</a>
+                            <a href="{{ route('login') }}" class="pull-right buy-btn">Ingresar</a>
                         @endif
 
                     </ul>

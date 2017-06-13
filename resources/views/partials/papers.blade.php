@@ -20,7 +20,7 @@
                 <h6><span class="highlight">Consideraciones</span> de presentación</h6>
 
                 <ul class="align-left">
-                    <li><span class="fa fa-check check-icon"></span> Los trabajos aceptados serán expuestos durante el CNEISI 2017 a través de pósters. El formato de presentación de poster puede visualizarlo <a href="{{ url('FormatPoster') }}">aquí.</a></li>
+                    <li><span class="fa fa-check check-icon"></span> Los trabajos aceptados serán expuestos durante el CNEISI 2017 a través de pósters. El tamaño de posters deberá ser de 1 m. de alto y 0.70 m. de ancho. El formato de presentación de poster puede visualizarlo <a href="{{ url('FormatPoster') }}">aquí.</a></li>
                     <li><span class="fa fa-check check-icon"></span> Solo se aceptará el envío electrónico de los Papers a través del Envío Online</li>
                     <li><span class="fa fa-check check-icon"></span> El Autor o los Autores podrán presentar más de un trabajo.</li>
                     <li><span class="fa fa-check check-icon"></span> Cada trabajo debería contener un máximo de 12 páginas.</li>
@@ -34,6 +34,7 @@
         </div>
 
         <div class="col-sm-12">
+            <a href="{{ route('presentations') }}" class="btn btn-outline-clr btn-sm">{{ trans('buttons.see-more') }}</a>
             @include('components.share', ['url' => env('APP_URL') . '#' . 'papers' ])
         </div>
 

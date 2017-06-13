@@ -15,6 +15,7 @@
             <div class="col-sm-10 col-xs-12 navigation-container">
                 <div id="navigation" class="navbar-collapse collapse">
                     <ul class="navigation-list pull-left light-text">
+                        <li class="navigation-item"><a href="#about" class="navigation-link">Acerca de</a></li>
                         <li class="navigation-item"><a href="#schedule" class="navigation-link">Calendario</a></li>
                         <li class="navigation-item"><a href="#papers" class="navigation-link">Papers & posters</a></li>
                         <li class="navigation-item"><a href="#contacts" class="navigation-link">Contacto</a></li>
@@ -41,7 +42,7 @@
                                         </div>
                                     </li>
                                     <li class="hidden-xs divider navbar-login-session-bg"></li>
-                                    <li><a href="/user/panel" class="navigation-link">Mi cuenta</a></li>
+                                    <li><a href="{{ route('user.panel') }}" class="navigation-link">Mi cuenta</a></li>
                                     <li class="divider"></li>
                                     <li>
                                         <a href="{{ route('logout') }}" class="navigation-link"
@@ -49,7 +50,7 @@
                                    document.getElementById('logout-form').submit();">Salir
                                         </a>
                                     </li>
-                                    <form id="logout-form" action="/user/logout" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
                                 </ul>
