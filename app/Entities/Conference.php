@@ -129,10 +129,11 @@ class Conference extends Model
 
     /**
      * The users that will attend to the conference.
+     *
      */
     public function users()
     {
         return $this->belongsToMany(User::class)
-            ->withTimestamps();;
+            ->withTimestamps();
     }
 }

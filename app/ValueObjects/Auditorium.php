@@ -16,7 +16,7 @@ class Auditorium
     {
         if (!in_array(strtolower($name), static::ALL_NAMES)) {
             throw new InvalidArgumentException("Invalid auditorium name: {$name}");
-        } else{
+        } else {
             $this->name = $name;
         }
     }

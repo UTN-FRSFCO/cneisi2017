@@ -21,7 +21,6 @@ class UpdatePasswordController extends Controller
         $hashedPassword = $user->password;
 
         if (Hash::check($request->currentPassword, $hashedPassword)) {
-
             $user->fill([
                 'password' => Hash::make($request->password)
             ])->save();

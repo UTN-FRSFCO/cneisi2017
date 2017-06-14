@@ -59,7 +59,8 @@ class UserPanelController extends Controller
             ->with('conferencesAssistances', $conferencesAssistances);
     }
 
-    private function getConferencesAssistances() {
+    private function getConferencesAssistances()
+    {
         $user_id = Auth::user()->id;
         $conferences = [];
 
@@ -73,9 +74,10 @@ class UserPanelController extends Controller
         return $conferences;
     }
 
-    private function deleteOldConferences($conferences) {
+    private function deleteOldConferences($conferences)
+    {
         foreach ($conferences as $key => $conference) {
-            if($conference['date'] < Carbon::now() ) {
+            if ($conference['date'] < Carbon::now()) {
                 unset($conferences[$key]);
             }
         }
@@ -86,24 +88,23 @@ class UserPanelController extends Controller
      * Receives an array of conferences
      * Changes date from (Y-m-d h:m:s) to (day h:m)
      */
-    private function changeDatesFormat($conferences) {
+    private function changeDatesFormat($conferences)
+    {
         foreach ($conferences as $key => $conference) {
-
-            $dateInNumbers = substr($conference['date'],0,10);
-            $dateTimeInNumbers = substr($conference['date'],0,16);
+            $dateInNumbers = substr($conference['date'], 0, 10);
+            $dateTimeInNumbers = substr($conference['date'], 0, 16);
 
             switch ($dateInNumbers) {
                 case '2017-08-31':
-                    $conference['date'] = str_replace($dateInNumbers,"Jueves", $dateTimeInNumbers);
+                    $conference['date'] = str_replace($dateInNumbers, "Jueves", $dateTimeInNumbers);
                     break;
                 case '2017-09-01':
-                    $conference['date'] = str_replace($dateInNumbers,"Viernes", $dateTimeInNumbers);
+                    $conference['date'] = str_replace($dateInNumbers, "Viernes", $dateTimeInNumbers);
                     break;
                 case '2017-09-02':
-                    $conference['date'] = str_replace($dateInNumbers,"Sábado", $dateTimeInNumbers);
+                    $conference['date'] = str_replace($dateInNumbers, "Sábado", $dateTimeInNumbers);
                     break;
             }
-
         }
         return $conferences;
     }

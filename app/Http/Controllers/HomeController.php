@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\DB;
 use App\Entities\Speaker;
 use phpDocumentor\Reflection\Types\Self_;
 
-
 class HomeController extends Controller
 {
     /**
@@ -55,8 +54,8 @@ class HomeController extends Controller
             ->with('conferenceIdAssistances', $assistancesConferences);
     }
 
-    private function loadConferences() {
-
+    private function loadConferences()
+    {
         $conferences = [];
 
         $day_one_auditorium_1 = Conference::
@@ -145,14 +144,13 @@ class HomeController extends Controller
         return $conferences;
     }
 
-    public function loadSpeakersFromJson() {
-
+    public function loadSpeakersFromJson()
+    {
         $path = storage_path() . "/json/speakers.json";
 
         $speakers = json_decode(file_get_contents($path), true);
 
         foreach ($speakers['speakers'] as $speaker) {
-
             $record = Speaker::where('slug', '=', $speaker['slug'])->first();
 
             if ($record === null) {
@@ -174,14 +172,13 @@ class HomeController extends Controller
         }
     }
 
-    public function loadConferencesFromJson() {
-
+    public function loadConferencesFromJson()
+    {
         $path = storage_path() . "/json/conferences.json";
 
         $conferences = json_decode(file_get_contents($path), true);
 
         foreach ($conferences['conferences'] as $conference) {
-
             $record = Conference::where('slug', '=', $conference['slug'])->first();
 
             if ($record === null) {
@@ -199,5 +196,4 @@ class HomeController extends Controller
             }
         }
     }
-
 }

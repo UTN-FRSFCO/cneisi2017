@@ -60,11 +60,11 @@ class User extends Authenticatable
 
     /**
      * The conferences that the user will attend.
+     *
      */
     public function conferences()
     {
         return $this->belongsToMany(Conference::class)
-            ->withTimestamps();;
+            ->withTimestamps();
     }
-
 }

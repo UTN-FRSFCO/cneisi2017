@@ -18,7 +18,6 @@ class ConferenceUsersController extends Controller
     public function atachOrDetachAssistances(Request $request)
     {
         if (Auth::check()) {
-
             $conference_id = $request->conference_id;
 
             $conference = Conference::find($conference_id);
@@ -31,7 +30,6 @@ class ConferenceUsersController extends Controller
                     ->count() > 0;
 
             if ($assistance_exists) {
-
                 $conference->users()->detach($user_id);
             } else {
                 $conference->users()->attach($user_id);

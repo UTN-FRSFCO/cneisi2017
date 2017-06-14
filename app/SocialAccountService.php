@@ -22,7 +22,6 @@ class SocialAccountService
         if ($account) {
             return $account->user;
         } else {
-
             $account = new SocialAccount([
                 'provider_user_id' => $providerUser->getId(),
                 'provider' => $providerName
@@ -31,7 +30,6 @@ class SocialAccountService
             $user = User::whereEmail($providerUser->getEmail())->first();
 
             if (!$user) {
-
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
                     'name' => $this->getName($providerUser),
@@ -46,19 +44,17 @@ class SocialAccountService
             $account->save();
 
             return $user;
-
         }
-
     }
 
     public function getName(ProviderUser $providerUser)
     {
         $fullName = $providerUser->getName();
-        $arr = explode(' ',trim($fullName));
+        $arr = explode(' ', trim($fullName));
         return $arr[0];
     }
 
-    public function  getLastname(ProviderUser $providerUser)
+    public function getLastname(ProviderUser $providerUser)
     {
         $fullName = $providerUser->getName();
         $pieces = explode(' ', $fullName);
