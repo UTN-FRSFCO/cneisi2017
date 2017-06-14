@@ -79,18 +79,50 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default" style="margin-bottom: 50px;">
 
-                    <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Papers</span></h5>
-                    <div class="panel-body">
+                <div class="col-md-4">
+                    <div class="panel panel-default" style="margin-bottom: 50px;">
+
+                        <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Próximos eventos</span></h5>
                         <div class="panel-body">
-                            <p>No hay información sobre papers todavía.</p>
-
+                            <div class="panel-body">
+                                @if(count($conferences) != 0)
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Titulo</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($conferences as $conference)
+                                            <tr>
+                                                <td class="align-center">{{ $conference->getDate() }}</td>
+                                                <td>{{ $conference->getTitle() }}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                @else
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Titulo</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="align-center"></td>
+                                                <td>No hay eventos cargados</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @if(count($conferencesAssistances) != 0)
                 <div class="col-md-8">
                     <div class="panel panel-default" style="margin-bottom: 50px;">
@@ -123,38 +155,6 @@
                     </div>
                 </div>
             @endif
-
-            @if(count($conferences) != 0)
-                <div class="col-md-4">
-                    <div class="panel panel-default" style="margin-bottom: 50px;">
-
-                        <h5 class="align-center" style="margin-top: 25px;"><span class="highlight">Próximos eventos</span></h5>
-                        <div class="panel-body">
-                            <div class="panel-body">
-
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Fecha</th>
-                                        <th>Titulo</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($conferences as $conference)
-                                        <tr>
-                                            <td class="align-center">{{ $conference->getDate() }}</td>
-                                            <td>{{ $conference->getTitle() }}</td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
-
         </div>
     </div>
 @endsection

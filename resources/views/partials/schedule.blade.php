@@ -1,7 +1,7 @@
 <section id="schedule" class="section schedule-section align-center">
     <div class="container">
         <span class="icon section-icon icon-office-21"></span>
-        <h3>Eventos del congreso</h3>
+        <h3 class="highlight">Eventos del congreso</h3>
         <h6>Próximamente estaremos detallando el cronograma de actividades previsto para el evento</h6>
         <br />
 
@@ -38,35 +38,52 @@
 
                             <!-- Accordion start -->
                             <div class="panel-group" id="day1_auditorium1_timeline">
-
-                            @foreach ($conferences['day1_auditorium1'] as $key =>$conference)
-
+                            @if(count($conferences['day1_auditorium1']) == 0)
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            
-                                            @if($conference->getSpeaker()['picture'] === null)
-                                                <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
-                                            @else
-                                                <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
-                                            @endif
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day1_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
-                                            <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
-                                            <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                        <a data-toggle="collapse" data-parent="#day1_auditorium1_timeline" href="#day1_auditorium1_time1" class="schedule-item-toggle">
+                                            <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() . '-day1_auditorium1' }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="day1_auditorium1" class="panel-collapse collapse in schedule-item-body">
                                             <article>
-                                                <p class="description">{{ $conference->getDescription() }}</p>
-                                                <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
-                                                @include('components.assistance-form')
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium1' ])
+                                                <p class="description">No hay eventos cargados por el momento.</p>
                                             </article>
                                         </div>
                                     </div>
+                                <!-- Lecture end -->
+                            @else
+                                @foreach ($conferences['day1_auditorium1'] as $key =>$conference)
+
+                                    <!-- Lecture start -->
+                                        <div class="panel schedule-item">
+                                            <div class="lecture-icon-wrapper">
+
+                                                @if($conference->getSpeaker()['picture'] === null)
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                @else
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                @endif
+                                            </div>
+                                            <a data-toggle="collapse" data-parent="#day1_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                                <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
+                                                <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                            </a>
+                                            <div id="{{ $conference->getSlug() . '-day1_auditorium1' }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                                <article>
+                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @include('components.assistance-form')
+                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium1' ])
+                                                </article>
+                                            </div>
+                                        </div>
                                     <!-- Lecture end -->
 
-                            @endforeach
+                                @endforeach
+                            @endif
 
                             </div>
                             <!-- Accordion end -->
@@ -79,35 +96,52 @@
 
                             <!-- Accordion start -->
                             <div class="panel-group" id="day1_auditorium2_timeline">
-
-                            @foreach ($conferences['day1_auditorium2'] as $key =>$conference)
-
+                            @if(count($conferences['day1_auditorium2']) == 0)
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            
-                                            @if($conference->getSpeaker()['picture'] === null)
-                                                <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
-                                            @else
-                                                <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
-                                            @endif
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day1_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
-                                            <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
-                                            <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                        <a data-toggle="collapse" data-parent="#day1_auditorium2_timeline" href="#day1_auditorium2_time1" class="schedule-item-toggle">
+                                            <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() . '-day1_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="day1_auditorium2" class="panel-collapse collapse in schedule-item-body">
                                             <article>
-                                                <p class="description">{{ $conference->getDescription() }}</p>
-                                                <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
-                                                @include('components.assistance-form')
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium2'])
+                                                <p class="description">No hay eventos cargados por el momento.</p>
                                             </article>
                                         </div>
                                     </div>
+                                <!-- Lecture end -->
+                            @else
+                                @foreach ($conferences['day1_auditorium2'] as $key =>$conference)
+
+                                    <!-- Lecture start -->
+                                        <div class="panel schedule-item">
+                                            <div class="lecture-icon-wrapper">
+
+                                                @if($conference->getSpeaker()['picture'] === null)
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                @else
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                @endif
+                                            </div>
+                                            <a data-toggle="collapse" data-parent="#day1_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                                <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
+                                                <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                            </a>
+                                            <div id="{{ $conference->getSlug() . '-day1_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                                <article>
+                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @include('components.assistance-form')
+                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium2'])
+                                                </article>
+                                            </div>
+                                        </div>
                                     <!-- Lecture end -->
 
-                            @endforeach
+                                @endforeach
+                            @endif
 
                             </div>
                             <!-- Accordion end -->
@@ -120,36 +154,52 @@
 
                             <!-- Accordion start -->
                             <div class="panel-group" id="day1_auditorium3_timeline">
-
-                            @foreach ($conferences['day1_auditorium3'] as $key =>$conference)
-
+                            @if(count($conferences['day1_auditorium3']) == 0)
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            
-                                            @if($conference->getSpeaker()['picture'] === null)
-                                                <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
-                                            @else
-                                                <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
-                                            @endif
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day1_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium3'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
-                                            <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
-                                            <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                        <a data-toggle="collapse" data-parent="#day1_auditorium3_timeline" href="#day1_auditorium3_time1" class="schedule-item-toggle">
+                                            <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() . '-day1_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="day1_auditorium3" class="panel-collapse collapse in schedule-item-body">
                                             <article>
-                                                <p class="description">{{ $conference->getDescription() }}</p>
-                                                <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
-                                                @include('components.assistance-form')
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium3'])
+                                                <p class="description">No hay eventos cargados por el momento.</p>
                                             </article>
                                         </div>
                                     </div>
+                                <!-- Lecture end -->
+                            @else
+                                @foreach ($conferences['day1_auditorium3'] as $key =>$conference)
+
+                                    <!-- Lecture start -->
+                                        <div class="panel schedule-item">
+                                            <div class="lecture-icon-wrapper">
+
+                                                @if($conference->getSpeaker()['picture'] === null)
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                @else
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                @endif
+                                            </div>
+                                            <a data-toggle="collapse" data-parent="#day1_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium3'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                                <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
+                                                <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                            </a>
+                                            <div id="{{ $conference->getSlug() . '-day1_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                                <article>
+                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @include('components.assistance-form')
+                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium3'])
+                                                </article>
+                                            </div>
+                                        </div>
                                     <!-- Lecture end -->
 
                                 @endforeach
-
+                            @endif
                             </div>
                             <!-- Accordion end -->
 
@@ -181,36 +231,52 @@
 
                             <!-- Accordion start -->
                             <div class="panel-group" id="day2_auditorium1_timeline">
-
-                            @foreach ($conferences['day2_auditorium1'] as $key =>$conference)
-
+                            @if(count($conferences['day2_auditorium1']) == 0)
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            
-                                            @if($conference->getSpeaker()['picture'] === null)
-                                                <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
-                                            @else
-                                                <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
-                                            @endif
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day2_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
-                                            <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
-                                            <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                        <a data-toggle="collapse" data-parent="#day2_auditorium1_timeline" href="#day2_auditorium1_time1" class="schedule-item-toggle">
+                                            <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() . '-day2_auditorium1'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="day2_auditorium1" class="panel-collapse collapse in schedule-item-body">
                                             <article>
-                                                <p class="description">{{ $conference->getDescription() }}</p>
-                                                <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
-                                                @include('components.assistance-form')
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium1'])
+                                                <p class="description">No hay eventos cargados por el momento.</p>
                                             </article>
                                         </div>
                                     </div>
                                     <!-- Lecture end -->
+                            @else
+                                @foreach ($conferences['day2_auditorium1'] as $key =>$conference)
+
+                                    <!-- Lecture start -->
+                                        <div class="panel schedule-item">
+                                            <div class="lecture-icon-wrapper">
+
+                                                @if($conference->getSpeaker()['picture'] === null)
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                @else
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                @endif
+                                            </div>
+                                            <a data-toggle="collapse" data-parent="#day2_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                                <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
+                                                <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                            </a>
+                                            <div id="{{ $conference->getSlug() . '-day2_auditorium1'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                                <article>
+                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @include('components.assistance-form')
+                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium1'])
+                                                </article>
+                                            </div>
+                                        </div>
+                                    <!-- Lecture end -->
 
                                 @endforeach
-
+                            @endif
                             </div>
                             <!-- Accordion end -->
 
@@ -222,36 +288,52 @@
 
                             <!-- Accordion start -->
                             <div class="panel-group" id="day2_auditorium2_timeline">
-
-                            @foreach ($conferences['day2_auditorium2'] as $key =>$conference)
-
+                            @if(count($conferences['day2_auditorium2']) == 0)
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            
-                                            @if($conference->getSpeaker()['picture'] === null)
-                                                <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
-                                            @else
-                                                <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
-                                            @endif
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day2_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
-                                            <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
-                                            <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                        <a data-toggle="collapse" data-parent="#day2_auditorium2_timeline" href="#day2_auditorium2_time1" class="schedule-item-toggle">
+                                            <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() . '-day2_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="day2_auditorium2" class="panel-collapse collapse in schedule-item-body">
                                             <article>
-                                                <p class="description">{{ $conference->getDescription() }}</p>
-                                                <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
-                                                @include('components.assistance-form')
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium2'])
+                                                <p class="description">No hay eventos cargados por el momento.</p>
                                             </article>
                                         </div>
                                     </div>
+                                <!-- Lecture end -->
+                            @else
+                                @foreach ($conferences['day2_auditorium2'] as $key =>$conference)
+
+                                    <!-- Lecture start -->
+                                        <div class="panel schedule-item">
+                                            <div class="lecture-icon-wrapper">
+
+                                                @if($conference->getSpeaker()['picture'] === null)
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                @else
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                @endif
+                                            </div>
+                                            <a data-toggle="collapse" data-parent="#day2_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                                <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
+                                                <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                            </a>
+                                            <div id="{{ $conference->getSlug() . '-day2_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                                <article>
+                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @include('components.assistance-form')
+                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium2'])
+                                                </article>
+                                            </div>
+                                        </div>
                                     <!-- Lecture end -->
 
                                 @endforeach
-
+                            @endif
                             </div>
                             <!-- Accordion end -->
 
@@ -263,36 +345,52 @@
 
                             <!-- Accordion start -->
                             <div class="panel-group" id="day2_auditorium3_timeline">
-
-                            @foreach ($conferences['day2_auditorium3'] as $key =>$conference)
-
+                            @if(count($conferences['day2_auditorium3']) == 0)
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            
-                                            @if($conference->getSpeaker()['picture'] === null)
-                                                <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
-                                            @else
-                                                <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
-                                            @endif
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day2_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium3' }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
-                                            <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
-                                            <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                        <a data-toggle="collapse" data-parent="#day2_auditorium3_timeline" href="#day2_auditorium3_time1" class="schedule-item-toggle">
+                                            <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() . '-day2_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="day2_auditorium3" class="panel-collapse collapse in schedule-item-body">
                                             <article>
-                                                <p class="description">{{ $conference->getDescription() }}</p>
-                                                <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
-                                                @include('components.assistance-form')
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium3'])
+                                                <p class="description">No hay eventos cargados por el momento.</p>
                                             </article>
                                         </div>
                                     </div>
+                                <!-- Lecture end -->
+                            @else
+                                @foreach ($conferences['day2_auditorium3'] as $key =>$conference)
+
+                                    <!-- Lecture start -->
+                                        <div class="panel schedule-item">
+                                            <div class="lecture-icon-wrapper">
+
+                                                @if($conference->getSpeaker()['picture'] === null)
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                @else
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                @endif
+                                            </div>
+                                            <a data-toggle="collapse" data-parent="#day2_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium3' }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                                <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
+                                                <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                            </a>
+                                            <div id="{{ $conference->getSlug() . '-day2_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                                <article>
+                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @include('components.assistance-form')
+                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium3'])
+                                                </article>
+                                            </div>
+                                        </div>
                                     <!-- Lecture end -->
 
                                 @endforeach
-
+                            @endif
                             </div>
                             <!-- Accordion end -->
 
@@ -324,35 +422,52 @@
 
                             <!-- Accordion start -->
                             <div class="panel-group" id="day3_auditorium1_timeline">
-
-                            @foreach ($conferences['day3_auditorium1'] as $key =>$conference)
-
+                            @if(count($conferences['day3_auditorium1']) == 0)
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            
-                                            @if($conference->getSpeaker()['picture'] === null)
-                                                <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
-                                            @else
-                                                <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
-                                            @endif
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day3_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day3_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
-                                            <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
-                                            <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                        <a data-toggle="collapse" data-parent="#day3_auditorium1_timeline" href="#day3_auditorium1_time1" class="schedule-item-toggle">
+                                            <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() . '-day3_auditorium1'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="day3_auditorium1" class="panel-collapse collapse in schedule-item-body">
                                             <article>
-                                                <p class="description">{{ $conference->getDescription() }}</p>
-                                                <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
-                                                @include('components.assistance-form')
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium1'])
+                                                <p class="description">No hay eventos cargados por el momento.</p>
                                             </article>
                                         </div>
                                     </div>
                                     <!-- Lecture end -->
+                            @else
+                                @foreach ($conferences['day3_auditorium1'] as $key =>$conference)
+
+                                    <!-- Lecture start -->
+                                        <div class="panel schedule-item">
+                                            <div class="lecture-icon-wrapper">
+
+                                                @if($conference->getSpeaker()['picture'] === null)
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                @else
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                @endif
+                                            </div>
+                                            <a data-toggle="collapse" data-parent="#day3_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day3_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                                <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
+                                                <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                            </a>
+                                            <div id="{{ $conference->getSlug() . '-day3_auditorium1'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                                <article>
+                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @include('components.assistance-form')
+                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium1'])
+                                                </article>
+                                            </div>
+                                        </div>
+                                    <!-- Lecture end -->
 
                                 @endforeach
+                            @endif
                             </div>
                             <!-- Accordion end -->
 
@@ -364,36 +479,52 @@
 
                             <!-- Accordion start -->
                             <div class="panel-group" id="day3_auditorium2_timeline">
-
-                            @foreach ($conferences['day3_auditorium2'] as $key =>$conference)
-
+                            @if(count($conferences['day3_auditorium2']) == 0)
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            
-                                            @if($conference->getSpeaker()['picture'] === null)
-                                                <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
-                                            @else
-                                                <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
-                                            @endif
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day3_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day3_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
-                                            <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
-                                            <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                        <a data-toggle="collapse" data-parent="#day3_auditorium2_timeline" href="#day3_auditorium2_time1" class="schedule-item-toggle">
+                                            <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() . '-day3_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="day3_auditorium2" class="panel-collapse collapse in schedule-item-body">
                                             <article>
-                                                <p class="description">{{ $conference->getDescription() }}</p>
-                                                <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
-                                                @include('components.assistance-form')
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium2'])
+                                                <p class="description">No hay eventos cargados por el momento.</p>
                                             </article>
                                         </div>
                                     </div>
+                                <!-- Lecture end -->
+                            @else
+                                @foreach ($conferences['day3_auditorium2'] as $key =>$conference)
+
+                                    <!-- Lecture start -->
+                                        <div class="panel schedule-item">
+                                            <div class="lecture-icon-wrapper">
+
+                                                @if($conference->getSpeaker()['picture'] === null)
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                @else
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                @endif
+                                            </div>
+                                            <a data-toggle="collapse" data-parent="#day3_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day3_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                                <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
+                                                <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                            </a>
+                                            <div id="{{ $conference->getSlug() . '-day3_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                                <article>
+                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @include('components.assistance-form')
+                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium2'])
+                                                </article>
+                                            </div>
+                                        </div>
                                     <!-- Lecture end -->
 
                                 @endforeach
-
+                            @endif
                             </div>
                             <!-- Accordion end -->
 
@@ -405,36 +536,52 @@
 
                             <!-- Accordion start -->
                             <div class="panel-group" id="day3_auditorium3_timeline">
-
-                            @foreach ($conferences['day3_auditorium3'] as $key =>$conference)
-
+                            @if(count($conferences['day3_auditorium3']) == 0)
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            
-                                            @if($conference->getSpeaker()['picture'] === null)
-                                                <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
-                                            @else
-                                                <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
-                                            @endif
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
                                         </div>
-                                        <a data-toggle="collapse" data-parent="#day3_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day3_auditorium3'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
-                                            <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
-                                            <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                        <a data-toggle="collapse" data-parent="#day3_auditorium3_timeline" href="#day3_auditorium3_time1" class="schedule-item-toggle">
+                                            <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
                                         </a>
-                                        <div id="{{ $conference->getSlug() . '-day3_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                        <div id="day3_auditorium3" class="panel-collapse collapse in schedule-item-body">
                                             <article>
-                                                <p class="description">{{ $conference->getDescription() }}</p>
-                                                <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
-                                                @include('components.assistance-form')
-                                                @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium3'])
+                                                <p class="description">No hay eventos cargados por el momento.</p>
                                             </article>
                                         </div>
                                     </div>
+                                <!-- Lecture end -->
+                            @else
+                                @foreach ($conferences['day3_auditorium3'] as $key =>$conference)
+
+                                    <!-- Lecture start -->
+                                        <div class="panel schedule-item">
+                                            <div class="lecture-icon-wrapper">
+
+                                                @if($conference->getSpeaker()['picture'] === null)
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                @else
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                @endif
+                                            </div>
+                                            <a data-toggle="collapse" data-parent="#day3_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day3_auditorium3'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
+                                                <strong class="time highlight"><span class="icon icon-office-24"></span>{{ $conference->getTime() }}</strong>
+                                                <h6 class="title">{{ $conference->getTitle() }}<i class="icon icon-arrows-06"></i></h6>
+                                            </a>
+                                            <div id="{{ $conference->getSlug() . '-day3_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
+                                                <article>
+                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @include('components.assistance-form')
+                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium3'])
+                                                </article>
+                                            </div>
+                                        </div>
                                     <!-- Lecture end -->
 
                                 @endforeach
-
+                            @endif
                             </div>
                             <!-- Accordion end -->
 

@@ -11,7 +11,7 @@
                 <div class="form-group" id="form-group-reset-password-email")>
 
                     <label for="email" class="label-reset">{{ trans('strings.email') }}</label>
-                    <input id="email" name="email" class="form-control email-reset" type="email" value="{{ old('email') }}" required autofocus>
+                    <input id="email" name="email" class="form-control email-reset" type="email" value="{{ old('email') }}" required>
                     <span class="help-block" style="color: orangered"></span>
 
                 </div>

@@ -11,7 +11,7 @@
                 <div class="form-group" id="form-group-register-name")>
 
                     <label for="name">{{ trans('strings.name') }}</label>
-                    <input id="name" name="name" type="text" class="form-control" value="" required autofocus>
+                    <input id="name" name="name" type="text" class="form-control" value="" required>
                     <span class="help-block" style="color: orangered"></span>
 
                 </div>

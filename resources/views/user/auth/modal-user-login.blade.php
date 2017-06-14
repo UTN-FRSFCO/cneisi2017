@@ -11,7 +11,7 @@
                 <div class="form-group" id="form-group-login-email")>
 
                     <label for="email">{{ trans('strings.email' ) }}</label>
-                    <input id="email" name="email" class="form-control" type="email" value="{{ old('email') }}" required autofocus>
+                    <input id="email" name="email" class="form-control" type="email" value="{{ old('email') }}" required>
                     <span class="help-block" style="color: orangered"></span>
 
                 </div>
