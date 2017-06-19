@@ -7,7 +7,7 @@ Repo creado para llevar adelante el sitio del undécimo Congreso Nacional de Est
 
 ## Descripción técnica
 
-El sitio se desarrollará bajo Laravel 5.4, con PHP 7.x. 
+El sitio se desarrollará con el framework Laravel v5.4
 
 ## Features
 

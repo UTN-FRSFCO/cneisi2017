@@ -4,7 +4,7 @@
 
         <div class="container contacts-on-map-container">
             <div class="contacts-on-map">
-                <h3>Location</h3>
+                <h3>Ubicación</h3>
 
                 <ul class="list">
                     <li><i class="fa fa-map-marker"></i> Av. de la Universidad 501 San Francisco, CBA</li>

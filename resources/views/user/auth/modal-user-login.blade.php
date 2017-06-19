@@ -41,7 +41,7 @@
 
             <fieldset class="col-sm-12 align-center">
 
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" style="display: inline-block !important;">
                     {{ trans('strings.login_button') }}
                 </button>
 

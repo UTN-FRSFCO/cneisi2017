@@ -59,8 +59,8 @@
                             </div>
 
                             <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
+                                <div class="col-md-6 col-md-offset-4 align-center">
+                                    <button type="submit" class="btn btn-primary" style="display: inline-block !important;">
                                         {{ trans('buttons.change-password') }}
                                     </button>
                                 </div>

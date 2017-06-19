@@ -4,6 +4,7 @@
             <div class="col-sm-2 col-xs-12 navigation-header">
                 <a href="#" class="logo">
                     <img src="{{asset('/img/cneisi_logo.png')}}" alt="Cneisi" width="179" height="23" class="retina-hide">
+                    <img src="{{asset('/img/cneisi_logo.png')}}" alt="Cneisi" width="119" height="17" class="retina-show">
                 </a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-controls="navigation">
                     <span class="icon-bar"></span>

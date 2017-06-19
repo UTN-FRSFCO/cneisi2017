@@ -58,7 +58,7 @@
             </fieldset>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" style="display: inline-block !important;">
                     {{ trans('strings.register_button') }}
                 </button>
             </div>

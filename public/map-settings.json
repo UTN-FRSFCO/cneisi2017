@@ -1,6 +1,7 @@
 {
 	"mapZoom": 15,
 	"markerAddress": "Av. de la Universidad 501, 2400 San Francisco, Córdoba",
+	"markerImagePath": "/img/marker-21x32.png",
 	"offsetX": 100,
 	"offsetY": 10
 }

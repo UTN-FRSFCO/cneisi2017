@@ -15,7 +15,7 @@
     </script>
 @endif
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_API_KEY') }}&v=3&libraries=places"></script>
 <script type="text/javascript" src="{{asset('/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('/js/jquery.validate.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/localization/messages_es_AR.js')}}"> </script>
