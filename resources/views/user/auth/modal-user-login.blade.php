@@ -35,7 +35,7 @@
 
             <fieldset class="col-sm-12 align-center" style="margin: 10px;">
 
-                <a href="#" id="forgot-password" class="forgot-password-link" data-modal-link="password-reset">{{ trans('strings.forgot_password') }}</a>
+                <a href="{{ route('forgot.password') }}" id="forgot-password">{{ trans('strings.forgot_password') }}</a>
 
             </fieldset>
 
