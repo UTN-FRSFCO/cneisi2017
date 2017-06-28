@@ -7,7 +7,7 @@
 @section('robots', 'index, follow')
 
 @section('og:type', 'article')
-@section('og:url', 'http://localhost:8000/acerca-de')
+@section('og:url', 'http://cneisi.sanfrancisco.utn.edu.ar/acerca-de')
 
 @include('components.menu')
 @section('content')
@@ -36,7 +36,7 @@
                                 </article>
                             </div>
                             <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
-                                @include('components.share', ['url' => env('APP_URL') . 'about' ])
+                                @include('components.share', ['url' => env('APP_URL') . 'acerca-de' ])
                             </div>
                         </div>
                     </div>

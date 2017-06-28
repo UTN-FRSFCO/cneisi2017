@@ -7,7 +7,7 @@
 @section('robots', 'index, follow')
 
 @section('og:type', 'website')
-@section('og:url', 'http://localhost:8000/')
+@section('og:url', 'http://cneisi.sanfrancisco.utn.edu.ar/')
 
 @section('content')
     <div class="preloader-mask">

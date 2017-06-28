@@ -1,4 +1,4 @@
-<section id="schedule" class="section schedule-section align-center">
+<section id="calendario" class="section schedule-section align-center">
     <div class="container">
         <span class="icon section-icon icon-office-21"></span>
         <h3 class="highlight">Eventos del congreso</h3>

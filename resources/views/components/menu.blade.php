@@ -17,10 +17,10 @@
                 <div id="navigation" class="navbar-collapse collapse">
                     <ul class="navigation-list pull-left light-text">
                         <li class="navigation-item"><a href="{{ route('home') }}" class="navigation-link">Inicio</a></li>
-                        <li class="navigation-item"><a href="{{ route('home') }}/#schedule" class="navigation-link">Calendario</a></li>
+                        <li class="navigation-item"><a href="{{ route('home') }}/#calendario" class="navigation-link">Calendario</a></li>
                         <li class="navigation-item"><a href="{{ route('presentations') }}" class="navigation-link">Papers & posters</a></li>
                         <li class="navigation-item"><a href="{{ route('about') }}" class="navigation-link">Acerca de</a></li>
-                        <li class="navigation-item"><a href="{{ route('home') }}/#contacts" class="navigation-link">Contacto</a></li>
+                        <li class="navigation-item"><a href="{{ route('home') }}/#contacto" class="navigation-link">Contacto</a></li>
                     </ul>
                     <ul class="navigation-list pull-right light-text">
                         @if(!Auth::guest())

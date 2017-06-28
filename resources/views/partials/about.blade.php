@@ -1,4 +1,4 @@
-<section id="about" class="section align-center">
+<section id="acerca-de" class="section align-center">
     <div class="container">
         <span class="icon section-icon icon-multimedia-12"></span>
         <h5>Bienvenidos al <br><span class="highlight">Congreso Nacional de Estudiantes de Ingeniería en Sistemas de Información 2017</span></h5>
@@ -37,7 +37,7 @@
                             <p>La facultad regional San Francisco de la <strong>UTN</strong> presenta el undécimo congreso nacional de Ingeniería en Sistemas, cuya realización busca reunir a todas las delegaciones de las distintas facultades regionales y público en general para poder otorgar un espacio de capacitación, reunión, comunión, difusión a través de las diferentes disertaciones realizadas parte de profesionales, graduados y estudiantes vinculados tecnologías de información y sistemas informáticos; y también propiciar un espacio para la presentación y difusión de trabajos realizados en las diferentes regionales sobre investigación científica, desarrollo y/o aplicaciónes innovadoras relacionadas con el rubro.</p>
                             <p>El evento se llevará a cabo el 31 de agosto, 1 y 2 de septiembre en las instalaciones de la facultad. Nuestro objetivo es poder lograr y favorecer el intercambio académico y cultural que año a año nos permite acercarnos y compartir entre todos esta fructífera experiencia.</p>
                             <a href="{{ route('about') }}" class="btn btn-outline-clr btn-sm">{{ trans('buttons.see-more') }}  <span class="fa fa-plus"></a>
-                            @include('components.share', ['url' => env('APP_URL') . '#' . 'about' ])
+                            @include('components.share', ['url' => env('APP_URL') . '#' . 'acerca-de' ])
                         </div>
                     </div>
 
@@ -47,14 +47,14 @@
                     </div>
                     <div class="col-sm-7 align-left">
                         <h6>Sponsors</h6>
-                        <p>Si estás interesado en participar como sponsor del evento podés comunicarte con nostros al siguiente mail:</p>
+                        <p>Si estás interesado en participar como sponsor del evento podés comunicarte con nostros al siguiente mail: <a href="">cneisi@sanfrancisco.utn.edu.ar</a></p>
                         <p>El espacio de sponsors contará con los siguientes beneficios:</p>
                         <ul>
                             <li>- Aparición en el sitio web.</li>
                             <li>- </li>
                             <li>- </li>
                         </ul>
-                        @include('components.share', ['url' => env('APP_URL') . '#' . 'about' ])
+                        @include('components.share', ['url' => env('APP_URL') . '#' . 'acerca-de' ])
                     </div>
                 </div>
             </div>
