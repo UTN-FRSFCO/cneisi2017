@@ -23,7 +23,7 @@
 
                         <div class="row">
                             <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
-                                @include('components.share', ['url' => env('APP_URL') . 'about' ])
+                                @include('components.share', ['url' => env('APP_URL') . 'acerca-de' ])
                             </div>
                             <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
                                 <img src="{{asset('/img/utn-about.jpg')}}" alt="about" class="img-responsive" /><br>

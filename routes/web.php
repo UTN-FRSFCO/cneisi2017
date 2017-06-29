@@ -39,7 +39,7 @@ Route::post('contraseña/email',
     ['as' => 'password.email', 'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail']
 );
 
-Route::get('/contraseña/reestableceer',
+Route::get('/contraseña/reestablecer',
     ['as' => 'forgot.password', 'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm']
 );
 
@@ -111,3 +111,10 @@ Route::get('/FormatPoster', function () {
         ]);
     }
 });
+
+Route::get('politicas-y-privacidad',
+    ['as' => 'privacy', 'uses' => function () {
+        return view('privacypolicy');
+    }
+    ]
+);

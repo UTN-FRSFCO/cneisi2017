@@ -23,7 +23,7 @@
 
                         <div class="row">
                             <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
-                                @include('components.share', ['url' => env('APP_URL') . 'presentations' ])
+                                @include('components.share', ['url' => env('APP_URL') . 'presentaciones' ])
                             </div>
                             <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
                                 <img src="{{asset('/img/presentations.jpg')}}" alt="presentations" class="img-responsive" /><br>
