@@ -1,4 +1,10 @@
 @extends('layouts.master')
+
+@section('title', 'Cambiar contraseña - CNEISI')
+@section('description', 'Información del CNEISI - Congreso Nacional de Estudiantes de Ingenieria en Sistemas de Informacion')
+@section('keywords', 'cneisi, utn, argentina, universidad, congreso, evento')
+@section('author', 'UTN-FRSF')
+
 @include('components.menu')
 @section('content')
     <div class="container">

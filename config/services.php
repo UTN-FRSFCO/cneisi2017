@@ -47,4 +47,9 @@ return [
         'redirect' => env('APP_URL') . 'callback/twitter',
     ],
 
+    'sendgrid' => [
+        'api_key' => env('SENDGRID_API_KEY'),
+        'version' => 'v3',
+    ],
+
 ];

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', '404 error - CNEISI')
+@section('title', '503 error - CNEISI')
 @section('description', 'Información del CNEISI - Congreso Nacional de Estudiantes de Ingenieria en Sistemas de Informacion')
 @section('keywords', 'cneisi, utn, argentina, universidad, congreso, evento')
 @section('author', 'UTN-FRSF')
@@ -15,11 +15,11 @@
                         <div class="col-md-12 align-center" style="margin-bottom: 30px;">
 
                             <p class="text-center">
-                                <h1 class="highlight">404</h1>
+                            <h1 class="highlight">503</h1>
                             </p>
 
                             <p class="text-center">
-                                <h2 class="highlight">Ups! No pudimos encontrar esta página!</h2>
+                            <h2 class="highlight">Ups! El servicio momentaneamente no está disponible</h2>
                             </p>
                             <a href="/" class="btn btn-outline-clr btn-sm">Volver al inicio<span class="fa fa-chevron-left"></span></a>
                         </div>

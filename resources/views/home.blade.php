@@ -36,8 +36,6 @@
 
     @include('user.auth.modal-user-register')
 
-    @include('user.auth.modal-password-reset')
-
     @include('partials.modal-error')
 
 @endsection
