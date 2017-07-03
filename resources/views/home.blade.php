@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
-@section('title', 'CNEISI 2017')
-@section('description', 'Página oficial CNEISI 2017- Congreso Nacional de Estudiantes de Ingenieria en Sistemas de Informacion')
-@section('keywords', 'cneisi, utn, argentina, universidad, congreso, evento, san francisco, 2017, conferencias, ingenieria, sistemas, tecnología, estudiantes, investigacion, desarrollo')
+@section('title', 'CNEISI 2017 | UTN Facultad Regional San Francisco')
+@section('description', 'Página oficial CNEISI 2017- Congreso Nacional de Estudiantes de Ingenieria en Sistemas de Informacion Edición 2017. Eventos, talleres, videoconferencias y más.')
+@section('keywords', 'cneisi, san francisco, congreso, utn, universidad, utn, evento, 2017, conferencias, ingenieria, sistemas, tecnología, estudiantes, investigacion, desarrollo')
 @section('author', 'UTN-FRSF')
 @section('robots', 'index, follow')
 
