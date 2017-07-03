@@ -27,8 +27,6 @@
 <meta name="twitter:site" content="@utnsanfco"/>
 <meta name="twitter:image" content="http://cneisi.sanfrancisco.utn.edu.ar/img/utn-entrance.jpg"/>
 
-<link rel="shortcut icon" href="{{asset('/img/favicon.ico')}}">
-
 <link rel="stylesheet" type="text/css" href="{{asset('/css/custom-animations.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('/css/style.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('/css/style-mod.css')}}" />
