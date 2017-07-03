@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Mensaje bienvenida - CNEISI')
+@section('title', 'Mensaje bienvenida | CNEISI 2017')
 @section('description', 'Información del CNEISI - Congreso Nacional de Estudiantes de Ingenieria en Sistemas de Informacion')
 @section('keywords', 'cneisi, utn, argentina, universidad, congreso, evento')
 @section('author', 'UTN-FRSF')

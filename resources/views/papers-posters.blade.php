@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'CNEISI 2017 | Envio de trabajos, papers y posters')
+@section('title', 'Envio de trabajos, papers y posters | CNEISI 2017')
 @section('description', 'Participa en el congreso presentando tu trabajo. Fecha limite de entrega: 7 de agosto. Presentaciones de papers y posters en CNEISI 2017')
 @section('keywords', 'cneisi, trabajos, papers, ingenieria, posters, estudiantes, investigación, desarrollo, trabajos')
 @section('author', 'UTN-FRSF')

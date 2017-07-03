@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'CNEISI 2017 | Acerca del Congreso')
+@section('title', 'Acerca del Congreso | CNEISI 2017')
 @section('description', 'Información del CNEISI - Congreso Nacional de Estudiantes de Ingenieria en Sistemas de Informacion. 30 años de Ingenieria en Sistemas en nuestra casa.')
 @section('keywords', 'cneisi, san francisco, 2017, ingenieria utn, argentina, acerca, universidad, congreso, evento')
 @section('author', 'UTN-FRSF')
