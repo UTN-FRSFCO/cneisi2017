@@ -4,7 +4,7 @@
        target="_blank">
         <i class="fa fa-facebook-official fa-2x"></i>
     </a>
-    <a href="https://twitter.com/intent/tweet?url={{ urlencode($url) }}"
+    <a href="https://twitter.com/intent/tweet?text=Sitio oficial CNEISI 2017 - &url={{ urlencode($url) }}"
        target="_blank">
         <i class="fa fa-twitter-square fa-2x"></i>
     </a>

@@ -23,7 +23,7 @@
 
                         <div class="row">
                             <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
-                                @include('components.share', ['url' => env('APP_URL') . 'presentaciones' ])
+                                @include('components.share', ['url' => 'http://cneisi.sanfrancisco.utn.edu.ar/presentaciones' ])
                             </div>
                             <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
                                 <img src="{{asset('/img/presentations.jpg')}}" alt="presentations" class="img-responsive" /><br>
@@ -53,7 +53,7 @@
 
                                 </article>
                                 <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
-                                    @include('components.share', ['url' => env('APP_URL') . 'presentaciones' ])
+                                    @include('components.share', ['url' => 'http://cneisi.sanfrancisco.utn.edu.ar/presentaciones' ])
                                 </div>
                             </div>
                         </div>

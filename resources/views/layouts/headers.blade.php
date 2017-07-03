@@ -8,25 +8,21 @@
 <meta name="author" content="@yield('author')" />
 <meta name="robots" content="@yield('robots')" />
 
-<meta property="og:locale" content="es_AR" />
+<!-- Open Graph data -->
 <meta property="og:type" content="@yield('og:type')" />
 <meta property="og:title" content="@yield('title')" />
 <meta property="og:description" content="@yield('description')" />
 <meta property="og:url" content="@yield('og:url')" />
 <meta property="og:site_name" content="CNEISI2017" />
-<meta property="og:image" content="http://localhost:8000/img/logo-utn.png" />
+<meta property="og:image" content=@yield('image') />
 
-<meta name="twitter:card" content="content"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="@yield('title')"/>
 <meta name="twitter:description" content="@yield('description')"/>
 <meta name="twitter:site" content="@utnsanfco"/>
-<meta name="twitter:image" content="http://localhost:8000/img/logo-utn.png"/>
-<meta name="twitter:creator" content="@utnsanfco"/>
+<meta name="twitter:image" content="'http://cneisi.sanfrancisc.utn.edu.ar/img/utn-entrance.jpg'"/>
 
 <link rel="shortcut icon" href="{{asset('/img/favicon.ico')}}">
-<link rel="apple-touch-icon" href="{{asset('/img/apple-touch-icon.png')}}">
-<link rel="apple-touch-icon" sizes="72x72" href="{{asset('/img/apple-touch-icon-72x72.png')}}">
-<link rel="apple-touch-icon" sizes="114x114" href="{{asset('/img/apple-touch-icon-114x114.png')}}">
 
 <link rel="stylesheet" type="text/css" href="{{asset('/css/custom-animations.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('/css/style.css')}}" />

@@ -42,7 +42,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                         </div>
                                         <a data-toggle="collapse" data-parent="#day1_auditorium1_timeline" href="#day1_auditorium1_time1" class="schedule-item-toggle">
                                             <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
@@ -62,9 +62,9 @@
                                             <div class="lecture-icon-wrapper">
 
                                                 @if($conference->getSpeaker()['picture'] === null)
-                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day1_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -100,7 +100,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="logo-utn" class="img-responsive">
                                         </div>
                                         <a data-toggle="collapse" data-parent="#day1_auditorium2_timeline" href="#day1_auditorium2_time1" class="schedule-item-toggle">
                                             <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
@@ -120,9 +120,9 @@
                                             <div class="lecture-icon-wrapper">
 
                                                 @if($conference->getSpeaker()['picture'] === null)
-                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day1_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -158,7 +158,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                         </div>
                                         <a data-toggle="collapse" data-parent="#day1_auditorium3_timeline" href="#day1_auditorium3_time1" class="schedule-item-toggle">
                                             <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
@@ -178,9 +178,9 @@
                                             <div class="lecture-icon-wrapper">
 
                                                 @if($conference->getSpeaker()['picture'] === null)
-                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day1_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium3'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -235,7 +235,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                         </div>
                                         <a data-toggle="collapse" data-parent="#day2_auditorium1_timeline" href="#day2_auditorium1_time1" class="schedule-item-toggle">
                                             <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
@@ -255,9 +255,9 @@
                                             <div class="lecture-icon-wrapper">
 
                                                 @if($conference->getSpeaker()['picture'] === null)
-                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day2_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -292,7 +292,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                         </div>
                                         <a data-toggle="collapse" data-parent="#day2_auditorium2_timeline" href="#day2_auditorium2_time1" class="schedule-item-toggle">
                                             <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
@@ -312,9 +312,9 @@
                                             <div class="lecture-icon-wrapper">
 
                                                 @if($conference->getSpeaker()['picture'] === null)
-                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day2_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -349,7 +349,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                         </div>
                                         <a data-toggle="collapse" data-parent="#day2_auditorium3_timeline" href="#day2_auditorium3_time1" class="schedule-item-toggle">
                                             <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
@@ -369,9 +369,9 @@
                                             <div class="lecture-icon-wrapper">
 
                                                 @if($conference->getSpeaker()['picture'] === null)
-                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day2_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium3' }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -426,7 +426,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                         </div>
                                         <a data-toggle="collapse" data-parent="#day3_auditorium1_timeline" href="#day3_auditorium1_time1" class="schedule-item-toggle">
                                             <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
@@ -446,9 +446,9 @@
                                             <div class="lecture-icon-wrapper">
 
                                                 @if($conference->getSpeaker()['picture'] === null)
-                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day3_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day3_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -483,7 +483,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                         </div>
                                         <a data-toggle="collapse" data-parent="#day3_auditorium2_timeline" href="#day3_auditorium2_time1" class="schedule-item-toggle">
                                             <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
@@ -503,9 +503,9 @@
                                             <div class="lecture-icon-wrapper">
 
                                                 @if($conference->getSpeaker()['picture'] === null)
-                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day3_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day3_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -540,7 +540,7 @@
                                 <!-- Lecture start -->
                                     <div class="panel schedule-item">
                                         <div class="lecture-icon-wrapper">
-                                            <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                            <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                         </div>
                                         <a data-toggle="collapse" data-parent="#day3_auditorium3_timeline" href="#day3_auditorium3_time1" class="schedule-item-toggle">
                                             <h6 class="title">Aviso<i class="icon icon-arrows-06"></i></h6>
@@ -560,9 +560,9 @@
                                             <div class="lecture-icon-wrapper">
 
                                                 @if($conference->getSpeaker()['picture'] === null)
-                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="" class="img-responsive">
+                                                    <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day3_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day3_auditorium3'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">

@@ -4,6 +4,7 @@
 @section('description', 'Información del CNEISI - Congreso Nacional de Estudiantes de Ingenieria en Sistemas de Informacion')
 @section('keywords', 'cneisi, utn, argentina, universidad, congreso, evento')
 @section('author', 'UTN-FRSF')
+@section('robots', 'noindex, nofollow')
 
 @include('components.menu')
 @section('content')

@@ -8,7 +8,7 @@
         <div class="gallery masonry">
 				<span class="masonry-item">
 					<a href="#" class="gallery-thumb-link" data-modal-link="gallery-1">
-						<img src="{{asset('/img/gallery/gallery1-thumb.jpg')}}" alt="">
+						<img src="{{asset('/img/gallery/gallery1-thumb.jpg')}}" alt="galeria">
 					</a>
 
 					<div class="modal-window" data-modal="gallery-1">
@@ -25,7 +25,7 @@
 
             <span class="masonry-item">
 					<a href="#" class="gallery-thumb-link" data-modal-link="gallery-2">
-						<img src="{{asset('/img/gallery/gallery2-thumb.jpg')}}" alt="">
+						<img src="{{asset('/img/gallery/gallery2-thumb.jpg')}}" alt="galeria">
 					</a>
 
 					<div class="modal-window" data-modal="gallery-2">
@@ -41,7 +41,7 @@
 				</span>
             <span class="masonry-item">
 					<a href="#" class="gallery-thumb-link" data-modal-link="gallery-3">
-						<img src="{{asset('/img/gallery/gallery3-thumb.jpg')}}" alt="">
+						<img src="{{asset('/img/gallery/gallery3-thumb.jpg')}}" alt="galeria">
 					</a>
 
 					<div class="modal-window" data-modal="gallery-3">
@@ -58,7 +58,7 @@
 
             <span class="masonry-item">
 					<a href="#" class="gallery-thumb-link" data-modal-link="gallery-4">
-						<img src="{{asset('/img/gallery/gallery4-thumb.jpg')}}" alt="">
+						<img src="{{asset('/img/gallery/gallery4-thumb.jpg')}}" alt="galeria">
 					</a>
 
 					<div class="modal-window" data-modal="gallery-4">
@@ -74,7 +74,7 @@
 				</span>
             <span class="masonry-item">
 					<a href="#" class="gallery-thumb-link" data-modal-link="gallery-5">
-						<img src="{{asset('/img/gallery/gallery5-thumb.jpg')}}" alt="">
+						<img src="{{asset('/img/gallery/gallery5-thumb.jpg')}}" alt="galeria">
 					</a>
 
 					<div class="modal-window" data-modal="gallery-5">
@@ -91,7 +91,7 @@
 
             <span class="masonry-item">
 					<a href="#" class="gallery-thumb-link" data-modal-link="gallery-6">
-						<img src="{{asset('/img/gallery/gallery6-thumb.jpg')}}" alt="">
+						<img src="{{asset('/img/gallery/gallery6-thumb.jpg')}}" alt="galeria">
 					</a>
 
 					<div class="modal-window" data-modal="gallery-6">
@@ -107,7 +107,7 @@
 				</span>
             <span class="masonry-item">
 					<a href="#" class="gallery-thumb-link" data-modal-link="gallery-7">
-						<img src="{{asset('/img/gallery/gallery7-thumb.jpg')}}" alt="">
+						<img src="{{asset('/img/gallery/gallery7-thumb.jpg')}}" alt="galeria">
 					</a>
 
 					<div class="modal-window" data-modal="gallery-7">
@@ -124,7 +124,7 @@
 
             <span class="masonry-item">
 					<a href="#" class="gallery-thumb-link" data-modal-link="gallery-8">
-						<img src="{{asset('/img/gallery/gallery8-thumb.jpg')}}" alt="">
+						<img src="{{asset('/img/gallery/gallery8-thumb.jpg')}}" alt="galeria">
 					</a>
 
 					<div class="modal-window" data-modal="gallery-8">
@@ -141,7 +141,7 @@
 
             <span class="masonry-item">
 					<a href="#" class="gallery-thumb-link" data-modal-link="gallery-9">
-						<img src="{{asset('/img/gallery/gallery9-thumb.jpg')}}" alt="">
+						<img src="{{asset('/img/gallery/gallery9-thumb.jpg')}}" alt="galeria">
 					</a>
 
 					<div class="modal-window" data-modal="gallery-9">
@@ -157,7 +157,7 @@
 				</span>
             <span class="masonry-item">
 					<a href="#" class="gallery-thumb-link" data-modal-link="gallery-10">
-						<img src="{{asset('/img/gallery/gallery10-thumb.jpg')}}" alt="">
+						<img src="{{asset('/img/gallery/gallery10-thumb.jpg')}}" alt="galeria">
 					</a>
 
 					<div class="modal-window" data-modal="gallery-10">
@@ -174,7 +174,7 @@
 
             <span class="masonry-item">
 					<a href="#" class="gallery-thumb-link" data-modal-link="gallery-11">
-						<img src="{{asset('/img/gallery/gallery11-thumb.jpg')}}" alt="">
+						<img src="{{asset('/img/gallery/gallery11-thumb.jpg')}}" alt="galeria">
 					</a>
 
 					<div class="modal-window" data-modal="gallery-11">
@@ -191,7 +191,7 @@
 
             <span class="masonry-item">
 					<a href="#" class="gallery-thumb-link" data-modal-link="gallery-12">
-						<img src="{{asset('/img/gallery/gallery12-thumb.jpg')}}" alt="">
+						<img src="{{asset('/img/gallery/gallery12-thumb.jpg')}}" alt="galeria">
 					</a>
 
 					<div class="modal-window" data-modal="gallery-12">
