@@ -16,6 +16,11 @@
 <meta property="og:site_name" content="CNEISI2017" />
 <meta property="og:image" content="http://cneisi.sanfrancisco.utn.edu.ar/img/utn-entrance.jpg" />
 
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="@yield('title')">
+<meta itemprop="description" content="@yield('description')">
+<meta itemprop="image" content="http://cneisi.sanfrancisco.utn.edu.ar/img/utn-entrance.jpg">
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="@yield('title')"/>
 <meta name="twitter:description" content="@yield('description')"/>
