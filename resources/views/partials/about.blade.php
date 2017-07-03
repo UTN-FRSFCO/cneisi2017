@@ -48,12 +48,6 @@
                     <div class="col-sm-7 align-left">
                         <h6>Sponsors</h6>
                         <p>Si estás interesado en participar como sponsor del evento podés comunicarte con nostros al siguiente mail: <a href="">cneisi@sanfrancisco.utn.edu.ar</a></p>
-                        <p>El espacio de sponsors contará con los siguientes beneficios:</p>
-                        <ul>
-                            <li>- Aparición en el sitio web.</li>
-                            <li>- </li>
-                            <li>- </li>
-                        </ul>
                         @include('components.share', ['url' => 'http://cneisi.sanfrancisco.utn.edu.ar/#acerca-de' ])
                     </div>
                 </div>

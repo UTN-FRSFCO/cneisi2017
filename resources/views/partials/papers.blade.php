@@ -9,6 +9,8 @@
 
                 <p class="align-left">Se invita a los estudiantes de la carrera Ingeniería en Sistemas de Información de la Universidad Tecnológica Nacional a presentar trabajos concluidos o en proceso de desarrollo avanzado (relacionados con proyectos finales de grado, trabajos prácticos de cátedra, trabajos de investigación en grupos de I+D, u otros trabajos académicos) en donde reporten las ideas y resultados más innovadores y significativos de los mismos, desde una perspectiva universitaria y científica.</p>
                 <p class="align-center"> Enviar los documentos al siguiente mail: <a href="">cneisi@sanfrancisco.utn.edu.ar</a></p>
+                <p class="align-center"><strong> Fecha límite de presentación de trabajos: <u>07 de agosto de 2017</u></strong></p>
+                <p class="align-center"><strong> Fecha de comunicación de trabajos aceptados: <u>22 de agosto de 2017</u></strong></p>
 
             </article>
             <br>
