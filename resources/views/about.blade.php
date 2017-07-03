@@ -23,7 +23,7 @@
 
                         <div class="row">
                             <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
-                                @include('components.share', ['url' => 'acerca-de' ])
+                                @include('components.share', ['url' => 'http://cneisi.sanfrancisco.utn.edu.ar/acerca-de' ])
                             </div>
                             <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
                                 <img src="{{asset('/img/utn-about.jpg')}}" alt="about" class="img-responsive" /><br>

@@ -14,13 +14,13 @@
 <meta property="og:description" content="@yield('description')" />
 <meta property="og:url" content="@yield('og:url')" />
 <meta property="og:site_name" content="CNEISI2017" />
-<meta property="og:image" content=@yield('image') />
+<meta property="og:image" content="http://cneisi.sanfrancisco.utn.edu.ar/img/utn-entrance.jpg" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="@yield('title')"/>
 <meta name="twitter:description" content="@yield('description')"/>
 <meta name="twitter:site" content="@utnsanfco"/>
-<meta name="twitter:image" content="'http://cneisi.sanfrancisc.utn.edu.ar/img/utn-entrance.jpg'"/>
+<meta name="twitter:image" content="http://cneisi.sanfrancisco.utn.edu.ar/img/utn-entrance.jpg"/>
 
 <link rel="shortcut icon" href="{{asset('/img/favicon.ico')}}">
 
