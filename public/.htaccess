@@ -82,3 +82,9 @@
   Header set Cache-Control "max-age=2678400, private"
   </filesmatch>
 </IfModule>
+
+#Force www:
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
