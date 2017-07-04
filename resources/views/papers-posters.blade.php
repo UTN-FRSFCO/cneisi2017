@@ -2,7 +2,7 @@
 
 @section('title', 'Envio de trabajos, papers y posters | CNEISI 2017')
 @section('description', 'Participa en el congreso presentando tu trabajo. Fecha limite de entrega: 7 de agosto. Presentaciones de papers y posters en CNEISI 2017')
-@section('keywords', 'cneisi, trabajos, papers, ingenieria, posters, estudiantes, investigación, desarrollo, trabajos')
+@section('keywords', 'cneisi, trabajo, presentaciones, papers, posters, posters')
 @section('author', 'UTN-FRSF')
 @section('robots', 'index, follow')
 
