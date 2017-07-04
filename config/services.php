@@ -36,14 +36,14 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '113092779313330',
-        'client_secret' => '44591c82fc8ad9b11f06bc9f318b60a3',
+        'client_id' => '495286800816210',
+        'client_secret' => env('FACEBOOK_SECRET'),
         'redirect' => env('APP_URL') . 'callback/facebook',
     ],
 
     'twitter' => [
         'client_id' => 'I2netUCnDLN2yogCS7cfzf7eS',
-        'client_secret' => '7yJw2LkL1SEi40wuQUInsNBPDyphYkYLkC0xaBuVs0RIekaMWU',
+        'client_secret' => env('TWITTER_SECRET'),
         'redirect' => env('APP_URL') . 'callback/twitter',
     ],
 
