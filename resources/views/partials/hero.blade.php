@@ -5,7 +5,7 @@
     </ul>
     <div class="heading-block centered-block align-center">
         <div class="container">
-            <h5 class="heading-alt" style="margin-bottom: 8px;"><span class="fa fa-calendar-o base-clr-txt"></span>30.ago <span class="fa fa-map-marker base-clr-txt" style="margin-left: 14px;"></span>F.R. San Francisco, Cba</h5>
+            <h5 class="heading-alt" style="margin-bottom: 8px;"><span class="fa fa-calendar-o base-clr-txt"></span>31.ago <span class="fa fa-map-marker base-clr-txt" style="margin-left: 14px;"></span>F.R. San Francisco, Cba</h5>
             <h1 class="extra-heading">CNEISI2017</h1>
             <h6 class="thin base-font">Undécimo congreso nacional de estudiantes en <strong>Ingeniería en Sistemas de información</strong></h6>
             <div class="btns-container">

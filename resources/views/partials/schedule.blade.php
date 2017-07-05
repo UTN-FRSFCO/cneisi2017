@@ -12,7 +12,7 @@
             <ul class="nav nav-schedule">
                 <li class="active"><a href="#day1" data-toggle="tab"><h5 class="highlight">Dia 1</h5><p class="text-alt">31/08/2017</p></a></li>
                 <li><a href="#day2" data-toggle="tab"><h5 class="highlight">Dia 2</h5><p class="text-alt">01/09/2017</p></a></li>
-                <li><a href="#day3" data-toggle="tab"><h5 class="highlight">Dia 3</h5><p class="text-alt">02/10/2017</p></a></li>
+                <li><a href="#day3" data-toggle="tab"><h5 class="highlight">Dia 3</h5><p class="text-alt">02/09/2017</p></a></li>
             </ul>
             <!-- Navigation by day end -->
 
