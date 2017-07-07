@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
+use App\SocialAccountService;
 use App;
 
 class SocialAuthController extends Controller
@@ -13,11 +14,8 @@ class SocialAuthController extends Controller
         return Socialite::driver($provider)->redirect();
     }
 
-    public function callback(App\SocialAccountService $service, String $provider, Request $request)
+    public function callback(SocialAccountService $service, String $provider, Request $request)
     {
-        if (! $request->input('code')) {
-            return redirect()->to('/')->withWarning(trans('auth.denied_access'));
-        }
         $user = $service->createOrGetUser(Socialite::driver($provider));
 
         auth()->login($user);
