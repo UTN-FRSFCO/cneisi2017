@@ -47,6 +47,12 @@ return [
         'redirect' => env('APP_URL') . 'callback/twitter',
     ],
 
+    'google' => [
+        'client_id' => '616276544246-erk7iapvmb419e5s850fa25p7arb3vo5.apps.googleusercontent.com',
+        'client_secret' => env('GOOGLE_SECRET'),
+        'redirect' => 'http://cneisi.sanfrancisco.utn.edu.ar/callback/google',
+    ],
+
     'sendgrid' => [
         'api_key' => env('SENDGRID_API_KEY'),
         'version' => 'v3',
