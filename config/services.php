@@ -50,7 +50,7 @@ return [
     'google' => [
         'client_id' => '616276544246-lsfhg36ebfd4lcciev02hjqh0mrt412q.apps.googleusercontent.com',
         'client_secret' => env('GOOGLE_SECRET'),
-        'redirect' => 'http://cneisi.sanfrancisco.utn.edu.ar/callback/google',
+        'redirect' => env('APP_URL') . 'callback/google',
     ],
 
     'sendgrid' => [
