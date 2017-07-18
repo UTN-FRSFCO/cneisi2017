@@ -118,3 +118,8 @@ Route::get('politicas-y-privacidad',
     }
     ]
 );
+
+//admin panel routes
+Route::get('/administracion/principal',
+    ['as' => 'panel.admin', 'uses' => 'Admin\HomePanelController@index']
+);
