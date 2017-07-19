@@ -120,6 +120,21 @@ Route::get('politicas-y-privacidad',
 );
 
 //admin panel routes
-Route::get('/administracion/principal',
+Route::get('/administracion',
     ['as' => 'panel.admin', 'uses' => 'Admin\HomePanelController@index']
+);
+
+//admin panel users
+Route::get('/administracion/users',
+    ['as' => 'panel.admin.users', 'uses' => 'Admin\UsersPanelController@index']
+);
+
+//admin panel speakers
+Route::get('/administracion/speakers',
+    ['as' => 'panel.admin.speakers', 'uses' => 'Admin\SpeakersPanelController@index']
+);
+
+//admin panel events
+Route::get('/administracion/eventos',
+    ['as' => 'panel.admin.eventos', 'uses' => 'Admin\EventsPanelController@index']
 );

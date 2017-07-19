@@ -60,14 +60,14 @@
     <div class="container-fluid" >
         <div class="col-md-10">
             <div class="side-body">
-                <h2> Panel de administración de usuarios </h2>
+                <h2> Panel de administración de speakers </h2>
                 <div class="col-md-12">
 
                     <div class="panel panel-default panel-table">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col col-xs-6">
-                                    <h3 class="panel-title">Cantidad de usuarios registrados: <strong> {{ count($users) }} </strong></h3>
+                                    <h3 class="panel-title">Cantidad de speakers registrados: <strong> 0 </strong></h3>
                                 </div>
                                 <div class="col col-xs-6 text-right">
                                     <button type="button" class="btn btn-sm btn-primary btn-create">Crear nuevo</button>
@@ -79,15 +79,13 @@
                                 <thead>
                                 <tr>
                                     <th><em class="fa fa-cog"></em></th>
-                                    <th class="hidden-xs">Nombre</th>
-                                    <th>Email</th>
-                                    <th>Tipo de usuario</th>
-                                    <th>Facultad regional</th>
+                                    <th class="hidden-xs">Id</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Eventos</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-
-                                @foreach($users as $user)
 
                                     <tr>
                                         <td align="center">
@@ -95,13 +93,12 @@
                                             <em class="fa fa-pencil"></em>
                                             <em class="fa fa-trash"></em>
                                         </td>
-                                        <td>{{ $user[0] }}</td>
-                                        <td>{{ $user[1] }}</td>
-                                        <td>{{ $user[2] }}</td>
-                                        <td>{{ $user[3] }}</td>
+                                        <td>example</td>
+                                        <td>example</td>
+                                        <td>example</td>
+                                        <td>example</td>
                                     </tr>
 
-                                @endforeach
                                 </tbody>
                             </table>
 
