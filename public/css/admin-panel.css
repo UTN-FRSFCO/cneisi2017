@@ -121,3 +121,9 @@ section{
     padding-left: 15px;
 }
 
+.fabutton {
+    background: none;
+    padding: 0px;
+    border: none;
+}
+
