@@ -222,6 +222,33 @@
                                 </div>
                             </div>
                         </form>
+
+                        <form method="post" action="/administracion/speakers/{{ $speaker->getId() }}">
+
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                            @include(
+                                    'admin-panel.confirm',
+                                    [
+                                        'id'       => 'delete-category-' . $speaker->getId(),
+                                        'title'    => 'Confirmar borrado',
+                                        'question' => '¿Seguro que desea confirmar el borrado del speaker id: '.$speaker->getId().'?'  ,
+                                    ]
+                                )
+
+                            <div class="form-group">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <a class="btn buy-btn"
+                                       style="color: red"
+                                       data-toggle="modal"
+                                       data-modal-link="delete-category-{{$speaker->getId()}}">
+                                        Eliminar speaker
+                                    </a>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
                 </div>
                 @if (session('status'))

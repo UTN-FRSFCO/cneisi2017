@@ -41,6 +41,8 @@
                         <ul class="dropdown-menu forAnimate" style="margin:20px;">
                             <li class="active"><a href="{{ route('panel.admin.speakers') }}">Ver todos</a></li>
                             <li class="divider"></li>
+                            <li><a href="{{ route('speakers.createSpeaker') }}">Crear</a></li>
+                            <li class="divider"></li>
                             <li><a href="#">Informes</a></li>
                         </ul>
                     </li>
@@ -74,7 +76,7 @@
                                     <h3 class="panel-title">Cantidad de speakers registrados: <strong> {{ count($speakers) }} </strong></h3>
                                 </div>
                                 <div class="col col-xs-6 text-right">
-                                    <button type="button" class="btn btn-sm btn-primary btn-create">Crear nuevo</button>
+                                    <a href="{{ route('speakers.createSpeaker') }}">Crear nuevo</a>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +95,6 @@
                                 @foreach($speakers as $speaker)
                                     <tr>
                                         <td align="center">
-                                            <em class="fa fa-eye"></em>
                                             <form method="get" action="/administracion/speakers/editar/{{ $speaker->getId() }}">
                                                 <div class="form-group">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -102,14 +103,30 @@
                                                     </div>
                                                 </div>
                                             </form>
+
                                             <form method="post" action="/administracion/speakers/{{ $speaker->getId() }}">
-                                                {{ method_field('DELETE') }}
+
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                                @include(
+                                                        'admin-panel.confirm',
+                                                        [
+                                                            'id'       => 'delete-category-' . $speaker->getId(),
+                                                            'title'    => 'Confirmar borrado',
+                                                            'question' => '¿Seguro que desea confirmar el borrado del speaker id: '.$speaker->getId().'?'  ,
+                                                        ]
+                                                    )
+
                                                 <div class="form-group">
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <div class="form-group">
-                                                        <button type="submit" class="fabutton"><i class="fa fa-trash"></i></button>
-                                                    </div>
+                                                    <a class="pull-right buy-btn"
+                                                       style="color: red"
+                                                       data-toggle="modal"
+                                                       data-modal-link="delete-category-{{$speaker->getId()}}">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
                                                 </div>
+
                                             </form>
 
                                         </td>

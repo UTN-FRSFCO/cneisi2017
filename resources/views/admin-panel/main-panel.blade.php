@@ -39,6 +39,8 @@
                 <ul class="dropdown-menu forAnimate" style="margin:20px;">
                     <li><a href="{{ route('panel.admin.speakers') }}">Ver todos</a></li>
                     <li class="divider"></li>
+                    <li><a href="{{ route('speakers.createSpeaker') }}">Crear</a></li>
+                    <li class="divider"></li>
                     <li><a href="#">Informes</a></li>
                 </ul>
             </li>

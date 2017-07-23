@@ -125,7 +125,7 @@ Route::get('/administracion',
 );
 
 //admin panel users
-Route::get('/administracion/users',
+Route::get('/administracion/usuarios',
     ['as' => 'panel.admin.users', 'uses' => 'Admin\UsersPanelController@index']
 );
 
