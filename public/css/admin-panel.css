@@ -127,3 +127,40 @@ section{
     border: none;
 }
 
+.close-btn {
+    display: inline-block !important;
+    right: 0px !important;
+    top: 0px !important;
+}
+
+.confirmation-body{
+    margin-bottom: 20px;
+    text-align:center;
+}
+
+.first-column{
+    width: 65px !important;
+}
+
+.second-column{
+    width: 65px !important;
+}
+
+.row-index{
+    margin-top:40px;
+    padding: 0 10px;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.panel-heading .index {
+    margin-top: -20px;
+    font-size: 15px;
+}
+
+.university-users li{
+    margin-left: 20px;
+    list-style-type: circle;
+}

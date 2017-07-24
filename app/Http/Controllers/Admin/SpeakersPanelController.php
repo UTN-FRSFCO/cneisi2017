@@ -10,6 +10,9 @@ use Mockery\Exception;
 
 class SpeakersPanelController
 {
+    const INDEX_VIEW = 'admin-panel.speakers.index';
+    const EDIT_VIEW = 'admin-panel.speakers.edit';
+    const CREATE_VIEW = 'admin-panel.speakers.create';
 
     /**
      * Show the application dashboard.
@@ -18,9 +21,9 @@ class SpeakersPanelController
      */
     public function index()
     {
-        $speakers = Speaker::all();
+        $speakers = Speaker::paginate(5);
 
-        return view('admin-panel.speakers.index')
+        return view(SELF::INDEX_VIEW)
             ->with('speakers', $speakers);
     }
 
@@ -31,7 +34,7 @@ class SpeakersPanelController
      */
     public function createSpeaker()
     {
-        return view('admin-panel.speakers.create');
+        return view(SELF::CREATE_VIEW);
     }
 
     /**
@@ -64,7 +67,13 @@ class SpeakersPanelController
         try
         {
             Speaker::destroy($id);
-            return back()->with('status', 'Speaker eliminado satisfactoriamente');
+
+            $speakers = Speaker::paginate(5);
+
+            return view(SELF::INDEX_VIEW)
+                ->with('speakers', $speakers)
+                ->with('status', 'Speaker eliminado satisfactoriamente');
+
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
         }
@@ -77,7 +86,7 @@ class SpeakersPanelController
         {
             $speaker = Speaker::findOrFail($id);
 
-            return view('admin-panel.speakers.edit')
+            return view(SELF::EDIT_VIEW)
                 ->with('speaker', $speaker);
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());

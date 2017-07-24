@@ -1,9 +1,9 @@
-<div class="modal-window" data-modal={{$id}} style="background-color: rgba(2, 2, 2, 0.85);">
+<div class="modal-window" data-modal="{{$id}}" style="background-color: rgba(2, 2, 2, 0.85);">
     <div class="modal-box small animated" data-animation="zoomIn" data-duration="700">
         <span class="close-btn icon icon-office-52"></span>
 
         <h5 class="align-center"><span class="highlight">{{ $title }}</span></h5>
-            <span class="col-sm-12" style="margin-bottom: 20px;">
+            <span class="col-sm-12 confirmation-body">
                 {{ $question }}
             </span>
 
@@ -14,7 +14,7 @@
             </span>
 
             <span class="col-sm-6 align-center">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
+                <button type="button" class="btn close-btn" data-dismiss="modal">
                     No
                 </button>
             </span>
