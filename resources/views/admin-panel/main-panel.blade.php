@@ -131,15 +131,7 @@
                         <div class="panel-body">Cantidad de eventos: {{ count($events) }}</div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="panel panel-warning">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Panel 4</h3>
-                            <span class="pull-right clickable index"><i class="fa fa-chevron-up"></i></span>
-                        </div>
-                        <div class="panel-body">Panel content</div>
-                    </div>
-                </div>
+
             </div>
 
         </div>

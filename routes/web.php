@@ -138,23 +138,43 @@ Route::get('/administracion/speakers/crear',
     ['as' => 'speakers.createSpeaker', 'uses' => 'Admin\SpeakersPanelController@createSpeaker']
 );
 
-Route::post('/administracion/speakers/crear',
+Route::post('/administracion/speaker/crear',
     ['as' => 'speakers.create', 'uses' => 'Admin\SpeakersPanelController@create']
 );
 
-Route::get('/administracion/speakers/editar/{id}',
+Route::get('/administracion/speaker/editar/{id}',
     ['as' => 'speakers.editSpeaker', 'uses' => 'Admin\SpeakersPanelController@editSpeaker']
 );
 
-Route::put('/administracion/speakers/editar/{id}',
+Route::put('/administracion/speaker/editar/{id}',
     ['as' => 'speakers.edit', 'uses' => 'Admin\SpeakersPanelController@edit']
 );
 
-Route::delete('/administracion/speakers/{id}',
+Route::delete('/administracion/speaker/{id}',
     ['as' => 'speakers.delete', 'uses' => 'Admin\SpeakersPanelController@delete']
 );
 
 //admin panel events
 Route::get('/administracion/eventos',
     ['as' => 'panel.admin.events', 'uses' => 'Admin\EventsPanelController@index']
+);
+
+Route::get('/administracion/evento/crear',
+    ['as' => 'event.createEvent', 'uses' => 'Admin\EventsPanelController@createEvent']
+);
+
+Route::post('/administracion/evento/crear',
+    ['as' => 'event.create', 'uses' => 'Admin\EventsPanelController@create']
+);
+
+Route::get('/administracion/evento/editar/{id}',
+    ['as' => 'event.editEvent', 'uses' => 'Admin\EventsPanelController@editEvent']
+);
+
+Route::put('/administracion/evento/editar/{id}',
+    ['as' => 'event.edit', 'uses' => 'Admin\EventsPanelController@edit']
+);
+
+Route::delete('/administracion/evento/{id}',
+    ['as' => 'event.delete', 'uses' => 'Admin\EventsPanelController@delete']
 );
