@@ -50,6 +50,8 @@
                 <ul class="dropdown-menu forAnimate" style="margin:20px;">
                     <li><a href="{{ route('panel.admin.events') }}">Ver todos</a></li>
                     <li class="divider"></li>
+                    <li><a href="{{ route('event.createEvent') }}">Crear</a></li>
+                    <li class="divider"></li>
                     <li><a href="#">Informes</a></li>
                 </ul>
             </li>

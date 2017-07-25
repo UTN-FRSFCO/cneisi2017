@@ -92,7 +92,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($speakers as $speaker)
+                                @forelse($speakers as $speaker)
                                     <tr>
                                         <td align="center" class ="first-column">
                                             <form method="get" action="/administracion/speakers/editar/{{ $speaker->getId() }}">
@@ -131,11 +131,15 @@
 
                                         </td>
                                         <td class ="second-column">{{ $speaker->getId() }}</td>
-                                        <td>{{ $speaker->getName() }}</td>
-                                        <td>{{ $speaker->getDescription() }}</td>
-                                        <td>-</td>
+                                        <td class="align-center">{{ $speaker->getName() }}</td>
+                                        <td class="align-center">{{ $speaker->getDescription() }}</td>
+                                        <td class="align-center">-</td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <tr>
+                                        No se han encontrado registros
+                                    </tr>
+                                @endforelse
                                 </tbody>
                             </table>
 

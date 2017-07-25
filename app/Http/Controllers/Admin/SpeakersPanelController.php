@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Entities\Speaker;
 use App\Http\Requests\UpdateSpeakerRequest;
-use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StoreSpeakerRequest;
-use Mockery\Exception;
+use Exception;
 
 class SpeakersPanelController
 {

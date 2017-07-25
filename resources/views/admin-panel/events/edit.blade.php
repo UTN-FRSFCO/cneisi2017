@@ -68,21 +68,21 @@
                 @endif
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">Editar Speaker</div>
+                    <div class="panel-heading">Editar Evento</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="post" action="/administracion/speakers/editar/{{ $speaker->getId() }}">
+                        <form class="form-horizontal" role="form" method="POST" action="/administracion/evento/editar/{{ $event->getId() }}">
                             {{ method_field('PUT') }}
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">Nombre</label>
+                            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                                <label for="title" class="col-md-4 control-label">Titulo</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ $speaker->getName() }}" required autofocus>
+                                    <input id="title" type="text" class="form-control" name="title" value="{{$event->getTitle()}}" required autofocus>
 
-                                    @if ($errors->has('name'))
+                                    @if ($errors->has('title'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('title') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -92,25 +92,11 @@
                                 <label for="slug" class="col-md-4 control-label">Slug</label>
 
                                 <div class="col-md-6">
-                                    <input id="slug" type="text" class="form-control" name="slug" value="{{ $speaker->getSlug() }}" required>
+                                    <input id="slug" type="text" class="form-control" name="slug" value="{{ $event->getSlug() }}" required>
 
                                     @if ($errors->has('slug'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('slug') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('tagline') ? ' has-error' : '' }}">
-                                <label for="tagline" class="col-md-4 control-label">Tagline</label>
-
-                                <div class="col-md-6">
-                                    <input id="tagline" type="text" class="form-control" name="tagline" value="{{ $speaker->getTagline() }}}"required>
-
-                                    @if ($errors->has('tagline'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('tagline') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -121,7 +107,7 @@
 
                                 <div class="col-md-6">
 
-                                    <textarea id="description" name="description" class="form-control" required>{{ $speaker->getDescription() }}</textarea>
+                                    <textarea id="description" name="description" class="form-control" required>{{ $event->getDescription() }}</textarea>
                                     @if ($errors->has('description'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('description') }}</strong>
@@ -130,85 +116,110 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('googleLink') ? ' has-error' : '' }}">
-                                <label for="googleLink" class="col-md-4 control-label">Link Perfil Google</label>
+                            <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
+                                <label for="date" class="col-md-4 control-label">Dia</label>
 
                                 <div class="col-md-6">
-                                    <input id="googleLink" type="text" class="form-control" name="googleLink" value="{{ $speaker->getGoogleLink() }}">
+                                    <select id="date" type="text" class="form-control" name="date" required>
+                                        <option value="day_one">Dia 1</option>
+                                        <option value="day_two">Dia 2</option>
+                                        <option value="day_three">Dia 3</option>
+                                    </select>
 
-                                    @if ($errors->has('googleLink'))
+                                    @if ($errors->has('date'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('googleLink') }}</strong>
+                                        <strong>{{ $errors->first('date') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('facebookLink') ? ' has-error' : '' }}">
-                                <label for="facebookLink" class="col-md-4 control-label">Link Perfil Facebook</label>
+                            <div class="form-group{{ $errors->has('time') ? ' has-error' : '' }}">
+                                <label for="time" class="col-md-4 control-label">Hora</label>
 
                                 <div class="col-md-6">
-                                    <input id="facebookLink" type="text" class="form-control" name="facebookLink" value="{{ $speaker->getFacebookLink() }}" >
+                                    <input type="time" name="time" class="form-control" value="{{$event->getTime()}}" required>
 
-                                    @if ($errors->has('facebookLink'))
+                                    @if ($errors->has('time'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('facebookLink') }}</strong>
+                                        <strong>{{ $errors->first('time') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('twitterLink') ? ' has-error' : '' }}">
-                                <label for="twitterLink" class="col-md-4 control-label">Link Perfil Twitter</label>
+                            <div class="form-group{{ $errors->has('duration') ? ' has-error' : '' }}">
+                                <label for="duration" class="col-md-4 control-label">Duracion</label>
 
                                 <div class="col-md-6">
-                                    <input id="twitterLink" type="text" class="form-control" name="twitterLink" value="{{ $speaker->getTwitterLink() }}" >
+                                    <select id="duration" type="text" class="form-control" name="duration" required>
+                                        <option value="30">30 min</option>
+                                        <option value="45">45 min</option>
+                                        <option value="60">60 min</option>
+                                        <option value="75">75 min</option>
+                                        <option value="90">90 min</option>
+                                        <option value="105">105 min</option>
+                                        <option value="120">120 min</option>
+                                    </select>
 
-                                    @if ($errors->has('twitterLink'))
+                                    @if ($errors->has('duration'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('twitterLink') }}</strong>
+                                        <strong>{{ $errors->first('duration') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('video') ? ' has-error' : '' }}">
-                                <label for="video" class="col-md-4 control-label">Video (link)</label>
+                            <div class="form-group{{ $errors->has('auditorium') ? ' has-error' : '' }}">
+                                <label for="auditorium" class="col-md-4 control-label">Auditorio</label>
 
                                 <div class="col-md-6">
-                                    <input id="video" type="text" class="form-control" name="video" value="{{ $speaker->getVideo() }}">
+                                    <select id="auditorium" type="text" class="form-control" name="auditorium" required>
+                                        @if($event->getAuditorium() == "auditorium_1")
+                                            <option value="auditorium_1" selected="selected">Auditorio 1</option>
+                                        @else
+                                            <option value="auditorium_1">Auditorio 1</option>
+                                        @endif
 
-                                    @if ($errors->has('video'))
+                                        @if($event->getAuditorium() == "auditorium_2")
+                                            <option value="auditorium_2" selected="selected">Auditorio 2</option>
+                                        @else
+                                            <option value="auditorium_2">Auditorio 2</option>
+                                        @endif
+
+                                        @if($event->getAuditorium() == "auditorium_3")
+                                            <option value="auditorium_3" selected="selected">Auditorio 3</option>
+                                        @else
+                                            <option value="auditorium_3">Auditorio 3</option>
+                                        @endif
+                                    </select>
+
+                                    @if ($errors->has('auditorium'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('video') }}</strong>
+                                        <strong>{{ $errors->first('auditorium') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('score') ? ' has-error' : '' }}">
-                                <label for="score" class="col-md-4 control-label">Score</label>
+                            <div class="form-group{{ $errors->has('speaker_id') ? ' has-error' : '' }}">
+                                <label for="speaker_id" class="col-md-4 control-label">Speaker</label>
 
                                 <div class="col-md-6">
-                                    <input id="score" type="text" class="form-control" name="score" value="{{ $speaker->getScore() }}">
+                                    <select id="speaker_id" type="text" class="form-control" name="speaker_id" required>
+                                        @foreach($speakers as $speaker)
+                                            @if($event->speaker['id'] == $speaker->getId())
+                                                <option selected="selected" value="{{$speaker->getId()}}">{{$speaker->getId()}} - {{ $speaker->getName() }}</option>
+                                            @else
+                                                <option value="{{$speaker->getId()}}">{{$speaker->getId()}} - {{ $speaker->getName() }}</option>
+                                            @endif
 
-                                    @if ($errors->has('score'))
+                                        @endforeach
+                                    </select>
+
+                                    @if ($errors->has('speaker_id'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('score') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="picture" class="col-md-4 control-label">Imagen (link)</label>
-
-                                <div class="col-md-6">
-                                    <input id="picture" type="text" class="form-control" name="picture" value="{{ $speaker->getPicture() }}" required>
-
-                                    @if ($errors->has('picture'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('picture') }}</strong>
+                                        <strong>{{ $errors->first('speaker_id') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -217,37 +228,10 @@
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Actualizar speaker
+                                        Editar
                                     </button>
                                 </div>
                             </div>
-                        </form>
-
-                        <form method="post" action="/administracion/speakers/{{ $speaker->getId() }}">
-
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                            @include(
-                                    'admin-panel.confirm',
-                                    [
-                                        'id'       => 'delete-category-' . $speaker->getId(),
-                                        'title'    => 'Confirmar borrado',
-                                        'question' => '¿Seguro que desea confirmar el borrado del speaker id: '.$speaker->getId().'?'  ,
-                                    ]
-                                )
-
-                            <div class="form-group">
-                                <div class="col-md-8 col-md-offset-4">
-                                    <a class="btn buy-btn"
-                                       style="color: red"
-                                       data-toggle="modal"
-                                       data-modal-link="delete-category-{{$speaker->getId()}}">
-                                        Eliminar speaker
-                                    </a>
-                                </div>
-                            </div>
-
                         </form>
                     </div>
                 </div>

@@ -5,11 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Entities\Conference;
 use App\Entities\Speaker;
 use App\Http\Requests\StoreEventRequest;
+use App\Http\Requests\UpdateConferenceRequest;
 use Exception;
 
 class EventsPanelController
 {
     const CREATE_VIEW = 'admin-panel.events.create';
+    const INDEX_VIEW = 'admin-panel.events.index';
+    const EDIT_VIEW = 'admin-panel.events.edit';
+
     /**
      * Show the application dashboard.
      *
@@ -17,9 +21,9 @@ class EventsPanelController
      */
     public function index()
     {
-        $events = Conference::all();
+        $events = Conference::paginate(5);
 
-        return view('admin-panel.events.index')
+        return view(SELF::INDEX_VIEW)
             ->with('events', $events);
     }
     /**
@@ -29,10 +33,12 @@ class EventsPanelController
      */
     public function createEvent()
     {
+        $events = Conference::all();
         $speakers = Speaker::all();
 
         return view(SELF::CREATE_VIEW)
-            ->with('speakers', $speakers);
+            ->with('speakers', $speakers)
+            ->with('events', $events);
     }
 
     /**
@@ -81,13 +87,13 @@ class EventsPanelController
     {
         try
         {
-            Speaker::destroy($id);
+            Conference::destroy($id);
 
-            $speakers = Speaker::paginate(5);
+            $events = Conference::paginate(5);
 
             return view(SELF::INDEX_VIEW)
-                ->with('speakers', $speakers)
-                ->with('status', 'Speaker eliminado satisfactoriamente');
+                ->with('events', $events)
+                ->with('status', 'Evento eliminado satisfactoriamente');
 
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
@@ -95,42 +101,58 @@ class EventsPanelController
 
     }
 
-    public function editSpeaker(int $id)
+    public function editEvent(int $id)
     {
         try
         {
-            $speaker = Speaker::findOrFail($id);
+            $event = Conference::findOrFail($id);
+            $speakers = Speaker::all();
 
             return view(SELF::EDIT_VIEW)
-                ->with('speaker', $speaker);
+                ->with('speakers', $speakers)
+                ->with('event', $event);
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
         }
 
     }
 
-    public function edit(int $id, UpdateSpeakerRequest $request)
+    public function edit(int $id, UpdateConferenceRequest $request)
     {
         try
         {
-            $speaker = Speaker::findOrFail($id);
+            $event = Conference::findOrFail($id);
 
-            $speaker->name = $request->input('name');
-            $speaker->slug = $request->input('slug');
-            $speaker->picture = $request->input('picture');
-            $speaker->googleLink = $request->input('googleLink');
-            $speaker->twitterLink = $request->input('twitterLink');
-            $speaker->facebookLink = $request->input('facebookLink');
-            $speaker->tagline = $request->input('tagline');
-            $speaker->video = $request->input('video');
-            $speaker->description = $request->input('description');
-            $speaker->score = $request->input('score');
+            try {
 
-            $speaker->save();
+                $date = date_create();
 
-            return back()
-                ->with('speaker', $speaker)
-                ->with('status', 'Speaker actualizado satisfactoriamente');
+                switch ($request->input('date')) {
+                    case 'day_one':
+                        $date_event = date_format($date, '2017-08-31 '.$request->input('time').':00');
+                        break;
+                    case 'day_two':
+                        $date_event = date_format($date, '2017-09-01 '.$request->input('time').':00');
+                        break;
+                    case 'day_three':
+                        $date_event = date_format($date, '2017-09-02 '.$request->input('time').':00');
+                        break;
+                }
+
+                $event->title =$request->input('title');
+                $event->description = $request->input('description');
+                $event->slug = $request->input('slug');
+                $event->duration = $request->input('duration');
+                $event->auditorium = $request->input('auditorium');
+                $event->speaker_id = $request->input('speaker_id');
+                $event->date = $date_event;
+
+                $event->save();
+                return back()->with('status', 'Evento editado satisfactoriamente');
+
+            } catch (Exception $ex) {
+                return back()->with('status', 'ATENCIÓN!! Evento no editado: ' . $ex->getMessage());
+            }
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
         }
