@@ -78,6 +78,9 @@
                                 <div class="col col-xs-6 text-right">
                                     <a href="{{ route('speakers.createSpeaker') }}">Crear nuevo</a>
                                 </div>
+                                <div class="col col-xs-12 ">
+                                    <i> - Si un speaker tiene un evento asociado, deberás borrar el evento previamente a borrar el speaker</i>
+                                </div>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -87,7 +90,8 @@
                                     <th><em class="fa fa-cog"></em></th>
                                     <th class="hidden-xs">Id</th>
                                     <th>Nombre</th>
-                                    <th>Descripción</th>
+                                    <th>Slug</th>
+                                    <th>Tagline</th>
                                     <th>Eventos</th>
                                 </tr>
                                 </thead>
@@ -95,7 +99,7 @@
                                 @forelse($speakers as $speaker)
                                     <tr>
                                         <td align="center" class ="first-column">
-                                            <form method="get" action="/administracion/speakers/editar/{{ $speaker->getId() }}">
+                                            <form method="get" action="{{route('speakers.editSpeaker', ['id' => $speaker->getId()])}}">
                                                 <div class="form-group">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <div class="form-group">
@@ -104,9 +108,8 @@
                                                 </div>
                                             </form>
 
-                                            <form method="post" action="/administracion/speakers/{{ $speaker->getId() }}">
-
-                                                <input type="hidden" name="_method" value="DELETE">
+                                            <form method="post" action="{{route('speakers.delete', ['id' => $speaker->getId()])}}">
+                                                {{ method_field('DELETE') }}
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                                 @include(
@@ -132,8 +135,15 @@
                                         </td>
                                         <td class ="second-column">{{ $speaker->getId() }}</td>
                                         <td class="align-center">{{ $speaker->getName() }}</td>
-                                        <td class="align-center">{{ $speaker->getDescription() }}</td>
-                                        <td class="align-center">-</td>
+                                        <td class="align-center">{{ $speaker->getSlug() }}</td>
+                                        <td class="align-center">{{ $speaker->getTagline() }}</td>
+                                        <td class="align-center">
+                                        @foreach($events as $event)
+                                            @if($event->speaker->getId() == $speaker->getId())
+                                                    {{$event->getId()}} - {{$event->getTitle()}}<br>
+                                            @endif
+                                        @endforeach
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>

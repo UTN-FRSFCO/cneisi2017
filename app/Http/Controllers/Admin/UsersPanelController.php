@@ -15,7 +15,7 @@ class UsersPanelController
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(5);
 
         $university = new University();
         $universities = $university->getAll();
@@ -67,6 +67,7 @@ class UsersPanelController
         }
 
         return view('admin-panel.users.index')
-            ->with('users', $usersList);
+            ->with('users', $usersList)
+            ->with('userss', $users);
     }
 }

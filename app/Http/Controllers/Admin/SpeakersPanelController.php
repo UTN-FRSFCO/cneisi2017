@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Entities\Conference;
 use App\Entities\Speaker;
 use App\Http\Requests\UpdateSpeakerRequest;
 use App\Http\Requests\StoreSpeakerRequest;
@@ -21,9 +22,11 @@ class SpeakersPanelController
     public function index()
     {
         $speakers = Speaker::paginate(5);
+        $conferences = Conference::all();
 
         return view(SELF::INDEX_VIEW)
-            ->with('speakers', $speakers);
+            ->with('speakers', $speakers)
+            ->with('events', $conferences);
     }
 
     /**
@@ -68,9 +71,11 @@ class SpeakersPanelController
             Speaker::destroy($id);
 
             $speakers = Speaker::paginate(5);
+            $conferences = Conference::all();
 
             return view(SELF::INDEX_VIEW)
                 ->with('speakers', $speakers)
+                ->with('events', $conferences)
                 ->with('status', 'Speaker eliminado satisfactoriamente');
 
         } catch (Exception $ex) {
@@ -112,8 +117,12 @@ class SpeakersPanelController
 
             $speaker->save();
 
-            return back()
-                ->with('speaker', $speaker)
+            $speakers = Speaker::paginate(5);
+            $conferences = Conference::all();
+
+            return view(SELF::INDEX_VIEW)
+                ->with('speakers', $speakers)
+                ->with('events', $conferences)
                 ->with('status', 'Speaker actualizado satisfactoriamente');
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());

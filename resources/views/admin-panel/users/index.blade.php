@@ -30,7 +30,6 @@
                         <ul class="dropdown-menu forAnimate" style="margin:20px;">
                             <li class="active"><a href="{{ route('panel.admin.users') }}">Ver todos</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Informes</a></li>
                         </ul>
                     </li>
 
@@ -39,7 +38,6 @@
                         <ul class="dropdown-menu forAnimate" style="margin:20px;">
                             <li><a href="{{ route('panel.admin.speakers') }}">Ver todos</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Informes</a></li>
                         </ul>
                     </li>
 
@@ -48,7 +46,6 @@
                         <ul class="dropdown-menu forAnimate" style="margin:20px;">
                             <li><a href="{{ route('panel.admin.events') }}">Ver todos</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Informes</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -78,7 +75,6 @@
                             <table class="table table-striped table-bordered table-list">
                                 <thead>
                                 <tr>
-                                    <th><em class="fa fa-cog"></em></th>
                                     <th class="hidden-xs">Nombre</th>
                                     <th>Email</th>
                                     <th>Tipo de usuario</th>
@@ -90,11 +86,7 @@
                                 @foreach($users as $user)
 
                                     <tr>
-                                        <td align="center">
-                                            <em class="fa fa-eye"></em>
-                                            <em class="fa fa-pencil"></em>
-                                            <em class="fa fa-trash"></em>
-                                        </td>
+
                                         <td>{{ $user[0] }}</td>
                                         <td>{{ $user[1] }}</td>
                                         <td>{{ $user[2] }}</td>
@@ -108,20 +100,8 @@
                         </div>
                         <div class="panel-footer">
                             <div class="row">
-                                <div class="col col-xs-4">Página 1 of 5
-                                </div>
-                                <div class="col col-xs-8">
-                                    <ul class="pagination hidden-xs pull-right">
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                    </ul>
-                                    <ul class="pagination visible-xs pull-right">
-                                        <li><a href="#">«</a></li>
-                                        <li><a href="#">»</a></li>
-                                    </ul>
+                                <div class="col col-xs-12 align-right">
+                                    {{ $userss->links() }}
                                 </div>
                             </div>
                         </div>

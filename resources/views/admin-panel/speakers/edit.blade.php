@@ -70,7 +70,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Editar Speaker</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="post" action="/administracion/speakers/editar/{{ $speaker->getId() }}">
+                        <form class="form-horizontal" role="form" method="post" action="{{route('speakers.edit', ['id' => $speaker->getId()])}}">
                             {{ method_field('PUT') }}
                             {{ csrf_field() }}
 
@@ -223,7 +223,7 @@
                             </div>
                         </form>
 
-                        <form method="post" action="/administracion/speakers/{{ $speaker->getId() }}">
+                        <form method="post" action="{{route('speakers.delete', ['id' => $speaker->getId()])}}">
 
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">

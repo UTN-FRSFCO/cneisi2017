@@ -94,7 +94,7 @@
 
                                     <tr>
                                         <td align="center" class ="first-column">
-                                            <form method="get" action="/administracion/evento/editar/{{ $event->getId() }}">
+                                            <form method="get" action="{{route('event.editEvent', ['id' => $event->getId()])}}">
                                                 <div class="form-group">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <div class="form-group">
@@ -103,7 +103,7 @@
                                                 </div>
                                             </form>
 
-                                            <form method="post" action="/administracion/evento/{{ $event->getId() }}">
+                                            <form method="post" action="{{route('event.delete', ['id' => $event->getId()])}}">
 
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
