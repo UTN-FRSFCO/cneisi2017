@@ -120,61 +120,65 @@ Route::get('politicas-y-privacidad',
 );
 
 //admin panel routes
-Route::get('/administracion',
-    ['as' => 'panel.admin', 'uses' => 'Admin\HomePanelController@index']
-);
+Route::group(['middleware' => ['admin']], function (){
+
+    Route::get('/administracion',
+        ['as' => 'panel.admin', 'uses' => 'Admin\HomePanelController@index']
+    );
 
 //admin panel users
-Route::get('/administracion/usuarios',
-    ['as' => 'panel.admin.users', 'uses' => 'Admin\UsersPanelController@index']
-);
+    Route::get('/administracion/usuarios',
+        ['as' => 'panel.admin.users', 'uses' => 'Admin\UsersPanelController@index']
+    );
 
 //admin panel speakers
-Route::get('/administracion/speakers',
-    ['as' => 'panel.admin.speakers', 'uses' => 'Admin\SpeakersPanelController@index']
-);
+    Route::get('/administracion/speakers',
+        ['as' => 'panel.admin.speakers', 'uses' => 'Admin\SpeakersPanelController@index']
+    );
 
-Route::get('/administracion/speakers/crear',
-    ['as' => 'speakers.createSpeaker', 'uses' => 'Admin\SpeakersPanelController@createSpeaker']
-);
+    Route::get('/administracion/speakers/crear',
+        ['as' => 'speakers.createSpeaker', 'uses' => 'Admin\SpeakersPanelController@createSpeaker']
+    );
 
-Route::post('/administracion/speaker/crear',
-    ['as' => 'speakers.create', 'uses' => 'Admin\SpeakersPanelController@create']
-);
+    Route::post('/administracion/speaker/crear',
+        ['as' => 'speakers.create', 'uses' => 'Admin\SpeakersPanelController@create']
+    );
 
-Route::get('/administracion/speaker/editar/{id}',
-    ['as' => 'speakers.editSpeaker', 'uses' => 'Admin\SpeakersPanelController@editSpeaker']
-);
+    Route::get('/administracion/speaker/editar/{id}',
+        ['as' => 'speakers.editSpeaker', 'uses' => 'Admin\SpeakersPanelController@editSpeaker']
+    );
 
-Route::put('/administracion/speaker/editar/{id}',
-    ['as' => 'speakers.edit', 'uses' => 'Admin\SpeakersPanelController@edit']
-);
+    Route::put('/administracion/speaker/editar/{id}',
+        ['as' => 'speakers.edit', 'uses' => 'Admin\SpeakersPanelController@edit']
+    );
 
-Route::delete('/administracion/speaker/{id}',
-    ['as' => 'speakers.delete', 'uses' => 'Admin\SpeakersPanelController@delete']
-);
+    Route::delete('/administracion/speaker/{id}',
+        ['as' => 'speakers.delete', 'uses' => 'Admin\SpeakersPanelController@delete']
+    );
 
 //admin panel events
-Route::get('/administracion/eventos',
-    ['as' => 'panel.admin.events', 'uses' => 'Admin\EventsPanelController@index']
-);
+    Route::get('/administracion/eventos',
+        ['as' => 'panel.admin.events', 'uses' => 'Admin\EventsPanelController@index']
+    );
 
-Route::get('/administracion/evento/crear',
-    ['as' => 'event.createEvent', 'uses' => 'Admin\EventsPanelController@createEvent']
-);
+    Route::get('/administracion/evento/crear',
+        ['as' => 'event.createEvent', 'uses' => 'Admin\EventsPanelController@createEvent']
+    );
 
-Route::post('/administracion/evento/crear',
-    ['as' => 'event.create', 'uses' => 'Admin\EventsPanelController@create']
-);
+    Route::post('/administracion/evento/crear',
+        ['as' => 'event.create', 'uses' => 'Admin\EventsPanelController@create']
+    );
 
-Route::get('/administracion/evento/editar/{id}',
-    ['as' => 'event.editEvent', 'uses' => 'Admin\EventsPanelController@editEvent']
-);
+    Route::get('/administracion/evento/editar/{id}',
+        ['as' => 'event.editEvent', 'uses' => 'Admin\EventsPanelController@editEvent']
+    );
 
-Route::put('/administracion/evento/editar/{id}',
-    ['as' => 'event.edit', 'uses' => 'Admin\EventsPanelController@edit']
-);
+    Route::put('/administracion/evento/editar/{id}',
+        ['as' => 'event.edit', 'uses' => 'Admin\EventsPanelController@edit']
+    );
 
-Route::delete('/administracion/evento/{id}',
-    ['as' => 'event.delete', 'uses' => 'Admin\EventsPanelController@delete']
-);
+    Route::delete('/administracion/evento/{id}',
+        ['as' => 'event.delete', 'uses' => 'Admin\EventsPanelController@delete']
+    );
+
+});

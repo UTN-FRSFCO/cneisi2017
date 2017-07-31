@@ -71,8 +71,8 @@
                                 <fieldset class="col-sm-12" style="text-align:center; margin: 10px;">
 
                                     <h6><span class="highlight">{{ trans('strings.login-with') }}</span></h6>
-                                    <a href="redirect/facebook"><span class="fa fa-facebook-official fa-2x"></span></a>
-                                    <a href="redirect/twitter"><span class="fa fa-twitter fa-2x"></span></a>
+                                    <a href="/redirect/facebook"><span class="fa fa-facebook-official fa-2x"></span></a>
+                                    <a href="/redirect/twitter"><span class="fa fa-twitter fa-2x"></span></a>
 
                                 </fieldset>
                             </form>

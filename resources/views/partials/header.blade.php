@@ -45,6 +45,10 @@
                                     <li class="hidden-xs divider navbar-login-session-bg"></li>
                                     <li><a href="{{ route('user.panel') }}" class="navigation-link">Mi cuenta</a></li>
                                     <li class="divider"></li>
+                                    @if(Auth::User()->isAdmin())
+                                        <li><a href="{{ route('panel.admin') }}" class="navigation-link">Admin panel</a></li>
+                                        <li class="divider"></li>
+                                    @endif
                                     <li>
                                         <a href="{{ route('logout') }}" class="navigation-link"
                                            onclick="event.preventDefault();
