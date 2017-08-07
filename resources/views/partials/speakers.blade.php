@@ -12,14 +12,29 @@
                 <div class="speaker">
                     <div class="{{ $speaker->getSlug() }}">
                         <input type="hidden" id="video-speaker-link-{{ $speaker->getSlug() }}" value="{{ $speaker->getVideo() }}" />
-                        <div class="vid-speaker photo-wrapper rounded"><img src="{{ $speaker->getPicture() }}" alt="{{ $speaker->getName() }}" class="img-responsive" style="width: 140px; height: 140px;"></div>
-                        <h3 class="vid-speaker name"><a>{{ $speaker->getName() }}</a></h3>
+                        @if($speaker->hasVideo())
+                            <div class="vid-speaker photo-wrapper rounded"><img src="{{ $speaker->getPicture() }}" alt="{{ $speaker->getName() }}" class="img-responsive" style="width: 140px; height: 140px;"></div>
+                            <h3 class="vid-speaker name"><a>{{ $speaker->getName() }}</a></h3>
+                        @else
+                            <div class="photo-wrapper rounded"><img src="{{ $speaker->getPicture() }}" alt="{{ $speaker->getName() }}" class="img-responsive" style="width: 140px; height: 140px;"></div>
+                            <h3 class="name"><a>{{ $speaker->getName() }}</a></h3>
+                        @endif
+
                         <p class="text-alt"><small>{{ $speaker->getTagline() }}</small></p>
                         <p class="about">{{ $speaker->getDescription() }}</p>
                         <ul class="speaker-socials">
-                            <li><a target="_blank" href="https://{{ $speaker->getFacebookLink() }}"><span class="fa fa-facebook"></span></a></li>
-                            <li><a target="_blank" href="https://{{ $speaker->getTwitterLink() }}"><span class="fa fa-twitter"></span></a></li>
-                            <li><a target="_blank" href="https://{{ $speaker->getGoogleLink() }}"><span class="fa fa-google-plus"></span></a></li>
+                            @if($speaker->getFacebookLink())
+                                <li><a target="_blank" href="https://{{ $speaker->getFacebookLink() }}"><span class="fa fa-facebook"></span></a></li>
+                            @endif
+
+                            @if($speaker->getTwitterLink())
+                                <li><a target="_blank" href="https://{{ $speaker->getTwitterLink() }}"><span class="fa fa-twitter"></span></a></li>
+                            @endif
+
+                            @if($speaker->getGoogleLink())
+                                    <li><a target="_blank" href="https://{{ $speaker->getGoogleLink() }}"><span class="fa fa-google-plus"></span></a></li>
+                            @endif
+
                         </ul>
                     </div>
                 </div>

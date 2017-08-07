@@ -76,7 +76,7 @@
                                                     <p class="description">{{ $conference->getDescription() }}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @include('components.assistance-form')
-                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium1' ])
+                                                    {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium1' ])--}}
                                                 </article>
                                             </div>
                                         </div>
@@ -134,7 +134,7 @@
                                                     <p class="description">{{ $conference->getDescription() }}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @include('components.assistance-form')
-                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium2'])
+                                                    {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium2'])--}}
                                                 </article>
                                             </div>
                                         </div>
@@ -192,7 +192,7 @@
                                                     <p class="description">{{ $conference->getDescription() }}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @include('components.assistance-form')
-                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium3'])
+                                                    {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium3'])--}}
                                                 </article>
                                             </div>
                                         </div>
@@ -269,7 +269,7 @@
                                                     <p class="description">{{ $conference->getDescription() }}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @include('components.assistance-form')
-                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium1'])
+                                                    {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium1'])--}}
                                                 </article>
                                             </div>
                                         </div>
@@ -326,7 +326,7 @@
                                                     <p class="description">{{ $conference->getDescription() }}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @include('components.assistance-form')
-                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium2'])
+                                                    {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium2'])--}}
                                                 </article>
                                             </div>
                                         </div>
@@ -383,7 +383,7 @@
                                                     <p class="description">{{ $conference->getDescription() }}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @include('components.assistance-form')
-                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium3'])
+                                                    {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium3'])--}}
                                                 </article>
                                             </div>
                                         </div>
@@ -460,7 +460,7 @@
                                                     <p class="description">{{ $conference->getDescription() }}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @include('components.assistance-form')
-                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium1'])
+                                                    {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium1'])--}}
                                                 </article>
                                             </div>
                                         </div>
@@ -517,7 +517,7 @@
                                                     <p class="description">{{ $conference->getDescription() }}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @include('components.assistance-form')
-                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium2'])
+                                                    {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium2'])--}}
                                                 </article>
                                             </div>
                                         </div>
@@ -574,7 +574,7 @@
                                                     <p class="description">{{ $conference->getDescription() }}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @include('components.assistance-form')
-                                                    @include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium3'])
+                                                    {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day3_auditorium3'])--}}
                                                 </article>
                                             </div>
                                         </div>

@@ -121,6 +121,11 @@ class Speaker extends Model
         $this->twitterLink = $twitterLink;
     }
 
+    public function hasVideo()
+    {
+        return !empty($this->video);
+    }
+
     public function getVideo()
     {
         return $this->video;

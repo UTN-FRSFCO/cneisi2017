@@ -22,6 +22,8 @@
 
     @include('partials.counters')
 
+    @include('partials.speakers')
+
     @include('partials.schedule')
 
     @include('partials.papers')
