@@ -34,9 +34,11 @@
                                                         </div>
                                                         <div class=" col-md-9 col-lg-9 align-left">
                                                             <div class="speaker">
-                                                                <h3 class="name speaker-name"><a>{{ $speaker->getName() }}</a></h3>
+                                                                <a href="{{ route('speaker.show', $speaker->getSlug()) }}" id="continue" style="text-decoration: none;">
+                                                                    <h3 class="name speaker-name"><a>{{ $speaker->getName() }}</a></h3>
+                                                                </a>
                                                                 <p class="text-alt speaker-tagline"><small>{{ $speaker->getTagline() }}</small></p>
-                                                                <p class="about speaker-desc">{{ $speaker->getDescription() }}</p>
+                                                                <p class="about speaker-desc">{{ str_limit($speaker->getDescription(), $limit = 150, $end = '...') }}</p>
                                                                 <ul class="speaker-socials">
                                                                     @if($speaker->getFacebookLink())
                                                                         <li><a target="_blank" href="https://{{ $speaker->getFacebookLink() }}"><span class="fa fa-facebook"></span></a></li>
@@ -51,7 +53,7 @@
                                                                     @endif
                                                                 </ul>
                                                                 <div class="see-more">
-                                                                    <a href="" id="continue">
+                                                                    <a href="{{ route('speaker.show', $speaker->getSlug()) }}" id="continue" style="text-decoration: none;">
                                                                         <h6>Ver más <i class="fa fa-chevron-right" style="vertical-align: middle;"></i></h6>
                                                                     </a>
                                                                 </div>

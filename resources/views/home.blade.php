@@ -22,7 +22,9 @@
 
     @include('partials.counters')
 
-    @include('partials.speakers')
+    @if(count($speakers) > 0)
+        @include('partials.speakers')
+    @endif
 
     @include('partials.schedule')
 

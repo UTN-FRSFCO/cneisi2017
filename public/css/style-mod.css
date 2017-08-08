@@ -176,9 +176,13 @@
 }
 
 @media (min-width: 1024px) {
-    .speaker-name, .speaker-tagline, .speaker-desc, .speaker-socials{
+    .speaker-name, .speaker-tagline, .speaker-desc{
         text-align: left;
         padding: 0 15px;
+    }
+
+    .speaker-socials{
+        text-align: left;
     }
 
     .see-more {
@@ -198,4 +202,9 @@
     filter: grayscale(100%);
     width: 140px;
     height: 140px;
+}
+
+.speaker-desc {
+    color: #989ca2;
+    font-family: Open Sans, sans-serif;
 }

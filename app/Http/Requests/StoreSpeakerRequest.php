@@ -28,7 +28,7 @@ class StoreSpeakerRequest extends FormRequest
             'picture' => 'required',
             'slug' => 'required|unique:speakers,slug',
             'tagline' => 'required',
-            'description' => 'required|max:240',
+            'description' => 'required|max:500',
             'score' => 'required|integer'
         ];
     }

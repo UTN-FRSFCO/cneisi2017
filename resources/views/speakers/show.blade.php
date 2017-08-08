@@ -16,10 +16,19 @@
             <div class="col-md-8">
                 <div class="panel panel-default" style="margin-bottom: 100px;">
                     <div class="panel-body">
-                        <div class="col-md-12 align-center" style="margin-bottom: 30px;">
-                            <img alt="{{ $speaker->getName() }}" src="{{ $speaker->getPicture() }}" class="img-circle img-responsive speaker-circle">
-                            <h5 class="align-center" style="margin-top: 20px;"><span class="highlight">{{ $speaker->getName() }}</span></h5>
-                            <p class="text-alt align-center"><small>{{ $speaker->getTagline() }}</small></p>
+                        <div class="col-md-12 align-center" style="margin:20px 0 20px 0;">
+                            <div class="{{ $speaker->getSlug() }}">
+                                @if($speaker->hasVideo())
+                                    <input type="hidden" id="video-speaker-link-{{ $speaker->getSlug() }}" value="{{ $speaker->getVideo() }}" />
+                                    <div class="vid-speaker photo-wrapper rounded"><img alt="{{ $speaker->getName() }}" src="{{ $speaker->getPicture() }}" class="img-circle img-responsive speaker-circle" style="cursor: pointer;"></div>
+                                    <h5 class="vid-speaker align-center" style="margin-top: 20px;"><span class="highlight" style="cursor: pointer;">{{ $speaker->getName() }}</span></h5>
+                                    <p class="vid-speaker text-alt align-center"><small style="cursor: pointer;">{{ $speaker->getTagline() }}</small></p>
+                                @else
+                                    <div class="photo-wrapper rounded"><img alt="{{ $speaker->getName() }}" src="{{ $speaker->getPicture() }}" class="img-circle img-responsive speaker-circle"></div>
+                                    <h5 class="align-center" style="margin-top: 20px;"><span class="highlight">{{ $speaker->getName() }}</span></h5>
+                                    <p class="text-alt align-center"><small>{{ $speaker->getTagline() }}</small></p>
+                                @endif
+                            </div>
                         </div>
                         <p class="text-center"> {{ $speaker->getDescription() }}</p>
                         <div class="speaker">
@@ -39,6 +48,7 @@
                         </div>
                         <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
                             @include('components.share', ['url' => 'http://cneisi.sanfrancisco.utn.edu.ar/disertantes/' . $speaker->getSlug() ])
+                            <a href="{{ route('speakers') }}" class="btn btn-sm">Ver todos los disertantes</a>
                         </div>
                         @include('components.modal-video-speaker')
                     </div>

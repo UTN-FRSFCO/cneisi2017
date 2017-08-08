@@ -2,7 +2,7 @@
     <div class="container">
         <span class="icon section-icon icon-faces-users-04"></span>
         <h3>Disertantes</h3>
-        <p class="text-alt">Conocé a los principales <span class="highlight">disertantes</span> del congreso</p>
+        <p class="text-alt">Conocé a los principales <span class="highlight"><a href="{{route('speakers')}}">disertantes</a></span> del congreso</p>
         <br />
 
         @foreach ($speakers as $speaker)
@@ -16,10 +16,12 @@
                                 </div>
                                 <div class=" col-md-9 col-lg-9 align-left">
                                     <div class="speaker">
-                                        <h3 class="name speaker-name"><a>{{ $speaker->getName() }}</a></h3>
+                                        <a href="{{ route('speaker.show', $speaker->getSlug()) }}" id="continue" style="text-decoration: none;">
+                                            <h3 class="name speaker-name">{{ $speaker->getName() }}</h3>
+                                        </a>
                                         <p class="text-alt speaker-tagline"><small>{{ $speaker->getTagline() }}</small></p>
-                                        <p class="about speaker-desc">{{ $speaker->getDescription() }}</p>
-                                        <ul class="speaker-social">
+                                        <p class="about speaker-desc">{{ str_limit($speaker->getDescription(), $limit = 150, $end = '...') }}</p>
+                                        <ul class="speaker-socials">
                                             @if($speaker->getFacebookLink())
                                                 <li><a target="_blank" href="https://{{ $speaker->getFacebookLink() }}"><span class="fa fa-facebook"></span></a></li>
                                             @endif
@@ -33,7 +35,7 @@
                                             @endif
                                         </ul>
                                         <div class="see-more">
-                                            <a href="{{ route('speaker.show', $speaker->getSlug()) }}" id="continue">
+                                            <a href="{{ route('speaker.show', $speaker->getSlug()) }}" id="continue" style="text-decoration: none;">
                                                 <h6>Ver más <i class="fa fa-chevron-right" style="vertical-align: middle;"></i></h6>
                                             </a>
                                         </div>
@@ -45,6 +47,6 @@
                 </div>
             </div>
         @endforeach
-        <a href="{{ route('speakers') }}" class="btn btn-outline-clr btn-sm">Ver la lista completa <span class="fa fa-chevron-right"></span></a>
+        <a href="{{ route('speakers') }}" class="btn btn-sm">Ver la lista completa<span class="fa fa-chevron-right" style="color:white;"></span></a>
     </div>
 </section>
