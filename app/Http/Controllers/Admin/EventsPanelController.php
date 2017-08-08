@@ -49,10 +49,9 @@ class EventsPanelController
     public function create(StoreEventRequest $request)
     {
         try {
+            $date = date_create();
 
-        $date = date_create();
-
-        switch ($request->input('date')) {
+            switch ($request->input('date')) {
             case 'day_one':
                 $date_event = date_format($date, '2017-08-31 '.$request->input('time').':00');
                 break;
@@ -64,7 +63,7 @@ class EventsPanelController
                 break;
         }
 
-        Conference::create(
+            Conference::create(
             [
                 'title' => $request->input('title'),
                 'description' => $request->input('description'),
@@ -76,8 +75,7 @@ class EventsPanelController
             ]
         );
 
-        return back()->with('status', 'Evento creado satisfactoriamente');
-
+            return back()->with('status', 'Evento creado satisfactoriamente');
         } catch (Exception $ex) {
             return back()->with('status', 'ATENCIÓN!! Evento no guardado: ' . $ex->getMessage());
         }
@@ -85,8 +83,7 @@ class EventsPanelController
 
     public function delete(int $id)
     {
-        try
-        {
+        try {
             Conference::destroy($id);
 
             $events = Conference::paginate(5);
@@ -94,17 +91,14 @@ class EventsPanelController
             return view(SELF::INDEX_VIEW)
                 ->with('events', $events)
                 ->with('status', 'Evento eliminado satisfactoriamente');
-
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
         }
-
     }
 
     public function editEvent(int $id)
     {
-        try
-        {
+        try {
             $event = Conference::findOrFail($id);
             $speakers = Speaker::all();
 
@@ -114,17 +108,14 @@ class EventsPanelController
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
         }
-
     }
 
     public function edit(int $id, UpdateConferenceRequest $request)
     {
-        try
-        {
+        try {
             $event = Conference::findOrFail($id);
 
             try {
-
                 $date = date_create();
 
                 switch ($request->input('date')) {
@@ -149,14 +140,11 @@ class EventsPanelController
 
                 $event->save();
                 return back()->with('status', 'Evento editado satisfactoriamente');
-
             } catch (Exception $ex) {
                 return back()->with('status', 'ATENCIÓN!! Evento no editado: ' . $ex->getMessage());
             }
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
         }
-
     }
-
 }

@@ -66,8 +66,7 @@ class SpeakersPanelController
 
     public function delete(int $id)
     {
-        try
-        {
+        try {
             Speaker::destroy($id);
 
             $speakers = Speaker::paginate(5);
@@ -77,17 +76,14 @@ class SpeakersPanelController
                 ->with('speakers', $speakers)
                 ->with('events', $conferences)
                 ->with('status', 'Speaker eliminado satisfactoriamente');
-
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
         }
-
     }
 
     public function editSpeaker(int $id)
     {
-        try
-        {
+        try {
             $speaker = Speaker::findOrFail($id);
 
             return view(SELF::EDIT_VIEW)
@@ -95,13 +91,11 @@ class SpeakersPanelController
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
         }
-
     }
 
     public function edit(int $id, UpdateSpeakerRequest $request)
     {
-        try
-        {
+        try {
             $speaker = Speaker::findOrFail($id);
 
             $speaker->name = $request->input('name');
@@ -127,6 +121,5 @@ class SpeakersPanelController
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
         }
-
     }
 }

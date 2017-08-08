@@ -191,3 +191,11 @@
         display: block;
     }
 }
+
+.speaker-circle {
+    display: block;
+    margin: 0 auto;
+    filter: grayscale(100%);
+    width: 140px;
+    height: 140px;
+}

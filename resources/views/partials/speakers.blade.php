@@ -19,7 +19,7 @@
                                         <h3 class="name speaker-name"><a>{{ $speaker->getName() }}</a></h3>
                                         <p class="text-alt speaker-tagline"><small>{{ $speaker->getTagline() }}</small></p>
                                         <p class="about speaker-desc">{{ $speaker->getDescription() }}</p>
-                                        <ul class="speaker-socials">
+                                        <ul class="speaker-social">
                                             @if($speaker->getFacebookLink())
                                                 <li><a target="_blank" href="https://{{ $speaker->getFacebookLink() }}"><span class="fa fa-facebook"></span></a></li>
                                             @endif
@@ -33,7 +33,7 @@
                                             @endif
                                         </ul>
                                         <div class="see-more">
-                                            <a href="" id="continue">
+                                            <a href="{{ route('speaker.show', $speaker->getSlug()) }}" id="continue">
                                                 <h6>Ver más <i class="fa fa-chevron-right" style="vertical-align: middle;"></i></h6>
                                             </a>
                                         </div>

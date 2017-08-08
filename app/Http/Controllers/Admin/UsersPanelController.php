@@ -24,19 +24,19 @@ class UsersPanelController
 
         foreach ($users as $user) {
             $name = $user->getName() . ' ' . $user->getLastname();
-            if(!is_null($name)){
+            if (!is_null($name)) {
                 array_push($userProperties, $name);
             } else {
                 array_push($userProperties, ' - ');
             }
 
-            if(!is_null($user['email'])){
+            if (!is_null($user['email'])) {
                 array_push($userProperties, $user['email']);
             } else {
                 array_push($userProperties, ' - ');
             }
 
-            if(!is_null($user->userProfile['type'])){
+            if (!is_null($user->userProfile['type'])) {
                 switch ($user->userProfile['type']) {
                     case 'student':
                         array_push($userProperties, 'Estudiante');
@@ -52,7 +52,7 @@ class UsersPanelController
                 array_push($userProperties, ' - ');
             }
 
-            if(!is_null($user->userProfile['university_region'])){
+            if (!is_null($user->userProfile['university_region'])) {
                 foreach ($universities as $bd_value => $name) {
                     if ($user->userProfile['university_region'] == strtolower($bd_value)) {
                         array_push($userProperties, $name);

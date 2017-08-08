@@ -48,7 +48,6 @@ class HomePanelController
         $tucuman = 0;
 
         foreach ($users as $user) {
-
             switch ($user->userProfile['university_region']) {
                 case 'buenos_aires':
                     ++$buenos_aires;
@@ -112,7 +111,7 @@ class HomePanelController
         $userAmount = 0;
         foreach ($users as $user) {
             if ($user->userProfile['user_type'] == 'general_audience') {
-              ++$userAmount;
+                ++$userAmount;
             }
         }
 

@@ -1,20 +1,36 @@
 <?php
 
+//Page routes
 Route::get('/',
     ['as' => 'home', 'uses' => 'HomeController@index']
 )->middleware('profile');
 
 Route::get('/acerca-de',
     ['as' => 'about', 'uses' => function () {
-            return view('about');
-        }
+        return view('about');
+    }
     ]
+);
+
+Route::get('/disertantes',
+    ['as' => 'speakers', 'uses' => 'SpeakerController@index']
+);
+
+Route::get('/disertantes/{id}',
+    ['as' => 'speaker.show', 'uses' => 'SpeakerController@show']
 );
 
 Route::get('/presentaciones',
     ['as' => 'presentations', 'uses' => function () {
-            return view('papers-posters');
-        }
+        return view('papers-posters');
+    }
+    ]
+);
+
+Route::get('politicas-y-privacidad',
+    ['as' => 'privacy', 'uses' => function () {
+        return view('privacypolicy');
+    }
     ]
 );
 
@@ -70,8 +86,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/usuario/mensaje-bienvenida',
         ['as' => 'user.welcome', 'uses' => function () {
-                return view('user.welcome-message');
-            }
+            return view('user.welcome-message');
+        }
         ]
     );
 
@@ -83,10 +99,6 @@ Route::group(['middleware' => 'auth'], function () {
         ['as' => 'password.change', 'uses' => 'UpdatePasswordController@update']
     );
 });
-
-Route::get('/disertantes',
-    ['as' => 'speakers', 'uses' => 'SpeakerController@index']
-);
 
 //Socialite routes
 Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
@@ -116,16 +128,8 @@ Route::get('/FormatPoster', function () {
     }
 });
 
-Route::get('politicas-y-privacidad',
-    ['as' => 'privacy', 'uses' => function () {
-        return view('privacypolicy');
-    }
-    ]
-);
-
 //admin panel routes
-Route::group(['middleware' => ['admin']], function (){
-
+Route::group(['middleware' => ['admin']], function () {
     Route::get('/administracion',
         ['as' => 'panel.admin', 'uses' => 'Admin\HomePanelController@index']
     );
@@ -184,5 +188,4 @@ Route::group(['middleware' => ['admin']], function (){
     Route::delete('/administracion/evento/{id}',
         ['as' => 'event.delete', 'uses' => 'Admin\EventsPanelController@delete']
     );
-
 });
