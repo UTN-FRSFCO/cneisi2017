@@ -17,7 +17,7 @@
                 <div id="navigation" class="navbar-collapse collapse">
                     <ul class="navigation-list pull-left light-text">
                         <li class="navigation-item"><a href="#acerca-de" class="navigation-link">Acerca de</a></li>
-                        <li class="navigation-item"><a href="#speakers" class="navigation-link">Speakers</a></li>
+                        <li class="navigation-item"><a href="#speakers" class="navigation-link">Disertantes</a></li>
                         <li class="navigation-item"><a href="#calendario" class="navigation-link">Calendario</a></li>
                         <li class="navigation-item"><a href="#papers" class="navigation-link">Papers & posters</a></li>
                         <li class="navigation-item"><a href="#contacto" class="navigation-link">Contacto</a></li>

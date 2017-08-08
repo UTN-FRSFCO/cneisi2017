@@ -7,6 +7,14 @@ use App\Entities\Speaker;
 
 class SpeakerController extends Controller
 {
+    public function index()
+    {
+        $speakers = Speaker::all()->sortByDesc('score');
+
+        return view('speakers')
+            ->with('speakers', $speakers);
+    }
+
     public function getAll()
     {
         $speakers = Speaker::all();

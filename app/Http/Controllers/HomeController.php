@@ -32,7 +32,7 @@ class HomeController extends Controller
         //$this->loadSpeakersFromJson();
         //$this->loadConferencesFromJson();
 
-        $speakers = Speaker::all()->sortByDesc('score');
+        $speakers = Speaker::all()->sortByDesc('score')->take(3);
         $conferencesCount = count(Conference::whereNotNull('speaker_id')->get());
         $conferences = $this->loadConferences();
         $assistancesConferences = [];

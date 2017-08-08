@@ -38,7 +38,7 @@
         <div class="col-sm-12">
             <br>
             <br>
-            <a href="{{ route('presentations') }}" class="btn btn-outline-clr btn-sm">{{ trans('buttons.see-more') }} <span class="fa fa-plus"></span></a>
+            <a href="{{ route('presentations') }}" class="btn btn-outline-clr btn-sm">{{ trans('buttons.see-more') }} <span class="fa fa-chevron-right"></span></a>
             @include('components.share', ['url' => env('APP_URL') . '#' . 'papers' ])
         </div>
 
