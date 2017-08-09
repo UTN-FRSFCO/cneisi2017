@@ -23,7 +23,7 @@
                         <p class="text-center"> Conocé a los diserantes que nos van a estar acompañando en el congreso, llevando adelante las diferentes conferencias y charlas que tendremos el orgulloso de presentar en la nueva edición del congreso.</p>
                         <div class="row" style="margin-top: 50px">
                             <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
-                                @foreach ($speakers as $speaker)
+                                @forelse ($speakers as $speaker)
                                     <div class="row">
                                         <div class="col-sm-12" >
                                             <div class="panel panel-info">
@@ -64,7 +64,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                @empty
+                                    <div class="row" style="margin-top: 50px">
+                                        <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
+                                            <em>Todavía no se han cargado disertantes</em>
+                                        </div>
+                                    </div>
+                                @endforelse
                                 <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
                                     @include('components.share', ['url' => 'http://cneisi.sanfrancisco.utn.edu.ar/presentaciones' ])
                                 </div>
