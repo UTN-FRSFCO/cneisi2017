@@ -67,4 +67,25 @@ class User extends Authenticatable
         return $this->belongsToMany(Conference::class)
             ->withTimestamps();
     }
+
+    /**
+     * Get the roles a user has
+     */
+     public function roles()
+     {
+         return $this->belongsToMany(Role::class);
+     }
+
+    public function isAdmin()
+    {
+        foreach ($this->roles()->get() as $role)
+        {
+            if ($role->name == 'admin')
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

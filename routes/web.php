@@ -1,20 +1,36 @@
 <?php
 
+//Page routes
 Route::get('/',
     ['as' => 'home', 'uses' => 'HomeController@index']
 )->middleware('profile');
 
 Route::get('/acerca-de',
     ['as' => 'about', 'uses' => function () {
-            return view('about');
-        }
+        return view('about');
+    }
     ]
+);
+
+Route::get('/disertantes',
+    ['as' => 'speakers', 'uses' => 'SpeakerController@index']
+);
+
+Route::get('/disertantes/{id}',
+    ['as' => 'speaker.show', 'uses' => 'SpeakerController@show']
 );
 
 Route::get('/presentaciones',
     ['as' => 'presentations', 'uses' => function () {
-            return view('papers-posters');
-        }
+        return view('papers-posters');
+    }
+    ]
+);
+
+Route::get('politicas-y-privacidad',
+    ['as' => 'privacy', 'uses' => function () {
+        return view('privacypolicy');
+    }
     ]
 );
 
@@ -70,8 +86,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/usuario/mensaje-bienvenida',
         ['as' => 'user.welcome', 'uses' => function () {
-                return view('user.welcome-message');
-            }
+            return view('user.welcome-message');
+        }
         ]
     );
 
@@ -112,9 +128,64 @@ Route::get('/FormatPoster', function () {
     }
 });
 
-Route::get('politicas-y-privacidad',
-    ['as' => 'privacy', 'uses' => function () {
-        return view('privacypolicy');
-    }
-    ]
-);
+//admin panel routes
+Route::group(['middleware' => ['admin']], function () {
+    Route::get('/administracion',
+        ['as' => 'panel.admin', 'uses' => 'Admin\HomePanelController@index']
+    );
+
+//admin panel users
+    Route::get('/administracion/usuarios',
+        ['as' => 'panel.admin.users', 'uses' => 'Admin\UsersPanelController@index']
+    );
+
+//admin panel speakers
+    Route::get('/administracion/speakers',
+        ['as' => 'panel.admin.speakers', 'uses' => 'Admin\SpeakersPanelController@index']
+    );
+
+    Route::get('/administracion/speakers/crear',
+        ['as' => 'speakers.createSpeaker', 'uses' => 'Admin\SpeakersPanelController@createSpeaker']
+    );
+
+    Route::post('/administracion/speaker/crear',
+        ['as' => 'speakers.create', 'uses' => 'Admin\SpeakersPanelController@create']
+    );
+
+    Route::get('/administracion/speaker/editar/{id}',
+        ['as' => 'speakers.editSpeaker', 'uses' => 'Admin\SpeakersPanelController@editSpeaker']
+    );
+
+    Route::put('/administracion/speaker/editar/{id}',
+        ['as' => 'speakers.edit', 'uses' => 'Admin\SpeakersPanelController@edit']
+    );
+
+    Route::delete('/administracion/speaker/{id}',
+        ['as' => 'speakers.delete', 'uses' => 'Admin\SpeakersPanelController@delete']
+    );
+
+//admin panel events
+    Route::get('/administracion/eventos',
+        ['as' => 'panel.admin.events', 'uses' => 'Admin\EventsPanelController@index']
+    );
+
+    Route::get('/administracion/evento/crear',
+        ['as' => 'event.createEvent', 'uses' => 'Admin\EventsPanelController@createEvent']
+    );
+
+    Route::post('/administracion/evento/crear',
+        ['as' => 'event.create', 'uses' => 'Admin\EventsPanelController@create']
+    );
+
+    Route::get('/administracion/evento/editar/{id}',
+        ['as' => 'event.editEvent', 'uses' => 'Admin\EventsPanelController@editEvent']
+    );
+
+    Route::put('/administracion/evento/editar/{id}',
+        ['as' => 'event.edit', 'uses' => 'Admin\EventsPanelController@edit']
+    );
+
+    Route::delete('/administracion/evento/{id}',
+        ['as' => 'event.delete', 'uses' => 'Admin\EventsPanelController@delete']
+    );
+});

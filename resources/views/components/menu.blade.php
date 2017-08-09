@@ -17,6 +17,7 @@
                 <div id="navigation" class="navbar-collapse collapse">
                     <ul class="navigation-list pull-left light-text">
                         <li class="navigation-item"><a href="{{ route('home') }}" class="navigation-link">Inicio</a></li>
+                        <li class="navigation-item"><a href="{{ route('speakers') }}" class="navigation-link">Disertantes</a></li>
                         <li class="navigation-item"><a href="{{ route('home') }}/#calendario" class="navigation-link">Calendario</a></li>
                         <li class="navigation-item"><a href="{{ route('presentations') }}" class="navigation-link">Papers & posters</a></li>
                         <li class="navigation-item"><a href="{{ route('about') }}" class="navigation-link">Acerca de</a></li>
@@ -44,6 +45,10 @@
                                     <li class="divider navbar-login-session-bg hidden-xs"></li>
                                     <li><a href="{{ route('user.panel') }}" class="navigation-link">Mi cuenta</a></li>
                                     <li class="divider"></li>
+                                    @if(Auth::User()->isAdmin())
+                                        <li><a href="{{ route('panel.admin') }}" class="navigation-link">Admin panel</a></li>
+                                        <li class="divider"></li>
+                                    @endif
                                     <li>
                                         <a href="{{ route('logout') }}" class="navigation-link"
                                            onclick="event.preventDefault();

@@ -29,3 +29,4 @@
 <script type="text/javascript" src="{{asset('/js/modal-box.js')}}"></script>
 <script type="text/javascript" src="{{asset('/js/ventcamp.js')}}"></script>
 <script type="text/javascript" src="{{asset('/js/cneisi.js')}}"></script>
+@stack('scripts')

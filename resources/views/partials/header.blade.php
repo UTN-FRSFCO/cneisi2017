@@ -17,6 +17,9 @@
                 <div id="navigation" class="navbar-collapse collapse">
                     <ul class="navigation-list pull-left light-text">
                         <li class="navigation-item"><a href="#acerca-de" class="navigation-link">Acerca de</a></li>
+                        @if(count($speakers) > 0)
+                            <li class="navigation-item"><a href="#speakers" class="navigation-link">Disertantes</a></li>
+                        @endif
                         <li class="navigation-item"><a href="#calendario" class="navigation-link">Calendario</a></li>
                         <li class="navigation-item"><a href="#papers" class="navigation-link">Papers & posters</a></li>
                         <li class="navigation-item"><a href="#contacto" class="navigation-link">Contacto</a></li>
@@ -45,6 +48,10 @@
                                     <li class="hidden-xs divider navbar-login-session-bg"></li>
                                     <li><a href="{{ route('user.panel') }}" class="navigation-link">Mi cuenta</a></li>
                                     <li class="divider"></li>
+                                    @if(Auth::User()->isAdmin())
+                                        <li><a href="{{ route('panel.admin') }}" class="navigation-link">Admin panel</a></li>
+                                        <li class="divider"></li>
+                                    @endif
                                     <li>
                                         <a href="{{ route('logout') }}" class="navigation-link"
                                            onclick="event.preventDefault();

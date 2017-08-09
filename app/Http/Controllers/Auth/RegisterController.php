@@ -104,6 +104,9 @@ class RegisterController extends Controller
         );
 
         $user->userProfile()->save(UserProfile::create());
+        $user
+            ->roles()
+            ->attach(Role::where('name', 'user')->first());
 
         return $user;
     }

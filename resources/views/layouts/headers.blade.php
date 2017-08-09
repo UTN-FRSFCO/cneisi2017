@@ -31,6 +31,8 @@
 <link rel="stylesheet" type="text/css" href="{{asset('/css/style.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('/css/style-mod.css')}}" />
 
+@stack('styles')
+
 <!--[if lt IE 9]>
 <script src="{{asset('/js/html5shiv.js')}}"></script>
 <script src="{{asset('/js/respond.min.js')}}"></script>
