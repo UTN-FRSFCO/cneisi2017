@@ -6,6 +6,8 @@ use App\Entities\Assistance;
 use App\Entities\Conference;
 use App\Http\Requests\StoreAssitanceRequest;
 use DateTime;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class AssistanceController extends Controller
@@ -14,7 +16,7 @@ class AssistanceController extends Controller
     {
         try {
             $assistance = new Assistance();
-            $date = DateTime::createFromFormat('d/m/Y', $request->date);
+            $date = DateTime::createFromFormat('d/m/Y H:i:s', $request->date);
             $assistance->setDate($date);
             $assistance->setDni($request->dni);
             $assistance->setCatcherName($request->catcher_name);
@@ -26,6 +28,8 @@ class AssistanceController extends Controller
 
             return response()->json(['status' => 'The resource is created successfully'], 200);
         } catch (Throwable $t) {
+            Log::error($t->getMessage());
+            Log::error($request->all());
             return response()->json(['status' => 'Error'], 500);
         }
     }

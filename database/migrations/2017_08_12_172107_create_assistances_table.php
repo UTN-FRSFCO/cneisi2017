@@ -17,7 +17,7 @@ class CreateAssistancesTable extends Migration
             $table->increments('id');
             $table->integer('conference_id')->unsigned();
             $table->foreign('conference_id')->references('id')->on('conferences');
-            $table->date('date');
+            $table->dateTime('date');
             $table->string('dni');
             $table->string('catcher_name');
             $table->timestamps();

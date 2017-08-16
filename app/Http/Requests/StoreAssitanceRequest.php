@@ -24,7 +24,7 @@ class StoreAssitanceRequest extends FormRequest
     public function rules()
     {
         return [
-            'conference_id' => 'required|exists:conferences,id',
+            'conference_id' => 'required',
             'date' => 'required',
             'dni' => 'required',
             'catcher_name' => 'required',
