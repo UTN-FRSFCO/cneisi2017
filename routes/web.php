@@ -188,4 +188,17 @@ Route::group(['middleware' => ['admin']], function () {
     Route::delete('/administracion/evento/{id}',
         ['as' => 'event.delete', 'uses' => 'Admin\EventsPanelController@delete']
     );
+
+    Route::get('/administracion/asistencias',
+        ['as' => 'panel.admin.assistances', 'uses' => 'Admin\AssistancesPanelController@index']
+    );
+
+    Route::get('/administracion/asistencias/evento/{eventId}',
+        ['as' => 'panel.admin.assistances.show', 'uses' => 'Admin\AssistancesPanelController@show']
+    );
+
+    Route::delete('/administracion/asistencias/{id}',
+        ['as' => 'assistance.delete', 'uses' => 'Admin\AssistancesPanelController@delete']
+    );
+
 });
