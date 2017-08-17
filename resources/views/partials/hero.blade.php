@@ -6,9 +6,9 @@
     <div class="heading-block centered-block align-center">
         <div class="container">
             <h5 class="heading-alt" style="margin-bottom: 8px;"><span class="fa fa-calendar-o base-clr-txt"></span>31.ago <span class="fa fa-map-marker base-clr-txt" style="margin-left: 14px;"></span>F.R. San Francisco, Cba</h5>
-            <h1 class=""><img src="{{asset('/img/isologotipo.png')}}" alt="Cneisi" class="retina-hide" width="283" height="209"></h1>
+            <h1 class=""><img src="{{asset('/img/isologotipo.png')}}" alt="Cneisi" width="283" height="209"></h1>
             <h6 class="thin base-font">Undécimo congreso nacional de estudiantes en <strong>Ingeniería en Sistemas de información</strong></h6>
-            <h1><img src="{{asset('/img/logo_utn_web.png')}}" alt="Cneisi" class="retina-hide"></h1>
+            <h1><img src="{{asset('/img/logo_utn_web.png')}}" alt="Cneisi"></h1>
             <div class="btns-container">
                 @if(Auth::guest())
                     <a href="#" class="btn btn-md" data-modal-link="user-login">Ingresar</a>
