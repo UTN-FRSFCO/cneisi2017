@@ -34,6 +34,7 @@
                                     <p>El evento se llevará a cabo el 31 de agosto, 1 y 2 de septiembre en las instalaciones de la facultad. Nuestro objetivo es poder lograr y favorecer el intercambio académico y cultural que año a año nos permite acercarnos y compartir entre todos esta fructífera experiencia.</p>
                                     <p>Los invitamos a todos a formar parte de este evento organizado para promover la unidad y el carácter federativo de esta facultad que año a año sigue creciendo y promoviendo eventos abiertos para toda la comunidad.</p>
                                 </article>
+                                <img src="{{asset('/img/aniversario.jpg')}}" alt="aniversario" class="img-responsive" /><br>
                             </div>
                             <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
                                 @include('components.share', ['url' => 'http://cneisi.sanfrancisco.utn.edu.ar/acerca-de' ])

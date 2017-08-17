@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Entities\User;
 use App\Entities\UserProfile;
+use App\Entities\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
