@@ -15,16 +15,21 @@ class AssistanceController extends Controller
     public function store(StoreAssitanceRequest $request)
     {
         try {
-            $assistance = new Assistance();
-            $date = DateTime::createFromFormat('d/m/Y H:i:s', $request->date);
-            $assistance->setDate($date);
-            $assistance->setDni($request->dni);
-            $assistance->setCatcherName($request->catcher_name);
+            $assistanceSearched = Assistance::where('dni', '=', $request->dni)
+                ->where('conference_id', '=', $request->conference_id)->get();
 
-            $conference = Conference::find($request->conference_id);
-            $assistance->conference()->associate($conference);
+            if ($assistanceSearched->count() === 0) {
+                $assistance = new Assistance();
+                $date = DateTime::createFromFormat('d/m/Y H:i:s', $request->date);
+                $assistance->setDate($date);
+                $assistance->setDni($request->dni);
+                $assistance->setCatcherName($request->catcher_name);
 
-            $assistance->save();
+                $conference = Conference::find($request->conference_id);
+                $assistance->conference()->associate($conference);
+
+                $assistance->save();
+            }
 
             return response()->json(['status' => 'The resource is created successfully'], 200);
         } catch (Throwable $t) {
