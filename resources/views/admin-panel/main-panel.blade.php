@@ -34,29 +34,29 @@
                             <ul class="university-users">
                             @foreach($usersUniversity as $university => $userAmount)
                                 @if($university == 'delta')
-                                    <li>Usuarios de universidad del delta: {{ $userAmount }}</li>
+                                    <li>Universidad del delta: {{ $userAmount }}</li>
                                 @elseif($university == 'buenos_aires')
-                                    <li>Usuarios de universidad de Buenos Aires: {{ $userAmount }}</li>
+                                    <li>Universidad de Buenos Aires: {{ $userAmount }}</li>
                                 @elseif($university == 'cordoba')
-                                    <li>Usuarios de universidad de Cordoba: {{ $userAmount }}</li>
+                                    <li>Universidad de Cordoba: {{ $userAmount }}</li>
                                 @elseif($university == 'villa_maria')
-                                    <li>Usuarios de universidad de Villa María: {{ $userAmount }}</li>
+                                    <li>Universidad de Villa María: {{ $userAmount }}</li>
                                 @elseif($university == 'san_francisco')
-                                    <li>Usuarios de universidad de San Francisco: {{ $userAmount }}</li>
+                                    <li>Universidad de San Francisco: {{ $userAmount }}</li>
                                 @elseif($university == 'tucuman')
-                                    <li>Usuarios de universidad de Tucuman: {{ $userAmount }}</li>
+                                    <li>Universidad de Tucuman: {{ $userAmount }}</li>
                                 @elseif($university == 'santa_fe')
-                                    <li>Usuarios de universidad de Santa Fe: {{ $userAmount }}</li>
+                                    <li>Universidad de Santa Fe: {{ $userAmount }}</li>
                                 @elseif($university == 'mendoza')
-                                    <li>Usuarios de universidad de Mendoza: {{ $userAmount }}</li>
+                                    <li>Universidad de Mendoza: {{ $userAmount }}</li>
                                 @elseif($university == 'resistencia')
-                                    <li>Usuarios de universidad de Resistencia: {{ $userAmount }}</li>
+                                    <li>Universidad de Resistencia: {{ $userAmount }}</li>
                                 @elseif($university == 'la_plata')
-                                    <li>Usuarios de universidad de La Plata: {{ $userAmount }}</li>
+                                    <li>Universidad de La Plata: {{ $userAmount }}</li>
                                 @elseif($university == 'rosario')
-                                    <li>Usuarios de universidad de Rosario: {{ $userAmount }}</li>
+                                    <li>Universidad de Rosario: {{ $userAmount }}</li>
                                 @elseif($university == 'concepcion_uruguay')
-                                    <li>Usuarios de universidad de Concepcion del Uruguay: {{ $userAmount }}</li>
+                                    <li>Universidad de Concepcion del Uruguay: {{ $userAmount }}</li>
                                 @endif
 
 

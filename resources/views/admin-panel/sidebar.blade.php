@@ -15,7 +15,6 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<i style="margin-left:5px;" class="fa fa-chevron-down"></i><i style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-user"></i></a>
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
                         <li><a href="{{ route('panel.admin.users') }}">Ver todos</a></li>
-                        <li class="divider"></li>
                     </ul>
                 </li>
 
@@ -25,7 +24,6 @@
                         <li><a href="{{ route('panel.admin.speakers') }}">Ver todos</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ route('speakers.createSpeaker') }}">Crear</a></li>
-                        <li class="divider"></li>
                     </ul>
                 </li>
 
@@ -35,7 +33,6 @@
                         <li><a href="{{ route('panel.admin.events') }}">Ver todos</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ route('event.createEvent') }}">Crear</a></li>
-                        <li class="divider"></li>
                     </ul>
                 </li>
 
@@ -45,7 +42,6 @@
                         <li><a href="{{ route('panel.admin.assistants') }}">Ver todos</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ route('assistants.loadAssistants') }}">Cargar</a></li>
-                        <li class="divider"></li>
                     </ul>
                 </li>
             </ul>
