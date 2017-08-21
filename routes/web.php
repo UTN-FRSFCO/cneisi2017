@@ -189,11 +189,21 @@ Route::group(['middleware' => ['admin']], function () {
         ['as' => 'event.delete', 'uses' => 'Admin\EventsPanelController@delete']
     );
 
-    Route::get('/administracion/asistentes',
-        ['as' => 'panel.admin.assistants', 'uses' => 'Admin\AssistantsPanelController@loadAssistants']
+    //admin panel assistants
+
+    Route::get('/administracion/asistentes/{type?}',
+        ['as' => 'panel.admin.assistants', 'uses' => 'Admin\AssistantsPanelController@index']
     );
 
-    Route::post('/administracion/asistentes',
+    Route::get('/administracion/asistentes/cargar',
+        ['as' => 'assistants.loadAssistants', 'uses' => 'Admin\AssistantsPanelController@loadAssistants']
+    );
+
+    Route::post('/administracion/asistentes/cargar',
         ['as' => 'assistants.load', 'uses' => 'Admin\AssistantsPanelController@load']
+    );
+
+    Route::delete('/administracion/asistentes/{id}',
+        ['as' => 'assistants.delete', 'uses' => 'Admin\AssistantsPanelController@delete']
     );
 });

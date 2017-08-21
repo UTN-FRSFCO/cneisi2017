@@ -16,7 +16,6 @@
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
                         <li><a href="{{ route('panel.admin.users') }}">Ver todos</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Informes</a></li>
                     </ul>
                 </li>
 
@@ -25,25 +24,28 @@
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
                         <li><a href="{{ route('panel.admin.speakers') }}">Ver todos</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Informes</a></li>
+                        <li><a href="{{ route('speakers.createSpeaker') }}">Crear</a></li>
+                        <li class="divider"></li>
                     </ul>
                 </li>
 
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Eventos<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-list"></span></a>
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
-                        <li class="active"><a href="{{ route('panel.admin.events') }}">Ver todos</a></li>
+                        <li><a href="{{ route('panel.admin.events') }}">Ver todos</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Informes</a></li>
+                        <li><a href="{{ route('event.createEvent') }}">Crear</a></li>
+                        <li class="divider"></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asistentes<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-list"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asistentes<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-group"></span></a>
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
-                        <li class="active"><a href="{{ route('panel.admin.events') }}">Cargar</a></li>
+                        <li><a href="{{ route('panel.admin.assistants') }}">Ver todos</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Informes</a></li>
+                        <li><a href="{{ route('assistants.loadAssistants') }}">Cargar</a></li>
+                        <li class="divider"></li>
                     </ul>
                 </li>
             </ul>
