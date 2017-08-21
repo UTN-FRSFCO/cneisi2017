@@ -188,4 +188,12 @@ Route::group(['middleware' => ['admin']], function () {
     Route::delete('/administracion/evento/{id}',
         ['as' => 'event.delete', 'uses' => 'Admin\EventsPanelController@delete']
     );
+
+    Route::get('/administracion/asistentes',
+        ['as' => 'panel.admin.assistants', 'uses' => 'Admin\AssistantsPanelController@loadAssistants']
+    );
+
+    Route::post('/administracion/asistentes',
+        ['as' => 'assistants.load', 'uses' => 'Admin\AssistantsPanelController@load']
+    );
 });

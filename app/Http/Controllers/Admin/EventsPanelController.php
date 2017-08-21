@@ -26,6 +26,7 @@ class EventsPanelController
         return view(SELF::INDEX_VIEW)
             ->with('events', $events);
     }
+
     /**
      * Show the speakers create form.
      *
