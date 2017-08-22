@@ -206,4 +206,12 @@ Route::group(['middleware' => ['admin']], function () {
     Route::delete('/administracion/asistentes/{id}',
         ['as' => 'assistants.delete', 'uses' => 'Admin\AssistantsPanelController@delete']
     );
+
+    //admin panel assistance
+
+    Route::get('/administracion/asistencias/{conference?}',
+        ['as' => 'panel.admin.assistance', 'uses' => 'Admin\AssistancePanelController@index']);
+
+    Route::get('/administracion/asistencias/todas',
+        ['as' => 'assistance.conference', 'uses' => 'Admin\AssistancePanelController@byConference']);
 });
