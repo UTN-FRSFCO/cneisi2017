@@ -201,4 +201,7 @@ Route::group(['middleware' => ['admin']], function () {
         ['as' => 'assistance.delete', 'uses' => 'Admin\AssistancesPanelController@delete']
     );
 
+    Route::get('/administracion/asistentes/codigos-qr',
+        ['as' => 'panel.admin.assistants.qr_codes', 'uses' => 'Admin\AssistantController@getQRCodes']);
+
 });

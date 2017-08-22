@@ -43,7 +43,7 @@
                         </ul>
                     </li>
 
-                    <li class="open">
+                    <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Eventos<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-list"></span></a>
                         <ul class="dropdown-menu forAnimate" style="margin:20px;">
                             <li class="active"><a href="{{ route('panel.admin.events') }}">Ver todos</a></li>
