@@ -34,6 +34,8 @@
         @include('partials.register')
     @endif
 
+    @include('partials.sponsors')
+
     @include('partials.contact')
 
     @include('user.auth.modal-user-login')
