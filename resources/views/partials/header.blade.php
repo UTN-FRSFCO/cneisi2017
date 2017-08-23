@@ -4,7 +4,7 @@
             <div class="col-sm-2 col-xs-12 navigation-header" >
                 <a href="#hero" class="logo">
                     <img src="{{asset('/img/isologo-final.png')}}" alt="Cneisi" class="retina-hide" width="133" height="51.52">
-                    <img src="{{asset('/img/isologo-final.png')}}" alt="Cneisi" class="retina-show">
+                    <img src="{{asset('/img/isologo-final.png')}}" alt="Cneisi" class="retina-show" width="133" height="51.52">
                 </a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-controls="navigation">
                     <span class="icon-bar"></span>
