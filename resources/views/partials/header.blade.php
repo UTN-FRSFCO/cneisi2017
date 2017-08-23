@@ -3,8 +3,8 @@
         <div class="container">
             <div class="col-sm-2 col-xs-12 navigation-header">
                 <a href="#hero" class="logo">
-                    <img src="{{asset('/img/isologo.png')}}" alt="Cneisi" class="retina-hide" width="70%" height="70%">
-                    <img src="{{asset('/img/isologo.png')}}" alt="Cneisi" class="retina-show">
+                    <img src="{{asset('/img/isologo-final.png')}}" alt="Cneisi" class="retina-hide" width="70%" height="70%">
+                    <img src="{{asset('/img/isologo-final.png')}}" alt="Cneisi" class="retina-show">
                 </a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-controls="navigation">
                     <span class="icon-bar"></span>
