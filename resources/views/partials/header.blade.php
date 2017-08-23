@@ -1,9 +1,9 @@
 <header class="header header-black">
     <div class="header-wrapper">
-        <div class="container">
-            <div class="col-sm-2 col-xs-12 navigation-header">
+        <div class="container" >
+            <div class="col-sm-2 col-xs-12 navigation-header" >
                 <a href="#hero" class="logo">
-                    <img src="{{asset('/img/isologo-final.png')}}" alt="Cneisi" class="retina-hide" width="70%" height="70%">
+                    <img src="{{asset('/img/isologo-final.png')}}" alt="Cneisi" class="retina-hide" width="133" height="51.52">
                     <img src="{{asset('/img/isologo-final.png')}}" alt="Cneisi" class="retina-show">
                 </a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-controls="navigation">

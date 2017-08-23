@@ -1,5 +1,5 @@
 <section id="hero" class="hero-section bg1 bg-cover window-height light-text">
-    <ul class="socials-nav">
+    <ul class="socials-nav" style="margin-top: 50px;">
         <li class="socials-nav-item"><a href="{{ config('constants.TWITTER_LINK') }}" target="_blank"><span class="fa fa-twitter"></span></a></li>
         <li class="socials-nav-item"><a href="{{ config('constants.FACEBOOK_LINK') }}" target="_blank"><span class="fa fa-facebook"></span></a></li>
     </ul>
