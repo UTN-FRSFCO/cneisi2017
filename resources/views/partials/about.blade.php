@@ -47,16 +47,23 @@
                     </div>
 
                 <div id="horizontal_tab3" class="tab-pane fade">
-                    <div class="col-sm-5 img-column">
-                        <img src="{{asset('/img/logo-cneisi.jpg')}}" alt="Utn_entrada" class="img-responsive" />
-                    </div>
-                    <div class="col-sm-7 align-center" style="padding-top: 20px;">
+                    <!--<div class="col-sm-3 img-column">
+                        <img src="{{asset('/img/isologotipo.png')}}" alt="Utn_entrada" class="img-responsive" />
+                    </div>-->
+                    <div class="col-sm-12 align-center" style="padding-top: 20px;">
                         <h6>Sponsors</h6>
                         <p class="text-alt">compañias y organizaciones que hacen posible este evento</p>
                         <div class="sponsors">
-                            <div class="sponsor"><img src="{{asset('/img/sponsors/mercadolibre.png')}}" alt="mercadolibre"></div>
-                            <div class="sponsor"><img src="{{asset('/img/sponsors/molino.png')}}" alt="molino"></div>
-                            <div class="sponsor"><img src="{{asset('/img/sponsors/municipalidad.png')}}" alt="municipalidad"></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/mercadolibre.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/molino.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/muni-sanfrancisco.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/legislatura.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/runa.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/axion.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/nexo.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/patagonia.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/tassi.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/doble-giro.png')}}" alt=""></div>
                         </div>
                         <p>Si estás interesado en participar como sponsor del evento podés comunicarte con nostros al siguiente mail: <a href="">cneisi@sanfrancisco.utn.edu.ar</a></p>
                     </div>

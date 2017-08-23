@@ -3,7 +3,7 @@
         <div class="container">
             <div class="col-sm-2 col-xs-12 navigation-header">
                 <a href="#hero" class="logo">
-                    <img src="{{asset('/img/isologo.png')}}" alt="Cneisi" class="retina-hide">
+                    <img src="{{asset('/img/isologo.png')}}" alt="Cneisi" class="retina-hide" width="70%" height="70%">
                     <img src="{{asset('/img/isologo.png')}}" alt="Cneisi" class="retina-show">
                 </a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-controls="navigation">
@@ -21,7 +21,7 @@
                             <li class="navigation-item"><a href="#speakers" class="navigation-link">Disertantes</a></li>
                         @endif
                         <li class="navigation-item"><a href="#calendario" class="navigation-link">Calendario</a></li>
-                        <li class="navigation-item"><a href="#papers" class="navigation-link">Papers & posters</a></li>
+                        <li class="navigation-item"><a href="#sponsors" class="navigation-link">Sponsors</a></li>
                         <li class="navigation-item"><a href="#contacto" class="navigation-link">Contacto</a></li>
                     </ul>
                         @if(Auth::guest())

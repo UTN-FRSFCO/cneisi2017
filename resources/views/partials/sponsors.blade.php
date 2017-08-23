@@ -7,10 +7,16 @@
         <br/>
 
         <div class="sponsors">
-
             <div class="sponsor big"><img src="{{asset('/img/sponsors/mercadolibre.png')}}" alt=""></div>
             <div class="sponsor big"><img src="{{asset('/img/sponsors/molino.png')}}" alt=""></div>
-            <div class="sponsor big"><img src="{{asset('/img/sponsors/municipalidad.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/muni-sanfrancisco.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/legislatura.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/runa.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/axion.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/nexo.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/patagonia.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/tassi.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/doble-giro.png')}}" alt=""></div>
         </div>
     <!--
         <div class="sponsors">

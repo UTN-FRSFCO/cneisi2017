@@ -3,7 +3,7 @@
         <div class="container">
             <div class="col-sm-2 col-xs-12 navigation-header">
                 <a href="{{ route('home') }}" class="logo">
-                    <img src="{{asset('/img/isologo.png')}}" alt="Cneisi" class="retina-hide">
+                    <img src="{{asset('/img/isologo.png')}}" alt="Cneisi" class="retina-hide" width="133" height="51.52">
                     <img src="{{asset('/img/isologo.png')}}" alt="Cneisi" class="retina-show">
                 </a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-controls="navigation">
