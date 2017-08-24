@@ -63,7 +63,7 @@
                                                 @if($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day1_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -72,7 +72,7 @@
                                             </a>
                                             <div id="{{ $conference->getSlug() . '-day1_auditorium1' }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
-                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium1' ])--}}
@@ -121,7 +121,7 @@
                                                 @if($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day1_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -130,7 +130,7 @@
                                             </a>
                                             <div id="{{ $conference->getSlug() . '-day1_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
-                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium2'])--}}
@@ -179,7 +179,7 @@
                                                 @if($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day1_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day1_auditorium3'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -188,7 +188,7 @@
                                             </a>
                                             <div id="{{ $conference->getSlug() . '-day1_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
-                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <p class="description">{!! nl2br(e($conference->getDescription()))!!}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium3'])--}}
@@ -256,7 +256,7 @@
                                                 @if($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day2_auditorium1_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium1'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -265,7 +265,7 @@
                                             </a>
                                             <div id="{{ $conference->getSlug() . '-day2_auditorium1'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
-                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium1'])--}}
@@ -313,7 +313,7 @@
                                                 @if($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day2_auditorium2_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium2'}}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -322,7 +322,7 @@
                                             </a>
                                             <div id="{{ $conference->getSlug() . '-day2_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
-                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium2'])--}}
@@ -370,7 +370,7 @@
                                                 @if($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
-                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive">
+                                                    <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
                                                 @endif
                                             </div>
                                             <a data-toggle="collapse" data-parent="#day2_auditorium3_timeline" href="#{{ $conference->getSlug() . '-day2_auditorium3' }}" class="schedule-item-toggle {{ ($key != 0) ? 'collapse' : '' }}">
@@ -379,7 +379,7 @@
                                             </a>
                                             <div id="{{ $conference->getSlug() . '-day2_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
-                                                    <p class="description">{{ $conference->getDescription() }}</p>
+                                                    <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium3'])--}}

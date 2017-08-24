@@ -106,7 +106,7 @@
 
                                 <div class="col-md-6">
 
-                                    <textarea id="description" name="description" class="form-control" value="{{ old('description') }}"required></textarea>
+                                    <textarea id="description" name="description" class="form-control" value="{{ old('description') }}"></textarea>
                                     @if ($errors->has('description'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('description') }}</strong>
@@ -192,6 +192,7 @@
 
                                 <div class="col-md-6">
                                     <select id="speaker_id" type="text" class="form-control" name="speaker_id" required>
+                                        <option value="0">Ninguno</option>
                                         @foreach($speakers as $speaker)
                                             <option value="{{$speaker->getId()}}">{{$speaker->getId()}} - {{ $speaker->getName() }}</option>
                                         @endforeach
