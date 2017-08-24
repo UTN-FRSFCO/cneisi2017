@@ -16,8 +16,6 @@
             <div class="sponsor big"><img src="{{asset('/img/sponsors/axion.png')}}" alt=""></div>
             <div class="sponsor big"><img src="{{asset('/img/sponsors/patagonia.png')}}" alt=""></div>
         </div>
-
-        <h4>Sponsors tecnológicos</h4>
         <div class="sponsors">
             <div class="sponsor "><img src="{{asset('/img/sponsors/rga.png')}}" alt=""></div>
             <div class="sponsor "><img src="{{asset('/img/sponsors/workana.png')}}" alt=""></div>
