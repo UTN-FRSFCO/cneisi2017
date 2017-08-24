@@ -29,7 +29,7 @@
                     <div class="col-sm-7 align-left" style="padding-top: 20px;">
                         <h6>Acerca del evento</h6>
                         <p>La facultad regional San Francisco de la <strong>UTN</strong> presenta el undécimo congreso nacional de Ingeniería en Sistemas, cuya realización busca reunir a todas las delegaciones de las distintas facultades regionales y público en general para poder otorgar un espacio de capacitación, reunión, comunión, difusión a través de las diferentes disertaciones realizadas parte de profesionales, graduados y estudiantes vinculados tecnologías de información y sistemas informáticos; y también propiciar un espacio para la presentación y difusión de trabajos realizados en las diferentes regionales sobre investigación científica, desarrollo y/o aplicaciónes innovadoras relacionadas con el rubro.</p>
-                        <p>El evento se llevará a cabo el 31 de agosto, 1 y 2 de septiembre en las instalaciones de la facultad. Nuestro objetivo es poder lograr y favorecer el intercambio académico y cultural que año a año nos permite acercarnos y compartir entre todos esta fructífera experiencia.</p>
+                        <p>El evento se llevará a cabo el 31 de agosto y 1 de septiembre en las instalaciones de la facultad. Nuestro objetivo es poder lograr y favorecer el intercambio académico y cultural que año a año nos permite acercarnos y compartir entre todos esta fructífera experiencia.</p>
                         <div class="align-center" style="margin-top: 15px;">
                             <a href="{{ route('about') }}" class="btn btn-outline-clr btn-sm ">{{ trans('buttons.see-more') }} </a>
                             @include('components.share', ['url' => 'http://cneisi.sanfrancisco.utn.edu.ar/#acerca-de' ])
@@ -54,16 +54,14 @@
                         <h6>Sponsors</h6>
                         <p class="text-alt">compañias y organizaciones que hacen posible este evento</p>
                         <div class="sponsors">
-                            <div class="sponsor "><img src="{{asset('/img/sponsors/mercadolibre.png')}}" alt=""></div>
-                            <div class="sponsor "><img src="{{asset('/img/sponsors/molino.png')}}" alt=""></div>
                             <div class="sponsor "><img src="{{asset('/img/sponsors/muni-sanfrancisco.png')}}" alt=""></div>
                             <div class="sponsor "><img src="{{asset('/img/sponsors/legislatura.png')}}" alt=""></div>
-                            <div class="sponsor "><img src="{{asset('/img/sponsors/runa.png')}}" alt=""></div>
-                            <div class="sponsor "><img src="{{asset('/img/sponsors/axion.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/mercadolibre.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/Kiwing.png')}}" alt=""></div>
                             <div class="sponsor "><img src="{{asset('/img/sponsors/nexo.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/molino.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/axion.png')}}" alt=""></div>
                             <div class="sponsor "><img src="{{asset('/img/sponsors/patagonia.png')}}" alt=""></div>
-                            <div class="sponsor "><img src="{{asset('/img/sponsors/tassi.png')}}" alt=""></div>
-                            <div class="sponsor "><img src="{{asset('/img/sponsors/doble-giro.png')}}" alt=""></div>
                         </div>
                         <p>Si estás interesado en participar como sponsor del evento podés comunicarte con nostros al siguiente mail: <a href="">cneisi@sanfrancisco.utn.edu.ar</a></p>
                     </div>

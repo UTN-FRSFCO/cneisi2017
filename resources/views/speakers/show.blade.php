@@ -30,7 +30,7 @@
                                 @endif
                             </div>
                         </div>
-                        <p class="text-center"> {{ $speaker->getDescription() }}</p>
+                        <p class="text-left"> {{ $speaker->getDescription() }}</p>
                         <div class="speaker">
                             <ul class="speaker-socials" style="text-align: center;">
                                 @if($speaker->getFacebookLink())

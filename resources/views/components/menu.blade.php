@@ -60,8 +60,6 @@
                                     </form>
                                 </ul>
                             </li>
-                        @else
-                            <a href="{{ route('login') }}" class="pull-right buy-btn">Ingresar</a>
                         @endif
 
                     </ul>

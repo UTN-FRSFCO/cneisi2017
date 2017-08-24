@@ -24,9 +24,7 @@
                         <li class="navigation-item"><a href="#sponsors" class="navigation-link">Sponsors</a></li>
                         <li class="navigation-item"><a href="#contacto" class="navigation-link">Contacto</a></li>
                     </ul>
-                        @if(Auth::guest())
-                            <a href="" class="pull-right buy-btn" data-modal-link="user-login">Ingresar</a>
-                        @else
+                    @if(!Auth::guest())
                         <ul class="navigation-list pull-right light-text">
                             <li class="dropdown">
                                 <a href="#" class="navigation-link dropdown-toggle usermenu" data-toggle="dropdown">
