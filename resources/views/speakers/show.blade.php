@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
                             @include('components.share', ['url' => 'http://cneisi.sanfrancisco.utn.edu.ar/disertantes/' . $speaker->getSlug() ])
-                            <a href="{{ route('speakers') }}" class="btn btn-sm">Ver todos los disertantes</a>
+                            <a href="{{ route('speakers') }}" class="btn btn-sm">Ver lista completa</a>
                         </div>
                         @include('components.modal-video-speaker')
                     </div>
