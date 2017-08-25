@@ -20,6 +20,17 @@ class Assistant extends Model
         return json_encode($assistantJson);
     }
 
+    public function getFullName()
+    {
+        $fullname = $this->firstname . " " . $this->lastname;
+
+        if(strlen($fullname) > 20) {
+            return substr($this->firstname, 0, 1) . ". " . $this->lastname;
+        }
+
+        return $fullname;
+    }
+
     public function getParsedType()
     {
         switch ($this->type) {
