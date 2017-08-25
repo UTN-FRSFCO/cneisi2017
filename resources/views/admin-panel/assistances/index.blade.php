@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('styles')
-<link rel="stylesheet" type="text/css" href="{{asset('/css/admin-panel.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('/css/admin-panel.css')}}" />
 @endpush
 
 @section('title', 'Panel de administración | CNEISI 2017')
@@ -43,7 +43,7 @@
                         </ul>
                     </li>
 
-                    <li class="open">
+                    <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Eventos<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-list"></span></a>
                         <ul class="dropdown-menu forAnimate" style="margin:20px;">
                             <li class="active"><a href="{{ route('panel.admin.events') }}">Ver todos</a></li>
@@ -51,8 +51,7 @@
                             <li><a href="#">Informes</a></li>
                         </ul>
                     </li>
-
-                    <li>
+                    <li class="open">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asistencias<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-list"></span></a>
                         <ul class="dropdown-menu forAnimate" style="margin:20px;">
                             <li class="active"><a href="{{ route('panel.admin.assistances') }}">Ver todas</a></li>
@@ -69,7 +68,7 @@
     <div class="container-fluid" >
         <div class="col-md-10">
             <div class="side-body">
-                <h2> Panel de administración de eventos </h2>
+                <h2> Panel de administración de asistencias </h2>
                 <div class="col-md-12">
                     @if (session('status'))
                         <div class="alert alert-success"><em> {!! session('status') !!}</em></div>
@@ -80,9 +79,9 @@
                                 <div class="col col-xs-6">
                                     <h3 class="panel-title">Cantidad de eventos registrados: <strong> {{ count($events) }} </strong></h3>
                                 </div>
-                                <div class="col col-xs-6 text-right">
-                                    <a href="{{ route('event.createEvent') }}">Crear nuevo</a>
-                                </div>
+                                {{--<div class="col col-xs-6 text-right">--}}
+                                    {{--<a href="{{ route('event.createEvent') }}">Crear nuevo</a>--}}
+                                {{--</div>--}}
                             </div>
                         </div>
                         <div class="panel-body">
@@ -96,6 +95,7 @@
                                     <th>Auditorio</th>
                                     <th>Fecha y hora</th>
                                     <th>Duracion</th>
+                                    <th>ASISTENTES</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -103,39 +103,7 @@
 
                                     <tr>
                                         <td align="center" class ="first-column">
-                                            <form method="get" action="{{route('event.editEvent', ['id' => $event->getId()])}}">
-                                                <div class="form-group">
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <div class="form-group">
-                                                        <button type="submit" class="fabutton"><i class="fa fa-pencil"></i></button>
-                                                    </div>
-                                                </div>
-                                            </form>
-
-                                            <form method="post" action="{{route('event.delete', ['id' => $event->getId()])}}">
-
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                                                @include(
-                                                        'admin-panel.confirm',
-                                                        [
-                                                            'id'       => 'delete-category-' . $event->getId(),
-                                                            'title'    => 'Confirmar borrado',
-                                                            'question' => '¿Seguro que desea confirmar el borrado del evento id: '.$event->getId().'?'  ,
-                                                        ]
-                                                    )
-
-                                                <div class="form-group">
-                                                    <a class="pull-right buy-btn"
-                                                       style="color: red"
-                                                       data-toggle="modal"
-                                                       data-modal-link="delete-category-{{$event->getId()}}">
-                                                        <i class="fa fa-trash"></i>
-                                                    </a>
-                                                </div>
-
-                                            </form>
+                                            <a href="{{ route('panel.admin.assistances.show', ['eventId' => $event->getId()]) }}" class="fabutton fa fa-search"></a>
 
                                         </td>
                                         <td class="align-center">{{ $event->getId() }}</td>
@@ -157,6 +125,7 @@
                                             <td class="align-center">Sábado - Hora: {{ $event->getTime() }}</td>
                                         @endif
                                         <td class="align-center">{{ $event->getDuration() }} min</td>
+                                        <td class="align-center"><b>{{ $event->assistances->count() }}</b></td>
                                     </tr>
                                 @empty
                                     <tr>
@@ -188,5 +157,5 @@
 @endsection
 
 @push('scripts')
-<script type="text/javascript" src="{{asset('/js/admin-panel.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/js/admin-panel.js')}}"></script>
 @endpush
