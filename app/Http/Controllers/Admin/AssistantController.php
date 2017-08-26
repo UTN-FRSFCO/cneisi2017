@@ -35,11 +35,4 @@ class AssistantController extends Controller
 
         return back()->with('error', 'DNI EXISTENTE');
     }
-
-    public function getQRCodes()
-    {
-        $assistants = Assistant::all();
-
-        return view('admin-panel.assistants.qr-codes')->withAssistants($assistants);
-    }
 }
