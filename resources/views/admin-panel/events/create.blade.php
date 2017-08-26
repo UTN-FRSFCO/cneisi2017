@@ -53,6 +53,15 @@
                             <li><a href="#">Informes</a></li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asistencias<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-list"></span></a>
+                        <ul class="dropdown-menu forAnimate" style="margin:20px;">
+                            <li class="active"><a href="{{ route('panel.admin.assistances') }}">Ver todas</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Informes</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -106,7 +115,7 @@
 
                                 <div class="col-md-6">
 
-                                    <textarea id="description" name="description" class="form-control" value="{{ old('description') }}"required></textarea>
+                                    <textarea id="description" name="description" class="form-control" value="{{ old('description') }}"></textarea>
                                     @if ($errors->has('description'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('description') }}</strong>
@@ -192,6 +201,7 @@
 
                                 <div class="col-md-6">
                                     <select id="speaker_id" type="text" class="form-control" name="speaker_id" required>
+                                        <option value="0">Ninguno</option>
                                         @foreach($speakers as $speaker)
                                             <option value="{{$speaker->getId()}}">{{$speaker->getId()}} - {{ $speaker->getName() }}</option>
                                         @endforeach

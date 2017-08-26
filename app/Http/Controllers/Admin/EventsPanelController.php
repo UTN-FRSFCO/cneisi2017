@@ -63,18 +63,33 @@ class EventsPanelController
                 break;
         }
 
-            Conference::create(
-            [
-                'title' => $request->input('title'),
-                'description' => $request->input('description'),
-                'slug' => $request->input('slug'),
-                'duration' => $request->input('duration'),
-                'auditorium' => $request->input('auditorium'),
-                'speaker_id' => $request->input('speaker_id'),
-                'date' => $date_event,
-                'send_via_api' => ($request->input('send_via_api') ? true : false)
-            ]
-        );
+            if ($request->input('speaker_id') == 0) {
+                Conference::create(
+                    [
+                        'title' => $request->input('title'),
+                        'description' => $request->input('description'),
+                        'slug' => $request->input('slug'),
+                        'duration' => $request->input('duration'),
+                        'auditorium' => $request->input('auditorium'),
+                        'speaker_id' => null,
+                        'date' => $date_event,
+                        'send_via_api' => ($request->input('send_via_api') ? true : false)
+                    ]
+                );
+            } else {
+                Conference::create(
+                    [
+                        'title' => $request->input('title'),
+                        'description' => $request->input('description'),
+                        'slug' => $request->input('slug'),
+                        'duration' => $request->input('duration'),
+                        'auditorium' => $request->input('auditorium'),
+                        'speaker_id' => $request->input('speaker_id'),
+                        'date' => $date_event,
+                        'send_via_api' => ($request->input('send_via_api') ? true : false)
+                    ]
+                );
+            }
 
             return back()->with('status', 'Evento creado satisfactoriamente');
         } catch (Exception $ex) {

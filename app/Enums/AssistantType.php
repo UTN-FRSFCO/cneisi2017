@@ -3,7 +3,7 @@ namespace App\Enums;
 
 use MyCLabs\Enum\Enum;
 
-abstract class AssistantType extends Enum
+class AssistantType extends Enum
 {
     const BUENOS_AIRES = 'buenos_aires';
     const CONCEPCION_URUGUAY = 'concepcion_uruguay';
@@ -17,6 +17,7 @@ abstract class AssistantType extends Enum
     const SANTA_FE = 'santa_fe';
     const TUCUMAN = 'tucuman';
     const VILLA_MARIA = 'villa_maria';
+    const TRENQUE_LAUQUEN = 'trenque_lauquen';
     const GUEST = 'guest';
     const GENERAL_PUBLIC = 'general_public';
 }

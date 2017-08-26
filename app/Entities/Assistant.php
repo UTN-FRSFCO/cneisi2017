@@ -31,33 +31,35 @@ class Assistant extends Model
         return $fullname;
     }
 
-    public function getParsedType()
+    public static function getParsedType($type)
     {
-        switch ($this->type) {
+        switch ($type) {
             case AssistantType::BUENOS_AIRES:
-                return 'Facultad Regional Buenos Aires';
+                return 'Buenos Aires';
             case AssistantType::CONCEPCION_URUGUAY;
-                return 'F. R. Concepción del Uruguay';
+                return 'Concepción del Uruguay';
             case AssistantType::CORDOBA:
-                return 'Facultad Regional Córdoba';
+                return 'Córdoba';
             case AssistantType::DELTA:
-                return 'Facultad Regional Delta';
+                return 'Delta';
             case AssistantType::LA_PLATA:
-                return 'Facultad Regional La Plata';
+                return 'La Plata';
             case AssistantType::MENDOZA:
-                return 'Facultad Regional Mendoza';
+                return 'Mendoza';
             case AssistantType::RESISTENCIA:
-                return 'Facultad Regional Resistencia';
+                return 'Resistencia';
             case AssistantType::ROSARIO:
-                return 'Facultad Regional Rosario';
+                return 'Rosario';
             case AssistantType::SAN_FRANCISCO:
-                return 'Facultad Regional San Francisco';
+                return 'San Francisco';
             case AssistantType::SANTA_FE:
-                return 'Facultad Regional Santa Fe';
+                return 'Santa Fe';
             case AssistantType::TUCUMAN:
-                return 'Facultad Regional Tucumán';
+                return 'Tucumán';
             case AssistantType::VILLA_MARIA:
-                return 'Facultad Regional Villa María';
+                return 'Villa María';
+            case AssistantType::TRENQUE_LAUQUEN:
+                return 'Trenque Lauquen';
             case AssistantType::GUEST:
                 return 'Invitado';
             case AssistantType::GENERAL_PUBLIC:
@@ -67,3 +69,4 @@ class Assistant extends Model
         }
     }
 }
+

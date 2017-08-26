@@ -206,4 +206,16 @@ Route::group(['middleware' => ['admin']], function () {
         '/administracion/asistentes/credenciales',
         ['as' => 'panel.admin.assistants.qr_codes', 'uses' => 'Admin\AssistantController@qrCodes']
     );
+
+    Route::get('/administracion/asistencias',
+        ['as' => 'panel.admin.assistances', 'uses' => 'Admin\AssistancesPanelController@index']
+    );
+
+    Route::get('/administracion/asistencias/evento/{eventId}',
+        ['as' => 'panel.admin.assistances.show', 'uses' => 'Admin\AssistancesPanelController@show']
+    );
+
+    Route::delete('/administracion/asistencias/{id}',
+        ['as' => 'assistance.delete', 'uses' => 'Admin\AssistancesPanelController@delete']
+    );
 });

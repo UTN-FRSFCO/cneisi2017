@@ -6,7 +6,7 @@
                 <div class="counter-block counter-block-no-border">
                     <div class="counter-box">
                         <div class="counter-content">
-                            <span class="count" data-from="0" data-to="18">0</span>
+                            <span class="count" data-from="0" data-to="21">0</span>
 
                             <p class="title">speakers</p>
                         </div>

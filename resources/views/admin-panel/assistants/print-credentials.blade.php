@@ -82,13 +82,20 @@
 
                                 <div class="col-md-6">
                                     <div class="radio">
-                                        <label><input type="radio" name="type" value="all" checked id="radio-all">Todas</label>
-                                    </div>
-                                    <div class="radio">
-                                        <label><input type="radio" name="type" value="individual" id="radio-individual">Individual</label>
+                                        <label><input type="radio" name="print" value="all" checked id="radio-all">Tipo</label>
                                     </div>
 
-                                    <input id="dni" type="text" class="form-control" name="dni" value="{{ old('dni') }}" placeholder="DNI" style="display: none;">
+                                    <select name="type" class="select-form">
+                                        @foreach (\App\Enums\AssistantType::values() as $type)
+                                            <option value="{{ $type }}">{{ \App\Entities\Assistant::getParsedType($type) }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    <div class="radio">
+                                        <label><input type="radio" name="print" value="individual" id="radio-individual">Individual</label>
+                                    </div>
+
+                                    <input id="dni" type="text" class="form-control" name="dni" value="{{ old('dni') }}" placeholder="DNI">
 
                                     @if ($errors->has('name'))
                                         <span class="help-block">
@@ -116,27 +123,4 @@
 
 @push('scripts')
     <script type="text/javascript" src="{{asset('/js/admin-panel.js')}}"></script>
-    <script>
-        $(document).ready(function() {
-            $('#radio-all').prop("checked", true);
-
-            $('#radio-individual').change(function () {
-                if($('#radio-individual').is(':checked'))
-                {
-                    $('#dni').show();
-                } else {
-                    $('#dni').hide();
-                }
-            });
-
-            $('#radio-all').change(function () {
-                if($('#radio-all').is(':checked'))
-                {
-                    $('#dni').hide();
-                } else {
-                    $('#dni').show();
-                }
-            });
-        });
-    </script>
 @endpush
