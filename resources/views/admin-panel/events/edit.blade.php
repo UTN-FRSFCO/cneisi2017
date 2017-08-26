@@ -227,6 +227,23 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('send_via_api') ? ' has-error' : '' }}">
+                                <label for="send_via_api" class="col-md-4 control-label">Mostrar el app móvil</label>
+
+                                <div class="col-md-6">
+                                    <div class="radio">
+                                        <input type="checkbox" id="send_via_api" name="send_via_api" value="1" {{ ($event->getSendViaApi() ? 'checked' : '') }}>
+                                    </div>
+
+
+                                    @if ($errors->has('send_via_api'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('send_via_api') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">

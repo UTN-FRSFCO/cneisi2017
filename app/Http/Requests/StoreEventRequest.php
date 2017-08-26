@@ -28,7 +28,7 @@ class StoreEventRequest extends FormRequest
             'description' => 'required',
             'slug' => 'required|unique:conferences,slug',
             'speaker_id' => 'required|integer',
-            'auditorium' => 'required'
+            'auditorium' => 'required',
         ];
     }
 }

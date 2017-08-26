@@ -71,7 +71,8 @@ class EventsPanelController
                 'duration' => $request->input('duration'),
                 'auditorium' => $request->input('auditorium'),
                 'speaker_id' => $request->input('speaker_id'),
-                'date' => $date_event
+                'date' => $date_event,
+                'send_via_api' => ($request->input('send_via_api') ? true : false)
             ]
         );
 
@@ -137,6 +138,7 @@ class EventsPanelController
                 $event->auditorium = $request->input('auditorium');
                 $event->speaker_id = $request->input('speaker_id');
                 $event->date = $date_event;
+                $event->send_via_api = ($request->input('send_via_api') ? true : false);
 
                 $event->save();
                 return back()->with('status', 'Evento editado satisfactoriamente');
