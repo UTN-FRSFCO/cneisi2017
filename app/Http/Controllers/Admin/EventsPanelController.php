@@ -64,17 +64,32 @@ class EventsPanelController
                 break;
         }
 
+        if ($request->input('speaker_id') == 0) {
             Conference::create(
-            [
-                'title' => $request->input('title'),
-                'description' => $request->input('description'),
-                'slug' => $request->input('slug'),
-                'duration' => $request->input('duration'),
-                'auditorium' => $request->input('auditorium'),
-                'speaker_id' => $request->input('speaker_id'),
-                'date' => $date_event
-            ]
-        );
+                [
+                    'title' => $request->input('title'),
+                    'description' => $request->input('description'),
+                    'slug' => $request->input('slug'),
+                    'duration' => $request->input('duration'),
+                    'auditorium' => $request->input('auditorium'),
+                    'speaker_id' => null,
+                    'date' => $date_event
+                ]
+            );
+
+        } else {
+            Conference::create(
+                [
+                    'title' => $request->input('title'),
+                    'description' => $request->input('description'),
+                    'slug' => $request->input('slug'),
+                    'duration' => $request->input('duration'),
+                    'auditorium' => $request->input('auditorium'),
+                    'speaker_id' => $request->input('speaker_id'),
+                    'date' => $date_event
+                ]
+            );
+        }
 
             return back()->with('status', 'Evento creado satisfactoriamente');
         } catch (Exception $ex) {

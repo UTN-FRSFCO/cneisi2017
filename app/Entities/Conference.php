@@ -136,4 +136,9 @@ class Conference extends Model
         return $this->belongsToMany(User::class)
             ->withTimestamps();
     }
+
+    public function assistances()
+    {
+        return $this->hasMany(Assistance::class);
+    }
 }

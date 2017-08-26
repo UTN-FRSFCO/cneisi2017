@@ -91,13 +91,7 @@
                                         <td class="align-center">{{ $speaker->getName() }}</td>
                                         <td class="align-center">{{ $speaker->getSlug() }}</td>
                                         <td class="align-center">{{ $speaker->getTagline() }}</td>
-                                        <td class="align-center">
-                                        @foreach($events as $event)
-                                            @if($event->speaker->getId() == $speaker->getId())
-                                                    {{$event->getId()}} - {{$event->getTitle()}}<br>
-                                            @endif
-                                        @endforeach
-                                        </td>
+                                        
                                     </tr>
                                 @empty
                                     <tr>

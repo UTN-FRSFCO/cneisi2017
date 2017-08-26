@@ -207,6 +207,9 @@ Route::group(['middleware' => ['admin']], function () {
         ['as' => 'assistants.delete', 'uses' => 'Admin\AssistantsPanelController@delete']
     );
 
+    Route::get('/administracion/asistentes/codigos-qr',
+        ['as' => 'panel.admin.assistants.qr_codes', 'uses' => 'Admin\AssistantController@getQRCodes']);
+
     //admin panel assistance
 
     Route::get('/administracion/asistencias/{conference?}',
@@ -214,4 +217,16 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::get('/administracion/asistencias/todas',
         ['as' => 'assistance.conference', 'uses' => 'Admin\AssistancePanelController@byConference']);
+
+    Route::get('/administracion/asistencias',
+        ['as' => 'panel.admin.assistances', 'uses' => 'Admin\AssistancesPanelController@index']
+    );
+
+    Route::get('/administracion/asistencias/evento/{eventId}',
+        ['as' => 'panel.admin.assistances.show', 'uses' => 'Admin\AssistancesPanelController@show']
+    );
+
+    Route::delete('/administracion/asistencias/{id}',
+        ['as' => 'assistance.delete', 'uses' => 'Admin\AssistancesPanelController@delete']
+    );
 });

@@ -16,8 +16,8 @@
             <div class="col-md-8">
                 <div class="panel panel-default" style="margin-bottom: 100px;">
                     <div class="panel-body">
-                        <div class="col-md-12 align-center" style="margin-bottom: 30px;">
-                            <p class="text-center"><span class="fa fa-bullhorn fa-4x"></span></p>
+                        <div class="col-md-12 align-center">
+                            <img src="{{asset('/img/speakers.png')}}" alt="about" class="img-responsive align-center" width="192" height="143" style="margin: auto;" /><br>
                             <h5 class="align-center" style="margin-top: 20px;"><span class="highlight">Disertantes del CNEISI 2017</span></h5>
                         </div>
                         <p class="text-center"> Conocé a los diserantes que nos van a estar acompañando en el congreso, llevando adelante las diferentes conferencias y charlas que tendremos el orgulloso de presentar en la nueva edición del congreso.</p>

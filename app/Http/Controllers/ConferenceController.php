@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Conference;
 use Illuminate\Http\Request;
 
 class ConferenceController extends Controller

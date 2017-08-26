@@ -1,5 +1,5 @@
 <section id="hero" class="hero-section bg1 bg-cover window-height light-text">
-    <ul class="socials-nav">
+    <ul class="socials-nav" style="margin-top: 50px;">
         <li class="socials-nav-item"><a href="{{ config('constants.TWITTER_LINK') }}" target="_blank"><span class="fa fa-twitter"></span></a></li>
         <li class="socials-nav-item"><a href="{{ config('constants.FACEBOOK_LINK') }}" target="_blank"><span class="fa fa-facebook"></span></a></li>
     </ul>
@@ -9,13 +9,6 @@
             <h1 class=""><img src="{{asset('/img/isologotipo.png')}}" alt="Cneisi" width="283" height="209"></h1>
             <h6 class="thin base-font">Undécimo congreso nacional de estudiantes en <strong>Ingeniería en Sistemas de información</strong></h6>
             <h1><img src="{{asset('/img/logo_utn_web.png')}}" alt="Cneisi"></h1>
-            <div class="btns-container">
-                @if(Auth::guest())
-                    <a href="#" class="btn btn-md" data-modal-link="user-login">Ingresar</a>
-                    <a href="#" class="btn btn-md" data-modal-link="user-register">Registrarse</a>
-                @endif
-
-            </div>
         </div>
     </div>
 </section>

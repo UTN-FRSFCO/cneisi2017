@@ -30,10 +30,6 @@
 
     @include('partials.papers')
 
-    @if(Auth::guest())
-        @include('partials.register')
-    @endif
-
     @include('partials.sponsors')
 
     @include('partials.contact')

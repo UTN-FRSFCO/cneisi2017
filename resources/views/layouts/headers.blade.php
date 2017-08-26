@@ -14,18 +14,18 @@
 <meta property="og:description" content="@yield('description')" />
 <meta property="og:url" content="@yield('og:url')" />
 <meta property="og:site_name" content="CNEISI2017" />
-<meta property="og:image" content="http://cneisi.sanfrancisco.utn.edu.ar/img/utn-entrance.jpg" />
+<meta property="og:image" content="http://cneisi.sanfrancisco.utn.edu.ar/img/isologotipo.png" />
 
 <!-- Schema.org markup for Google+ -->
 <meta itemprop="name" content="@yield('title')">
 <meta itemprop="description" content="@yield('description')">
-<meta itemprop="image" content="http://cneisi.sanfrancisco.utn.edu.ar/img/utn-entrance.jpg">
+<meta itemprop="image" content="http://cneisi.sanfrancisco.utn.edu.ar/img/isologotipo.png">
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="@yield('title')"/>
 <meta name="twitter:description" content="@yield('description')"/>
 <meta name="twitter:site" content="@utnsanfco"/>
-<meta name="twitter:image" content="http://cneisi.sanfrancisco.utn.edu.ar/img/utn-entrance.jpg"/>
+<meta name="twitter:image" content="http://cneisi.sanfrancisco.utn.edu.ar/img/isologotipo.png"/>
 
 <link rel="stylesheet" type="text/css" href="{{asset('/css/custom-animations.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('/css/style.css')}}" />

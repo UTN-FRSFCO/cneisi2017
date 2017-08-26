@@ -7,10 +7,26 @@
         <br/>
 
         <div class="sponsors">
-
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/muni-sanfrancisco.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/legislatura.png')}}" alt=""></div>
             <div class="sponsor big"><img src="{{asset('/img/sponsors/mercadolibre.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/Kiwing.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/nexo.png')}}" alt=""></div>
             <div class="sponsor big"><img src="{{asset('/img/sponsors/molino.png')}}" alt=""></div>
-            <div class="sponsor big"><img src="{{asset('/img/sponsors/municipalidad.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/axion.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/patagonia.png')}}" alt=""></div>
+        </div>
+        <div class="sponsors">
+            <div class="sponsor "><img src="{{asset('/img/sponsors/rga.png')}}" alt=""></div>
+            <div class="sponsor "><img src="{{asset('/img/sponsors/workana.png')}}" alt=""></div>
+            <div class="sponsor "><img src="{{asset('/img/sponsors/socialtools.png')}}" alt=""></div><br>
+            <div class="sponsor "><img src="{{asset('/img/sponsors/10pines.png')}}" alt=""></div>
+            <div class="sponsor "><img src="{{asset('/img/sponsors/ibm.png')}}" alt=""></div>
+            <div class="sponsor "><img src="{{asset('/img/sponsors/globant.png')}}" alt=""></div><br>
+            <div class="sponsor "><img src="{{asset('/img/sponsors/vhgroup.png')}}" alt=""></div>
+            <div class="sponsor "><img src="{{asset('/img/sponsors/asegurarte.png')}}" alt=""></div>
+            <div class="sponsor "><img src="{{asset('/img/sponsors/dblandit.png')}}" alt=""></div>
+            <div class="sponsor "><img src="{{asset('/img/sponsors/ergo-renova.png')}}" alt=""></div>
         </div>
     <!--
         <div class="sponsors">

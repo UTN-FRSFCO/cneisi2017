@@ -1,10 +1,10 @@
 <header class="header header-black">
     <div class="header-wrapper">
-        <div class="container">
-            <div class="col-sm-2 col-xs-12 navigation-header">
+        <div class="container" >
+            <div class="col-sm-2 col-xs-12 navigation-header" >
                 <a href="#hero" class="logo">
-                    <img src="{{asset('/img/isologo.png')}}" alt="Cneisi" class="retina-hide">
-                    <img src="{{asset('/img/isologo.png')}}" alt="Cneisi" class="retina-show">
+                    <img src="{{asset('/img/isologo-final.png')}}" alt="Cneisi" class="retina-hide" width="133" height="51.52">
+                    <img src="{{asset('/img/isologo-final.png')}}" alt="Cneisi" class="retina-show" width="133" height="51.52">
                 </a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-controls="navigation">
                     <span class="icon-bar"></span>
@@ -21,12 +21,10 @@
                             <li class="navigation-item"><a href="#speakers" class="navigation-link">Disertantes</a></li>
                         @endif
                         <li class="navigation-item"><a href="#calendario" class="navigation-link">Calendario</a></li>
-                        <li class="navigation-item"><a href="#papers" class="navigation-link">Papers & posters</a></li>
+                        <li class="navigation-item"><a href="#sponsors" class="navigation-link">Sponsors</a></li>
                         <li class="navigation-item"><a href="#contacto" class="navigation-link">Contacto</a></li>
                     </ul>
-                        @if(Auth::guest())
-                            <a href="" class="pull-right buy-btn" data-modal-link="user-login">Ingresar</a>
-                        @else
+                    @if(!Auth::guest())
                         <ul class="navigation-list pull-right light-text">
                             <li class="dropdown">
                                 <a href="#" class="navigation-link dropdown-toggle usermenu" data-toggle="dropdown">
