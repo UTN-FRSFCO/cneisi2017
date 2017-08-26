@@ -15,7 +15,6 @@
 <div style="margin-top:54px">
 
 @php
-    $number = 1;
     $nonIndent = true;
 @endphp
 
@@ -28,20 +27,18 @@
 
     @php
         $nonIndent = false;
-        if($number%3 == 0) {
+        if($loop->iteration % 3 == 0) {
            echo "<br/>";
            $nonIndent = true;
         }
-
-        if($number%9 == 0) {
+        if($loop->iteration % 9 == 0) {
            echo '<div class="page-break"></div>';
         }
-
-        $number++;
     @endphp
 
 @endforeach
 
+</div>
 
 </body>
 </html>
