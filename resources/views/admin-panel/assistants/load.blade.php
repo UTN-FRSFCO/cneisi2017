@@ -59,7 +59,7 @@
                                         <option value="santa_fe">Santa Fe</option>
                                         <option value="tucuman">Tucuman</option>
                                         <option value="villa_maria">Villa María</option>
-                                        <option value="trenque_lauquen">Villa María</option>
+                                        <option value="trenque_lauquen">Trenque Lauquen</option>
                                         <option value="guest">INVITADOS</option>
                                         <option value="general_public">PÚBLICO EN GENERAL</option>
                                     </select>
