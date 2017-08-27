@@ -57,6 +57,15 @@
                         <li><a href="{{ route('panel.admin.users') }}">Ver todos</a></li>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bloques<i style="margin-left:5px;" class="fa fa-chevron-down"></i><i style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-bullseye"></i></a>
+                    <ul class="dropdown-menu forAnimate" style="margin:20px;">
+                        <li><a href="{{ route('blocks.createBlock') }}">Crear</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ route('panel.admin.blocks') }}">Ver todos</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

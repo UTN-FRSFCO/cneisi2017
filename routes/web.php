@@ -229,4 +229,15 @@ Route::group(['middleware' => ['admin']], function () {
     Route::delete('/administracion/asistencias/{id}',
         ['as' => 'assistance.delete', 'uses' => 'Admin\AssistancesPanelController@delete']
     );
+
+    //admin panel blocks
+
+    Route::get('/administracion/bloques',
+        ['as' => 'panel.admin.blocks', 'uses' => 'Admin\BlocksPanelController@index']);
+
+    Route::get('/administracion/bloques/crear',
+        ['as' => 'blocks.createBlock', 'uses' => 'Admin\BlocksPanelController@createBlock']);
+
+    Route::post('/administracion/bloques/crear',
+        ['as' => 'blocks.create', 'uses' => 'Admin\BlocksPanelController@create']);
 });
