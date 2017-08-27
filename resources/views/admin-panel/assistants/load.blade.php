@@ -47,20 +47,21 @@
 
                                 <div class="col-md-6">
                                     <select id="date" type="text" class="form-control" name="type" required>
-                                        <option value="Buenos Aires">Buenos Aires</option>
-                                        <option value="Concepcion del Uruguay">Concepción del Uruguay</option>
-                                        <option value="Cordoba">Córdoba</option>
-                                        <option value="Delta">Delta</option>
-                                        <option value="La Plata">La Plata</option>
-                                        <option value="Mendoza">Mendoza</option>
-                                        <option value="Resistencia">Resistencia</option>
-                                        <option value="Rosario">Rosario</option>
-                                        <option value="San Francico">San Francisco</option>
-                                        <option value="Santa Fe">Santa Fe</option>
-                                        <option value="Tucuman">Tucuman</option>
-                                        <option value="Villa Maria">Villa María</option>
-                                        <option value="Invitado">INVITADOS</option>
-                                        <option value="Publico en general">PÚBLICO EN GENERAL</option>
+                                        <option value="buenos_aires">Buenos Aires</option>
+                                        <option value="concepcion_uruguay">Concepción del Uruguay</option>
+                                        <option value="cordoba">Córdoba</option>
+                                        <option value="delta">Delta</option>
+                                        <option value="la_plata">La Plata</option>
+                                        <option value="mendoza">Mendoza</option>
+                                        <option value="resistencia">Resistencia</option>
+                                        <option value="rosario">Rosario</option>
+                                        <option value="san_francisco">San Francisco</option>
+                                        <option value="santa_fe">Santa Fe</option>
+                                        <option value="tucuman">Tucuman</option>
+                                        <option value="villa_maria">Villa María</option>
+                                        <option value="trenque_lauquen">Villa María</option>
+                                        <option value="guest">INVITADOS</option>
+                                        <option value="general_public">PÚBLICO EN GENERAL</option>
                                     </select>
 
                                     @if ($errors->has('type'))

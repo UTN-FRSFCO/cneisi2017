@@ -128,12 +128,12 @@ class AssistantController extends Controller
     {
         DB::table('assistants')->insert(
             [
-                'dni' => $data['dni'],
-                'lastname' => $data['nombre'],
-                'firstname' => $data['apellido'],
-                'email' => $data['email'],
-                'phone' => $data['telefono'],
-                'year' => $data['año'],
+                'firstname' => $data['Apellido'],
+                'lastname' => $data['Nombre'],
+                'dni' => $data['DNI'],
+                'email' => $data['Email'],
+                'phone' => $data['Celular'],
+                'year' => $data['Año de cursado'],
                 'type' => $assistantType,
             ]
         );
