@@ -63,6 +63,8 @@
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
                         <li><a href="{{ route('blocks.createBlock') }}">Crear</a></li>
                         <li class="divider"></li>
+                        <li><a href="{{ route('blocks.conference') }}">Agregar conferencia</a></li>
+                        <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.blocks') }}">Ver todos</a></li>
                     </ul>
                 </li>

@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Entities\Conference;
 use App\Entities\User;
 use App\ValueObjects\University;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Exception;
 use App\Http\Requests\StoreBlockRequest;
 
 class BlocksPanelController
 {
     const INDEX_BLOCK = 'admin-panel.blocks.index';
     const CREATE_BLOCK = 'admin-panel.blocks.create';
+    const ADD_CONFERENCE = 'admin-panel.blocks.conference-to-block';
     /**
      * Show the application dashboard.
      *
@@ -66,6 +70,31 @@ class BlocksPanelController
             return back()->with('status', 'Bloque creado satisfactoriamente');
         } catch (Exception $ex) {
             return back()->with('status', 'ATENCIÓN!! Bloque no guardado: ' . $ex->getMessage());
+        }
+    }
+
+    public function conference()
+    {
+        $blocks = DB::table('blocks')->get();
+        $conferences = Conference::all();
+
+        return view(self::ADD_CONFERENCE)
+            ->with('blocks', $blocks)
+            ->with('conferences', $conferences);
+    }
+
+    public function addConference(Request $request)
+    {
+        try {
+            $conference = Conference::findOrFail($request->input('conference'));
+
+            $conference->block_id = $request->input('block');
+
+            $conference->save()
+
+            return back()->with('status', 'Conferencia agregada satisfactoriamente');
+        } catch (Exception $ex) {
+            return back()->with('status', 'ATENCIÓN!! Conferencia no guardada: ' . $ex->getMessage());
         }
     }
 }

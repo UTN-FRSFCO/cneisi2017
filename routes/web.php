@@ -240,4 +240,10 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::post('/administracion/bloques/crear',
         ['as' => 'blocks.create', 'uses' => 'Admin\BlocksPanelController@create']);
+
+    Route::get('/administracion/bloques/agregar-conferencia',
+        ['as' => 'blocks.conference', 'uses' => 'Admin\BlocksPanelController@conference']);
+
+    Route::post('/administracion/bloques/agregar-conferencia',
+        ['as' => 'blocks.addConference', 'uses' => 'Admin\BlocksPanelController@addConference']);
 });
