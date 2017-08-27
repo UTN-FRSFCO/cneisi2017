@@ -14,7 +14,9 @@ class BlocksPanelController
 {
     const INDEX_BLOCK = 'admin-panel.blocks.index';
     const CREATE_BLOCK = 'admin-panel.blocks.create';
-    const ADD_CONFERENCE = 'admin-panel.blocks.conference-to-block';
+    const ADD_CONFERENCE = 'admin-panel.blocks.add-conference';
+    const REMOVE_CONFERENCE = 'admin-panel.blocks.remove-conference';
+
     /**
      * Show the application dashboard.
      *
@@ -73,12 +75,22 @@ class BlocksPanelController
         }
     }
 
-    public function conference()
+    public function loadAddconference()
     {
         $blocks = DB::table('blocks')->get();
         $conferences = Conference::all();
 
         return view(self::ADD_CONFERENCE)
+            ->with('blocks', $blocks)
+            ->with('conferences', $conferences);
+    }
+
+    public function loadRemoveConference()
+    {
+        $blocks = DB::table('blocks')->get();
+        $conferences = Conference::all()->where('block_id', '!=', null);
+
+        return view(self::REMOVE_CONFERENCE)
             ->with('blocks', $blocks)
             ->with('conferences', $conferences);
     }
@@ -90,11 +102,28 @@ class BlocksPanelController
 
             $conference->block_id = $request->input('block');
 
-            $conference->save()
+            $conference->save();
 
             return back()->with('status', 'Conferencia agregada satisfactoriamente');
         } catch (Exception $ex) {
             return back()->with('status', 'ATENCIÓN!! Conferencia no guardada: ' . $ex->getMessage());
+        }
+    }
+
+    public function removeConference(Request $request)
+    {
+        try {
+            $conference = Conference::findOrFail($request->input('conference'));
+            if ($conference->block_id == $request->input('block')) {
+                $conference->block_id = null;
+                $conference->save();
+
+                return back()->with('status', 'Conferencia eliminada satisfactoriamente');
+            } else {
+                return back()->with('status', 'La conferencia indicada no pertenece al bloque');
+            }
+        } catch (Exception $ex) {
+            return back()->with('status', 'ATENCIÓN!! Conferencia no eliminada: ' . $ex->getMessage());
         }
     }
 }

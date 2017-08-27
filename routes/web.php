@@ -191,20 +191,20 @@ Route::group(['middleware' => ['admin']], function () {
 
     //admin panel assistants
 
-    Route::get('/administracion/asistentes/{type?}',
-        ['as' => 'panel.admin.assistants', 'uses' => 'Admin\AssistantsPanelController@index']
+    Route::get('/administracion/asistentes',
+        ['as' => 'panel.admin.assistants', 'uses' => 'Admin\AssistantController@index']
     );
 
     Route::get('/administracion/asistentes/cargar',
-        ['as' => 'assistants.loadAssistants', 'uses' => 'Admin\AssistantsPanelController@loadAssistants']
+        ['as' => 'assistants.load_assistants', 'uses' => 'Admin\AssistantController@loadAssistants']
     );
 
     Route::post('/administracion/asistentes/cargar',
-        ['as' => 'assistants.load', 'uses' => 'Admin\AssistantsPanelController@load']
+        ['as' => 'assistants.load', 'uses' => 'Admin\AssistantController@load']
     );
 
     Route::delete('/administracion/asistentes/{id}',
-        ['as' => 'assistants.delete', 'uses' => 'Admin\AssistantsPanelController@delete']
+        ['as' => 'assistants.delete', 'uses' => 'Admin\AssistantController@delete']
     );
 
     Route::get('/administracion/asistentes/codigos-qr',
@@ -242,8 +242,14 @@ Route::group(['middleware' => ['admin']], function () {
         ['as' => 'blocks.create', 'uses' => 'Admin\BlocksPanelController@create']);
 
     Route::get('/administracion/bloques/agregar-conferencia',
-        ['as' => 'blocks.conference', 'uses' => 'Admin\BlocksPanelController@conference']);
+        ['as' => 'blocks.add_conference_view', 'uses' => 'Admin\BlocksPanelController@loadAddconference']);
 
     Route::post('/administracion/bloques/agregar-conferencia',
-        ['as' => 'blocks.addConference', 'uses' => 'Admin\BlocksPanelController@addConference']);
+        ['as' => 'blocks.add_conference', 'uses' => 'Admin\BlocksPanelController@addConference']);
+
+    Route::get('/administracion/bloques/eliminar-conferencia',
+        ['as' => 'blocks.remove_conference_view', 'uses' => 'Admin\BlocksPanelController@loadRemoveConference']);
+
+    Route::post('/administracion/bloques/eliminar-conferencia',
+        ['as' => 'blocks.remove_conference', 'uses' => 'Admin\BlocksPanelController@removeConference']);
 });

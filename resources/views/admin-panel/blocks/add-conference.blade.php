@@ -26,7 +26,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Agregar conferencia a un bloque</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('blocks.addConference') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('blocks.add_conference') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('block') ? ' has-error' : '' }}">
