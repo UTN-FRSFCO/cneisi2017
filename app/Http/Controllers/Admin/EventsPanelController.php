@@ -26,6 +26,7 @@ class EventsPanelController
         return view(SELF::INDEX_VIEW)
             ->with('events', $events);
     }
+
     /**
      * Show the speakers create form.
      *
@@ -52,43 +53,44 @@ class EventsPanelController
             $date = date_create();
 
             switch ($request->input('date')) {
-            case 'day_one':
-                $date_event = date_format($date, '2017-08-31 '.$request->input('time').':00');
-                break;
-            case 'day_two':
-                $date_event = date_format($date, '2017-09-01 '.$request->input('time').':00');
-                break;
-            case 'day_three':
-                $date_event = date_format($date, '2017-09-02 '.$request->input('time').':00');
-                break;
-        }
+                case 'day_one':
+                    $date_event = date_format($date, '2017-08-31 ' . $request->input('time') . ':00');
+                    break;
+                case 'day_two':
+                    $date_event = date_format($date, '2017-09-01 ' . $request->input('time') . ':00');
+                    break;
+                case 'day_three':
+                    $date_event = date_format($date, '2017-09-02 ' . $request->input('time') . ':00');
+                    break;
+            }
 
-        if ($request->input('speaker_id') == 0) {
-            Conference::create(
-                [
-                    'title' => $request->input('title'),
-                    'description' => $request->input('description'),
-                    'slug' => $request->input('slug'),
-                    'duration' => $request->input('duration'),
-                    'auditorium' => $request->input('auditorium'),
-                    'speaker_id' => null,
-                    'date' => $date_event
-                ]
-            );
-
-        } else {
-            Conference::create(
-                [
-                    'title' => $request->input('title'),
-                    'description' => $request->input('description'),
-                    'slug' => $request->input('slug'),
-                    'duration' => $request->input('duration'),
-                    'auditorium' => $request->input('auditorium'),
-                    'speaker_id' => $request->input('speaker_id'),
-                    'date' => $date_event
-                ]
-            );
-        }
+            if ($request->input('speaker_id') == 0) {
+                Conference::create(
+                    [
+                        'title'        => $request->input('title'),
+                        'description'  => $request->input('description'),
+                        'slug'         => $request->input('slug'),
+                        'duration'     => $request->input('duration'),
+                        'auditorium'   => $request->input('auditorium'),
+                        'speaker_id'   => null,
+                        'date'         => $date_event,
+                        'send_via_api' => ($request->input('send_via_api') ? true : false)
+                    ]
+                );
+            } else {
+                Conference::create(
+                    [
+                        'title'        => $request->input('title'),
+                        'description'  => $request->input('description'),
+                        'slug'         => $request->input('slug'),
+                        'duration'     => $request->input('duration'),
+                        'auditorium'   => $request->input('auditorium'),
+                        'speaker_id'   => $request->input('speaker_id'),
+                        'date'         => $date_event,
+                        'send_via_api' => ($request->input('send_via_api') ? true : false)
+                    ]
+                );
+            }
 
             return back()->with('status', 'Evento creado satisfactoriamente');
         } catch (Exception $ex) {
@@ -135,23 +137,24 @@ class EventsPanelController
 
                 switch ($request->input('date')) {
                     case 'day_one':
-                        $date_event = date_format($date, '2017-08-31 '.$request->input('time').':00');
+                        $date_event = date_format($date, '2017-08-31 ' . $request->input('time') . ':00');
                         break;
                     case 'day_two':
-                        $date_event = date_format($date, '2017-09-01 '.$request->input('time').':00');
+                        $date_event = date_format($date, '2017-09-01 ' . $request->input('time') . ':00');
                         break;
                     case 'day_three':
-                        $date_event = date_format($date, '2017-09-02 '.$request->input('time').':00');
+                        $date_event = date_format($date, '2017-09-02 ' . $request->input('time') . ':00');
                         break;
                 }
 
-                $event->title =$request->input('title');
+                $event->title = $request->input('title');
                 $event->description = $request->input('description');
                 $event->slug = $request->input('slug');
                 $event->duration = $request->input('duration');
                 $event->auditorium = $request->input('auditorium');
                 $event->speaker_id = $request->input('speaker_id');
                 $event->date = $date_event;
+                $event->send_via_api = ($request->input('send_via_api') ? true : false);
 
                 $event->save();
                 return back()->with('status', 'Evento editado satisfactoriamente');

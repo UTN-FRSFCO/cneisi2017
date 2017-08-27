@@ -31,10 +31,11 @@ class AssistancesPanelController extends Controller
     public function show(int $eventId)
     {
         $event = Conference::find($eventId);
-        $assistances = Assistance::where('conference_id', '=', $eventId)->paginate(10);
+        $assistances = Assistance::where('conference_id', '=', $eventId);
 
         return view(SELF::SHOW_VIEW)
-            ->with('assistances', $assistances)
+            ->with('total', $assistances->count())
+            ->with('assistances', $assistances->paginate(10))
             ->with('event', $event);
     }
 

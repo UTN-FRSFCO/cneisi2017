@@ -6,9 +6,11 @@ Route::get('/',
 )->middleware('profile');
 
 Route::get('/acerca-de',
-    ['as' => 'about', 'uses' => function () {
-        return view('about');
-    }
+    [
+        'as'   => 'about',
+        'uses' => function () {
+            return view('about');
+        }
     ]
 );
 
@@ -21,16 +23,20 @@ Route::get('/disertantes/{id}',
 );
 
 Route::get('/presentaciones',
-    ['as' => 'presentations', 'uses' => function () {
-        return view('papers-posters');
-    }
+    [
+        'as'   => 'presentations',
+        'uses' => function () {
+            return view('papers-posters');
+        }
     ]
 );
 
 Route::get('politicas-y-privacidad',
-    ['as' => 'privacy', 'uses' => function () {
-        return view('privacypolicy');
-    }
+    [
+        'as'   => 'privacy',
+        'uses' => function () {
+            return view('privacypolicy');
+        }
     ]
 );
 
@@ -85,9 +91,11 @@ Route::group(['middleware' => 'auth'], function () {
     );
 
     Route::get('/usuario/mensaje-bienvenida',
-        ['as' => 'user.welcome', 'uses' => function () {
-            return view('user.welcome-message');
-        }
+        [
+            'as'   => 'user.welcome',
+            'uses' => function () {
+                return view('user.welcome-message');
+            }
         ]
     );
 
@@ -111,19 +119,19 @@ Route::post('/confirmar-asistencia',
 
 //Docs routes
 Route::get('/FormatPaper', function () {
-    $file_path = storage_path() .'/files/formato_cfp.doc';
+    $file_path = storage_path() . '/files/formato_cfp.doc';
     if (file_exists($file_path)) {
         return Response::download($file_path, 'formato_cfp.doc', [
-            'Content-Length: '. filesize($file_path)
+            'Content-Length: ' . filesize($file_path)
         ]);
     }
 });
 
 Route::get('/FormatPoster', function () {
-    $file_path = storage_path() .'/files/formato.png';
+    $file_path = storage_path() . '/files/formato.png';
     if (file_exists($file_path)) {
         return Response::download($file_path, 'formato.png', [
-            'Content-Length: '. filesize($file_path)
+            'Content-Length: ' . filesize($file_path)
         ]);
     }
 });
@@ -189,6 +197,16 @@ Route::group(['middleware' => ['admin']], function () {
         ['as' => 'event.delete', 'uses' => 'Admin\EventsPanelController@delete']
     );
 
+    Route::get(
+        '/administracion/asistentes/credenciales',
+        ['as' => 'panel.admin.assistants.print-credentials', 'uses' => 'Admin\AssistantController@printCredentials']
+    );
+
+    Route::post(
+        '/administracion/asistentes/credenciales',
+        ['as' => 'panel.admin.assistants.qr_codes', 'uses' => 'Admin\AssistantController@qrCodes']
+    );
+
     Route::get('/administracion/asistencias',
         ['as' => 'panel.admin.assistances', 'uses' => 'Admin\AssistancesPanelController@index']
     );
@@ -200,8 +218,4 @@ Route::group(['middleware' => ['admin']], function () {
     Route::delete('/administracion/asistencias/{id}',
         ['as' => 'assistance.delete', 'uses' => 'Admin\AssistancesPanelController@delete']
     );
-
-    Route::get('/administracion/asistentes/codigos-qr',
-        ['as' => 'panel.admin.assistants.qr_codes', 'uses' => 'Admin\AssistantController@getQRCodes']);
-
 });
