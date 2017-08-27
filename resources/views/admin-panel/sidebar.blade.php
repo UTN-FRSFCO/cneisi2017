@@ -47,7 +47,7 @@
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
                         <li><a href="{{ route('panel.admin.assistants') }}">Ver todos</a></li>
                         <li class="divider"></li>
-                        <li><a href="{{ route('assistants.loadAssistants') }}">Cargar</a></li>
+                        <li><a href="{{ route('assistants.qr_codes') }}">Codigos QR</a></li>
                     </ul>
                 </li>
 

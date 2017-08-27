@@ -208,7 +208,7 @@ Route::group(['middleware' => ['admin']], function () {
     );
 
     Route::get('/administracion/asistentes/codigos-qr',
-        ['as' => 'panel.admin.assistants.qr_codes', 'uses' => 'Admin\AssistantController@getQRCodes']);
+        ['as' => 'assistants.qr_codes', 'uses' => 'Admin\AssistantController@getQRCodes']);
 
     //admin panel assistance
 
