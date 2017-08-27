@@ -32,20 +32,9 @@
                                 <div class="col col-xs-6 align-right">
                                     <select id="filter" type="text" class="form-control" name="type" style="display:inline !important; width:50%;">
                                         <option value="all">Mostrar todos</option>
-                                        <option value="Buenos Aires">Buenos Aires</option>
-                                        <option value="Concepcion del Uruguay">Concepción del Uruguay</option>
-                                        <option value="Cordoba">Córdoba</option>
-                                        <option value="Delta">Delta</option>
-                                        <option value="La Plata">La Plata</option>
-                                        <option value="Mendoza">Mendoza</option>
-                                        <option value="Resistencia">Resistencia</option>
-                                        <option value="Rosario">Rosario</option>
-                                        <option value="San Francico">San Francisco</option>
-                                        <option value="Santa Fe">Santa Fe</option>
-                                        <option value="Tucuman">Tucuman</option>
-                                        <option value="Villa Maria">Villa María</option>
-                                        <option value="Invitado">INVITADOS</option>
-                                        <option value="Publico en general">PÚBLICO EN GENERAL</option>
+                                        @foreach (\App\Enums\AssistantType::values() as $type)
+                                            <option value="{{ $type }}">{{ \App\Entities\Assistant::getParsedType($type) }}</option>
+                                        @endforeach
                                     </select>
 
                                     <button id="filterBtn" class="btn btn-primary">
@@ -57,7 +46,7 @@
                                             var e = document.getElementById("filter");
                                             var param = e.options[e.selectedIndex].value;
                                             console.log(param);
-                                            location.href = "/administracion/asistentes/".concat(param);
+                                            location.href = "/administracion/asistentes-por-tipo/".concat(param);
                                         };
                                     </script>
                                 </div>
@@ -113,7 +102,7 @@
                                         <td class="align-center">{{ $assistant->email }}</td>
                                         <td class="align-center">{{ $assistant->phone }}</td>
                                         <td class="align-center">{{ $assistant->year }}</td>
-                                        <td class="align-center">{{ $assistant->type }}</td>
+                                        <td class="align-center">{{ \App\Entities\Assistant::getParsedType($assistant->type) }}</td>
                                     </tr>
                                 @empty
                                     <tr>

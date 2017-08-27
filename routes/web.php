@@ -200,10 +200,6 @@ Route::group(['middleware' => ['admin']], function () {
 
     //admin panel assistants
 
-    Route::get('/administracion/asistentes',
-        ['as' => 'panel.admin.assistants', 'uses' => 'Admin\AssistantController@index']
-    );
-
     Route::get('/administracion/asistentes/cargar',
         ['as' => 'panel.admin.assistants.load_assistants', 'uses' => 'Admin\AssistantController@loadAssistants']
     );
@@ -224,6 +220,10 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post(
         '/administracion/asistentes/credenciales',
         ['as' => 'panel.admin.assistants.qr_codes', 'uses' => 'Admin\AssistantController@qrCodes']
+    );
+
+    Route::get('/administracion/asistentes-por-tipo/{type?}',
+        ['as' => 'panel.admin.assistants', 'uses' => 'Admin\AssistantController@index']
     );
 
     //admin panel assistance

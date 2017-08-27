@@ -47,20 +47,9 @@
 
                                 <div class="col-md-6">
                                     <select id="date" type="text" class="form-control" name="type" required>
-                                        <option value="Buenos Aires">Buenos Aires</option>
-                                        <option value="Concepcion del Uruguay">Concepción del Uruguay</option>
-                                        <option value="Cordoba">Córdoba</option>
-                                        <option value="Delta">Delta</option>
-                                        <option value="La Plata">La Plata</option>
-                                        <option value="Mendoza">Mendoza</option>
-                                        <option value="Resistencia">Resistencia</option>
-                                        <option value="Rosario">Rosario</option>
-                                        <option value="San Francico">San Francisco</option>
-                                        <option value="Santa Fe">Santa Fe</option>
-                                        <option value="Tucuman">Tucuman</option>
-                                        <option value="Villa Maria">Villa María</option>
-                                        <option value="Invitado">INVITADOS</option>
-                                        <option value="Publico en general">PÚBLICO EN GENERAL</option>
+                                        @foreach (\App\Enums\AssistantType::values() as $type)
+                                            <option value="{{ $type }}">{{ \App\Entities\Assistant::getParsedType($type) }}</option>
+                                        @endforeach
                                     </select>
 
                                     @if ($errors->has('type'))
