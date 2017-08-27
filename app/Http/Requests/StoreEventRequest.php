@@ -25,7 +25,7 @@ class StoreEventRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => '',
+            'description' => 'required',
             'slug' => 'required|unique:conferences,slug',
             'speaker_id' => 'required|integer',
             'auditorium' => 'required',

@@ -147,14 +147,25 @@ class EventsPanelController
                         break;
                 }
 
-                $event->title = $request->input('title');
-                $event->description = $request->input('description');
-                $event->slug = $request->input('slug');
-                $event->duration = $request->input('duration');
-                $event->auditorium = $request->input('auditorium');
-                $event->speaker_id = $request->input('speaker_id');
-                $event->date = $date_event;
-                $event->send_via_api = ($request->input('send_via_api') ? true : false);
+                if ($request->input('speaker_id') == 0) {
+                    $event->title = $request->input('title');
+                    $event->description = $request->input('description');
+                    $event->slug = $request->input('slug');
+                    $event->duration = $request->input('duration');
+                    $event->auditorium = $request->input('auditorium');
+                    $event->speaker_id = null;
+                    $event->date = $date_event;
+                    $event->send_via_api = ($request->input('send_via_api') ? true : false);
+                } else {
+                    $event->title = $request->input('title');
+                    $event->description = $request->input('description');
+                    $event->slug = $request->input('slug');
+                    $event->duration = $request->input('duration');
+                    $event->auditorium = $request->input('auditorium');
+                    $event->speaker_id = $request->input('speaker_id');
+                    $event->date = $date_event;
+                    $event->send_via_api = ($request->input('send_via_api') ? true : false);
+                }
 
                 $event->save();
                 return back()->with('status', 'Evento editado satisfactoriamente');

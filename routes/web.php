@@ -205,7 +205,7 @@ Route::group(['middleware' => ['admin']], function () {
     );
 
     Route::get('/administracion/asistentes/cargar',
-        ['as' => 'assistants.load_assistants', 'uses' => 'Admin\AssistantController@loadAssistants']
+        ['as' => 'panel.admin.assistants.load_assistants', 'uses' => 'Admin\AssistantController@loadAssistants']
     );
 
     Route::post('/administracion/asistentes/cargar',

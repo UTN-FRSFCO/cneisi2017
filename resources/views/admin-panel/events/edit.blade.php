@@ -163,6 +163,7 @@
 
                                 <div class="col-md-6">
                                     <select id="speaker_id" type="text" class="form-control" name="speaker_id" required>
+                                        <option value="0">Ninguno</option>
                                         @foreach($speakers as $speaker)
                                             @if($event->speaker['id'] == $speaker->getId())
                                                 <option selected="selected" value="{{$speaker->getId()}}">{{$speaker->getId()}} - {{ $speaker->getName() }}</option>
