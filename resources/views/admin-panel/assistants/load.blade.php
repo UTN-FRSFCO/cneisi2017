@@ -47,6 +47,7 @@
 
                                 <div class="col-md-6">
                                     <select id="date" type="text" class="form-control" name="type" required>
+
                                         @foreach (\App\Enums\AssistantType::values() as $type)
                                             <option value="{{ $type }}">{{ \App\Entities\Assistant::getParsedType($type) }}</option>
                                         @endforeach
