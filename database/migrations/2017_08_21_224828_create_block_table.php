@@ -15,9 +15,8 @@ class CreateBlockTable extends Migration
     {
         Schema::create('blocks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('block_id');
-            $table->integer('conference_id')->unsigned()->nullable();
-            $table->foreign('conference_id')->references('id')->on('conferences');
+            $table->dateTime('date_start')->nullable();
+            $table->dateTime('date_end')->nullable();
             $table->timestamps();
         });
     }
