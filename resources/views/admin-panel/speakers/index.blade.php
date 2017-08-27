@@ -29,9 +29,6 @@
                                 <div class="col col-xs-6">
                                     <h3 class="panel-title">Cantidad de speakers registrados: <strong> {{ count($speakers) }} </strong></h3>
                                 </div>
-                                <div class="col col-xs-6 text-right">
-                                    <a href="{{ route('speakers.createSpeaker') }}">Crear nuevo</a>
-                                </div>
                                 <div class="col col-xs-12 ">
                                     <i> - Si un speaker tiene un evento asociado, deberás borrar el evento previamente a borrar el speaker</i>
                                 </div>

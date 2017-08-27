@@ -9,7 +9,7 @@ class ConferenceController extends Controller
 {
     public function getAll()
     {
-        $conferences = Conference::all();
+        $conferences = Conference::where('send_via_api', '=', true)->get();
 
         return $conferences;
     }

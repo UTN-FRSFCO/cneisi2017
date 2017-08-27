@@ -153,7 +153,7 @@ Route::group(['middleware' => ['admin']], function () {
     );
 
     Route::get('/administracion/speakers/crear',
-        ['as' => 'speakers.createSpeaker', 'uses' => 'Admin\SpeakersPanelController@createSpeaker']
+        ['as' => 'panel.admin.speakers.create_speaker', 'uses' => 'Admin\SpeakersPanelController@createSpeaker']
     );
 
     Route::post('/administracion/speaker/crear',
@@ -178,7 +178,7 @@ Route::group(['middleware' => ['admin']], function () {
     );
 
     Route::get('/administracion/evento/crear',
-        ['as' => 'event.createEvent', 'uses' => 'Admin\EventsPanelController@createEvent']
+        ['as' => 'panel.admin.event.create_event', 'uses' => 'Admin\EventsPanelController@createEvent']
     );
 
     Route::post('/administracion/evento/crear',
@@ -228,13 +228,6 @@ Route::group(['middleware' => ['admin']], function () {
 
     //admin panel assistance
 
-    Route::get('/administracion/asistencias/{conference?}',
-        ['as' => 'panel.admin.assistance', 'uses' => 'Admin\AssistancePanelController@index']);
-
-    Route::get('/administracion/asistencias/todas',
-        ['as' => 'assistance.conference', 'uses' => 'Admin\AssistancePanelController@byConference']);
-
-
     Route::get('/administracion/asistencias',
         ['as' => 'panel.admin.assistances', 'uses' => 'Admin\AssistancesPanelController@index']
     );
@@ -253,19 +246,19 @@ Route::group(['middleware' => ['admin']], function () {
         ['as' => 'panel.admin.blocks', 'uses' => 'Admin\BlocksPanelController@index']);
 
     Route::get('/administracion/bloques/crear',
-        ['as' => 'blocks.createBlock', 'uses' => 'Admin\BlocksPanelController@createBlock']);
+        ['as' => 'panel.admin.blocks.create_block', 'uses' => 'Admin\BlocksPanelController@createBlock']);
 
     Route::post('/administracion/bloques/crear',
         ['as' => 'blocks.create', 'uses' => 'Admin\BlocksPanelController@create']);
 
     Route::get('/administracion/bloques/agregar-conferencia',
-        ['as' => 'blocks.add_conference_view', 'uses' => 'Admin\BlocksPanelController@loadAddconference']);
+        ['as' => 'panel.admin.blocks.add_conference_view', 'uses' => 'Admin\BlocksPanelController@loadAddconference']);
 
     Route::post('/administracion/bloques/agregar-conferencia',
         ['as' => 'blocks.add_conference', 'uses' => 'Admin\BlocksPanelController@addConference']);
 
     Route::get('/administracion/bloques/eliminar-conferencia',
-        ['as' => 'blocks.remove_conference_view', 'uses' => 'Admin\BlocksPanelController@loadRemoveConference']);
+        ['as' => 'panel.admin.blocks.remove_conference_view', 'uses' => 'Admin\BlocksPanelController@loadRemoveConference']);
 
     Route::post('/administracion/bloques/eliminar-conferencia',
         ['as' => 'blocks.remove_conference', 'uses' => 'Admin\BlocksPanelController@removeConference']);

@@ -29,9 +29,6 @@
                                 <div class="col col-xs-6">
                                     <h3 class="panel-title">Cantidad de eventos registrados: <strong> {{ count($events) }} </strong></h3>
                                 </div>
-                                <div class="col col-xs-6 text-right">
-                                    <a href="{{ route('event.createEvent') }}">Crear nuevo</a>
-                                </div>
                             </div>
                         </div>
                         <div class="panel-body">

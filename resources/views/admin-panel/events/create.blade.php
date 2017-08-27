@@ -162,6 +162,25 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('block_id') ? ' has-error' : '' }}">
+                                <label for="block_id" class="col-md-4 control-label">Bloque</label>
+
+                                <div class="col-md-6">
+                                    <select id="block_id" type="text" class="form-control" name="block_id" required>
+                                        <option value="0">Ninguno</option>
+                                        @foreach($blocks as $block)
+                                            <option value="{{$block['id']}}">{{$block['day']}} - {{ $block['time_start'] }} / {{ $block['time_end'] }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @if ($errors->has('block_id'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('block_id') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="form-group{{ $errors->has('send_via_api') ? ' has-error' : '' }}">
                                 <label for="send_via_api" class="col-md-4 control-label">Mostrar el app móvil</label>
 
