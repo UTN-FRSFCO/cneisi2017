@@ -208,6 +208,14 @@ Route::group(['middleware' => ['admin']], function () {
         ['as' => 'assistants.load', 'uses' => 'Admin\AssistantController@load']
     );
 
+    Route::get('/administracion/asistentes/crear',
+        ['as' => 'panel.admin.assistants.create', 'uses' => 'Admin\AssistantController@create']
+    );
+
+    Route::post('/administracion/asistentes',
+        ['as' => 'assistants.store', 'uses' => 'Admin\AssistantController@store']
+    );
+
     Route::delete('/administracion/asistentes/{id}',
         ['as' => 'assistants.delete', 'uses' => 'Admin\AssistantController@delete']
     );

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Entities\Assistant;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreAssistantRequest;
 use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,7 @@ class AssistantController extends Controller
 
     const INDEX_VIEW = 'admin-panel.assistants.index';
     const LOAD_VIEW = 'admin-panel.assistants.load';
-
+    const CREATE_VIEW = 'admin-panel.assistants.create';
 
     public function printCredentials()
     {
@@ -159,5 +160,27 @@ class AssistantController extends Controller
         }
 
         return $data;
+    }
+
+    public function create()
+    {
+        return view(self::CREATE_VIEW);
+    }
+
+    public function store(StoreAssistantRequest $request)
+    {
+        DB::table('assistants')->insert(
+            [
+                'firstname' => $request->input('firstname'),
+                'lastname' => $request->input('lastname'),
+                'dni' => $request->input('dni'),
+                'email' => $request->input('email'),
+                'phone' => $request->input('phone'),
+                'year' => $request->input('year'),
+                'type' => $request->input('type'),
+            ]
+        );
+
+        return back()->with('status', 'Asistente creado satisfactoriamente');
     }
 }

@@ -17,6 +17,8 @@
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
                         <li><a href="{{ route('panel.admin.assistants') }}">Ver todos</a></li>
                         <li class="divider"></li>
+                        <li><a href="{{ route('panel.admin.assistants.create') }}">Crear</a></li>
+                        <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.assistants.load_assistants') }}">Cargar</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.assistants.print-credentials') }}">Imprimir credenciales</a></li>

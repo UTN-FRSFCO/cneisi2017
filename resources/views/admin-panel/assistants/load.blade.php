@@ -43,10 +43,10 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-                                <label for="date" class="col-md-4 control-label">Tipo</label>
+                                <label for="type" class="col-md-4 control-label">Tipo</label>
 
                                 <div class="col-md-6">
-                                    <select id="date" type="text" class="form-control" name="type" required>
+                                    <select id="type" class="form-control" name="type" required>
 
                                         @foreach (\App\Enums\AssistantType::values() as $type)
                                             <option value="{{ $type }}">{{ \App\Entities\Assistant::getParsedType($type) }}</option>
