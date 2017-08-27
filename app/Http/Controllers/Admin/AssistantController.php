@@ -80,7 +80,7 @@ class AssistantController extends Controller
         $notLoaded = 0;
 
         for ($i = 0; $i < count($assistantsArr); $i ++) {
-            if (!$this->assistantExist($assistantsArr[$i]['dni'])) {
+            if (!$this->assistantExist($assistantsArr[$i]['DNI'])) {
                 $this->storeAssistant($assistantsArr[$i], $assistantType);
             } else {
                 ++ $notLoaded;
