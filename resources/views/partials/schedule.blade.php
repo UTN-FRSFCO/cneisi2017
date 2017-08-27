@@ -131,7 +131,14 @@
                                             <div id="{{ $conference->getSlug() . '-day1_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
                                                     <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
-                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @if($conference->getSpeaker()['name'] == 'Marcelo Temperini')
+                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }} & Maximiliano Macedo</strong>
+                                                    @else
+                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @endif
+                                                    @if($conference->getTitle() == 'Workshop de Realidad Aumentada')
+                                                        <strong class="highlight speaker-name">Lucia Scharff & Federico Degiovani</strong>
+                                                    @endif
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium2'])--}}
                                                 </article>
@@ -178,6 +185,10 @@
 
                                                 @if($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
+                                                @elseif($conference->getTitle() == 'Accesibilidad Web (Globant)')
+                                                    <img src="{{ asset('img/sponsors/globant.png') }}" alt="globant" class="img-responsive">
+                                                @elseif($conference->getTitle() == 'Desarollo Mobile(Nexo)')
+                                                    <img src="{{ asset('img/sponsors/nexo.png') }}" alt="nexo" class="img-responsive">
                                                 @else
                                                     <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
                                                 @endif
@@ -189,7 +200,11 @@
                                             <div id="{{ $conference->getSlug() . '-day1_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
                                                     <p class="description">{!! nl2br(e($conference->getDescription()))!!}</p>
-                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @if($conference->getSpeaker()['name'] == 'Emiliano Jramoy')
+                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }} & Juan Zaffaroni</strong>
+                                                    @else
+                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @endif
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium3'])--}}
                                                 </article>
@@ -255,6 +270,8 @@
 
                                                 @if($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
+                                                @elseif($conference->getTitle() == 'Animate a cambiar la historia')
+                                                    <img src="{{ asset('img/sponsors/socialtools.png') }}" alt="socialtools" class="img-responsive">
                                                 @else
                                                     <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
                                                 @endif
@@ -266,7 +283,12 @@
                                             <div id="{{ $conference->getSlug() . '-day2_auditorium1'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
                                                     <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
-                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @if($conference->getTitle() == 'Animate a cambiar la historia')
+                                                        <strong class="highlight speaker-name">Germán Merlo</strong>
+                                                    @else
+                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @endif
+
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium1'])--}}
                                                 </article>
@@ -323,7 +345,12 @@
                                             <div id="{{ $conference->getSlug() . '-day2_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
                                                     <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
-                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @if($conference->getTitle() == '¿Cómo funciona una empresa sin jefes?')
+                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}, Federico Grosso & Lucas Giudice</strong>
+                                                    @else
+                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @endif
+
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium2'])--}}
                                                 </article>
@@ -380,6 +407,11 @@
                                             <div id="{{ $conference->getSlug() . '-day2_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
                                                     <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
+                                                    @if($conference->getTitle() == 'MegaMind')
+                                                        <strong class="highlight speaker-name">Nicolás Ferrero</strong>
+                                                    @else
+                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @endif
                                                     <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium3'])--}}
