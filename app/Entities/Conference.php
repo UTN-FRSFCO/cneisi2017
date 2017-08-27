@@ -27,6 +27,7 @@ class Conference extends Model
         'duration',
         'auditorium',
         'speaker_id',
+        'send_via_api',
     ];
 
     public function getId()
@@ -107,6 +108,16 @@ class Conference extends Model
     public function setSpeaker(Speaker $speaker)
     {
         $this->speaker = $speaker;
+    }
+
+    public function getSendViaApi()
+    {
+        return $this->send_via_api;
+    }
+
+    public function setSendViaApi(bool $sendViaApi)
+    {
+        $this->send_via_api = $sendViaApi;
     }
 
     /**

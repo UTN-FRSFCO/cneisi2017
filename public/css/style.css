@@ -7077,4 +7077,8 @@ button[type="submit"] .loading {
     margin-bottom: 0;
     width: 100%;
   }
+
+  .color-red {
+    font-size: 233px;
+  }
 }
