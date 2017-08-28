@@ -59,8 +59,9 @@
                                     <!-- Lecture start -->
                                         <div class="panel schedule-item">
                                             <div class="lecture-icon-wrapper">
-
-                                                @if($conference->getSpeaker()['picture'] === null)
+                                                @if($conference->getTitle() == 'Acto de inicio')
+                                                    <img src="{{ asset('img/logo-cneisi.jpg') }}" alt="logo_utn" class="img-responsive">
+                                                @elseif($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
                                                     <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
@@ -269,7 +270,9 @@
                                         <div class="panel schedule-item">
                                             <div class="lecture-icon-wrapper">
 
-                                                @if($conference->getSpeaker()['picture'] === null)
+                                                @if($conference->getTitle() == 'Acto de cierre' || $conference->getTitle() == 'Presentacion de papers')
+                                                    <img src="{{ asset('img/logo-cneisi.jpg') }}" alt="logo_utn" class="img-responsive">
+                                                @elseif($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @elseif($conference->getTitle() == 'Animate a cambiar la historia')
                                                     <img src="{{ asset('img/sponsors/socialtools.png') }}" alt="socialtools" class="img-responsive">
@@ -332,8 +335,9 @@
                                     <!-- Lecture start -->
                                         <div class="panel schedule-item">
                                             <div class="lecture-icon-wrapper">
-
-                                                @if($conference->getTitle() == 'Animate a cambiar la historia')
+                                                @if($conference->getTitle() == 'Presentacion de papers')
+                                                    <img src="{{ asset('img/logo-cneisi.jpg') }}" alt="logo_utn" class="img-responsive">
+                                                @elseif($conference->getTitle() == 'Animate a cambiar la historia')
                                                     <img src="{{ asset('img/sponsors/socialtools-2.png') }}" alt="logo_utn" class="img-responsive">
                                                 @elseif($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
@@ -350,6 +354,8 @@
                                                     <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
                                                     @if($conference->getTitle() == '¿Cómo funciona una empresa sin jefes?')
                                                         <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}, Federico Grosso & Lucas Giudice</strong>
+                                                    @elseif($conference->getTitle() == '¿Cómo funciona una empresa sin jefes?')
+                                                        <strong class="highlight speaker-name">Germán Merlo</strong>
                                                     @else
                                                         <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @endif
@@ -396,8 +402,9 @@
                                     <!-- Lecture start -->
                                         <div class="panel schedule-item">
                                             <div class="lecture-icon-wrapper">
-
-                                                @if($conference->getSpeaker()['picture'] === null)
+                                                @if($conference->getTitle() == 'Presentacion de papers')
+                                                    <img src="{{ asset('img/logo-cneisi.jpg') }}" alt="logo_utn" class="img-responsive">
+                                                @elseif($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
                                                     <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
@@ -415,7 +422,6 @@
                                                     @else
                                                         <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @endif
-                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium3'])--}}
                                                 </article>
