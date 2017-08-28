@@ -6,13 +6,16 @@ use App\Entities\Assistance;
 use App\Entities\Conference;
 use App\Http\Controllers\Controller;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 class AssistancesPanelController extends Controller
 {
     const INDEX_VIEW = 'admin-panel.assistances.index';
     const SHOW_VIEW = 'admin-panel.assistances.show';
     const CONFERENCE_VIEW = 'admin-panel.assistances.conferences';
+    const BLOCK_VIEW = 'admin-panel.assistances.blocks';
 
+    const DAY_ONE_REFERENCE = '08';
     /**
      * Show the application dashboard.
      *
@@ -48,6 +51,66 @@ class AssistancesPanelController extends Controller
 
         return view(self::CONFERENCE_VIEW)
             ->with('conferences', $conferenceAssistanceList);
+    }
+
+    public function byBlock()
+    {
+        $blockAssistanceList = [];
+
+        $blocks = DB::table('blocks')->get();
+
+        $blocks = $this->transformBlocks($blocks);
+
+        foreach ($blocks as $block)
+        {
+            $conferences = Conference::all()->where('block_id', '=', $block['id']);
+
+            $assistancesCount = 0;
+            foreach ($conferences as $conference)
+            {
+                $assistances = Assistance::all()->where('conference_id', '=', $conference->id);
+                $assistancesCount = $assistancesCount + count($assistances);
+            }
+
+
+            $data = [
+                "id" => $block['id'],
+                "time_start" => $block['time_start'],
+                "time_end" => $block['time_end'],
+                "assistances" => $assistancesCount
+            ];
+
+            array_push($blockAssistanceList, $data);
+        }
+
+        return view(self::BLOCK_VIEW)
+            ->with('blocks', $blockAssistanceList);
+    }
+
+    private function transformBlocks($blocks)
+    {
+        $blockList = [];
+
+        foreach ($blocks as $block) {
+            if (substr($block->date_start, 5, 2) == self::DAY_ONE_REFERENCE) {
+                $day = 'Dia 1';
+            } else {
+                $day = 'Dia 2';
+            }
+
+            $timeStart =  substr($block->date_start, 11, 5);
+            $timeEnd =  substr($block->date_end, 11, 5);
+
+            $block = [
+                'id' => $block->id,
+                'day' => $day,
+                'time_start' => $timeStart,
+                'time_end' => $timeEnd
+            ];
+            array_push($blockList, $block);
+        }
+
+        return $blockList;
     }
 
     public function show(int $eventId)
