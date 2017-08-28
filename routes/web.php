@@ -244,7 +244,7 @@ Route::group(['middleware' => ['admin']], function () {
         ['as' => 'panel.admin.assistances.blocks', 'uses' => 'Admin\AssistancesPanelController@byBlock']
     );
 
-    Route::get('/administracion/asistencias/asistentes',
+    Route::get('/administracion/asistencias/asistentes/{type?}',
         ['as' => 'panel.admin.assistances.assistants', 'uses' => 'Admin\AssistancesPanelController@byAssistant']
     );
 

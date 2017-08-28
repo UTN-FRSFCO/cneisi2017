@@ -37,8 +37,7 @@ class AssistancesPanelController extends Controller
 
         $conferences = Conference::all()->where('send_via_api', '=', true);
 
-        foreach ($conferences as $conference)
-        {
+        foreach ($conferences as $conference) {
             $assistances = Assistance::all()->where('conference_id', '=', $conference->id);
 
             $data = [
@@ -63,13 +62,11 @@ class AssistancesPanelController extends Controller
 
         $blocks = $this->transformBlocks($blocks);
 
-        foreach ($blocks as $block)
-        {
+        foreach ($blocks as $block) {
             $conferences = Conference::all()->where('block_id', '=', $block['id']);
 
             $assistancesCount = 0;
-            foreach ($conferences as $conference)
-            {
+            foreach ($conferences as $conference) {
                 $assistances = Assistance::all()->where('conference_id', '=', $conference->id);
                 $assistancesCount = $assistancesCount + count($assistances);
             }
@@ -89,24 +86,40 @@ class AssistancesPanelController extends Controller
             ->with('blocks', $blockAssistanceList);
     }
 
-    public function byAssistant()
+    public function byAssistant(string $type = null)
     {
-        $assistants = DB::table('assistants')
-            ->join('assistances', 'assistants.dni', '=', 'assistances.dni')
-            ->select(
-                'assistants.id as id',
-                'assistants.dni as dni',
-                'assistants.firstname as firstname',
-                'assistants.lastname as lastname',
-                'assistants.type',
-                DB::raw("count(assistances.id) as assistanceCount")
-            )
-            ->groupBy('assistants.id')
-            ->orderBy('assistanceCount', 'asc')
-            ->paginate(20);
+        if ($type == 'all') {
+            $assistants = DB::table('assistants')
+                ->join('assistances', 'assistants.dni', '=', 'assistances.dni')
+                ->select(
+                    'assistants.id as id',
+                    'assistants.dni as dni',
+                    'assistants.firstname as firstname',
+                    'assistants.lastname as lastname',
+                    'assistants.type',
+                    DB::raw("count(assistances.id) as assistanceCount")
+                )
+                ->groupBy('assistants.id')
+                ->orderBy('assistanceCount', 'asc')
+                ->paginate(20);
+        } else {
+            $assistants = DB::table('assistants')
+                ->join('assistances', 'assistants.dni', '=', 'assistances.dni')
+                ->select(
+                    'assistants.id as id',
+                    'assistants.dni as dni',
+                    'assistants.firstname as firstname',
+                    'assistants.lastname as lastname',
+                    'assistants.type',
+                    DB::raw("count(assistances.id) as assistanceCount")
+                )
+                ->where('assistants.type', '=', $type)
+                ->groupBy('assistants.id')
+                ->orderBy('assistanceCount', 'asc')
+                ->paginate(20);
+        }
 
         $conferenceAmount = Conference::all()->where('send_via_api', '=', true)->count();
-
 
         return view(self::ASSISTANT_VIEW)
             ->with('assistants', $assistants)

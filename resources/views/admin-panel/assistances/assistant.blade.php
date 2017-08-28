@@ -29,9 +29,27 @@
                                 <div class="col col-xs-6">
                                     <h3 class="panel-title">Asistentes listados: <strong> {{ count($assistants) }} </strong></h3>
                                 </div>
-                                {{--<div class="col col-xs-6 text-right">--}}
-                                {{--<a href="{{ route('event.createEvent') }}">Crear nuevo</a>--}}
-                                {{--</div>--}}
+                                <div class="col col-xs-6 align-right">
+                                    <select id="filter" type="text" class="form-control" name="type" style="display:inline !important; width:50%;">
+                                        <option value="all">Mostrar todos</option>
+                                        @foreach (\App\Enums\AssistantType::values() as $type)
+                                            <option value="{{ $type }}">{{ \App\Entities\Assistant::getParsedType($type) }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    <button id="filterBtn" class="btn btn-primary">
+                                        Filtrar
+                                    </button>
+
+                                    <script type="text/javascript">
+                                        document.getElementById("filterBtn").onclick = function () {
+                                            var e = document.getElementById("filter");
+                                            var param = e.options[e.selectedIndex].value;
+                                            console.log(param);
+                                            location.href = "/administracion/asistencias/asistentes/".concat(param);
+                                        };
+                                    </script>
+                                </div>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -53,7 +71,7 @@
                                                 <td class="align-center">{{ $assistant->id}}</td>
                                                 <td class="align-center"> {{ $assistant->dni}}</td>
                                                 <td class="align-center">{{ $assistant->lastname }},{{ $assistant->firstname }}</td>
-                                                <td class="align-center">{{ $assistant->type }}</td>
+                                                <td class="align-center">{{ \App\Entities\Assistant::getParsedType($assistant->type) }}</td>
                                                 <td class="align-center">{{ $assistant->assistanceCount }}</td>
                                                 @if($assistant->assistanceCount * 100 / $conferenceAmount < 80)
                                                     <td class="align-center" style="color: red;">{{ round($assistant->assistanceCount * 100 / $conferenceAmount, 2) }}%</td>
