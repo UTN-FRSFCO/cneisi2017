@@ -68,6 +68,8 @@
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
                         <li><a href="{{ route('panel.admin.blocks.create_block') }}">Crear</a></li>
                         <li class="divider"></li>
+                        <li><a href="{{ route('panel.admin.blocks.conferences') }}">Ver conferencias</a></li>
+                        <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.blocks.add_conference_view') }}">Agregar conferencia</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.blocks.remove_conference_view') }}">Quitar conferencia</a></li>

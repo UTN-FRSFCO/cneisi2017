@@ -16,6 +16,9 @@ class BlocksPanelController
     const CREATE_BLOCK = 'admin-panel.blocks.create';
     const ADD_CONFERENCE = 'admin-panel.blocks.add-conference';
     const REMOVE_CONFERENCE = 'admin-panel.blocks.remove-conference';
+    const BLOCKS_CONFERENCE = 'admin-panel.blocks.conferences';
+
+    const DAY_ONE_REFERENCE = '08';
 
     /**
      * Show the application dashboard.
@@ -125,5 +128,42 @@ class BlocksPanelController
         } catch (Exception $ex) {
             return back()->with('status', 'ATENCIÓN!! Conferencia no eliminada: ' . $ex->getMessage());
         }
+    }
+
+    public function blocksAndConferences()
+    {
+        $blocks = DB::table('blocks')->get();
+        $blocks = $this->transformBlocks($blocks);
+        $conferences = Conference::all()->where('block_id', '!=', null);
+
+        return view(self::BLOCKS_CONFERENCE)
+            ->with('blocks', $blocks)
+            ->with('conferences', $conferences);
+    }
+
+    private function transformBlocks($blocks)
+    {
+        $blockList = [];
+
+        foreach ($blocks as $block) {
+            if (substr($block->date_start, 5, 2) == self::DAY_ONE_REFERENCE) {
+                $day = 'Dia 1';
+            } else {
+                $day = 'Dia 2';
+            }
+
+            $timeStart =  substr($block->date_start, 11, 5);
+            $timeEnd =  substr($block->date_end, 11, 5);
+
+            $block = [
+                'id' => $block->id,
+                'day' => $day,
+                'time_start' => $timeStart,
+                'time_end' => $timeEnd
+            ];
+            array_push($blockList, $block);
+        }
+
+        return $blockList;
     }
 }

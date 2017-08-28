@@ -270,4 +270,7 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::post('/administracion/bloques/eliminar-conferencia',
         ['as' => 'blocks.remove_conference', 'uses' => 'Admin\BlocksPanelController@removeConference']);
+
+    Route::get('/administracion/bloques/conferencias',
+        ['as' => 'panel.admin.blocks.conferences', 'uses' => 'Admin\BlocksPanelController@blocksAndConferences']);
 });
