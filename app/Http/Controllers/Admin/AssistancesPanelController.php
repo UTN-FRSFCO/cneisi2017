@@ -91,35 +91,26 @@ class AssistancesPanelController extends Controller
 
     public function byAssistant()
     {
-        $assistantAssistanceList = [];
+        $assistants = DB::table('assistants')
+            ->join('assistances', 'assistants.dni', '=', 'assistances.dni')
+            ->select(
+                'assistants.id as id',
+                'assistants.dni as dni',
+                'assistants.firstname as firstname',
+                'assistants.lastname as lastname',
+                'assistants.type',
+                DB::raw("count(assistances.id) as assistanceCount")
+            )
+            ->groupBy('assistants.id')
+            ->orderBy('assistanceCount', 'asc')
+            ->paginate(20);
 
-        $assistants = Assistant::all();
+        $conferenceAmount = Conference::all()->where('send_via_api', '=', true)->count();
 
-        foreach ($assistants as $assistant)
-        {
-            $assistances = Assistance::all()->where('dni', '=', $assistant->dni);
-
-            $conferenceAmount = Conference::all()->where('send_via_api', '=', true)->count();
-
-            $percentage = count($assistances) * 100 / $conferenceAmount;
-
-            $data = [
-                "id" => $assistant->id,
-                "dni" => $assistant->dni,
-                "name" => $assistant->lastname . ', '. $assistant->name,
-                "type" => $assistant->type,
-                "assistances" => count($assistances),
-                "percentage" => round($percentage, 2)
-            ];
-
-            array_push($assistantAssistanceList, $data);
-        }
-
-        $assistants = Assistant::paginate(10);
 
         return view(self::ASSISTANT_VIEW)
             ->with('assistants', $assistants)
-            ->with('assistances', $assistantAssistanceList);
+            ->with('conferenceAmount', $conferenceAmount);
     }
 
     private function transformBlocks($blocks)

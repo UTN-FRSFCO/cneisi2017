@@ -44,27 +44,23 @@
                                     <th>Tipo de asistente</th>
                                     <th>Cantidad asistencias</th>
                                     <th>Porcentaje de asistencias</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @forelse($assistants as $assistant)
-                                    @foreach($assistances as $assistance)
-                                        @if($assistant->id == $assistance['id'])
                                             <tr>
-                                                <td class="align-center">{{ $assistance['id'] }}</td>
-                                                <td class="align-center">{{ $assistance['dni'] }}</td>
-                                                <td class="align-center">{{ $assistance['name'] }}</td>
-                                                <td class="align-center">{{ $assistance['type'] }}</td>
-                                                <td class="align-center">{{ $assistance['assistances'] }}</td>
-                                                @if($assistance['percentage'] < 80)
-                                                    <td class="align-center" style="color: red;">{{ $assistance['percentage'] }}%</td>
+                                                <td class="align-center">{{ $assistant->id}}</td>
+                                                <td class="align-center"> {{ $assistant->dni}}</td>
+                                                <td class="align-center">{{ $assistant->lastname }},{{ $assistant->firstname }}</td>
+                                                <td class="align-center">{{ $assistant->type }}</td>
+                                                <td class="align-center">{{ $assistant->assistanceCount }}</td>
+                                                @if($assistant->assistanceCount * 100 / $conferenceAmount < 80)
+                                                    <td class="align-center" style="color: red;">{{ round($assistant->assistanceCount * 100 / $conferenceAmount, 2) }}%</td>
                                                 @else
-                                                    <td class="align-center">{{ $assistance['percentage'] }}%</td>
-                                                    @endif
-
+                                                    <td class="align-center">{{ round($assistant->assistanceCount * 100 / $conferenceAmount, 2) }}%</td>
+                                                @endif
                                             </tr>
-                                        @endif
-                                    @endforeach
                                 @empty
                                     <tr>
                                         No se han encontrado registros
