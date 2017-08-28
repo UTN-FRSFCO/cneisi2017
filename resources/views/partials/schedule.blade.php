@@ -73,7 +73,11 @@
                                             <div id="{{ $conference->getSlug() . '-day1_auditorium1' }}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
                                                     <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
-                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @if($conference->getSpeaker()['name'] == 'Marcelo Temperini')
+                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }} & Maximiliano Macedo</strong>
+                                                    @else
+                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
+                                                    @endif
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day1_auditorium1' ])--}}
                                                 </article>
@@ -117,8 +121,9 @@
                                     <!-- Lecture start -->
                                         <div class="panel schedule-item">
                                             <div class="lecture-icon-wrapper">
-
-                                                @if($conference->getSpeaker()['picture'] === null)
+                                                @if($conference->getTitle() == 'Workshop de Realidad Aumentada')
+                                                    <img src="{{ asset('img/ranaloca.png') }}" alt="logo_utn" class="img-responsive">
+                                                @elseif($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
                                                     <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
@@ -131,11 +136,7 @@
                                             <div id="{{ $conference->getSlug() . '-day1_auditorium2'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
                                                     <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
-                                                    @if($conference->getSpeaker()['name'] == 'Marcelo Temperini')
-                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }} & Maximiliano Macedo</strong>
-                                                    @else
-                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
-                                                    @endif
+                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @if($conference->getTitle() == 'Workshop de Realidad Aumentada')
                                                         <strong class="highlight speaker-name">Lucia Scharff & Federico Degiovani</strong>
                                                     @endif
@@ -183,12 +184,12 @@
                                         <div class="panel schedule-item">
                                             <div class="lecture-icon-wrapper">
 
-                                                @if($conference->getSpeaker()['picture'] === null)
+                                                @if($conference->getTitle() == 'Accesibilidad Web (Globant)')
+                                                    <img src="{{ asset('img/sponsors/globant-2.jpg') }}" alt="globant" class="img-responsive">
+                                                @elseif($conference->getTitle() == 'Desarrollo Mobile (Nexo)')
+                                                    <img src="{{ asset('img/sponsors/nexo-2.jpg') }}" alt="nexo" class="img-responsive">
+                                                @elseif($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
-                                                @elseif($conference->getTitle() == 'Accesibilidad Web (Globant)')
-                                                    <img src="{{ asset('img/sponsors/globant.png') }}" alt="globant" class="img-responsive">
-                                                @elseif($conference->getTitle() == 'Desarollo Mobile(Nexo)')
-                                                    <img src="{{ asset('img/sponsors/nexo.png') }}" alt="nexo" class="img-responsive">
                                                 @else
                                                     <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
                                                 @endif
@@ -332,7 +333,9 @@
                                         <div class="panel schedule-item">
                                             <div class="lecture-icon-wrapper">
 
-                                                @if($conference->getSpeaker()['picture'] === null)
+                                                @if($conference->getTitle() == 'Animate a cambiar la historia')
+                                                    <img src="{{ asset('img/sponsors/socialtools-2.png') }}" alt="logo_utn" class="img-responsive">
+                                                @elseif($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
                                                     <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
