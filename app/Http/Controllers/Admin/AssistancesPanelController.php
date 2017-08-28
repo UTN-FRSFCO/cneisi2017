@@ -11,6 +11,7 @@ class AssistancesPanelController extends Controller
 {
     const INDEX_VIEW = 'admin-panel.assistances.index';
     const SHOW_VIEW = 'admin-panel.assistances.show';
+    const CONFERENCE_VIEW = 'admin-panel.assistances.conferences';
 
     /**
      * Show the application dashboard.
@@ -23,6 +24,30 @@ class AssistancesPanelController extends Controller
 
         return view(SELF::INDEX_VIEW)
             ->with('events', $events);
+    }
+
+    public function byConference()
+    {
+        $conferenceAssistanceList = [];
+
+        $conferences = Conference::all()->where('send_via_api', '=', true);
+
+        foreach ($conferences as $conference)
+        {
+            $assistances = Assistance::all()->where('conference_id', '=', $conference->id);
+
+            $data = [
+              "id" => $conference->id,
+              "title" => $conference->title,
+              "block" => $conference->block_id,
+                "assistants" => count($assistances)
+            ];
+
+            array_push($conferenceAssistanceList, $data);
+        }
+
+        return view(self::CONFERENCE_VIEW)
+            ->with('conferences', $conferenceAssistanceList);
     }
 
     public function show(int $eventId)

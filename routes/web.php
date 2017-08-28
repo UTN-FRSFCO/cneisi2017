@@ -236,8 +236,8 @@ Route::group(['middleware' => ['admin']], function () {
 
     //admin panel assistance
 
-    Route::get('/administracion/asistencias',
-        ['as' => 'panel.admin.assistances', 'uses' => 'Admin\AssistancesPanelController@index']
+    Route::get('/administracion/asistencias/conferencias',
+        ['as' => 'panel.admin.assistances.conferences', 'uses' => 'Admin\AssistancesPanelController@byConference']
     );
 
     Route::get('/administracion/asistencias/evento/{eventId}',

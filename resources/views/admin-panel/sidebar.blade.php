@@ -28,9 +28,9 @@
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asistencias<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-check"></span></a>
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
-                        <li><a href="{{ route('panel.admin.assistances') }}">Principal</a></li>
+                        <li><a href="">Principal</a></li>
                         <li class="divider"></li>
-                        <li><a href="">Por conferencias</a></li>
+                        <li><a href="{{ route('panel.admin.assistances.conferences') }}">Por conferencias</a></li>
                         <li class="divider"></li>
                         <li><a href="">Por bloque</a></li>
                         <li class="divider"></li>
