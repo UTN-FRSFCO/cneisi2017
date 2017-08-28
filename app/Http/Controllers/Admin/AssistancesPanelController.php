@@ -126,6 +126,16 @@ class AssistancesPanelController extends Controller
             ->with('conferenceAmount', $conferenceAmount);
     }
 
+    public function byType(string $type = null)
+    {
+        $data = [];
+
+
+        $conferenceAmount = Conference::all()->where('send_via_api', '=', true)->count();
+
+        return view(self::ASSISTANT_VIEW);
+    }
+
     private function transformBlocks($blocks)
     {
         $blockList = [];

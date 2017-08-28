@@ -30,6 +30,8 @@
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
                         <li><a href="">Principal</a></li>
                         <li class="divider"></li>
+                        <li><a href="{{ route('panel.admin.assistances.type') }}">Por Tipo/Bloque</a></li>
+                        <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.assistances.conferences') }}">Por conferencias</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.assistances.blocks') }}">Por bloque</a></li>
