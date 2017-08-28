@@ -38,10 +38,10 @@
                             <table class="table table-striped table-bordered table-list">
                                 <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Titulo</th>
-                                    <th>Bloque</th>
-                                    <th>Cantidad de asistentes</th>
+                                    <th class="align-center">Id</th>
+                                    <th class="align-center">Titulo</th>
+                                    <th class="align-center">Bloque</th>
+                                    <th class="align-center">Cantidad de asistentes</th>
                                 </tr>
                                 </thead>
                                 <tbody>

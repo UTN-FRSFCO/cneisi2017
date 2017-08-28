@@ -27,7 +27,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col col-xs-6">
-                                    <h3 class="panel-title">Bloques listados: <strong> {{ count($blocks) }} </strong></h3>
+                                    <h3 class="panel-title">Asistentes listados: <strong> {{ count($assistants) }} </strong></h3>
                                 </div>
                                 {{--<div class="col col-xs-6 text-right">--}}
                                 {{--<a href="{{ route('event.createEvent') }}">Crear nuevo</a>--}}
@@ -38,21 +38,33 @@
                             <table class="table table-striped table-bordered table-list">
                                 <thead>
                                 <tr>
-                                    <th class="align-center">Id bloque</th>
-                                    <th class="align-center">Inicio</th>
-                                    <th class="align-center">Fin</th>
-                                    <th class="align-center">Cantidad de asistentes</th>
+                                    <th>Id</th>
+                                    <th>Dni</th>
+                                    <th>Nombre</th>
+                                    <th>Tipo de asistente</th>
+                                    <th>Cantidad asistencias</th>
+                                    <th>Porcentaje de asistencias</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($blocks as $block)
+                                @forelse($assistants as $assistant)
+                                    @foreach($assistances as $assistance)
+                                        @if($assistant->id == $assistance['id'])
+                                            <tr>
+                                                <td class="align-center">{{ $assistance['id'] }}</td>
+                                                <td class="align-center">{{ $assistance['dni'] }}</td>
+                                                <td class="align-center">{{ $assistance['name'] }}</td>
+                                                <td class="align-center">{{ $assistance['type'] }}</td>
+                                                <td class="align-center">{{ $assistance['assistances'] }}</td>
+                                                @if($assistance['percentage'] < 80)
+                                                    <td class="align-center" style="color: red;">{{ $assistance['percentage'] }}%</td>
+                                                @else
+                                                    <td class="align-center">{{ $assistance['percentage'] }}%</td>
+                                                    @endif
 
-                                    <tr>
-                                        <td class="align-center">{{ $block['id'] }}</td>
-                                        <td class="align-center">{{ $block['time_start'] }}</td>
-                                        <td class="align-center">{{ $block['time_end'] }}</td>
-                                        <td class="align-center">{{ $block['assistances'] }}</td>
-                                    </tr>
+                                            </tr>
+                                        @endif
+                                    @endforeach
                                 @empty
                                     <tr>
                                         No se han encontrado registros
@@ -64,6 +76,11 @@
 
                         </div>
                         <div class="panel-footer">
+                            <div class="row">
+                                <div class="col col-xs-12 align-right">
+                                    {{ $assistants->links() }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     @if (session('status'))

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Entities\Assistance;
+use App\Entities\Assistant;
 use App\Entities\Conference;
 use App\Http\Controllers\Controller;
 use Exception;
@@ -14,6 +15,7 @@ class AssistancesPanelController extends Controller
     const SHOW_VIEW = 'admin-panel.assistances.show';
     const CONFERENCE_VIEW = 'admin-panel.assistances.conferences';
     const BLOCK_VIEW = 'admin-panel.assistances.blocks';
+    const ASSISTANT_VIEW = 'admin-panel.assistances.assistant';
 
     const DAY_ONE_REFERENCE = '08';
     /**
@@ -85,6 +87,39 @@ class AssistancesPanelController extends Controller
 
         return view(self::BLOCK_VIEW)
             ->with('blocks', $blockAssistanceList);
+    }
+
+    public function byAssistant()
+    {
+        $assistantAssistanceList = [];
+
+        $assistants = Assistant::all();
+
+        foreach ($assistants as $assistant)
+        {
+            $assistances = Assistance::all()->where('dni', '=', $assistant->dni);
+
+            $conferenceAmount = Conference::all()->where('send_via_api', '=', true)->count();
+
+            $percentage = count($assistances) * 100 / $conferenceAmount;
+
+            $data = [
+                "id" => $assistant->id,
+                "dni" => $assistant->dni,
+                "name" => $assistant->lastname . ', '. $assistant->name,
+                "type" => $assistant->type,
+                "assistances" => count($assistances),
+                "percentage" => round($percentage, 2)
+            ];
+
+            array_push($assistantAssistanceList, $data);
+        }
+
+        $assistants = Assistant::paginate(10);
+
+        return view(self::ASSISTANT_VIEW)
+            ->with('assistants', $assistants)
+            ->with('assistances', $assistantAssistanceList);
     }
 
     private function transformBlocks($blocks)

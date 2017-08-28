@@ -32,9 +32,9 @@
                         <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.assistances.conferences') }}">Por conferencias</a></li>
                         <li class="divider"></li>
-                        <li><a href="">Por bloque</a></li>
+                        <li><a href="{{ route('panel.admin.assistances.blocks') }}">Por bloque</a></li>
                         <li class="divider"></li>
-                        <li><a href="">Por alumno</a></li>
+                        <li><a href="{{ route('panel.admin.assistances.assistants') }}">Por asistente</a></li>
                     </ul>
                 </li>
 
