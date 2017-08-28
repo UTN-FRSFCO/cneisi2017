@@ -287,11 +287,7 @@
                                             <div id="{{ $conference->getSlug() . '-day2_auditorium1'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
                                                     <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
-                                                    @if($conference->getTitle() == 'Animate a cambiar la historia')
-                                                        <strong class="highlight speaker-name">Germán Merlo</strong>
-                                                    @else
-                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
-                                                    @endif
+                                                    <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
 
                                                     {{--@include('components.assistance-form')--}
                                                     {{--@include('components.share', ['url' => env('APP_URL') . '#' . $conference->getSlug() . '-day2_auditorium1'])--}}
@@ -354,7 +350,7 @@
                                                     <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
                                                     @if($conference->getTitle() == '¿Cómo funciona una empresa sin jefes?')
                                                         <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}, Federico Grosso & Lucas Giudice</strong>
-                                                    @elseif($conference->getTitle() == '¿Cómo funciona una empresa sin jefes?')
+                                                    @elseif($conference->getTitle() == 'Animate a cambiar la historia')
                                                         <strong class="highlight speaker-name">Germán Merlo</strong>
                                                     @else
                                                         <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
