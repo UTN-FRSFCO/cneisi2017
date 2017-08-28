@@ -12,59 +12,7 @@
 @include('components.menu')
 @section('content')
 
-<nav class="navbar navbar-default sidebar" role="navigation">
-    <div class="container-fluid">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="{{ route('panel.admin') }}">Inicio<i style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-home"></i></a></li>
-            <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<i style="margin-left:5px;" class="fa fa-chevron-down"></i><i style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-user"></i></a>
-                <ul class="dropdown-menu forAnimate" style="margin:20px;">
-                    <li><a href="{{ route('panel.admin.users') }}">Ver todos</a></li>
-                    <li class="divider"></li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Speakers<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-lightbulb-o"></span></a>
-                <ul class="dropdown-menu forAnimate" style="margin:20px;">
-                    <li><a href="{{ route('panel.admin.speakers') }}">Ver todos</a></li>
-                    <li class="divider"></li>
-                    <li><a href="{{ route('speakers.createSpeaker') }}">Crear</a></li>
-                    <li class="divider"></li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Eventos<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-list"></span></a>
-                <ul class="dropdown-menu forAnimate" style="margin:20px;">
-                    <li><a href="{{ route('panel.admin.events') }}">Ver todos</a></li>
-                    <li class="divider"></li>
-                    <li><a href="{{ route('event.createEvent') }}">Crear</a></li>
-                    <li class="divider"></li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asistencias<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-list"></span></a>
-                <ul class="dropdown-menu forAnimate" style="margin:20px;">
-                    <li class="active"><a href="{{ route('panel.admin.assistances') }}">Ver todas</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Informes</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>
-</nav>
+    @include('admin-panel.sidebar')
 
 <!-- Main Content -->
 <div class="container-fluid" >
@@ -86,29 +34,29 @@
                             <ul class="university-users">
                             @foreach($usersUniversity as $university => $userAmount)
                                 @if($university == 'delta')
-                                    <li>Usuarios de universidad del delta: {{ $userAmount }}</li>
+                                    <li>Universidad del delta: {{ $userAmount }}</li>
                                 @elseif($university == 'buenos_aires')
-                                    <li>Usuarios de universidad de Buenos Aires: {{ $userAmount }}</li>
+                                    <li>Universidad de Buenos Aires: {{ $userAmount }}</li>
                                 @elseif($university == 'cordoba')
-                                    <li>Usuarios de universidad de Cordoba: {{ $userAmount }}</li>
+                                    <li>Universidad de Cordoba: {{ $userAmount }}</li>
                                 @elseif($university == 'villa_maria')
-                                    <li>Usuarios de universidad de Villa María: {{ $userAmount }}</li>
+                                    <li>Universidad de Villa María: {{ $userAmount }}</li>
                                 @elseif($university == 'san_francisco')
-                                    <li>Usuarios de universidad de San Francisco: {{ $userAmount }}</li>
+                                    <li>Universidad de San Francisco: {{ $userAmount }}</li>
                                 @elseif($university == 'tucuman')
-                                    <li>Usuarios de universidad de Tucuman: {{ $userAmount }}</li>
+                                    <li>Universidad de Tucuman: {{ $userAmount }}</li>
                                 @elseif($university == 'santa_fe')
-                                    <li>Usuarios de universidad de Santa Fe: {{ $userAmount }}</li>
+                                    <li>Universidad de Santa Fe: {{ $userAmount }}</li>
                                 @elseif($university == 'mendoza')
-                                    <li>Usuarios de universidad de Mendoza: {{ $userAmount }}</li>
+                                    <li>Universidad de Mendoza: {{ $userAmount }}</li>
                                 @elseif($university == 'resistencia')
-                                    <li>Usuarios de universidad de Resistencia: {{ $userAmount }}</li>
+                                    <li>Universidad de Resistencia: {{ $userAmount }}</li>
                                 @elseif($university == 'la_plata')
-                                    <li>Usuarios de universidad de La Plata: {{ $userAmount }}</li>
+                                    <li>Universidad de La Plata: {{ $userAmount }}</li>
                                 @elseif($university == 'rosario')
-                                    <li>Usuarios de universidad de Rosario: {{ $userAmount }}</li>
+                                    <li>Universidad de Rosario: {{ $userAmount }}</li>
                                 @elseif($university == 'concepcion_uruguay')
-                                    <li>Usuarios de universidad de Concepcion del Uruguay: {{ $userAmount }}</li>
+                                    <li>Universidad de Concepcion del Uruguay: {{ $userAmount }}</li>
                                 @endif
 
 

@@ -153,7 +153,7 @@ Route::group(['middleware' => ['admin']], function () {
     );
 
     Route::get('/administracion/speakers/crear',
-        ['as' => 'speakers.createSpeaker', 'uses' => 'Admin\SpeakersPanelController@createSpeaker']
+        ['as' => 'panel.admin.speakers.create_speaker', 'uses' => 'Admin\SpeakersPanelController@createSpeaker']
     );
 
     Route::post('/administracion/speaker/crear',
@@ -178,7 +178,7 @@ Route::group(['middleware' => ['admin']], function () {
     );
 
     Route::get('/administracion/evento/crear',
-        ['as' => 'event.createEvent', 'uses' => 'Admin\EventsPanelController@createEvent']
+        ['as' => 'panel.admin.event.create_event', 'uses' => 'Admin\EventsPanelController@createEvent']
     );
 
     Route::post('/administracion/evento/crear',
@@ -197,6 +197,29 @@ Route::group(['middleware' => ['admin']], function () {
         ['as' => 'event.delete', 'uses' => 'Admin\EventsPanelController@delete']
     );
 
+
+    //admin panel assistants
+
+    Route::get('/administracion/asistentes/cargar',
+        ['as' => 'panel.admin.assistants.load_assistants', 'uses' => 'Admin\AssistantController@loadAssistants']
+    );
+
+    Route::post('/administracion/asistentes/cargar',
+        ['as' => 'assistants.load', 'uses' => 'Admin\AssistantController@load']
+    );
+
+    Route::get('/administracion/asistentes/crear',
+        ['as' => 'panel.admin.assistants.create', 'uses' => 'Admin\AssistantController@create']
+    );
+
+    Route::post('/administracion/asistentes',
+        ['as' => 'assistants.store', 'uses' => 'Admin\AssistantController@store']
+    );
+
+    Route::delete('/administracion/asistentes/{id}',
+        ['as' => 'assistants.delete', 'uses' => 'Admin\AssistantController@delete']
+    );
+
     Route::get(
         '/administracion/asistentes/credenciales',
         ['as' => 'panel.admin.assistants.print-credentials', 'uses' => 'Admin\AssistantController@printCredentials']
@@ -206,6 +229,12 @@ Route::group(['middleware' => ['admin']], function () {
         '/administracion/asistentes/credenciales',
         ['as' => 'panel.admin.assistants.qr_codes', 'uses' => 'Admin\AssistantController@qrCodes']
     );
+
+    Route::get('/administracion/asistentes-por-tipo/{type?}',
+        ['as' => 'panel.admin.assistants', 'uses' => 'Admin\AssistantController@index']
+    );
+
+    //admin panel assistance
 
     Route::get('/administracion/asistencias',
         ['as' => 'panel.admin.assistances', 'uses' => 'Admin\AssistancesPanelController@index']
@@ -218,4 +247,27 @@ Route::group(['middleware' => ['admin']], function () {
     Route::delete('/administracion/asistencias/{id}',
         ['as' => 'assistance.delete', 'uses' => 'Admin\AssistancesPanelController@delete']
     );
+
+    //admin panel blocks
+
+    Route::get('/administracion/bloques',
+        ['as' => 'panel.admin.blocks', 'uses' => 'Admin\BlocksPanelController@index']);
+
+    Route::get('/administracion/bloques/crear',
+        ['as' => 'panel.admin.blocks.create_block', 'uses' => 'Admin\BlocksPanelController@createBlock']);
+
+    Route::post('/administracion/bloques/crear',
+        ['as' => 'blocks.create', 'uses' => 'Admin\BlocksPanelController@create']);
+
+    Route::get('/administracion/bloques/agregar-conferencia',
+        ['as' => 'panel.admin.blocks.add_conference_view', 'uses' => 'Admin\BlocksPanelController@loadAddconference']);
+
+    Route::post('/administracion/bloques/agregar-conferencia',
+        ['as' => 'blocks.add_conference', 'uses' => 'Admin\BlocksPanelController@addConference']);
+
+    Route::get('/administracion/bloques/eliminar-conferencia',
+        ['as' => 'panel.admin.blocks.remove_conference_view', 'uses' => 'Admin\BlocksPanelController@loadRemoveConference']);
+
+    Route::post('/administracion/bloques/eliminar-conferencia',
+        ['as' => 'blocks.remove_conference', 'uses' => 'Admin\BlocksPanelController@removeConference']);
 });
