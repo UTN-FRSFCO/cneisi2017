@@ -25,9 +25,6 @@ class AssistancesPanelController extends Controller
             ->with('events', $events);
     }
 
-    /**
-     *
-     */
     public function show(int $eventId)
     {
         $event = Conference::find($eventId);

@@ -86,24 +86,25 @@ class HomePanelController
                     ++$villa_maria;
                     break;
             }
-
-            $usersUniversity = [
-                'delta' => $delta,
-                'buenos_aires' => $buenos_aires,
-                'concepcion_uruguay' => $concepcion_uruguay,
-                'cordoba'  => $cordoba,
-                'san_francisco' => $san_francisco,
-                'santa_fe' => $santa_fe,
-                'tucuman' => $tucuman,
-                'villa_maria' => $villa_maria,
-                'rosario' => $rosario,
-                'mendoza' => $mendoza,
-                'resistencia' => $resistencia,
-                'la_plata' => $la_plata
-            ];
-
-            return $usersUniversity;
         }
+
+        $usersUniversity = [
+            'delta' => $delta,
+            'buenos_aires' => $buenos_aires,
+            'concepcion_uruguay' => $concepcion_uruguay,
+            'cordoba'  => $cordoba,
+            'san_francisco' => $san_francisco,
+            'santa_fe' => $santa_fe,
+            'tucuman' => $tucuman,
+            'villa_maria' => $villa_maria,
+            'rosario' => $rosario,
+            'mendoza' => $mendoza,
+            'resistencia' => $resistencia,
+            'la_plata' => $la_plata
+        ];
+
+        return $usersUniversity;
+
     }
     
     private function getGeneralPublicAmount($users)

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateConferenceRequest extends FormRequest
+class StoreAssistantRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,10 @@ class UpdateConferenceRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
-            'slug' => 'required',
-            'speaker_id' => 'required|integer',
-            'auditorium' => 'required'
+            'type' => 'required',
+            'dni' => 'required|unique:assistants,dni',
+            'lastname' => 'required',
+            'firstname' => 'required'
         ];
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddApiTokenToUsersTable extends Migration
+class AddBlockToConferences extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddApiTokenToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function(Blueprint $table)
+        Schema::table('conferences', function(Blueprint $table)
         {
-            $table->string('api_token', 60)->unique()->nullable();
+            $table->integer('block_id')->unsigned()->nullable();
+            $table->foreign('block_id')->references('id')->on('blocks');
         });
     }
 
@@ -26,9 +27,10 @@ class AddApiTokenToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function(Blueprint $table)
+        Schema::table('conferences', function(Blueprint $table)
         {
-            $table->dropColumn('api_token');
+            $table->dropForeign(['block_id']);
+            $table->dropColumn('block_id');
         });
     }
 }

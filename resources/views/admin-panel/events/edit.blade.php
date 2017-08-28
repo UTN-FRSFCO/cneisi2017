@@ -12,65 +12,10 @@
 @include('components.menu')
 @section('content')
 
-    <nav class="navbar navbar-default sidebar" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ route('panel.admin') }}">Inicio<i style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-home"></i></a></li>
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<i style="margin-left:5px;" class="fa fa-chevron-down"></i><i style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-user"></i></a>
-                        <ul class="dropdown-menu forAnimate" style="margin:20px;">
-                            <li><a href="{{ route('panel.admin.users') }}">Ver todos</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Informes</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="open">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Speakers<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-lightbulb-o"></span></a>
-                        <ul class="dropdown-menu forAnimate" style="margin:20px;">
-                            <li><a href="{{ route('panel.admin.speakers') }}">Ver todos</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ route('speakers.createSpeaker') }}">Crear nuevo</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Informes</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Eventos<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-list"></span></a>
-                        <ul class="dropdown-menu forAnimate" style="margin:20px;">
-                            <li><a href="{{ route('panel.admin.events') }}">Ver todos</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ route('event.createEvent') }}">Crear</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Informes</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asistencias<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-list"></span></a>
-                        <ul class="dropdown-menu forAnimate" style="margin:20px;">
-                            <li class="active"><a href="{{ route('panel.admin.assistances') }}">Ver todas</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Informes</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @include('admin-panel.sidebar')
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
 
@@ -218,19 +163,42 @@
 
                                 <div class="col-md-6">
                                     <select id="speaker_id" type="text" class="form-control" name="speaker_id" required>
+                                        <option value="0">Ninguno</option>
                                         @foreach($speakers as $speaker)
                                             @if($event->speaker['id'] == $speaker->getId())
                                                 <option selected="selected" value="{{$speaker->getId()}}">{{$speaker->getId()}} - {{ $speaker->getName() }}</option>
                                             @else
                                                 <option value="{{$speaker->getId()}}">{{$speaker->getId()}} - {{ $speaker->getName() }}</option>
                                             @endif
-
                                         @endforeach
                                     </select>
 
                                     @if ($errors->has('speaker_id'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('speaker_id') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('block_id') ? ' has-error' : '' }}">
+                                <label for="block_id" class="col-md-4 control-label">Bloque</label>
+
+                                <div class="col-md-6">
+                                    <select id="block_id" type="text" class="form-control" name="block_id" required>
+                                        <option value="0">Ninguno</option>
+                                        @foreach($blocks as $block)
+                                            @if($event->block_id == $block['id'])
+                                                <option selected="selected" value="{{$block['id']}}">{{$block['day']}} - {{ $block['time_start'] }} / {{ $block['time_end'] }}</option>
+                                            @else
+                                                <option value="{{$block['id']}}">{{$block['day']}} - {{ $block['time_start'] }} / {{ $block['time_end'] }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+
+                                    @if ($errors->has('block_id'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('block_id') }}</strong>
                                     </span>
                                     @endif
                                 </div>

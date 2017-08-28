@@ -13,7 +13,6 @@
 @section('content')
 
     @include('admin-panel.sidebar')
-
     <!-- Main Content -->
     <div class="container-fluid">
         <div class="row">
@@ -23,39 +22,40 @@
                     <div class="alert alert-success"><em> {!! session('status') !!}</em></div>
                 @endif
 
-                @if (session('error'))
-                    <div class="alert alert-danger"><em> {!! session('error') !!}</em></div>
-                @endif
-
                 <div class="panel panel-default">
-                    <div class="panel-heading">Imprimir credenciales</div>
+                    <div class="panel-heading">Cargar asistentes</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('panel.admin.assistants.qr_codes') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('assistants.load') }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="title" class="col-md-4 control-label">Imprimir</label>
+                            <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
+                                <label for="file" class="col-md-4 control-label">Archivo CSV</label>
 
                                 <div class="col-md-6">
-                                    <div class="radio">
-                                        <label><input type="radio" name="print" value="all" checked id="radio-all">Tipo</label>
-                                    </div>
+                                    <input type="file" class="form-control" name="file" accept=".csv" required autofocus>
 
-                                    <select name="type" class="select-form">
+                                    @if ($errors->has('file'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('file') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                                <label for="type" class="col-md-4 control-label">Tipo</label>
+
+                                <div class="col-md-6">
+                                    <select id="type" class="form-control" name="type" required>
+
                                         @foreach (\App\Enums\AssistantType::values() as $type)
                                             <option value="{{ $type }}">{{ \App\Entities\Assistant::getParsedType($type) }}</option>
                                         @endforeach
                                     </select>
 
-                                    <div class="radio">
-                                        <label><input type="radio" name="print" value="individual" id="radio-individual">Individual</label>
-                                    </div>
-
-                                    <input id="dni" type="text" class="form-control" name="dni" value="{{ old('dni') }}" placeholder="DNI">
-
-                                    @if ($errors->has('name'))
+                                    @if ($errors->has('type'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('type') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -64,13 +64,16 @@
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Generar
+                                        Cargar
                                     </button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+                @if (session('status'))
+                    <div class="alert alert-success"><em> {!! session('status') !!}</em></div>
+                @endif
             </div>
         </div>
     </div>
