@@ -47,7 +47,8 @@ class AssistancesPanelController extends Controller
             $assistances = Assistance::where('conference_id', '=', $event->getId())->paginate(10);
 
             return view(SELF::SHOW_VIEW)
-                ->with('assistances', $assistances);
+                ->with('assistances', $assistances)
+                ->with('event', $event);
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
         }
