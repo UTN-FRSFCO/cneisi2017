@@ -2,7 +2,7 @@
     <div class="container">
         <span class="icon section-icon icon-office-21"></span>
         <h3 class="highlight">Eventos del congreso</h3>
-        <h6>Conoce cuáles van a ser las diferntes charlas y actividades que se van a realizar durante en el congreso</h6>
+        <h6>Conoce cuáles van a ser las diferentes charlas y actividades que se van a realizar durante en el congreso</h6>
         <br />
 
         <!-- Schedule start -->
@@ -187,8 +187,8 @@
 
                                                 @if($conference->getTitle() == 'Accesibilidad Web (Globant)')
                                                     <img src="{{ asset('img/sponsors/globant-2.jpg') }}" alt="globant" class="img-responsive">
-                                                @elseif($conference->getTitle() == 'Desarrollo Mobile (Nexo)')
-                                                    <img src="{{ asset('img/sponsors/nexo-2.jpg') }}" alt="nexo" class="img-responsive">
+                                                @elseif($conference->getTitle() == 'Desarrollo Mobile con Google Cloud Platform (Nexo)')
+                                                    <img src="{{ asset('img/speakers/juan-pablo-bono.png') }}" alt="nexo" class="img-responsive" style="filter: grayscale(100%);">
                                                 @elseif($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
@@ -204,6 +204,8 @@
                                                     <p class="description">{!! nl2br(e($conference->getDescription()))!!}</p>
                                                     @if($conference->getSpeaker()['name'] == 'Emiliano Jramoy')
                                                         <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }} & Juan Zaffaroni</strong>
+                                                    @elseif($conference->getTitle() == 'Desarrollo Mobile con Google Cloud Platform (Nexo)')
+                                                        <strong class="highlight speaker-name">Juan Pablo Bono</strong>
                                                     @else
                                                         <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @endif
@@ -275,7 +277,7 @@
                                                 @elseif($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @elseif($conference->getTitle() == 'Animate a cambiar la historia')
-                                                    <img src="{{ asset('img/sponsors/socialtools.png') }}" alt="socialtools" class="img-responsive">
+                                                    <img src="{{ asset('img/speakers/german-merlo.jpg') }}" alt="socialtools" class="img-responsive">
                                                 @else
                                                     <img src="{{ $conference->getSpeaker()['picture'] }}" alt="picture_speaker" class="img-responsive" style="filter: grayscale(100%);">
                                                 @endif
@@ -413,7 +415,7 @@
                                             <div id="{{ $conference->getSlug() . '-day2_auditorium3'}}" class="panel-collapse collapse {{ ($key == 0) ? 'in' : '' }} schedule-item-body">
                                                 <article>
                                                     <p class="description">{!! nl2br(e($conference->getDescription())) !!}</p>
-                                                    @if($conference->getTitle() == 'MegaMind')
+                                                    @if($conference->getTitle() == 'MegaMind: Enfoque Práctico de Inteligencia Artificial')
                                                         <strong class="highlight speaker-name">Nicolás Ferrero</strong>
                                                     @else
                                                         <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>

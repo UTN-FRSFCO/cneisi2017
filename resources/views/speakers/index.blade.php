@@ -20,7 +20,7 @@
                             <img src="{{asset('/img/speakers.png')}}" alt="about" class="img-responsive align-center" width="192" height="143" style="margin: auto;" /><br>
                             <h5 class="align-center" style="margin-top: 20px;"><span class="highlight">Disertantes del CNEISI 2017</span></h5>
                         </div>
-                        <p class="text-center"> Conocé a los diserantes que nos van a estar acompañando en el congreso, llevando adelante las diferentes conferencias y charlas que tendremos el orgulloso de presentar en la nueva edición del congreso.</p>
+                        <p class="text-center"> Conocé a los diserantes que nos van a estar acompañando en el congreso, llevando adelante las diferentes conferencias y charlas que tendremos el orgullo de presentar en la nueva edición del congreso.</p>
                         <div class="row" style="margin-top: 50px">
                             <div class="col-xs-12 align-center" style="margin-bottom: 15px;">
                                 @forelse ($speakers as $speaker)
