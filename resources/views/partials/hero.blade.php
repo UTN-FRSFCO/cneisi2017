@@ -9,12 +9,6 @@
             <h1 class=""><img src="{{asset('/img/isologotipo.png')}}" alt="Cneisi" width="283" height="209"></h1>
             <h6 class="thin base-font">Undécimo congreso nacional de estudiantes en <strong>Ingeniería en Sistemas de información</strong></h6>
             <h1><img src="{{asset('/img/logo_utn_web.png')}}" alt="Cneisi"></h1>
-            <div class="btns-container">
-                @if(Auth::guest())
-                    <a href="#" class="btn btn-md" data-modal-link="user-register">Registrarse</a>
-                @endif
-
-            </div>
         </div>
     </div>
 </section>
