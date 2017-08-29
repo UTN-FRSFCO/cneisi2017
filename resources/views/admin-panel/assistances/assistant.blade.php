@@ -9,7 +9,7 @@
 @section('author', 'UTN-FRSF')
 @section('robots', 'noindex, nofollow')
 
-@include('components.menu')
+@include('admin-panel.menu')
 @section('content')
 
     @include('admin-panel.sidebar')
@@ -26,10 +26,10 @@
                     <div class="panel panel-default panel-table">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col col-xs-6">
+                                <div class="col col-md-6 hidden-xs">
                                     <h3 class="panel-title">Asistentes</h3>
                                 </div>
-                                <div class="col col-xs-12 align-center">
+                                <div class="col col-md-6 col-xs-12 align-center">
                                     <select id="filter" type="text" class="form-control" name="type" style="display:inline !important; width:50%;">
                                         <option value="all">Mostrar todos</option>
                                         @foreach (\App\Enums\AssistantType::values() as $type)
@@ -37,7 +37,7 @@
                                         @endforeach
                                     </select>
 
-                                    <button id="filterBtn" class="btn btn-primary">
+                                    <button id="filterBtn" class="btn btn-primary" style="margin: 0 auto;">
                                         Filtrar
                                     </button>
 

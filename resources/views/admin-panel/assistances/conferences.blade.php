@@ -9,7 +9,7 @@
 @section('author', 'UTN-FRSF')
 @section('robots', 'noindex, nofollow')
 
-@include('components.menu')
+@include('admin-panel.menu')
 @section('content')
 
     @include('admin-panel.sidebar')
@@ -26,16 +26,16 @@
                     <div class="panel panel-default panel-table">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col col-xs-6">
-                                    <h3 class="panel-title">Eventos listados: <strong> {{ count($conferences) }} </strong></h3>
+                                <div class="col col-md-6 hidden-xs">
+                                    <h3 class="panel-title">Conferencias</h3>
                                 </div>
                                 {{--<div class="col col-xs-6 text-right">--}}
                                     {{--<a href="{{ route('event.createEvent') }}">Crear nuevo</a>--}}
                                 {{--</div>--}}
                             </div>
                         </div>
-                        <div class="panel-body">
-                            <table class="table table-striped table-bordered table-list">
+                        <div class="panel-body" style="overflow:auto;">
+                            <table class="table table-striped table-bordered table-list fixed_headers">
                                 <thead>
                                 <tr>
                                     <th class="align-center">Id</th>

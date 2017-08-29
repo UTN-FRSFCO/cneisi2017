@@ -9,7 +9,7 @@
 @section('author', 'UTN-FRSF')
 @section('robots', 'noindex, nofollow')
 
-@include('components.menu')
+@include('admin-panel.menu')
 @section('content')
 
     @include('admin-panel.sidebar')
@@ -26,7 +26,7 @@
                     <div class="panel panel-default panel-table">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col col-md-6 hidden-xs ">
+                                <div class="col col-md-6 hidden-xs">
                                     <h3 class="panel-title">Bloques</h3>
                                 </div>
                                 <div class="col col-md-6 col-xs-12 align-center">

@@ -30,11 +30,13 @@
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
                         <li><a href="{{ route('panel.admin.assistances.type', ['block' => 1]) }}">Regional/Bloque</a></li>
                         <li class="divider"></li>
-                        <li><a href="{{ route('panel.admin.assistances.conferences') }}">Por conferencias</a></li>
+                        <li><a href="{{ route('panel.admin.assistances.conferences') }}">Total conferencias</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.assistances.blocks', ['block' => 1]) }}">Por bloque</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.assistances.assistants') }}">Por asistente</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ route('panel.admin.assistances.show', ['eventId' => 1]) }}">Por conferencia</a></li>
                     </ul>
                 </li>
 

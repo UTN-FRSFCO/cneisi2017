@@ -315,10 +315,12 @@ class AssistancesPanelController extends Controller
     {
         $event = Conference::find($eventId);
         $assistances = Assistance::where('conference_id', '=', $eventId);
+        $events = Conference::all();
 
         return view(SELF::SHOW_VIEW)
             ->with('total', $assistances->count())
             ->with('assistances', $assistances->paginate(10))
+            ->with('events', $events)
             ->with('event', $event);
     }
 

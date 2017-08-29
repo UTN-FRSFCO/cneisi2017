@@ -9,7 +9,7 @@
 @section('author', 'UTN-FRSF')
 @section('robots', 'noindex, nofollow')
 
-@include('components.menu')
+@include('admin-panel.menu')
 @section('content')
 
     @include('admin-panel.sidebar')
@@ -26,15 +26,36 @@
                     <div class="panel panel-default panel-table">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col col-xs-6">
+                                <div class="col col-md-6 hidden-xs">
                                     <h3 class="panel-title">Cantidad de asistencias: <strong> {{ $total }} </strong></h3>
                                 </div>
-                                {{--<div class="col col-xs-6 text-right">--}}
-                                {{--<a href="{{ route('event.createEvent') }}">Crear nuevo</a>--}}
-                                {{--</div>--}}
+                                <div class="col col-md-6 col-xs-12 align-center">
+                                    <select id="filter" type="text" class="form-control" name="type" style="display:inline !important; width:50%;">
+                                        @foreach ($events as $eventList)
+                                            @if($eventList->id == $event->id)
+                                                <option selected value="{{ $eventList->id }}">{{ $eventList->id }} - {{ $eventList->title }}</option>
+                                            @else
+                                                <option value="{{ $eventList->id }}">{{ $eventList->id }} - {{ $eventList->title }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+
+                                    <button id="filterBtn" class="btn btn-primary" style="margin: 0 auto;">
+                                        Filtrar
+                                    </button>
+
+                                    <script type="text/javascript">
+                                        document.getElementById("filterBtn").onclick = function () {
+                                            var e = document.getElementById("filter");
+                                            var param = e.options[e.selectedIndex].value;
+                                            console.log(param);
+                                            location.href = "/administracion/asistencias/evento/".concat(param);
+                                        };
+                                    </script>
+                                </div>
                             </div>
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body" style="overflow:auto;">
                             <table class="table table-striped table-bordered table-list">
                                 <thead>
                                 <tr>
