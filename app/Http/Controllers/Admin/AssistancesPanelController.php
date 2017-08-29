@@ -78,15 +78,17 @@ class AssistancesPanelController extends Controller
             foreach ($assistances as $assistance) {
                 $assistant = DB::table('assistants')->where('dni', '=', $assistance->dni)->first();
 
-                switch (Assistant::getParsedType($assistant->type)) {
-                    case AssistantType::GUEST:
-                        ++$guestCount;
-                        break;
-                    case AssistantType::GENERAL_PUBLIC:
-                        ++$generalPublicCount;
-                        break;
-                    default:
-                        ++$universityCount;
+                if ($assistant) {
+                    switch (Assistant::getParsedType($assistant->type)) {
+                        case AssistantType::GUEST:
+                            ++$guestCount;
+                            break;
+                        case AssistantType::GENERAL_PUBLIC:
+                            ++$generalPublicCount;
+                            break;
+                        default:
+                            ++$universityCount;
+                    }
                 }
             }
         }
@@ -181,46 +183,48 @@ class AssistancesPanelController extends Controller
                 $assistant = Assistant::all()
                     ->where('dni', '=', $assistance->dni)->first();
 
-                switch ($assistant->type) {
-                    case 'buenos_aires':
-                        ++$buenosAiresCount;
-                        break;
-                    case 'concepcion_uruguay':
-                        ++$concepcionCount;
-                        break;
-                    case 'cordoba':
-                        ++$cordobaCount;
-                        break;
-                    case 'delta':
-                        ++$deltaCount;
-                        break;
-                    case 'la_plata':
-                        ++$laPlataCount;
-                        break;
-                    case 'mendoza':
-                        ++$mendozaCount;
-                        break;
-                    case 'resistencia':
-                        ++$resistenciaCount;
-                        break;
-                    case 'rosario':
-                        ++$rosarioCount;
-                        break;
-                    case 'san_francisco':
-                        ++$sanFranciscoCount;
-                        break;
-                    case 'santa_fe':
-                        ++$santaFeCount;
-                        break;
-                    case 'tucuman':
-                        ++$tucumanCount;
-                        break;
-                    case 'villa_maria':
-                        ++$villaMariaCount;
-                        break;
-                    case 'trenque_lauquen':
-                        ++$trenqueLauquenCount;
-                        break;
+                if ($assistant) {
+                    switch ($assistant->type) {
+                        case 'buenos_aires':
+                            ++$buenosAiresCount;
+                            break;
+                        case 'concepcion_uruguay':
+                            ++$concepcionCount;
+                            break;
+                        case 'cordoba':
+                            ++$cordobaCount;
+                            break;
+                        case 'delta':
+                            ++$deltaCount;
+                            break;
+                        case 'la_plata':
+                            ++$laPlataCount;
+                            break;
+                        case 'mendoza':
+                            ++$mendozaCount;
+                            break;
+                        case 'resistencia':
+                            ++$resistenciaCount;
+                            break;
+                        case 'rosario':
+                            ++$rosarioCount;
+                            break;
+                        case 'san_francisco':
+                            ++$sanFranciscoCount;
+                            break;
+                        case 'santa_fe':
+                            ++$santaFeCount;
+                            break;
+                        case 'tucuman':
+                            ++$tucumanCount;
+                            break;
+                        case 'villa_maria':
+                            ++$villaMariaCount;
+                            break;
+                        case 'trenque_lauquen':
+                            ++$trenqueLauquenCount;
+                            break;
+                    }
                 }
             }
         }
