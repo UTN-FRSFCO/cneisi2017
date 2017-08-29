@@ -97,10 +97,8 @@
 
                                         @if(substr($event->getDate(),8,2) == 31)
                                             <td class="align-center">Jueves - Hora: {{ $event->getTime() }}</td>
-                                        @elseif(substr($event->getDate(),7,2) == 1)
-                                            <td class="align-center">Viernes - Hora: {{ $event->getTime() }}</td>
                                         @else
-                                            <td class="align-center">Sábado - Hora: {{ $event->getTime() }}</td>
+                                            <td class="align-center">Viernes - Hora: {{ $event->getTime() }}</td>
                                         @endif
                                         <td class="align-center">{{ $event->getDuration() }} min</td>
                                     </tr>

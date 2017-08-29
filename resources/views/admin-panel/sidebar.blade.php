@@ -28,13 +28,15 @@
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asistencias<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-check"></span></a>
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
-                        <li><a href="{{ route('panel.admin.assistances') }}">Principal</a></li>
+                        <li><a href="{{ route('panel.admin.assistances.type', ['block' => 1]) }}">Regional/Bloque</a></li>
                         <li class="divider"></li>
-                        <li><a href="">Por conferencias</a></li>
+                        <li><a href="{{ route('panel.admin.assistances.conferences') }}">Total conferencias</a></li>
                         <li class="divider"></li>
-                        <li><a href="">Por bloque</a></li>
+                        <li><a href="{{ route('panel.admin.assistances.blocks', ['block' => 1]) }}">Por bloque</a></li>
                         <li class="divider"></li>
-                        <li><a href="">Por alumno</a></li>
+                        <li><a href="{{ route('panel.admin.assistances.assistants') }}">Por asistente</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ route('panel.admin.assistances.show', ['eventId' => 1]) }}">Por conferencia</a></li>
                     </ul>
                 </li>
 
@@ -67,6 +69,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bloques<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-bullseye"></span></a>
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
                         <li><a href="{{ route('panel.admin.blocks.create_block') }}">Crear</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ route('panel.admin.blocks.conferences') }}">Ver conferencias</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.blocks.add_conference_view') }}">Agregar conferencia</a></li>
                         <li class="divider"></li>

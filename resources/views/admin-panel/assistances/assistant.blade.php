@@ -18,7 +18,7 @@
     <div class="container-fluid" >
         <div class="col-md-10">
             <div class="side-body">
-                <h2> Asistencias - {{ $event->getTitle() }}</h2>
+                <h2> Panel de administración de asistencias </h2>
                 <div class="col-md-12">
                     @if (session('status'))
                         <div class="alert alert-success"><em> {!! session('status') !!}</em></div>
@@ -27,15 +27,16 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col col-md-6 hidden-xs">
-                                    <h3 class="panel-title">Cantidad de asistencias: <strong> {{ $total }} </strong></h3>
+                                    <h3 class="panel-title">Asistentes</h3>
                                 </div>
                                 <div class="col col-md-6 col-xs-12 align-center">
                                     <select id="filter" type="text" class="form-control" name="type" style="display:inline !important; width:50%;">
-                                        @foreach ($events as $eventList)
-                                            @if($eventList->id == $event->id)
-                                                <option selected value="{{ $eventList->id }}">{{ $eventList->id }} - {{ $eventList->title }}</option>
+                                        <option value="all">Mostrar todos</option>
+                                        @foreach (\App\Enums\AssistantType::values() as $type)
+                                            @if($conferenceType == $type)
+                                                <option selected value="{{ $type }}">{{ \App\Entities\Assistant::getParsedType($type) }}</option>
                                             @else
-                                                <option value="{{ $eventList->id }}">{{ $eventList->id }} - {{ $eventList->title }}</option>
+                                                <option value="{{ $type }}">{{ \App\Entities\Assistant::getParsedType($type) }}</option>
                                             @endif
                                         @endforeach
                                     </select>
@@ -49,7 +50,7 @@
                                             var e = document.getElementById("filter");
                                             var param = e.options[e.selectedIndex].value;
                                             console.log(param);
-                                            location.href = "/administracion/asistencias/evento/".concat(param);
+                                            location.href = "/administracion/asistencias/asistentes/".concat(param);
                                         };
                                     </script>
                                 </div>
@@ -59,50 +60,28 @@
                             <table class="table table-striped table-bordered table-list">
                                 <thead>
                                 <tr>
-                                    <th><em class="fa fa-cog"></em></th>
                                     <th>Id</th>
-                                    <th>Nombre y apellido</th>
-                                    <th>DNI</th>
-                                    <th>Fecha</th>
-                                    <th>Portero</th>
+                                    <th>Dni</th>
+                                    <th>Nombre</th>
+                                    <th>Tipo de asistente</th>
+                                    <th>Cantidad asistencias</th>
+                                    <th>Porcentaje de asistencias</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($assistances as $assistance)
-
+                                @forelse($assistants as $assistant)
                                     <tr>
-                                        <td align="center" class ="first-column">
-                                            <form method="post" action="{{route('assistance.delete', ['id' => $assistance->getId()])}}">
-
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                                            @include(
-                                                    'admin-panel.confirm',
-                                                    [
-                                                        'id'       => 'delete-category-' . $assistance->getId(),
-                                                        'title'    => 'Confirmar borrado',
-                                                        'question' => '¿Seguro que desea confirmar el borrado de la asistencia id: '.$assistance->getId().'?'  ,
-                                                    ]
-                                                )
-
-                                            <div class="form-group">
-                                                <a class="pull-right buy-btn"
-                                                   style="color: red"
-                                                   data-toggle="modal"
-                                                   data-modal-link="delete-category-{{$assistance->getId()}}">
-                                                    <i class="fa fa-trash"></i>
-                                                </a>
-                                            </div>
-
-                                            </form>
-
-                                        </td>
-                                        <td class="align-center">{{ $assistance->getId() }}</td>
-                                        <td class="align-center">{{ $assistance->getDni() }}</td>
-                                        <td class="align-center">{{ $assistance->getDni() }}</td>
-                                        <td class="align-center">{{ $assistance->getDate() }} min</td>
-                                        <td class="align-center"><b>{{ $assistance->getCatcherName() }}</b></td>
+                                        <td class="align-center">{{ $assistant->id}}</td>
+                                        <td class="align-center"> {{ $assistant->dni}}</td>
+                                        <td class="align-center">{{ $assistant->lastname }},{{ $assistant->firstname }}</td>
+                                        <td class="align-center">{{ \App\Entities\Assistant::getParsedType($assistant->type) }}</td>
+                                        <td class="align-center">{{ $assistant->assistanceCount }}</td>
+                                        @if($assistant->assistanceCount * 100 / $conferenceAmount < 80)
+                                            <td class="align-center" style="color: red;">{{ round($assistant->assistanceCount * 100 / $conferenceAmount, 2) }}%</td>
+                                        @else
+                                            <td class="align-center">{{ round($assistant->assistanceCount * 100 / $conferenceAmount, 2) }}%</td>
+                                        @endif
                                     </tr>
                                 @empty
                                     <tr>
@@ -117,7 +96,7 @@
                         <div class="panel-footer">
                             <div class="row">
                                 <div class="col col-xs-12 align-right">
-                                    {{ $assistances->links() }}
+                                    {{ $assistants->links() }}
                                 </div>
                             </div>
                         </div>
