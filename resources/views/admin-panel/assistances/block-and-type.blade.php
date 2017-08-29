@@ -32,10 +32,10 @@
                                 <div class="col col-md-6 col-xs-12 align-center">
                                     <select id="filter" type="text" class="form-control" name="type" style="display:inline !important; width:50%;">
                                         @foreach($blocks as $block)
-                                            @if($block->id == $data['block']['id'])
-                                                <option selected value="{{ $block->id }}">Bloque {{ $block->id }}</option>
+                                            @if($block['id'] == $data['block']['id'])
+                                                <option selected value="{{ $block['id'] }}"> Bloque {{ $block['id'] }} - {{ $block['day'] }}: {{ $block['time_start'] }} - {{ $block['time_end'] }}</option>
                                             @else
-                                                <option value="{{ $block->id }}">Bloque {{ $block->id }}</option>
+                                                <option value="{{ $block['id'] }}">Bloque {{ $block['id'] }} - {{ $block['day'] }}: {{ $block['time_start'] }} - {{ $block['time_end'] }}</option>
                                             @endif
                                         @endforeach
                                     </select>

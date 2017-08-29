@@ -261,6 +261,8 @@ class AssistancesPanelController extends Controller
 
         $blocks = DB::table('blocks')->get();
 
+        $blocks = $this->transformBlocks($blocks);
+
         return view(self::BLOCK_TYPE_VIEW)
             ->with('data', $data)
             ->with('blocks', $blocks);
