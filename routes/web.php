@@ -240,7 +240,7 @@ Route::group(['middleware' => ['admin']], function () {
         ['as' => 'panel.admin.assistances.conferences', 'uses' => 'Admin\AssistancesPanelController@byConference']
     );
 
-    Route::get('/administracion/asistencias/bloques',
+    Route::get('/administracion/asistencias/bloques/{block}',
         ['as' => 'panel.admin.assistances.blocks', 'uses' => 'Admin\AssistancesPanelController@byBlock']
     );
 
