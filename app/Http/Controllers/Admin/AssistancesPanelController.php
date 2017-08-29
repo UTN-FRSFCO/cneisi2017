@@ -146,6 +146,7 @@ class AssistancesPanelController extends Controller
         $conferenceAmount = Conference::all()->where('send_via_api', '=', true)->count();
 
         return view(self::ASSISTANT_VIEW)
+            ->with('conferenceType', $type)
             ->with('assistants', $assistants)
             ->with('conferenceAmount', $conferenceAmount);
     }
@@ -264,6 +265,7 @@ class AssistancesPanelController extends Controller
             ->with('data', $data)
             ->with('blocks', $blocks);
     }
+
     private function transformOneBlock($block)
     {
         if (substr($block->date_start, 5, 2) == self::DAY_ONE_REFERENCE) {

@@ -33,7 +33,11 @@
                                     <select id="filter" type="text" class="form-control" name="type" style="display:inline !important; width:50%;">
                                         <option value="all">Mostrar todos</option>
                                         @foreach (\App\Enums\AssistantType::values() as $type)
-                                            <option value="{{ $type }}">{{ \App\Entities\Assistant::getParsedType($type) }}</option>
+                                            @if($conferenceType == $type)
+                                                <option selected value="{{ $type }}">{{ \App\Entities\Assistant::getParsedType($type) }}</option>
+                                            @else
+                                                <option value="{{ $type }}">{{ \App\Entities\Assistant::getParsedType($type) }}</option>
+                                            @endif
                                         @endforeach
                                     </select>
 
