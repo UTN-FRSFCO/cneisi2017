@@ -185,9 +185,7 @@
                                         <div class="panel schedule-item">
                                             <div class="lecture-icon-wrapper">
 
-                                                @if($conference->getTitle() == 'Accesibilidad Web (Globant)')
-                                                    <img src="{{ asset('img/sponsors/globant-2.jpg') }}" alt="globant" class="img-responsive">
-                                                @elseif($conference->getTitle() == 'Desarrollo Mobile con Google Cloud Platform (Nexo)')
+                                                @if($conference->getTitle() == 'Desarrollo Mobile con Google Cloud Platform (Nexo)')
                                                     <img src="{{ asset('img/speakers/juan-pablo-bono.png') }}" alt="nexo" class="img-responsive" style="filter: grayscale(100%);">
                                                 @elseif($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
@@ -204,8 +202,8 @@
                                                     <p class="description">{!! nl2br(e($conference->getDescription()))!!}</p>
                                                     @if($conference->getSpeaker()['name'] == 'Emiliano Jramoy')
                                                         <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }} & Juan Zaffaroni</strong>
-                                                    @elseif($conference->getTitle() == 'Desarrollo Mobile con Google Cloud Platform (Nexo)')
-                                                        <strong class="highlight speaker-name">Juan Pablo Bono</strong>
+                                                    @elseif($conference->getTitle() == 'Accesibilidad Web (Globant)')
+                                                        <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }} & Natalia Toranzo</strong>
                                                     @else
                                                         <strong class="highlight speaker-name">{{ $conference->getSpeaker()['name'] }}</strong>
                                                     @endif
@@ -336,7 +334,7 @@
                                                 @if($conference->getTitle() == 'Presentacion de papers')
                                                     <img src="{{ asset('img/logo-cneisi.jpg') }}" alt="logo_utn" class="img-responsive">
                                                 @elseif($conference->getTitle() == 'Animate a cambiar la historia')
-                                                    <img src="{{ asset('img/sponsors/socialtools-2.png') }}" alt="logo_utn" class="img-responsive">
+                                                    <img src="{{ asset('img/speakers/german-merlo.jpg') }}" alt="logo_utn" class="img-responsive">
                                                 @elseif($conference->getSpeaker()['picture'] === null)
                                                     <img src="{{ asset('img/logo-utn.png') }}" alt="logo_utn" class="img-responsive">
                                                 @else
