@@ -30,14 +30,14 @@ class AssistantController extends Controller
 
             $pdf = \PDF::loadView('admin-panel.assistants.qr-codes', ['assistants' => $assistants]);
 
-            return $pdf->stream($request->input('type') .'.pdf');
+            return $pdf->setPaper('a4', 'portrait')->stream($request->input('type') .'.pdf');
         } elseif ($request->print == 'individual') {
             $assistant = Assistant::where('dni', '=', $request->dni)->first();
 
             if ($assistant) {
                 $pdf = \PDF::loadView('admin-panel.assistants.qr-codes', ['assistants' => [$assistant]]);
 
-                return $pdf->stream('codigo_qr_' . $assistant->dni . '.pdf');
+                return $pdf->setPaper('a4', 'portrait')->stream('codigo_qr_' . $assistant->dni . '.pdf');
             }
         }
 

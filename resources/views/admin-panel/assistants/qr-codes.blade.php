@@ -5,21 +5,21 @@
     <style>
         .page-break {
             page-break-before: always;
-            margin-top:54px;
+            margin-top:52px;
         }
     </style>
 </head>
 
 <body>
 
-<div style="margin-top:54px">
+<div style="margin-top:52px">
 
 @php
     $nonIndent = true;
 @endphp
 
 @foreach($assistants as $assistant)
-    <div class="text-center" style="border: 0.01em solid black; width:271.6px; height: 271.6px; z-index: 999999; display: inline-block; {{ ($nonIndent ? 'margin-left: 0px': 'margin-left: -4px;') }}">
+    <div class="text-center" style="border: 0.01em solid black; width:264px; height: 264px; z-index: 999999; display: inline-block; {{ ($nonIndent ? 'margin-left: 0.5px': 'margin-left: -4px;') }}">
         <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(220)->generate($assistant->getJsonForQRCode())) }}" style="margin-top: 0px;">
         <p style="margin-top:-28px; margin-bottom: -6px;"><b style="font-size: 22px;">{{ $assistant->getFullName() }}</b></p>
         <p style="font-size: 17px; margin-right: 1px; margin-left: 1px">{{ $assistant->getParsedType($assistant->type) }}</p>
