@@ -20,15 +20,13 @@
 
     @include('partials.about')
 
+    @include('partials.schedule')
+
     @include('partials.counters')
 
     @if(count($speakers) > 0)
         @include('partials.speakers')
     @endif
-
-    @include('partials.schedule')
-
-    @include('partials.papers')
 
     @include('partials.sponsors')
 
