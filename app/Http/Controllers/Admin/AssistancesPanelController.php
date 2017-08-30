@@ -159,6 +159,12 @@ class AssistancesPanelController extends Controller
             ->where('block_id', '=', $blockId)
             ->where('send_via_api', '=', true);
 
+        $conferencesIds = [];
+        foreach ($conferences as $conference)
+        {
+            array_push($conferencesIds, $conference->id);
+        }
+
         $buenosAiresCount = 0;
         $concepcionCount = 0;
         $cordobaCount = 0;
@@ -173,61 +179,62 @@ class AssistancesPanelController extends Controller
         $villaMariaCount = 0;
         $trenqueLauquenCount = 0;
 
-        foreach ($conferences as $conference)
+
+        $assistances = DB::table('assistances')
+            ->whereIn('conference_id', $conferencesIds)
+            ->distinct('dni')
+            ->get();
+
+        foreach ($assistances as $assistance)
         {
-            $assistances = Assistance::all()
-                ->where('conference_id', '=', $conference->id);
+            $assistant = Assistant::all()
+                ->where('dni', '=', $assistance->dni)->first();
 
-            foreach ($assistances as $assistance)
-            {
-                $assistant = Assistant::all()
-                    ->where('dni', '=', $assistance->dni)->first();
-
-                if ($assistant) {
-                    switch ($assistant->type) {
-                        case 'buenos_aires':
-                            ++$buenosAiresCount;
-                            break;
-                        case 'concepcion_uruguay':
-                            ++$concepcionCount;
-                            break;
-                        case 'cordoba':
-                            ++$cordobaCount;
-                            break;
-                        case 'delta':
-                            ++$deltaCount;
-                            break;
-                        case 'la_plata':
-                            ++$laPlataCount;
-                            break;
-                        case 'mendoza':
-                            ++$mendozaCount;
-                            break;
-                        case 'resistencia':
-                            ++$resistenciaCount;
-                            break;
-                        case 'rosario':
-                            ++$rosarioCount;
-                            break;
-                        case 'san_francisco':
-                            ++$sanFranciscoCount;
-                            break;
-                        case 'santa_fe':
-                            ++$santaFeCount;
-                            break;
-                        case 'tucuman':
-                            ++$tucumanCount;
-                            break;
-                        case 'villa_maria':
-                            ++$villaMariaCount;
-                            break;
-                        case 'trenque_lauquen':
-                            ++$trenqueLauquenCount;
-                            break;
-                    }
+            if ($assistant) {
+                switch ($assistant->type) {
+                    case 'buenos_aires':
+                        ++$buenosAiresCount;
+                        break;
+                    case 'concepcion_uruguay':
+                        ++$concepcionCount;
+                        break;
+                    case 'cordoba':
+                        ++$cordobaCount;
+                        break;
+                    case 'delta':
+                        ++$deltaCount;
+                        break;
+                    case 'la_plata':
+                        ++$laPlataCount;
+                        break;
+                    case 'mendoza':
+                        ++$mendozaCount;
+                        break;
+                    case 'resistencia':
+                        ++$resistenciaCount;
+                        break;
+                    case 'rosario':
+                        ++$rosarioCount;
+                        break;
+                    case 'san_francisco':
+                        ++$sanFranciscoCount;
+                        break;
+                    case 'santa_fe':
+                        ++$santaFeCount;
+                        break;
+                    case 'tucuman':
+                        ++$tucumanCount;
+                        break;
+                    case 'villa_maria':
+                        ++$villaMariaCount;
+                        break;
+                    case 'trenque_lauquen':
+                        ++$trenqueLauquenCount;
+                        break;
                 }
             }
         }
+
 
         $buenosAiresTotal = Assistant::all()->where('type', '=', 'buenos_aires')->count();
         $concepcionTotal = Assistant::all()->where('type', '=', 'concepcion_uruguay')->count();
