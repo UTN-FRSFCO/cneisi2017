@@ -172,6 +172,7 @@ class AssistancesPanelController extends Controller
         $tucumanCount = 0;
         $villaMariaCount = 0;
         $trenqueLauquenCount = 0;
+        $escuelaProaCount = 0;
 
         foreach ($conferences as $conference)
         {
@@ -224,6 +225,9 @@ class AssistancesPanelController extends Controller
                         case 'trenque_lauquen':
                             ++$trenqueLauquenCount;
                             break;
+                        case 'escuela_proa':
+                            ++$escuelaProaCount;
+                            break;
                     }
                 }
             }
@@ -242,6 +246,7 @@ class AssistancesPanelController extends Controller
         $tucumanTotal = Assistant::all()->where('type', '=', 'tucuman')->count();
         $villaMariaTotal = Assistant::all()->where('type', '=', 'villa_maria')->count();
         $trenqueLauquenTotal = Assistant::all()->where('type', '=', 'trenque_lauquen')->count();
+        $escuelaProaTotal = Assistant::all()->where('type', '=', 'escuela_proa')->count();
 
         $block = DB::table('blocks')->where('id', '=', $blockId)->first();
         $block = $this->transformOneBlock($block);
@@ -261,6 +266,7 @@ class AssistancesPanelController extends Controller
             'tucuman'  =>  ($tucumanTotal != 0 ? round(($buenosAiresCount * 100) / $tucumanTotal,2) : 0),
             'villa_maria'  =>  ($villaMariaTotal != 0 ? round(($villaMariaCount * 100) / $villaMariaTotal,2) : 0),
             'trenque_lauquen'  =>  ($trenqueLauquenTotal != 0 ? round(($trenqueLauquenCount * 100) / $trenqueLauquenTotal,2) : 0),
+            'escuela_proa'  =>  ($escuelaProaTotal != 0 ? round(($escuelaProaCount * 100) / $escuelaProaTotal,2) : 0),
         ];
 
         $blocks = DB::table('blocks')->get();

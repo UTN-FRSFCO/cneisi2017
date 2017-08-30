@@ -30,15 +30,23 @@ class AssistantController extends Controller
 
             $pdf = \PDF::loadView('admin-panel.assistants.qr-codes', ['assistants' => $assistants]);
 
-            return $pdf->setPaper('a4', 'portrait')->stream($request->input('type') .'.pdf');
+            return $pdf->setPaper('a4', 'portrait')->stream($request->input('type') . '.pdf');
         } elseif ($request->print == 'individual') {
-            $assistant = Assistant::where('dni', '=', $request->dni)->first();
+            $assistants = [];
 
-            if ($assistant) {
-                $pdf = \PDF::loadView('admin-panel.assistants.qr-codes', ['assistants' => [$assistant]]);
+            $dniAssistants = explode(',', str_replace(' ', '', $request->dni));
 
-                return $pdf->setPaper('a4', 'portrait')->stream('codigo_qr_' . $assistant->dni . '.pdf');
+            foreach ($dniAssistants as $dni) {
+                $assistant = Assistant::where('dni', '=', $dni)->first();
+
+                if ($assistant) {
+                    $assistants[] = $assistant;
+                }
             }
+
+            $pdf = \PDF::loadView('admin-panel.assistants.qr-codes', ['assistants' => $assistants]);
+
+            return $pdf->setPaper('a4', 'portrait')->stream('codigo_qr_' . $assistant->dni . '.pdf');
         }
 
         return back()->with('error', 'DNI EXISTENTE');
@@ -80,18 +88,17 @@ class AssistantController extends Controller
 
         $notLoaded = 0;
 
-        for ($i = 0; $i < count($assistantsArr); $i ++) {
+        for ($i = 0; $i < count($assistantsArr); $i++) {
             if (!$this->assistantExist($assistantsArr[$i]['DNI'])) {
                 $this->storeAssistant($assistantsArr[$i], $assistantType);
             } else {
-                ++ $notLoaded;
+                ++$notLoaded;
             }
         }
 
         $message = 'Lista de asistentes cargada satisfactoriamente.';
 
-        if($notLoaded > 0)
-        {
+        if ($notLoaded > 0) {
             $message = $message . ' Se omitieron ' . $notLoaded . ' registros por duplicación de dni.';
         }
 
@@ -130,12 +137,12 @@ class AssistantController extends Controller
         DB::table('assistants')->insert(
             [
                 'firstname' => $data['Apellido'],
-                'lastname' => $data['Nombre'],
-                'dni' => $data['DNI'],
-                'email' => $data['Email'],
-                'phone' => $data['Celular'],
-                'year' => $data['Año de cursado'],
-                'type' => $assistantType,
+                'lastname'  => $data['Nombre'],
+                'dni'       => $data['DNI'],
+                'email'     => $data['Email'],
+                'phone'     => $data['Celular'],
+                'year'      => $data['Año de cursado'],
+                'type'      => $assistantType,
             ]
         );
     }
@@ -172,12 +179,12 @@ class AssistantController extends Controller
         DB::table('assistants')->insert(
             [
                 'firstname' => $request->input('firstname'),
-                'lastname' => $request->input('lastname'),
-                'dni' => $request->input('dni'),
-                'email' => $request->input('email'),
-                'phone' => $request->input('phone'),
-                'year' => $request->input('year'),
-                'type' => $request->input('type'),
+                'lastname'  => $request->input('lastname'),
+                'dni'       => $request->input('dni'),
+                'email'     => $request->input('email'),
+                'phone'     => $request->input('phone'),
+                'year'      => $request->input('year'),
+                'type'      => $request->input('type'),
             ]
         );
 

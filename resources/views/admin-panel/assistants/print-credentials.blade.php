@@ -48,7 +48,7 @@
                                     </select>
 
                                     <div class="radio">
-                                        <label><input type="radio" name="print" value="individual" id="radio-individual">Individual</label>
+                                        <label><input type="radio" name="print" value="individual" id="radio-individual">Individual (separados por coma ",")</label>
                                     </div>
 
                                     <input id="dni" type="text" class="form-control" name="dni" value="{{ old('dni') }}" placeholder="DNI">
