@@ -18,6 +18,7 @@ class AssistantType extends Enum
     const TUCUMAN = 'tucuman';
     const VILLA_MARIA = 'villa_maria';
     const TRENQUE_LAUQUEN = 'trenque_lauquen';
+    const ESCUELA_PROA = 'escuela_proa';
     const GUEST = 'guest';
     const GENERAL_PUBLIC = 'general_public';
 }

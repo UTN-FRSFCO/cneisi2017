@@ -62,6 +62,8 @@ class Assistant extends Model
                 return 'Trenque Lauquen';
             case AssistantType::GUEST:
                 return 'Invitado';
+            case AssistantType::ESCUELA_PROA:
+                return 'Escuela PROA';
             case AssistantType::GENERAL_PUBLIC:
                 return 'Público General';
             default:
