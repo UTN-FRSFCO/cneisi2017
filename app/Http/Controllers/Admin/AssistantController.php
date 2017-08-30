@@ -53,11 +53,14 @@ class AssistantController extends Controller
     {
         if (is_null($type) || $type == 'all') {
             $assistantList = DB::table('assistants')->paginate(10);
+            $assistantCount = DB::table('assistants')->count();
         } else {
             $assistantList = DB::table('assistants')->where('type', '=', $type)->paginate(10);
+            $assistantCount = DB::table('assistants')->where('type', '=', $type)->count();
         }
 
         return view(self::INDEX_VIEW)
+            ->with('assistantsCount', $assistantCount)
             ->with('assistants', $assistantList);
 
     }

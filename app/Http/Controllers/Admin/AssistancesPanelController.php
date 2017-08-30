@@ -18,6 +18,7 @@ class AssistancesPanelController extends Controller
     const BLOCK_VIEW = 'admin-panel.assistances.blocks';
     const ASSISTANT_VIEW = 'admin-panel.assistances.assistant';
     const BLOCK_TYPE_VIEW = 'admin-panel.assistances.block-and-type';
+    const TOTALS_BY_TYPE_VIEW = 'admin-panel.assistances.totals-by-type';
 
     const DAY_ONE_REFERENCE = '08';
     /**
@@ -159,6 +160,12 @@ class AssistancesPanelController extends Controller
             ->where('block_id', '=', $blockId)
             ->where('send_via_api', '=', true);
 
+        $conferencesIds = [];
+        foreach ($conferences as $conference)
+        {
+            array_push($conferencesIds, $conference->id);
+        }
+
         $buenosAiresCount = 0;
         $concepcionCount = 0;
         $cordobaCount = 0;
@@ -173,61 +180,63 @@ class AssistancesPanelController extends Controller
         $villaMariaCount = 0;
         $trenqueLauquenCount = 0;
 
-        foreach ($conferences as $conference)
+
+        $assistances = DB::table('assistances')
+            ->whereIn('conference_id', $conferencesIds)
+            ->select('dni')
+            ->groupBy('dni')
+            ->get();
+
+        foreach ($assistances as $assistance)
         {
-            $assistances = Assistance::all()
-                ->where('conference_id', '=', $conference->id);
+            $assistant = Assistant::all()
+                ->where('dni', '=', $assistance->dni)->first();
 
-            foreach ($assistances as $assistance)
-            {
-                $assistant = Assistant::all()
-                    ->where('dni', '=', $assistance->dni)->first();
-
-                if ($assistant) {
-                    switch ($assistant->type) {
-                        case 'buenos_aires':
-                            ++$buenosAiresCount;
-                            break;
-                        case 'concepcion_uruguay':
-                            ++$concepcionCount;
-                            break;
-                        case 'cordoba':
-                            ++$cordobaCount;
-                            break;
-                        case 'delta':
-                            ++$deltaCount;
-                            break;
-                        case 'la_plata':
-                            ++$laPlataCount;
-                            break;
-                        case 'mendoza':
-                            ++$mendozaCount;
-                            break;
-                        case 'resistencia':
-                            ++$resistenciaCount;
-                            break;
-                        case 'rosario':
-                            ++$rosarioCount;
-                            break;
-                        case 'san_francisco':
-                            ++$sanFranciscoCount;
-                            break;
-                        case 'santa_fe':
-                            ++$santaFeCount;
-                            break;
-                        case 'tucuman':
-                            ++$tucumanCount;
-                            break;
-                        case 'villa_maria':
-                            ++$villaMariaCount;
-                            break;
-                        case 'trenque_lauquen':
-                            ++$trenqueLauquenCount;
-                            break;
-                    }
+            if ($assistant) {
+                switch ($assistant->type) {
+                    case 'buenos_aires':
+                        ++$buenosAiresCount;
+                        break;
+                    case 'concepcion_uruguay':
+                        ++$concepcionCount;
+                        break;
+                    case 'cordoba':
+                        ++$cordobaCount;
+                        break;
+                    case 'delta':
+                        ++$deltaCount;
+                        break;
+                    case 'la_plata':
+                        ++$laPlataCount;
+                        break;
+                    case 'mendoza':
+                        ++$mendozaCount;
+                        break;
+                    case 'resistencia':
+                        ++$resistenciaCount;
+                        break;
+                    case 'rosario':
+                        ++$rosarioCount;
+                        break;
+                    case 'san_francisco':
+                        ++$sanFranciscoCount;
+                        break;
+                    case 'santa_fe':
+                        ++$santaFeCount;
+                        break;
+                    case 'tucuman':
+                        ++$tucumanCount;
+                        break;
+                    case 'villa_maria':
+                        ++$villaMariaCount;
+                        break;
+                    case 'trenque_lauquen':
+                        ++$trenqueLauquenCount;
+                        break;
                 }
             }
         }
+
 
         $buenosAiresTotal = Assistant::all()->where('type', '=', 'buenos_aires')->count();
         $concepcionTotal = Assistant::all()->where('type', '=', 'concepcion_uruguay')->count();
@@ -258,7 +267,7 @@ class AssistancesPanelController extends Controller
             'rosario'  =>  ($rosarioTotal != 0 ? round(($rosarioCount * 100) / $rosarioTotal,2) : 0),
             'san_francisco'  =>  ($sanFranciscoTotal != 0 ? round(($sanFranciscoCount * 100) / $sanFranciscoTotal,2) : 0),
             'santa_fe'  =>  ($santaFeTotal != 0 ? round(($santaFeCount * 100) / $santaFeTotal,2) : 0),
-            'tucuman'  =>  ($tucumanTotal != 0 ? round(($buenosAiresCount * 100) / $tucumanTotal,2) : 0),
+            'tucuman'  =>  ($tucumanTotal != 0 ? round(($tucumanCount * 100) / $tucumanTotal,2) : 0),
             'villa_maria'  =>  ($villaMariaTotal != 0 ? round(($villaMariaCount * 100) / $villaMariaTotal,2) : 0),
             'trenque_lauquen'  =>  ($trenqueLauquenTotal != 0 ? round(($trenqueLauquenCount * 100) / $trenqueLauquenTotal,2) : 0),
         ];
@@ -348,5 +357,178 @@ class AssistancesPanelController extends Controller
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
         }
+    }
+
+    public function totalsByType()
+    {
+        $blocks = DB::table('blocks')->get();
+
+        $buenosAiresCount = 0;
+        $concepcionCount = 0;
+        $cordobaCount = 0;
+        $deltaCount = 0;
+        $laPlataCount = 0;
+        $mendozaCount = 0;
+        $resistenciaCount = 0;
+        $rosarioCount = 0;
+        $sanFranciscoCount = 0;
+        $santaFeCount = 0;
+        $tucumanCount = 0;
+        $villaMariaCount = 0;
+        $trenqueLauquenCount = 0;
+
+        for ($blockId = 1; $blockId <= count($blocks); $blockId++)
+        {
+            $conferences = Conference::all()
+                ->where('block_id', '=', $blockId)
+                ->where('send_via_api', '=', true);
+
+            $conferencesIds = [];
+            foreach ($conferences as $conference)
+            {
+                array_push($conferencesIds, $conference->id);
+            }
+
+            $assistances = DB::table('assistances')
+                ->whereIn('conference_id', $conferencesIds)
+                ->select('dni')
+                ->groupBy('dni')
+                ->get();
+
+            foreach ($assistances as $assistance)
+            {
+                $assistant = Assistant::all()
+                    ->where('dni', '=', $assistance->dni)->first();
+
+                if ($assistant) {
+                    switch ($assistant->type) {
+                        case 'buenos_aires':
+                            ++$buenosAiresCount;
+                            break;
+                        case 'concepcion_uruguay':
+                            ++$concepcionCount;
+                            break;
+                        case 'cordoba':
+                            ++$cordobaCount;
+                            break;
+                        case 'delta':
+                            ++$deltaCount;
+                            break;
+                        case 'la_plata':
+                            ++$laPlataCount;
+                            break;
+                        case 'mendoza':
+                            ++$mendozaCount;
+                            break;
+                        case 'resistencia':
+                            ++$resistenciaCount;
+                            break;
+                        case 'rosario':
+                            ++$rosarioCount;
+                            break;
+                        case 'san_francisco':
+                            ++$sanFranciscoCount;
+                            break;
+                        case 'santa_fe':
+                            ++$santaFeCount;
+                            break;
+                        case 'tucuman':
+                            ++$tucumanCount;
+                            break;
+                        case 'villa_maria':
+                            ++$villaMariaCount;
+                            break;
+                        case 'trenque_lauquen':
+                            ++$trenqueLauquenCount;
+                            break;
+                    }
+                }
+            }
+        }
+
+        $buenosAiresTotal = Assistant::all()->where('type', '=', 'buenos_aires')->count() * count($blocks);
+        $concepcionTotal = Assistant::all()->where('type', '=', 'concepcion_uruguay')->count() * count($blocks);
+        $cordobaTotal = Assistant::all()->where('type', '=', 'cordoba')->count() * count($blocks);
+        $deltaTotal = Assistant::all()->where('type', '=', 'delta')->count() * count($blocks);
+        $laPlataTotal = Assistant::all()->where('type', '=', 'la_plata')->count() * count($blocks);
+        $mendozaTotal = Assistant::all()->where('type', '=', 'mendoza')->count() * count($blocks);
+        $resistenciaTotal = Assistant::all()->where('type', '=', 'resistencia')->count() * count($blocks);
+        $rosarioTotal = Assistant::all()->where('type', '=', 'rosario')->count() * count($blocks);
+        $sanFranciscoTotal = Assistant::all()->where('type', '=', 'san_francisco')->count() * count($blocks);
+        $santaFeTotal = Assistant::all()->where('type', '=', 'santa_fe')->count() * count($blocks);
+        $tucumanTotal = Assistant::all()->where('type', '=', 'tucuman')->count() * count($blocks);
+        $villaMariaTotal = Assistant::all()->where('type', '=', 'villa_maria')->count() * count($blocks);
+        $trenqueLauquenTotal = Assistant::all()->where('type', '=', 'trenque_lauquen')->count() * count($blocks);
+
+        $data = [
+            'buenos_aires'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'buenos_aires')->count(),
+                'total_assistances' => $buenosAiresCount,
+                'percentage' => ($buenosAiresTotal != 0 ? round(($buenosAiresCount * 100) / $buenosAiresTotal,2) : 0)
+            ],
+            'concepcion_uruguay'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'concepcion_uruguay')->count(),
+                'total_assistances' => $concepcionCount,
+                'percentage' => ($concepcionTotal != 0 ? round(($concepcionCount * 100) / $concepcionTotal,2) : 0)
+            ],
+            'cordoba'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'cordoba')->count(),
+                'total_assistances' => $cordobaCount,
+                'percentage' => ($cordobaTotal != 0 ? round(($cordobaCount * 100) / $cordobaTotal,2) : 0)
+            ],
+            'delta'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'delta')->count(),
+                'total_assistances' => $deltaCount,
+                'percentage' => ($deltaTotal != 0 ? round(($deltaCount * 100) / $deltaTotal,2) : 0)
+            ],
+            'la_plata'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'la_plata')->count(),
+                'total_assistances' => $laPlataCount,
+                'percentage' => ($laPlataTotal != 0 ? round(($laPlataCount * 100) / $laPlataTotal,2) : 0)
+            ],
+            'mendoza'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'mendoza')->count(),
+                'total_assistances' => $mendozaCount,
+                'percentage' => ($mendozaTotal != 0 ? round(($mendozaCount * 100) / $mendozaTotal,2) : 0)
+            ],
+            'resistencia'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'resistencia')->count(),
+                'total_assistances' => $resistenciaCount,
+                'percentage' => ($resistenciaTotal != 0 ? round(($resistenciaCount * 100) / $resistenciaTotal,2) : 0)
+            ],
+            'rosario'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'rosario')->count(),
+                'total_assistances' => $rosarioCount,
+                'percentage' => ($rosarioTotal != 0 ? round(($rosarioCount * 100) / $rosarioTotal,2) : 0)
+            ],
+            'san_francisco'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'san_francisco')->count(),
+                'total_assistances' => $sanFranciscoCount,
+                'percentage' => ($sanFranciscoTotal != 0 ? round(($sanFranciscoCount * 100) / $sanFranciscoTotal,2) : 0)
+            ],
+            'santa_fe'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'santa_fe')->count(),
+                'total_assistances' => $santaFeCount,
+                'percentage' => ($santaFeTotal != 0 ? round(($santaFeCount * 100) / $santaFeTotal,2) : 0)
+            ],
+            'tucuman'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'tucuman')->count(),
+                'total_assistances' => $tucumanCount,
+                'percentage' => ($tucumanTotal != 0 ? round(($tucumanCount * 100) / $tucumanTotal,2) : 0)
+            ],
+            'villa_maria'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'villa_maria')->count(),
+                'total_assistances' => $villaMariaCount,
+                'percentage' => ($villaMariaTotal != 0 ? round(($villaMariaCount * 100) / $villaMariaTotal,2) : 0)
+            ],
+            'trenque_lauquen'  =>  [
+                'total_assistants' => Assistant::all()->where('type', '=', 'trenque_lauquen')->count(),
+                'total_assistances' => $trenqueLauquenCount,
+                'percentage' => ($trenqueLauquenTotal != 0 ? round(($trenqueLauquenCount * 100) / $trenqueLauquenTotal,2) : 0)
+            ]
+        ];
+
+        return view(self::TOTALS_BY_TYPE_VIEW)
+            ->with('data', $data);
     }
 }
