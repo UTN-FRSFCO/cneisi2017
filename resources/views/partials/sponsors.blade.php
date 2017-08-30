@@ -14,7 +14,7 @@
             <div class="sponsor big"><img src="{{asset('/img/sponsors/nexo.png')}}" alt=""></div>
             <div class="sponsor big"><img src="{{asset('/img/sponsors/molino.png')}}" alt=""></div>
             <div class="sponsor big"><img src="{{asset('/img/sponsors/axion.png')}}" alt=""></div>
-            <div class="sponsor big"><img src="{{asset('/img/sponsors/patagonia.png')}}" alt=""></div>
+            <div class="sponsor big"><img src="{{asset('/img/sponsors/piamontesa.png')}}" alt=""></div>
             <div class="sponsor big"><img src="{{asset('/img/sponsors/central-service.png')}}" alt=""></div>
             <div class="sponsor big"><img src="{{asset('/img/sponsors/doble-giro.png')}}" alt=""></div>
             <div class="sponsor big"><img src="{{asset('/img/sponsors/Evolution.jpg')}}" alt=""></div>
