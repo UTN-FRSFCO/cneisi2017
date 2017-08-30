@@ -260,6 +260,10 @@ Route::group(['middleware' => ['admin']], function () {
         ['as' => 'assistance.delete', 'uses' => 'Admin\AssistancesPanelController@delete']
     );
 
+    Route::get('/administracion/asistencias/totales-regionales',
+        ['as' => 'panel.admin.assistances.totalsByType', 'uses' => 'Admin\AssistancesPanelController@totalsByType']
+    );
+
     //admin panel blocks
 
     Route::get('/administracion/bloques',
