@@ -9,7 +9,7 @@
 @section('author', 'UTN-FRSF')
 @section('robots', 'noindex, nofollow')
 
-@include('components.menu')
+@include('admin-panel.menu')
 @section('content')
 
     @include('admin-panel.sidebar')
@@ -25,7 +25,7 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">Nuevo Asistente</div>
-                    <div class="panel-body">
+                    <div class="panel-body" style="overflow:auto;">
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('assistants.store') }}">
                             {{ csrf_field() }}
 

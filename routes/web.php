@@ -236,8 +236,20 @@ Route::group(['middleware' => ['admin']], function () {
 
     //admin panel assistance
 
-    Route::get('/administracion/asistencias',
-        ['as' => 'panel.admin.assistances', 'uses' => 'Admin\AssistancesPanelController@index']
+    Route::get('/administracion/asistencias/conferencias',
+        ['as' => 'panel.admin.assistances.conferences', 'uses' => 'Admin\AssistancesPanelController@byConference']
+    );
+
+    Route::get('/administracion/asistencias/bloques/{block}',
+        ['as' => 'panel.admin.assistances.blocks', 'uses' => 'Admin\AssistancesPanelController@byBlock']
+    );
+
+    Route::get('/administracion/asistencias/asistentes/{type?}',
+        ['as' => 'panel.admin.assistances.assistants', 'uses' => 'Admin\AssistancesPanelController@byAssistant']
+    );
+
+    Route::get('/administracion/asistencias/tipo/{type?}',
+        ['as' => 'panel.admin.assistances.type', 'uses' => 'Admin\AssistancesPanelController@byType']
     );
 
     Route::get('/administracion/asistencias/evento/{eventId}',
@@ -270,4 +282,7 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::post('/administracion/bloques/eliminar-conferencia',
         ['as' => 'blocks.remove_conference', 'uses' => 'Admin\BlocksPanelController@removeConference']);
+
+    Route::get('/administracion/bloques/conferencias',
+        ['as' => 'panel.admin.blocks.conferences', 'uses' => 'Admin\BlocksPanelController@blocksAndConferences']);
 });

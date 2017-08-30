@@ -61,7 +61,7 @@
                             <div class="sponsor "><img src="{{asset('/img/sponsors/nexo.png')}}" alt=""></div>
                             <div class="sponsor "><img src="{{asset('/img/sponsors/molino.png')}}" alt=""></div>
                             <div class="sponsor "><img src="{{asset('/img/sponsors/axion.png')}}" alt=""></div>
-                            <div class="sponsor "><img src="{{asset('/img/sponsors/patagonia.png')}}" alt=""></div>
+                            <div class="sponsor "><img src="{{asset('/img/sponsors/piamontesa.png')}}" alt=""></div>
                         </div>
                         <p>Si estás interesado en participar como sponsor del evento podés comunicarte con nostros al siguiente mail: <a href="">cneisi@sanfrancisco.utn.edu.ar</a></p>
                     </div>

@@ -9,13 +9,13 @@
 @section('author', 'UTN-FRSF')
 @section('robots', 'noindex, nofollow')
 
-@include('components.menu')
+@include('admin-panel.menu')
 @section('content')
 
     @include('admin-panel.sidebar')
 
     <!-- Main Content -->
-    <div class="container-fluid" >
+    <div class="container-fluid" style="overflow:auto;">
         <div class="col-md-10">
             <div class="side-body">
                 <h2> Panel de administración de asistentes </h2>
@@ -26,10 +26,10 @@
                     <div class="panel panel-default panel-table">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col col-xs-6">
+                                <div class="col col-md-6 hidden-xs">
                                     <h3 class="panel-title">Lista de asistentes</h3>
                                 </div>
-                                <div class="col col-xs-6 align-right">
+                                <div class="col col-md-6 col-xs-12 align-center">
                                     <select id="filter" type="text" class="form-control" name="type" style="display:inline !important; width:50%;">
                                         <option value="all">Mostrar todos</option>
                                         @foreach (\App\Enums\AssistantType::values() as $type)
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body" style="overflow:auto;">
                             <table class="table table-striped table-bordered table-list">
                                 <thead>
                                 <tr>
