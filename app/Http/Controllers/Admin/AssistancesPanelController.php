@@ -182,7 +182,8 @@ class AssistancesPanelController extends Controller
 
         $assistances = DB::table('assistances')
             ->whereIn('conference_id', $conferencesIds)
-            ->distinct('dni')
+            ->select('dni')
+            ->groupBy('dni')
             ->get();
 
         foreach ($assistances as $assistance)
