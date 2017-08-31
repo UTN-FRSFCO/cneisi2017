@@ -52,10 +52,10 @@ class AssistantController extends Controller
     public function index(string $type = null)
     {
         if (is_null($type) || $type == 'all') {
-            $assistantList = DB::table('assistants')->paginate(10);
+            $assistantList = DB::table('assistants');
             $assistantCount = DB::table('assistants')->count();
         } else {
-            $assistantList = DB::table('assistants')->where('type', '=', $type)->paginate(10);
+            $assistantList = DB::table('assistants')->where('type', '=', $type);
             $assistantCount = DB::table('assistants')->where('type', '=', $type)->count();
         }
 
