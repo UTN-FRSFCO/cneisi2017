@@ -172,7 +172,7 @@ class AssistantController extends Controller
 
     public function store(StoreAssistantRequest $request)
     {
-        DB::table('assistants')->insert(
+        $assistant = Assistant::create(
             [
                 'firstname' => $request->input('firstname'),
                 'lastname' => $request->input('lastname'),
@@ -184,6 +184,10 @@ class AssistantController extends Controller
             ]
         );
 
-        return back()->with('status', 'Asistente creado satisfactoriamente');
+        if ($assistant) {
+            $pdf = \PDF::loadView('admin-panel.assistants.qr-codes', ['assistants' => [$assistant]]);
+
+            return $pdf->setPaper('a4', 'portrait')->stream('codigo_qr_' . $assistant->dni . '.pdf');
+        }
     }
 }

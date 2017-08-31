@@ -13,6 +13,8 @@ class Assistant extends Model
      */
     protected $table = 'assistants';
 
+    protected $fillable = ['firstname', 'lastname', 'dni', 'email', 'phone', 'year', 'type'];
+
     public function getJsonForQRCode()
     {
         $assistantJson = ['dni' => $this->dni];
