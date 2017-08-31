@@ -181,60 +181,12 @@ class AssistancesPanelController extends Controller
         $trenqueLauquenCount = 0;
         $escuelaProaCount = 0;
 
-
         $assistances = DB::table('assistances')
             ->whereIn('conference_id', $conferencesIds)
             ->select('dni')
             ->groupBy('dni')
             ->get();
 
-<<<<<<< HEAD
-                if ($assistant) {
-                    switch ($assistant->type) {
-                        case 'buenos_aires':
-                            ++$buenosAiresCount;
-                            break;
-                        case 'concepcion_uruguay':
-                            ++$concepcionCount;
-                            break;
-                        case 'cordoba':
-                            ++$cordobaCount;
-                            break;
-                        case 'delta':
-                            ++$deltaCount;
-                            break;
-                        case 'la_plata':
-                            ++$laPlataCount;
-                            break;
-                        case 'mendoza':
-                            ++$mendozaCount;
-                            break;
-                        case 'resistencia':
-                            ++$resistenciaCount;
-                            break;
-                        case 'rosario':
-                            ++$rosarioCount;
-                            break;
-                        case 'san_francisco':
-                            ++$sanFranciscoCount;
-                            break;
-                        case 'santa_fe':
-                            ++$santaFeCount;
-                            break;
-                        case 'tucuman':
-                            ++$tucumanCount;
-                            break;
-                        case 'villa_maria':
-                            ++$villaMariaCount;
-                            break;
-                        case 'trenque_lauquen':
-                            ++$trenqueLauquenCount;
-                            break;
-                        case 'escuela_proa':
-                            ++$escuelaProaCount;
-                            break;
-                    }
-=======
         foreach ($assistances as $assistance)
         {
             $assistant = Assistant::all()
@@ -281,7 +233,9 @@ class AssistancesPanelController extends Controller
                     case 'trenque_lauquen':
                         ++$trenqueLauquenCount;
                         break;
->>>>>>> master
+                    case 'escuela_proa':
+                        ++$escuelaProaCount;
+                        break;
                 }
             }
         }
