@@ -117,7 +117,7 @@
                         <div class="panel-footer">
                             <div class="row">
                                 <div class="col col-xs-12 align-right">
-                                    
+                                    {{ $assistants->links() }}
                                 </div>
                             </div>
                         </div>
