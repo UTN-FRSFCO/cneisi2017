@@ -27,7 +27,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col col-md-6 hidden-xs">
-                                    <h3 class="panel-title">Lista de asistentes</h3>
+                                    <h3 class="panel-title">Cantidad de asistentes: {{ $assistantsCount }}</h3>
                                 </div>
                                 <div class="col col-md-6 col-xs-12 align-center">
                                     <select id="filter" type="text" class="form-control" name="type" style="display:inline !important; width:50%;">

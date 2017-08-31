@@ -28,6 +28,8 @@
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Asistencias<i style="margin-left:5px;" class="fa fa-chevron-down"></i><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-check"></span></a>
                     <ul class="dropdown-menu forAnimate" style="margin:20px;">
+                        <li><a href="{{ route('panel.admin.assistances.totalsByType') }}">Tot. regionales/bloques</a></li>
+                        <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.assistances.type', ['block' => 1]) }}">Regional/Bloque</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ route('panel.admin.assistances.conferences') }}">Total conferencias</a></li>
