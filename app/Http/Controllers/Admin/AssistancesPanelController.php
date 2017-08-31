@@ -336,7 +336,7 @@ class AssistancesPanelController extends Controller
 
         return view(SELF::SHOW_VIEW)
             ->with('total', $assistances->count())
-            ->with('assistances', $assistances->paginate(10))
+            ->with('assistances', $assistances->paginate(150))
             ->with('events', $events)
             ->with('event', $event);
     }
