@@ -61,7 +61,6 @@
                                 <tr>
                                     <th><em class="fa fa-cog"></em></th>
                                     <th>Id</th>
-                                    <th>Nombre y apellido</th>
                                     <th>DNI</th>
                                     <th>Fecha</th>
                                     <th>Portero</th>
@@ -99,7 +98,6 @@
 
                                         </td>
                                         <td class="align-center">{{ $assistance->getId() }}</td>
-                                        <td class="align-center">{{ $assistance->getDni() }}</td>
                                         <td class="align-center">{{ $assistance->getDni() }}</td>
                                         <td class="align-center">{{ $assistance->getDate() }} min</td>
                                         <td class="align-center"><b>{{ $assistance->getCatcherName() }}</b></td>
