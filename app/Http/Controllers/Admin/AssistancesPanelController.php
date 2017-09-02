@@ -115,7 +115,7 @@ class AssistancesPanelController extends Controller
 
     public function byAssistant(string $type = null)
     {
-        if ($type == 'all') {
+        if ($type === "all") {
             $assistants = DB::table('assistants')
                 ->join('assistances', 'assistants.dni', '=', 'assistances.dni')
                 ->select(
@@ -146,7 +146,21 @@ class AssistancesPanelController extends Controller
                 ->paginate(20);
         }
 
-        $conferenceAmount = Conference::all()->where('send_via_api', '=', true)->count();
+        foreach ($assistants as $assistant)
+        {
+            $assistanceCount=DB::table('assistants')
+                ->join('assistances', 'assistants.dni', '=', 'assistances.dni')
+                ->join('conferences', 'assistances.conference_id', '=', 'conferences.id')
+                ->groupBy('conferences.block_id')
+                ->count();
+            $assistant->assistanceCount = $assistanceCount;
+        }
+
+        $conferenceAmount = Conference::all()
+            ->where('send_via_api', '=', true)
+            ->where('block_id', '!=', null)
+            ->groupBy('block_id')
+            ->count();
 
         return view(self::ASSISTANT_VIEW)
             ->with('conferenceType', $type)
