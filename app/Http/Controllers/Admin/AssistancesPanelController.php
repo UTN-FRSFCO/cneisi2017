@@ -396,8 +396,9 @@ class AssistancesPanelController extends Controller
         $villaMariaCount = 0;
         $trenqueLauquenCount = 0;
 
-        for ($blockId = 1; $blockId <= count($blocks); $blockId++)
-        {
+        foreach ($blocks as $block) {
+
+            $blockId = $block->id;
             $conferences = Conference::all()
                 ->where('block_id', '=', $blockId)
                 ->where('send_via_api', '=', true);
@@ -462,7 +463,11 @@ class AssistancesPanelController extends Controller
                             break;
                     }
                 }
-            }
+
+        }
+
+
+
         }
 
         $buenosAiresTotal = Assistant::all()->where('type', '=', 'buenos_aires')->count() * count($blocks);

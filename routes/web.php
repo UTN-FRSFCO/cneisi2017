@@ -275,6 +275,9 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/administracion/bloques/crear',
         ['as' => 'blocks.create', 'uses' => 'Admin\BlocksPanelController@create']);
 
+    Route::delete('/administracion/bloques/{id}',
+        ['as' => 'panel.admin.blocks.delete', 'uses' => 'Admin\BlocksPanelController@delete']);
+
     Route::get('/administracion/bloques/agregar-conferencia',
         ['as' => 'panel.admin.blocks.add_conference_view', 'uses' => 'Admin\BlocksPanelController@loadAddconference']);
 

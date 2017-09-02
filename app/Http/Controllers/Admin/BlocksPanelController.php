@@ -20,11 +20,6 @@ class BlocksPanelController
 
     const DAY_ONE_REFERENCE = '08';
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return
-     */
     public function index()
     {
         $blocks = DB::table('blocks')->get();
@@ -33,21 +28,11 @@ class BlocksPanelController
             ->with('blocks', $blocks);
     }
 
-    /**
-     * Show the blocks create form.
-     *
-     * @return
-     */
     public function createBlock()
     {
         return view(self::CREATE_BLOCK);
     }
 
-    /**
-     * Saves a speaker
-     *
-     * @return
-     */
     public function create(StoreBlockRequest $request)
     {
         try {
@@ -75,6 +60,28 @@ class BlocksPanelController
             return back()->with('status', 'Bloque creado satisfactoriamente');
         } catch (Exception $ex) {
             return back()->with('status', 'ATENCIÓN!! Bloque no guardado: ' . $ex->getMessage());
+        }
+    }
+
+    public function delete(int $blockId)
+    {
+        try {
+            $conferences = Conference::all()->where('block_id', '=', $blockId);
+
+            foreach ($conferences as $conference) {
+                $conference->block_id = null;
+                $conference->save();
+            }
+
+            DB::table('blocks')->where('id', '=', $blockId)->delete();
+
+            $blocks = DB::table('blocks')->get();
+
+            return redirect()->route('panel.admin.blocks')
+                ->with('blocks', $blocks)
+                ->with('status', 'Bloque eliminado satisfactoriamente');
+        } catch (Exception $ex) {
+            return back()->with('status', $ex->getMessage());
         }
     }
 
