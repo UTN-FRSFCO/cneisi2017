@@ -146,19 +146,22 @@ class AssistancesPanelController extends Controller
                 ->paginate(20);
         }
 
-        /*
+
         foreach ($assistants as $assistant)
         {
             $assistanceCount=DB::table('assistants')
                 ->join('assistances', 'assistants.dni', '=', 'assistances.dni')
                 ->join('conferences', 'assistances.conference_id', '=', 'conferences.id')
+                ->select(
+                    'conferences.block_id as block_id'
+                )
                 ->groupBy('conferences.block_id')
                 ->where('assistants.id','=',$assistant->id)
                 ->count();
 
             $assistant->assistanceCount = $assistanceCount;
         }
-        */
+
 
         $conferenceAmount = Conference::all()
             ->where('send_via_api', '=', true)
