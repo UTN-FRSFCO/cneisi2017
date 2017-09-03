@@ -212,6 +212,10 @@ Route::group(['middleware' => ['admin']], function () {
         ['as' => 'panel.admin.assistants.create', 'uses' => 'Admin\AssistantController@create']
     );
 
+    Route::get('/administracion/asistentes/{slug?}',
+        ['as' => 'panel.admin.assistants.by_conference', 'uses' => 'Admin\AssistantController@byAssistedConference']
+    );
+
     Route::post('/administracion/asistentes',
         ['as' => 'assistants.store', 'uses' => 'Admin\AssistantController@store']
     );
