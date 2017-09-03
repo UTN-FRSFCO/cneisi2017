@@ -146,6 +146,7 @@ class AssistancesPanelController extends Controller
                 ->paginate(20);
         }
 
+        /*
         foreach ($assistants as $assistant)
         {
             $assistanceCount=DB::table('assistants')
@@ -155,6 +156,7 @@ class AssistancesPanelController extends Controller
                 ->count();
             $assistant->assistanceCount = $assistanceCount;
         }
+        */
 
         $conferenceAmount = Conference::all()
             ->where('send_via_api', '=', true)
