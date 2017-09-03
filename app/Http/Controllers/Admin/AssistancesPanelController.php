@@ -126,7 +126,7 @@ class AssistancesPanelController extends Controller
                     'assistants.type',
                     DB::raw("count(assistances.id) as assistanceCount")
                 )
-                ->groupBy('assistants.dni')
+                ->groupBy('assistants.id')
                 ->orderBy('assistanceCount', 'asc')
                 ->paginate(20);
         } else {
@@ -141,7 +141,7 @@ class AssistancesPanelController extends Controller
                     DB::raw("count(assistances.id) as assistanceCount")
                 )
                 ->where('assistants.type', '=', $type)
-                ->groupBy('assistants.dni')
+                ->groupBy('assistants.id')
                 ->orderBy('assistanceCount', 'asc')
                 ->paginate(20);
         }
@@ -152,7 +152,9 @@ class AssistancesPanelController extends Controller
                 ->join('assistances', 'assistants.dni', '=', 'assistances.dni')
                 ->join('conferences', 'assistances.conference_id', '=', 'conferences.id')
                 ->groupBy('conferences.block_id')
+                ->where('assistants.id','=',$assistant->id)
                 ->count();
+
             $assistant->assistanceCount = $assistanceCount;
         }
 
