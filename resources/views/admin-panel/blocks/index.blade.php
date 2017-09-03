@@ -35,7 +35,7 @@
                             <table class="table table-striped table-bordered table-list">
                                 <thead>
                                 <tr>
-
+                                    <th><em class="fa fa-cog"></em></th>
                                     <th class="align-center">Id</th>
                                     <th class="align-center">Inicio bloque</th>
                                     <th class="align-center">Fin bloque</th>
@@ -45,6 +45,34 @@
                                 @forelse($blocks as $block)
 
                                     <tr>
+                                        <td align="center" class ="first-column">
+
+                                            <form method="post" action="{{route('panel.admin.blocks.delete', ['id' => $block->id])}}">
+
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                                @include(
+                                                        'admin-panel.confirm',
+                                                        [
+                                                            'id'       => 'delete-category-' . $block->id,
+                                                            'title'    => 'Confirmar borrado',
+                                                            'question' => '¿Seguro que desea confirmar el borrado del bloque id: '. $block->id .'?'  ,
+                                                        ]
+                                                    )
+
+                                                <div class="form-group">
+                                                    <a class="pull-right buy-btn"
+                                                       style="color: red"
+                                                       data-toggle="modal"
+                                                       data-modal-link="delete-category-{{$block->id}}">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </div>
+
+                                            </form>
+
+                                        </td>
                                         <td class="align-center">{{ $block->id }}</td>
                                         <td class="align-center">{{ $block->date_start}}</td>
                                         <td class="align-center">{{ $block->date_end }}</td>

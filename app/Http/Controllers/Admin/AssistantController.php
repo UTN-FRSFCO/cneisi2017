@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Entities\Assistant;
+use App\Entities\Conference;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAssistantRequest;
 use Barryvdh\DomPDF\PDF;
@@ -16,6 +17,7 @@ class AssistantController extends Controller
     const INDEX_VIEW = 'admin-panel.assistants.index';
     const LOAD_VIEW = 'admin-panel.assistants.load';
     const CREATE_VIEW = 'admin-panel.assistants.create';
+    const BY_CONFERENCE_VIEW = 'admin-panel.assistants.by-assisted-conference';
 
     public function printCredentials()
     {
@@ -126,6 +128,44 @@ class AssistantController extends Controller
         } catch (Exception $ex) {
             return back()->with('status', $ex->getMessage());
         }
+    }
+
+    public function byAssistedConference(string $slug = null)
+    {
+        $conferences = Conference::all()
+        ->where('send_via_api', '=', true)
+        ->where('block_id', '!=', null);
+
+        if(!$slug) {
+            $conference = $conferences->first();
+        } else {
+            $conference = Conference::all()->where('slug', '=', $slug)->first();
+        }
+
+        $assistants = DB::table('assistants')
+            ->join('assistances', 'assistants.dni', '=', 'assistances.dni')
+            ->join('conferences', 'assistances.conference_id', '=', 'conferences.id')
+            ->select(
+                'assistants.id as id',
+                'assistants.dni as dni',
+                'assistants.firstname as firstname',
+                'assistants.lastname as lastname',
+                'assistants.phone as phone',
+                'assistants.year as year',
+                'assistants.email as email',
+                'assistants.type'
+            )
+            ->where('conferences.slug', '=', $slug)
+            ->groupBy('assistants.id')
+            ->paginate(50);
+
+
+
+        return view(self::BY_CONFERENCE_VIEW)
+            ->with('conferences', $conferences)
+            ->with('selectedConference', $conference)
+            ->with('assistants', $assistants);
+
     }
 
     private function assistantExist(string $dni)
