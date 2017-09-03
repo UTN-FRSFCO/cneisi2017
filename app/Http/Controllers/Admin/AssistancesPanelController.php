@@ -153,7 +153,9 @@ class AssistancesPanelController extends Controller
                 ->join('assistances', 'assistants.dni', '=', 'assistances.dni')
                 ->join('conferences', 'assistances.conference_id', '=', 'conferences.id')
                 ->groupBy('conferences.block_id')
+                ->where('assistants.id','=',$assistant->id)
                 ->count();
+
             $assistant->assistanceCount = $assistanceCount;
         }
         */
