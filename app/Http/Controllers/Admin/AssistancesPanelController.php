@@ -126,7 +126,7 @@ class AssistancesPanelController extends Controller
                     'assistants.type',
                     DB::raw("count(assistances.id) as assistanceCount")
                 )
-                ->groupBy('assistants.id')
+                ->groupBy('assistants.dni')
                 ->orderBy('assistanceCount', 'asc')
                 ->paginate(20);
         } else {
@@ -141,7 +141,7 @@ class AssistancesPanelController extends Controller
                     DB::raw("count(assistances.id) as assistanceCount")
                 )
                 ->where('assistants.type', '=', $type)
-                ->groupBy('assistants.id')
+                ->groupBy('assistants.dni')
                 ->orderBy('assistanceCount', 'asc')
                 ->paginate(20);
         }
