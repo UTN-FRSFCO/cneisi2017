@@ -169,7 +169,7 @@ class AssistancesPanelController extends Controller
                 ->count();
 
             //sumo una asistencia si estuvieron en bloque doble y no tienen el maximo de asistencias
-            if ($assistanceToDoubleBlock > 0 && $assistant->assistanceCount > 9) {
+            if ($assistanceToDoubleBlock > 0 && $assistant->assistanceCount < 9) {
                 ++$assistant->assistanceCount;
             }
         }
