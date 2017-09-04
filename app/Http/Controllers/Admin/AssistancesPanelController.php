@@ -147,7 +147,7 @@ class AssistancesPanelController extends Controller
                 ->where('assistants.type', '=', $type)
                 ->groupBy('assistants.id')
                 ->orderBy('assistanceCount', 'asc')
-                ->paginate(20);
+                ->paginate(150);
         }
 
         foreach ($assistants as $assistant) {
