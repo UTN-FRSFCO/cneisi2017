@@ -125,6 +125,7 @@ class AssistancesPanelController extends Controller
                     'assistants.dni as dni',
                     'assistants.firstname as firstname',
                     'assistants.lastname as lastname',
+                    'assistants.email as email',
                     'assistants.type',
                     DB::raw("count(assistances.id) as assistanceCount")
                 )
@@ -139,6 +140,7 @@ class AssistancesPanelController extends Controller
                     'assistants.dni as dni',
                     'assistants.firstname as firstname',
                     'assistants.lastname as lastname',
+                    'assistants.email as email',
                     'assistants.type',
                     DB::raw("count(assistances.id) as assistanceCount")
                 )

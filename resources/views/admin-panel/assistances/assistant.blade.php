@@ -66,6 +66,7 @@
                                     <th>Tipo de asistente</th>
                                     <th>Cantidad asistencias</th>
                                     <th>Porcentaje de asistencias</th>
+                                    <th>Email</th>
 
                                 </tr>
                                 </thead>
@@ -82,6 +83,7 @@
                                         @else
                                             <td class="align-center">{{ round($assistant->assistanceCount * 100 / $conferenceAmount, 2) }}%</td>
                                         @endif
+                                        <td class="align-center">{{ $assistant->email }}</td>
                                     </tr>
                                 @empty
                                     <tr>
