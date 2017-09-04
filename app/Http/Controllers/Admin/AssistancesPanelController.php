@@ -157,6 +157,7 @@ class AssistancesPanelController extends Controller
                 )
                 ->groupBy('assistants.id')
                 ->groupBy('conferences.block_id')
+                ->where('assistants.id', '=', $assistant->id)
                 ->get()
                 ->count();
             $assistant->assistanceCount = $assistanceCount;
