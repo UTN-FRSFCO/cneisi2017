@@ -21,6 +21,8 @@ class AssistancesPanelController extends Controller
     const TOTALS_BY_TYPE_VIEW = 'admin-panel.assistances.totals-by-type';
 
     const DAY_ONE_REFERENCE = '08';
+    const ID_WORKSHOP = 14;
+    const ID_BIG_DATA = 19;
     /**
      * Show the application dashboard.
      *
@@ -146,9 +148,8 @@ class AssistancesPanelController extends Controller
                 ->paginate(20);
         }
 
-        foreach ($assistants as $assistant)
-        {
-            $assistanceCount = DB::table('assistances')
+        foreach ($assistants as $assistant) {
+            $assistancesPerBlock = DB::table('assistances')
                 ->leftJoin('assistants', 'assistants.dni', '=', 'assistances.dni')
                 ->leftJoin('conferences', 'assistances.conference_id', '=', 'conferences.id')
                 ->select(
@@ -158,9 +159,19 @@ class AssistancesPanelController extends Controller
                 ->groupBy('assistants.id')
                 ->groupBy('conferences.block_id')
                 ->where('assistants.id', '=', $assistant->id)
+                ->get();
+
+            $assistant->assistanceCount = count($assistancesPerBlock);
+
+            $assistanceToDoubleBlock = DB::table('assistances')
+                ->whereIn('conference_id', [self::ID_WORKSHOP, self::ID_BIG_DATA])
                 ->get()
                 ->count();
-            $assistant->assistanceCount = $assistanceCount;
+
+            //sumo una asistencia si estuvieron en bloque doble y no tienen el maximo de asistencias
+            if ($assistanceToDoubleBlock > 0 && $assistant->assistanceCount > 9) {
+                ++$assistant->assistanceCount;
+            }
         }
 
         $conferenceAmount = Conference::all()
@@ -182,8 +193,7 @@ class AssistancesPanelController extends Controller
             ->where('send_via_api', '=', true);
 
         $conferencesIds = [];
-        foreach ($conferences as $conference)
-        {
+        foreach ($conferences as $conference) {
             array_push($conferencesIds, $conference->id);
         }
 
@@ -208,8 +218,7 @@ class AssistancesPanelController extends Controller
             ->groupBy('dni')
             ->get();
 
-        foreach ($assistances as $assistance)
-        {
+        foreach ($assistances as $assistance) {
             $assistant = Assistant::all()
                 ->where('dni', '=', $assistance->dni)->first();
 
@@ -282,20 +291,20 @@ class AssistancesPanelController extends Controller
 
         $data = [
             'block' => $block,
-            'buenos_aires'  =>  ($buenosAiresTotal != 0 ? round(($buenosAiresCount * 100) / $buenosAiresTotal,2) : 0),
-            'concepcion_uruguay'  =>  ($concepcionTotal != 0 ? round(($concepcionCount * 100) / $concepcionTotal,2) : 0),
-            'cordoba'  =>  ($cordobaTotal != 0 ? round(($cordobaCount * 100) / $cordobaTotal,2) : 0),
-            'delta'  =>  ($deltaTotal != 0 ? round(($deltaCount * 100) / $deltaTotal,2) : 0),
-            'la_plata'  =>  ($laPlataTotal != 0 ? round(($laPlataCount * 100) / $laPlataTotal,2) : 0),
-            'mendoza'  =>  ($mendozaTotal != 0 ? round(($mendozaCount * 100) / $mendozaTotal,2) : 0),
-            'resistencia'  =>  ($resistenciaTotal != 0 ? round(($resistenciaCount * 100) / $resistenciaTotal,2) : 0),
-            'rosario'  =>  ($rosarioTotal != 0 ? round(($rosarioCount * 100) / $rosarioTotal,2) : 0),
-            'san_francisco'  =>  ($sanFranciscoTotal != 0 ? round(($sanFranciscoCount * 100) / $sanFranciscoTotal,2) : 0),
-            'santa_fe'  =>  ($santaFeTotal != 0 ? round(($santaFeCount * 100) / $santaFeTotal,2) : 0),
-            'tucuman'  =>  ($tucumanTotal != 0 ? round(($tucumanCount * 100) / $tucumanTotal,2) : 0),
-            'villa_maria'  =>  ($villaMariaTotal != 0 ? round(($villaMariaCount * 100) / $villaMariaTotal,2) : 0),
-            'trenque_lauquen'  =>  ($trenqueLauquenTotal != 0 ? round(($trenqueLauquenCount * 100) / $trenqueLauquenTotal,2) : 0),
-            'escuela_proa'  =>  ($escuelaProaTotal != 0 ? round(($escuelaProaCount * 100) / $escuelaProaTotal,2) : 0),
+            'buenos_aires'  =>  ($buenosAiresTotal != 0 ? round(($buenosAiresCount * 100) / $buenosAiresTotal, 2) : 0),
+            'concepcion_uruguay'  =>  ($concepcionTotal != 0 ? round(($concepcionCount * 100) / $concepcionTotal, 2) : 0),
+            'cordoba'  =>  ($cordobaTotal != 0 ? round(($cordobaCount * 100) / $cordobaTotal, 2) : 0),
+            'delta'  =>  ($deltaTotal != 0 ? round(($deltaCount * 100) / $deltaTotal, 2) : 0),
+            'la_plata'  =>  ($laPlataTotal != 0 ? round(($laPlataCount * 100) / $laPlataTotal, 2) : 0),
+            'mendoza'  =>  ($mendozaTotal != 0 ? round(($mendozaCount * 100) / $mendozaTotal, 2) : 0),
+            'resistencia'  =>  ($resistenciaTotal != 0 ? round(($resistenciaCount * 100) / $resistenciaTotal, 2) : 0),
+            'rosario'  =>  ($rosarioTotal != 0 ? round(($rosarioCount * 100) / $rosarioTotal, 2) : 0),
+            'san_francisco'  =>  ($sanFranciscoTotal != 0 ? round(($sanFranciscoCount * 100) / $sanFranciscoTotal, 2) : 0),
+            'santa_fe'  =>  ($santaFeTotal != 0 ? round(($santaFeCount * 100) / $santaFeTotal, 2) : 0),
+            'tucuman'  =>  ($tucumanTotal != 0 ? round(($tucumanCount * 100) / $tucumanTotal, 2) : 0),
+            'villa_maria'  =>  ($villaMariaTotal != 0 ? round(($villaMariaCount * 100) / $villaMariaTotal, 2) : 0),
+            'trenque_lauquen'  =>  ($trenqueLauquenTotal != 0 ? round(($trenqueLauquenCount * 100) / $trenqueLauquenTotal, 2) : 0),
+            'escuela_proa'  =>  ($escuelaProaTotal != 0 ? round(($escuelaProaCount * 100) / $escuelaProaTotal, 2) : 0),
         ];
 
         $blocks = DB::table('blocks')->get();
@@ -404,15 +413,13 @@ class AssistancesPanelController extends Controller
         $trenqueLauquenCount = 0;
 
         foreach ($blocks as $block) {
-
             $blockId = $block->id;
             $conferences = Conference::all()
                 ->where('block_id', '=', $blockId)
                 ->where('send_via_api', '=', true);
 
             $conferencesIds = [];
-            foreach ($conferences as $conference)
-            {
+            foreach ($conferences as $conference) {
                 array_push($conferencesIds, $conference->id);
             }
 
@@ -422,8 +429,7 @@ class AssistancesPanelController extends Controller
                 ->groupBy('dni')
                 ->get();
 
-            foreach ($assistances as $assistance)
-            {
+            foreach ($assistances as $assistance) {
                 $assistant = Assistant::all()
                     ->where('dni', '=', $assistance->dni)->first();
 
@@ -470,11 +476,7 @@ class AssistancesPanelController extends Controller
                             break;
                     }
                 }
-
-        }
-
-
-
+            }
         }
 
         $buenosAiresTotal = Assistant::all()->where('type', '=', 'buenos_aires')->count() * count($blocks);
@@ -495,67 +497,67 @@ class AssistancesPanelController extends Controller
             'buenos_aires'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'buenos_aires')->count(),
                 'total_assistances' => $buenosAiresCount,
-                'percentage' => ($buenosAiresTotal != 0 ? round(($buenosAiresCount * 100) / $buenosAiresTotal,2) : 0)
+                'percentage' => ($buenosAiresTotal != 0 ? round(($buenosAiresCount * 100) / $buenosAiresTotal, 2) : 0)
             ],
             'concepcion_uruguay'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'concepcion_uruguay')->count(),
                 'total_assistances' => $concepcionCount,
-                'percentage' => ($concepcionTotal != 0 ? round(($concepcionCount * 100) / $concepcionTotal,2) : 0)
+                'percentage' => ($concepcionTotal != 0 ? round(($concepcionCount * 100) / $concepcionTotal, 2) : 0)
             ],
             'cordoba'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'cordoba')->count(),
                 'total_assistances' => $cordobaCount,
-                'percentage' => ($cordobaTotal != 0 ? round(($cordobaCount * 100) / $cordobaTotal,2) : 0)
+                'percentage' => ($cordobaTotal != 0 ? round(($cordobaCount * 100) / $cordobaTotal, 2) : 0)
             ],
             'delta'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'delta')->count(),
                 'total_assistances' => $deltaCount,
-                'percentage' => ($deltaTotal != 0 ? round(($deltaCount * 100) / $deltaTotal,2) : 0)
+                'percentage' => ($deltaTotal != 0 ? round(($deltaCount * 100) / $deltaTotal, 2) : 0)
             ],
             'la_plata'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'la_plata')->count(),
                 'total_assistances' => $laPlataCount,
-                'percentage' => ($laPlataTotal != 0 ? round(($laPlataCount * 100) / $laPlataTotal,2) : 0)
+                'percentage' => ($laPlataTotal != 0 ? round(($laPlataCount * 100) / $laPlataTotal, 2) : 0)
             ],
             'mendoza'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'mendoza')->count(),
                 'total_assistances' => $mendozaCount,
-                'percentage' => ($mendozaTotal != 0 ? round(($mendozaCount * 100) / $mendozaTotal,2) : 0)
+                'percentage' => ($mendozaTotal != 0 ? round(($mendozaCount * 100) / $mendozaTotal, 2) : 0)
             ],
             'resistencia'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'resistencia')->count(),
                 'total_assistances' => $resistenciaCount,
-                'percentage' => ($resistenciaTotal != 0 ? round(($resistenciaCount * 100) / $resistenciaTotal,2) : 0)
+                'percentage' => ($resistenciaTotal != 0 ? round(($resistenciaCount * 100) / $resistenciaTotal, 2) : 0)
             ],
             'rosario'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'rosario')->count(),
                 'total_assistances' => $rosarioCount,
-                'percentage' => ($rosarioTotal != 0 ? round(($rosarioCount * 100) / $rosarioTotal,2) : 0)
+                'percentage' => ($rosarioTotal != 0 ? round(($rosarioCount * 100) / $rosarioTotal, 2) : 0)
             ],
             'san_francisco'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'san_francisco')->count(),
                 'total_assistances' => $sanFranciscoCount,
-                'percentage' => ($sanFranciscoTotal != 0 ? round(($sanFranciscoCount * 100) / $sanFranciscoTotal,2) : 0)
+                'percentage' => ($sanFranciscoTotal != 0 ? round(($sanFranciscoCount * 100) / $sanFranciscoTotal, 2) : 0)
             ],
             'santa_fe'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'santa_fe')->count(),
                 'total_assistances' => $santaFeCount,
-                'percentage' => ($santaFeTotal != 0 ? round(($santaFeCount * 100) / $santaFeTotal,2) : 0)
+                'percentage' => ($santaFeTotal != 0 ? round(($santaFeCount * 100) / $santaFeTotal, 2) : 0)
             ],
             'tucuman'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'tucuman')->count(),
                 'total_assistances' => $tucumanCount,
-                'percentage' => ($tucumanTotal != 0 ? round(($tucumanCount * 100) / $tucumanTotal,2) : 0)
+                'percentage' => ($tucumanTotal != 0 ? round(($tucumanCount * 100) / $tucumanTotal, 2) : 0)
             ],
             'villa_maria'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'villa_maria')->count(),
                 'total_assistances' => $villaMariaCount,
-                'percentage' => ($villaMariaTotal != 0 ? round(($villaMariaCount * 100) / $villaMariaTotal,2) : 0)
+                'percentage' => ($villaMariaTotal != 0 ? round(($villaMariaCount * 100) / $villaMariaTotal, 2) : 0)
             ],
             'trenque_lauquen'  =>  [
                 'total_assistants' => Assistant::all()->where('type', '=', 'trenque_lauquen')->count(),
                 'total_assistances' => $trenqueLauquenCount,
-                'percentage' => ($trenqueLauquenTotal != 0 ? round(($trenqueLauquenCount * 100) / $trenqueLauquenTotal,2) : 0)
+                'percentage' => ($trenqueLauquenTotal != 0 ? round(($trenqueLauquenCount * 100) / $trenqueLauquenTotal, 2) : 0)
             ]
         ];
 
