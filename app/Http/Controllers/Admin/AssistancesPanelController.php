@@ -131,7 +131,7 @@ class AssistancesPanelController extends Controller
                 )
                 ->groupBy('assistants.id')
                 ->orderBy('assistanceCount', 'asc')
-                ->paginate(20);
+                ->paginate(150);
         } else {
             $assistants = DB::table('assistants')
                 ->join('assistances', 'assistants.dni', '=', 'assistances.dni')
